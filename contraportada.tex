@@ -1,0 +1,105 @@
+\newgeometry{
+    top    = 5mm,  % marxe superior
+    left   = 5mm,  % marxe esquerdo
+    right  = 5mm,  % marxe dereito
+    bottom = 5mm,  % marxe inferior
+    nohead = true, % desactivar o encabezado
+    nofoot = true, % desactivar o pe de paxina
+}
+\onecolumn
+
+% FONDO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AddToShipoutPictureBG*{
+    \put(0,0){
+        \parbox[b][\paperheight]{\paperwidth}{
+            \vfill
+            \centering
+            {\transparent{0.1}\includegraphics{./logos/botafumeiro.png}}
+            \vfill
+        }
+    }
+}
+% No caso de poñelo en todas as páxinas, pode pararse con \ClearShipoutPicture
+
+{% os textos de agradecemento e similares
+\centering
+    \vspace*{3em}
+    {%
+        \fontsize{16pt}{0pt}\selectfont%
+        \textit{%
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum%
+            pulvinar leo at vehicula. Integer feugiat elementum diam, nec tristique sem%
+            tincidunt ut. Praesent nec tortor neque. Vestibulum eu scelerisque tellus.}%
+        \par%
+    }%
+
+    \vspace*{5em}%
+    \adforn{35}%
+    \vspace*{5em}%
+
+    {%
+        \fontsize{16pt}{0pt}\selectfont%
+        \textit{%
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum%
+            pulvinar leo at vehicula. Integer feugiat elementum diam, nec tristique sem%
+            tincidunt ut. Praesent nec tortor neque. Vestibulum eu scelerisque tellus.}%
+        \par%
+    }%
+
+    \vspace*{5em}%
+    \adforn{35}%
+    \vspace*{5em}%
+
+    {%
+        \fontsize{16pt}{0pt}\selectfont%
+        \textit{%
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum%
+            pulvinar leo at vehicula. Integer feugiat elementum diam, nec tristique sem%
+            tincidunt ut. Praesent nec tortor neque. Vestibulum eu scelerisque tellus.}%
+        \par%
+    }%
+}
+
+\thispagestyle{empty}
+\vspace*{3em}
+
+\vfill
+\hrulefill
+
+% :FACER: tal vez facer variables cos contidos das URLs do QR e dos contactos..?
+
+% O do QR non sei por qué pero a veces colocase mal. Mirando con
+% lua-visual-debug pareceme que crea un numero incrible de boxes que pode que
+% toleen a colocacion doutras cousas. Por agora furrula, polos pelos.
+\begin{minipage}[c][5cm]{5cm}
+        \hypersetup{urlcolor=black}
+        \qrset{height = 4cm}%
+        % Que quede para a posteridade que rickrolleei a Celia e a Sebas con este QR
+        \qrcode{https://youtu.be/dQw4w9WgXcQ}
+\end{minipage}
+%
+\hfill % non se deben poñer liñas en branco arredor deste \hfill
+%
+\begin{minipage}[c]{0.4\linewidth}
+    \centering
+    Informacion de contacto\par
+    \url{revistafisicaUSC@gmail.com}\par
+    \url{https://github.com/DAF-USC/revista}\par
+    \vspace*{3em}
+\end{minipage}
+%
+\hfill
+%
+% Sobre o logo en formato .eps
+%
+% O orixinal ven de:
+% https://nubeusc.sharepoint.com/sites/servizos-oficina-web/Documentos%20compartidos/Forms/AllItems.aspx?csf=1&web=1&FolderCTID=0x012000441AD9196B55D84292BD3BC4FC87F798&id=%2Fsites%2Fservizos%2Doficina%2Dweb%2FDocumentos%20compartidos%2FImaxe%20corporativa%2FLogotipo%20da%20USC&viewid=a5e177b5%2D7018%2D46d6%2D9352%2Dfc57158bf6b7
+% (espero que a ligazón dure)
+% O arquivo .eps debe pasarse a PDF con 'epstopdf'. Esto debería facerse
+% automáticamente, supoñendo que existe o executable. Prefiro facelo así porque
+% o que comparten da USC ten ese formato
+\begin{minipage}[c][4cm]{5cm}
+    \begin{picture}(5cm,4cm)%
+        \put(0,0){\hbox{\includegraphics[width=5cm]{./logos/usc-branco-negro.eps}}}
+    \end{picture}
+\end{minipage}
