@@ -1,6 +1,6 @@
-# Revista *M*OMENTUM
+# Revista MOMENTUM
 
-Este é repositorio oficial da revista ***M*****OMEMTUM**, creada de 0 por
+Este é repositorio oficial da revista **MOMEMTUM**, creada de 0 por
 estudantes de grao, máster e doutorado de Física na USC.
 
 # Contidos
