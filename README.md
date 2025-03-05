@@ -53,7 +53,7 @@ revista.
    │  ├── revista_001.tex
    │  ├── nome_apelidos_HISTORIA_DA_CIENCIA.tex
    │  └── imaxes/
-   │     ├── portada_001.tex
+   │     ├── portada_001.png
    │     └── unha_imaxe.jpg
    ├── 002
    │  └── ...
