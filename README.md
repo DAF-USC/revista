@@ -119,15 +119,26 @@ Pequeno subtítulo para o artigo. Preferiblemente, non moi longo para que non
 lle coma moito espazo ao artigo en sí.
 }
 
+\begin{refsection}   % para que a bibliografía aplique solo a este artigo
+\begin{multicols}{2} % para ter varias columnas
+
 % as distintas partes sepáranse con 'subsections' SEMPRE
 \subsection*{Introdución}
 
 bla blah blah
+
+\subsection*{Outra sección}
+....
+....
+
+\printbibliography
+\end{multicols}
+\end{refsection}
 ```
 O macro `titular` é o centro de cada artigo, o cal cambia cada sección,
 numeracións, formatos dos encabezados, define nomes... Está definido na clase
 da revista. Importante botarlle un ollo ás definicións dos encabezados que se
-poden usar (divulgacion, historia, etc.)
+poden usar (divulgacion, historia, etc.).
 
 ### Imaxes
 
