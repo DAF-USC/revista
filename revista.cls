@@ -122,10 +122,11 @@
 
 % este debe cargarse logo dos paquetes matematicos
 \RequirePackage{unicode-math}
-\setmathfont[
-    Path      = ./fontes/EulerMath/,
-    Extension = .otf,
-]{Euler-Math}
+% :FACER: escoller outra tipografia para as mates, esta non ten varios simbolos
+% \setmathfont[
+%     Path      = ./fontes/EulerMath/,
+%     Extension = .otf,
+% ]{Euler-Math}
 
 % :FACER: facer o subtitulo opcional (con \NewDocumentCommand e \IfNoValueTF)
 % Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
@@ -367,3 +368,10 @@
 
 % :FACER: remirar estos conteos...
 \pagenumbering{arabic}\setcounter{page}{1}
+
+
+% outros macros e definicions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% para os diferenciais inexactos
+\newcommand*{\dbar}{\ensuremath{\text{\dj}}}
