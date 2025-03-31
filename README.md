@@ -35,6 +35,8 @@ revista.
 ├── portada.tex
 ├── contraportada.tex
 │
+├── artigo_simplificado.tex
+│
 ├── bibliografia.bib
 ├── latexmkrc
 ├── Makefile
@@ -84,8 +86,6 @@ forma seguinte (aproximada)
 ```latex
 \documentclass{revista}
 
-\begin{document}
-
 % comandos para definir a informacion de cada revista
 \Numero{001}
 \Data{Xaneiro do 1900}
@@ -93,10 +93,23 @@ forma seguinte (aproximada)
 \ImaxePortada{./revistas/001/imaxes/cern.png}
 \definecolor{Resalte}{HTML}{ff0000}
 \definecolor{TextoEnResalte}{HTML}{000000}
+\newcommand{\Autores}{\textcolor{TextoEnResalte}{
+    {\Large \textbf{Dirección:}}     \\[0.5cm]
+        Carl Sagan                   \\[0.2cm]
+        ...                          \\[0.2cm]
+    {\Large \textbf{Edición}}        \\[0.5cm]
+        Albert Einstein              \\[0.2cm]
+    {\Large \textbf{Diseño de Logo}} \\[0.5cm]
+        Dirac                        \\[0.2cm]
+} }
+\begin{document}
+\input{portada.tex}
+\input{indice.tex}
 
 \input{./revistas/001/nome_apelido_HISTORIA_DA_CIENCIA.tex}
 \input{./revistas/001/nome_apelido_SALSEO_NA_FACULTADE.tex}
 
+\input{contraportada.tex}
 \end{document}
 ```
 Os comandos `\Numero, \Data, \PrimeiroArtigo, \ImaxePortada` e os
@@ -172,8 +185,12 @@ As tipografías usadas están incluídas no directorio [fontes](./fontes/),
 polo que non é necesario instalalas.
 
 Para os paquetes e resto de dependencias, é recomendable unha instalación
-completa de TeXLive, inda que seguramente MiKTeX tamén funcione. Para o logo da
-USC é necesario ter `epstopdf`.
+completa de TeXLive, inda que seguramente MiKTeX tamén funcione. Na clase da
+revista inclúese un `\listfiles` polo que cada vez que se compila un documento
+deberían aparecer listados todos os ficheiros `*.sty` e similares que se están
+usando dentro da logfile.
+
+Para o logo da USC é necesario ter `epstopdf`.
 
 ### ¿Pero como compilo isto?
 
@@ -183,8 +200,15 @@ e descargando un `.zip`. Este pode importarse normalmente a overleaf.
 Recordade seleccionar no panel esquerdo o arquivo principal, que será, 
 por exemplo, `revistas/001/revista_001.tex`
 
-Para as persoas sen medo a usar un ordenador só hai que escribir na termianl,
-en Linux
+Dado que o proxecto non está moi optimizado, fixen un arquivo simplificado
+chamado `[artigo_simplificado.tex](./artigo_simplificado.tex)` o cal se pode
+compilar sen portada nin contraportada. Debería ser máis sinxelo de usar porque
+non hai que preocuparse pola estrutura deste proxecto, nin pola inicialización
+dos macros; e debería ser algo máis rápido de compilar por ser máis simple. O
+propio arquivo está documentado asique quen sexa curioso que o abra e o lea.
+
+Por outro lado, para as persoas sen medo a usar un ordenador só hai que
+escribir na termianl, en Linux
 
 ```bash
 latexmk ./revistas/001/revista_001.tex

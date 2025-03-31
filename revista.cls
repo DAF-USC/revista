@@ -53,6 +53,10 @@
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
 \RequirePackage{xcolor}
 
+% Inicializo as coreas agora. En cada artigo é necesario cambialas
+\definecolor{Resalte}{HTML}{ff0000}
+\definecolor{TextoEnResalte}{HTML}{ffffff}
+
 % Graficos e tal. Se podes soñalo, podes facelo con TikZ
 \RequirePackage{tikz}
  % para facer calculos cas posicions dos nodos, sumándolle cousas
@@ -89,6 +93,11 @@
 
 % esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
 % \RequirePackage{lua-visual-debug}
+
+% E xa que falamos de depuración, está o comando este pa mostrar todos os
+% paquetes que se usan (implícita e explícitamente) e súas versións. Toda esa
+% info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
+\listfiles
 
 % :FACER: como usar duas columnas?
 % Por agora usamos a opcion 'twocolumn' da clase 'article'. Eventualmente
