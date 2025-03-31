@@ -1,6 +1,6 @@
 # Revista MOMENTUM
 
-Este é repositorio oficial da revista **MOMEMTUM**, creada de 0 por
+Este é repositorio oficial da revista **MOMENTUM**, creada de 0 por
 estudantes de grao, máster e doutorado de Física na USC.
 
 # Contidos
@@ -181,7 +181,7 @@ compilación, xa que nos da vantaxes no uso de distintas tipografías, danos
 acceso a `\directlua`, e danos máis opcións de depurado usando
 [lua-visual-debug](https://www.ctan.org/search?phrase=lua-visual-debug)
 
-As tipografías usadas están incluídas no directorio [fontes](./fontes/),
+As tipografías usadas están incluídas no directorio [`fontes`](./fontes/),
 polo que non é necesario instalalas.
 
 Para os paquetes e resto de dependencias, é recomendable unha instalación
@@ -201,7 +201,7 @@ Recordade seleccionar no panel esquerdo o arquivo principal, que será,
 por exemplo, `revistas/001/revista_001.tex`
 
 Dado que o proxecto non está moi optimizado, fixen un arquivo simplificado
-chamado `[artigo_simplificado.tex](./artigo_simplificado.tex)` o cal se pode
+chamado [`artigo_simplificado.tex`](./artigo_simplificado.tex) o cal se pode
 compilar sen portada nin contraportada. Debería ser máis sinxelo de usar porque
 non hai que preocuparse pola estrutura deste proxecto, nin pola inicialización
 dos macros; e debería ser algo máis rápido de compilar por ser máis simple. O
