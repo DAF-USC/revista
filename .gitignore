@@ -1,4 +1,22 @@
+# diretorios auxiliares
 .pdf/
 .aux/
+
+# latex
+*.aux
+*.bcf*
+*.fdb_latexmk
+*.fls
+*.log
+*.out
 *.pdf
+*.run.xml
+*.toc
+*.idx
+*.ilg
+*.ind
+
+# varios
+tex.err
+tex.err.bak
 tags
