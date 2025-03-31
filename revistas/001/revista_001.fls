@@ -1,7 +1,0 @@
-PWD /home/daniel/GitHub/revista/revistas/001
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/daniel/GitHub/revista/revistas/001/revista_001.tex
-OUTPUT revista_001.log

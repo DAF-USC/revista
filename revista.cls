@@ -88,7 +88,7 @@
 }
 
 % esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
-%\RequirePackage{lua-visual-debug}
+% \RequirePackage{lua-visual-debug}
 
 % :FACER: como usar duas columnas?
 % Por agora usamos a opcion 'twocolumn' da clase 'article'. Eventualmente
@@ -120,34 +120,6 @@
 \RequirePackage{svrsymbols} % simbolos variados
 \RequirePackage{adforn}     %
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Para el índice 
-
-\RequirePackage{tocloft}   % Para modificar algunos valores de contentsline, espaciados etc
-\RequirePackage{adjustbox} % Para ajustar tablas
-
-%\renewcommand{\contentsname}{\Huge \textbf{Indice}}   %  Cambia el nombre del índice, parece que no funciona bien
-
-
-\newcommand{\addchaptersummary}[3]{ % Hay que introducirle tres cosas #1 -> Nombre del artículo, #2 -> Resumen del artículo, #3 -> Nombre del autor
-  \phantomsection
-  \addcontentsline{toc}{section}{\protect{#1}} % Esta añadiendo el artículo al tableofcontentse
-  \addtocontents{toc}{
-    \protect\begin{minipage}[t][.3cm][t]{9cm} % Definindo largura fixa para a minipage de texto com alinhamento superior
-       % Ajuste fino para alinhar o resumo do texto com o topo da figura (altere de acordo com o topo da figura)
-      \protect {\scriptsize #2}
-      \protect\vfill% Ajuste fino para alinhar o nome do autor do texto con el nombre del artículo
-      \protect{\small #3} 
-      \protect\vfill% Ajuste fino para alinhar o nome do autor do texto com el resumen
-      \protect\vspace{1cm} % Ajuste fino para espaçamento entre figura e resumo e próximo artigo do sumário
-    \protect\end{minipage}\vfill}
-    \addtocontents{toc}{\vspace{2em}}
-}
-
-
-%[t]{7em}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % este debe cargarse logo dos paquetes matematicos
 \RequirePackage{unicode-math}
 % :FACER: escoller outra tipografia para as mates, esta non ten varios simbolos
@@ -167,7 +139,8 @@
     %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
     % #4: subtítulo do artigo
     \pagestyle{#3}
-    \addchaptersummary{#1}{#4}{#2} % Aqui introducimos lo que se va a colocar en el indice, véase arriba el significado
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
     \begin{center}
         \vspace*{1em}
         \noindent
@@ -195,7 +168,6 @@
 \RequirePackage{lettrine}
 \RequirePackage{ragged2e}
 \RequirePackage[scr]{rsfso}
-\RequirePackage{adjustbox}
 
 % Encabezados e pe de paxina
 % Pa facilitar a creacion cun par de comandos
