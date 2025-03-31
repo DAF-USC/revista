@@ -1,0 +1,51 @@
+% Color del resalte trasparentado a la derecha del índice
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[line width=0.76\textwidth,color=Resalte!35!white] ($(current page.north east) - (0,0)$) -- ($(current page.south east) - (0,0)$);
+\end{tikzpicture}
+\vspace{-1cm}
+% Columna de la izqueirda, está el índice y el Sobre Momentum:
+\begin{minipage}[t]{0.7\textwidth}
+    \vspace{1cm}
+    \begin{minipage}[t]{\hsize}
+        \makebox[0pt][l]{
+
+            % Aquí incluimos el tableofcontens,
+            \begin{adjustbox}{valign=t,minipage={0.9\textwidth},margin={0pt,0pt}}
+                {   % Indice personalizable, con tamaño, color, fuente...
+                    \section*{\Huge \textbf{Índice}}
+                    \begingroup
+                    % Esto es para que no salte el Indice default, y lo podamos poner nosotros
+                    \let\contentsname\relax
+                    \tableofcontents
+                    \endgroup
+                }%
+            \end{adjustbox}%
+
+        }%
+        % Texto debajo del índice, sobre momentum
+        \vfill
+        \begin{minipage}[t]{0.9\textwidth}
+            \vfill
+            \vspace{1cm}
+            {\Huge \color{Resalte!75!black} \textbf{Sobre Momentum}:} \\[1cm]
+            Momentum, de carácter científico, busca ser un medio de comunicación
+            tanto dentro coma fóra da facultade de física onde expor cuestións de
+            divulgación, novas científicas, entrevistas a personalidades do mundo
+            científico, historia e filosofía da ciencia e algún que outro artigo de corte
+            popular. Esta revista é un proxecto do estudantado de física USC onde
+            pretendemos ter un recuncho de expresión máis aló do estrictamente académico. O
+            proxecto foi fundado por alumnos de física no ano 2025 co obxectivo de
+            persistir na historia das xeracións de alumnos que a herden, esforzándonos
+            sempre en mellorar. Sempre aberta a toda suxestión, non dubidedes en deixar a
+            vosa pegada!
+        \end{minipage}
+    \end{minipage}
+\end{minipage}
+\hfill
+% Texto que está en la linea roja trasparente, logos y autores/editores/directores
+\begin{minipage}[t]{0.25\textwidth}
+    \vspace{1cm}
+    \includegraphics[width=0.8\linewidth]{logos/usc-invertido.png} \\[3cm] % Logo 1
+    \Autores \\[3cm]
+    \includegraphics[width=0.8\linewidth]{logos/botafumeiro.png} % Logo 2
+\end{minipage}

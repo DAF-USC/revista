@@ -128,6 +128,27 @@
 %     Extension = .otf,
 % ]{Euler-Math}
 
+% Para el índice
+\RequirePackage{tocloft}   % Para modificar algunos valores de contentsline, espaciados etc
+\RequirePackage{adjustbox} % Para ajustar tablas
+
+\newcommand{\addchaptersummary}[3]{ % Hay que introducirle tres cosas #1 -> Nombre del artículo, #2 -> Resumen del artículo, #3 -> Nombre del autor
+    \phantomsection
+    \addcontentsline{toc}{section}{\protect{#1}} % Esta añadiendo el artículo al tableofcontentse
+    \addtocontents{toc}{
+        \protect
+        \begin{minipage}[t][.3cm][t]{9cm} % Definindo largura fixa para a minipage de texto com alinhamento superior
+            % Ajuste fino para alinhar o resumo do texto com o topo da figura (altere de acordo com o topo da figura)
+            \protect {\scriptsize #2}
+            \protect\vfill% Ajuste fino para alinhar o nome do autor do texto con el nombre del artículo
+            \protect{\small #3}
+            \protect\vfill% Ajuste fino para alinhar o nome do autor do texto com el resumen
+            \protect\vspace{1cm} % Ajuste fino para espaçamento entre figura e resumo e próximo artigo do sumário
+            \protect
+        \end{minipage}\vfill}
+    \addtocontents{toc}{\vspace{2em}}
+}
+
 % :FACER: facer o subtitulo opcional (con \NewDocumentCommand e \IfNoValueTF)
 % Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
 \newcommand{\titular}[4]{%
@@ -139,8 +160,7 @@
     %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
     % #4: subtítulo do artigo
     \pagestyle{#3}
-    \phantomsection
-    \addcontentsline{toc}{chapter}{#1}
+    \addchaptersummary{#1}{#4}{#2} % Aqui introducimos lo que se va a colocar en el indice, véase arriba el significado
     \begin{center}
         \vspace*{1em}
         \noindent
