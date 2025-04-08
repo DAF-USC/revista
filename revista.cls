@@ -92,12 +92,12 @@
 }
 
 % esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
-%\RequirePackage{lua-visual-debug}
+% \RequirePackage{lua-visual-debug}
 
 % E xa que falamos de depuración, está o comando este pa mostrar todos os
 % paquetes que se usan (implícita e explícitamente) e súas versións. Toda esa
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
-\listfiles
+% \listfiles
 
 % :FACER: como usar duas columnas?
 % Por agora usamos a opcion 'twocolumn' da clase 'article'. Eventualmente
@@ -137,122 +137,18 @@
 %     Extension = .otf,
 % ]{Euler-Math}
 
-% Para el índice
-\RequirePackage{tocloft}   % Para modificar algunos valores de contentsline, espaciados etc
-\RequirePackage{adjustbox} % Para ajustar tablas
-\RequirePackage{etoolbox}  % Para hacer condicionales
+% Para o índice
+\RequirePackage{tocloft}    % Para modificar algunos valores de contentsline, espaciados etc
+\RequirePackage{adjustbox}  % Para ajustar tablas
+\RequirePackage{etoolbox}   % Para hacer condicionales
 \RequirePackage{trimspaces}
 
-
-\newcommand{\IndiceDivulgacion}{\begin{tikzpicture}
-    \draw[thick] (0,0) -- (4,0);
-    \node[anchor=center] at (5.5,0)  {\textbf{Divulgacion}};
-    \draw[thick] (7,0) -- (11,0);
-  \end{tikzpicture}}
-\newcommand{\IndiceFilosofia}{\begin{tikzpicture}
-    \draw[thick] (0,0) -- (4,0);
-    \node[anchor=center] at (5.5,0) {\textbf{Filosofía}};
-    \draw[thick] (7,0) -- (11,0);
-  \end{tikzpicture}}
-\newcommand{\IndiceHistoria}{\begin{tikzpicture}
-    \draw[thick] (0,0) -- (4,0);
-    \node[anchor=center] at (5.5,0) {\textbf{Historia}};
-    \draw[thick] (7,0) -- (11,0);
-  \end{tikzpicture}}
-\newcommand{\IndiceProfesorado}{\begin{tikzpicture}
-    \draw[thick] (0,0) -- (2.9,0);
-    \node[anchor=center] at (5.5,0) {\textbf{Recuncho do Profesorado}};
-    \draw[thick] (8.1,0) -- (11,0);
-\end{tikzpicture}}
-\newcommand{\IndiceEntrevistas}{\begin{tikzpicture}
-    \draw[thick] (0,0) -- (4,0);
-    \node[anchor=center] at (5.5,0)  {\textbf{Entrevistas}};
-    \draw[thick] (7,0) -- (11,0);
-\end{tikzpicture}}
-
-\newcommand{\TipoDeArticulo}[1]{%
-\ifstrequal{#1}{divulgacion}{\IndiceDivulgacion}{%
-  \ifstrequal{#1}{historia}{\IndiceHistoria}{%
-    \ifstrequal{#1}{filosofia}{\IndiceFilosofia}{%
-      \ifstrequal{#1}{profesorado}{\IndiceProfesorado}{%
-        \ifstrequal{#1}{entrevistas}{\IndiceEntrevistas}{%
-          \IndiceEntrevistas
-        }%
-      }%
-    }%
-  }%
-}%
-}
-
-\newcommand{\SioNo}[2]{%
-  \edef\cleanedinput{\unexpanded{#1}}%
-  \edef\cleanedinput{\expandafter\trimspaces\cleanedinput}%
-  \ifdefstring{\cleanedinput}{Si}{%
-    \TipoDeArticulo{#2}\\[2mm]%
-  }{%
-    \vspace{-5mm}
-  }%
-}
- % Hay que introducirle 4 cosas 
- %#1 -> Nombre del artículo, 
- %#2 -> NOmbre del autor del artículo, 
- %#3 -> Si: queremos que empiece una sección en el indice 
- %#4 -> Si #3=Si -> Crea una nueva sección en el índice 
-\newcommand{\addchaptersummary}[4]{%
-    \phantomsection
-    \addtocontents{toc}{%
-    \begingroup
-    \setlength{\parindent}{0pt}
-    \protect\SioNo{#3}{#4}
-    \endgroup}
-    \addcontentsline{toc}{section}{\protect{#1}} % Esta añadiendo el artículo al tableofcontentse
-    \addtocontents{toc}{
-        \begin{minipage}[t][.3cm][t]{9cm} % Definindo largura fixa para a minipage de texto com alinhamento superior
-            % Ajuste fino para alinhar o resumo do texto com o topo da figura (altere de acordo com o topo da figura)
-            %\protect {\scriptsize #2}
-            %\protect\vfill% Ajuste fino para alinhar o nome do autor do texto con el nombre del artículo
-            \protect{\small #2}
-            \protect\vfill% Ajuste fino para alinhar o nome do autor do texto com el resumen
-            \protect\vspace{1cm} % Ajuste fino para espaçamento entre figura e resumo e próximo artigo do sumário
-            \protect
-        \end{minipage}\vfill}
-    \addtocontents{toc}{\vspace{2em}}
-}
-
-% :FACER: facer o subtitulo opcional (con \NewDocumentCommand e \IfNoValueTF)
-% Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
-\newcommand{\titular}[5]{%
-    % #1: nome do artigo,
-    % #2: nome do autor,
-    % #3: estilo da páxina, cambia os encabezados (e no futuro pode que mais
-    %     cousas) A escoller entre:
-    %     divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
-    %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
-    % #4: subtítulo do artigoprofesorado
-    % #5: es el #3 del índice, véase arriba \addchaptersummary
-    \pagestyle{#3}
-    \addchaptersummary{#1}{#2}{#5}{#3} % Aqui introducimos lo que se va a colocar en el indice, véase arriba el significado
-    \begin{center}
-        \vspace*{-1cm}
-        % Esto es para que cuanddo el texto ocupe más de dos líneas, se amplie
-        \begingroup
-        \setstretch{2} 
-        \noindent{\color{Resalte}\Huge \textbf{#1}} \\
-        \endgroup
-        %
-        \vspace{3mm}
-        {\Large #2} \\
-        \vspace{3mm}
-        \textit{#4}
-        \vspace{3mm}
-    \end{center}
-    % aprobeito pa meter esto aquí. Resetea números nas ecuacións e figuras
-    \setcounter{equation}{0}
-    \setcounter{figure}{0}
-}
-
 % Esto pa cambiar facilmente o estilo das 'captions' das cousas. Queremos que este justificada
-\RequirePackage[justification=justified,singlelinecheck=false]{caption} %  singlelinecheck=false: evita que LaTeX centre pies de una sola línea (por defecto, lo hace aunque hayas pedido justificación).
+% singlelinecheck=false: evita que LaTeX centre pies de una sola línea (por defecto, lo hace aunque hayas pedido justificación).
+\RequirePackage[
+    justification   = justified,
+    singlelinecheck = false
+]{caption}
 \captionsetup[figure]{ labelfont=bf }
 \captionsetup[table]{ labelfont=bf }
 
@@ -270,10 +166,6 @@
 % Pa facilitar a creacion cun par de comandos
 \RequirePackage{fancyhdr}
 
-% ESTILOS DE PÁXINA.
-% Estos estilos cambian os encabezados das páxinas dependendo dos artigos que
-% haxa.
-
 % O comando pa xerar o logo onde sexa, pode usarse con \fontsize
 \newcommand{\LogoM}{
     \begin{tikzpicture}
@@ -289,25 +181,7 @@
         at (00.05,-0.05)
         {$\overrightarrow{m}$};
     \end{tikzpicture}
-
 }
-\newcommand{\Logodos}{
-    \begin{tikzpicture}
-        \node[
-            shape     = circle,
-            draw      = black,
-            fill      = Resalte,
-            text      = TextoEnResalte,
-            inner sep = 0pt,
-            radius    = 0.5,
-            inner sep = 1pt,
-        ]
-        at (00.05,-0.05)
-        {$\overrightarrow{m}$};
-    \end{tikzpicture}
-}
-
-
 
 % esto e pa poñer o logo do momento no encabezado
 \renewcommand\headrule{
@@ -318,6 +192,12 @@
     \hrulefill
 }
 
+% :FACER: 0 esto pode acortarse con arrays, e deberíase xuntar toda a
+% funcionalidade de encabezados e titulos e así
+% ESTILOS DE PÁXINA.
+% Estos estilos cambian os encabezados das páxinas dependendo dos artigos que
+% haxa.
+
 % artigos de DIVULGACION
 \fancypagestyle{divulgacion}{
     \fancyhf{}
@@ -327,7 +207,6 @@
     \fancyfoot[LO,RE]{\imprimeTitulo}
     \renewcommand{\footrulewidth}{0pt}
     \headsep = 1.5cm
-    
 }
 
 % artigos de HISTORIA
@@ -361,7 +240,6 @@
     \fancyfoot[LO,RE]{\imprimeTitulo}
     \renewcommand{\footrulewidth}{0pt}
     \headsep = 1.5cm
-
 }
 
 % artigos de FILOSOFIA
@@ -405,8 +283,8 @@
     \fancyfoot[LE,RO]{\thepage}
     \fancyfoot[LO,RE]{\imprimeTitulo}
     \renewcommand{\footrulewidth}{0pt}
-
-    \headsep = 1.5cm}
+    \headsep = 1.5cm
+}
 
 % seccions de ANUNCIOS
 \fancypagestyle{anuncios}{
@@ -428,6 +306,154 @@
     \fancyfoot[LO,RE]{\imprimeTitulo}
     \renewcommand{\footrulewidth}{0pt}
     \headsep = 1.5cm
+}
+
+% :FACER: 0 simplificar esto todo. Tal vez colocar as cadeas en arrays.
+% comandos que crean as liñas de separacion para organizar por temáticas o
+% indice
+\newcommand{\IndiceDivulgacion}{%
+    \begin{tikzpicture}%
+        \draw[thick] (0,0) -- (4,0);%
+        \node[anchor=center] at (5.5,0)  {\textbf{Divulgacion}};%
+        \draw[thick] (7,0) -- (11,0);%
+    \end{tikzpicture}%
+}%
+\newcommand{\IndiceFilosofia}{%
+    \begin{tikzpicture}%
+        \draw[thick] (0,0) -- (4,0);%
+        \node[anchor=center] at (5.5,0) {\textbf{Filosofía}};%
+        \draw[thick] (7,0) -- (11,0);%
+    \end{tikzpicture}%
+}%
+\newcommand{\IndiceHistoria}{%
+    \begin{tikzpicture}%
+        \draw[thick] (0,0) -- (4,0);%
+        \node[anchor=center] at (5.5,0) {\textbf{Historia}};%
+        \draw[thick] (7,0) -- (11,0);%
+    \end{tikzpicture}%
+}%
+\newcommand{\IndiceProfesorado}{%
+    \begin{tikzpicture}%
+        \draw[thick] (0,0) -- (2.9,0);%
+        \node[anchor=center] at (5.5,0) {\textbf{Recuncho do Profesorado}};%
+        \draw[thick] (8.1,0) -- (11,0);%
+    \end{tikzpicture}%
+}%
+\newcommand{\IndiceEntrevistas}{%
+    \begin{tikzpicture}%
+        \draw[thick] (0,0) -- (4,0);%
+        \node[anchor=center] at (5.5,0)  {\textbf{Entrevistas}};%
+        \draw[thick] (7,0) -- (11,0);%
+    \end{tikzpicture}%
+}%
+
+% :FACER: simplificar esto con expl3
+\newcommand{\SeccionTOC}[1]{%
+    \ifstrequal{#1}{divulgacion}{\IndiceDivulgacion}{%
+        \ifstrequal{#1}{historia}{\IndiceHistoria}{%
+            \ifstrequal{#1}{filosofia}{\IndiceFilosofia}{%
+                \ifstrequal{#1}{profesorado}{\IndiceProfesorado}{%
+                    \ifstrequal{#1}{entrevistas}{\IndiceEntrevistas}{%
+                        \IndiceEntrevistas
+                    }%
+                }%
+            }%
+        }%
+    }%
+}
+
+% Este macro pode invocarse con ou sen asterisco, ousexa \EngadeAoTOC*
+% Co asterisco, aparte do titulo, tamén engade unha seccion ao TOC
+%
+% #1 (asterisco) crear unha seccion no TOC ou no
+% #2 -> Nome do artigo
+% #3 -> Nome do autor
+% #4 -> Estilo da páxina (TIPO de artigo)
+\NewDocumentCommand\EngadeAoTOC{ s m m m }{%
+    % Primeiro, engadimos seccion ao TOC ou no? Depende de se o macro
+    % se usou cun asterisco ou no
+    \IfBooleanTF{#1}%
+    {% No caso de usar asterisco, angadir unha seccion ao TOC
+        \addtocontents{toc}{%
+            \begingroup%
+                \setlength{\parindent}{0pt}%
+                \protect\SeccionTOC{#4}%
+            \endgroup%
+        }%
+    }%
+    {% No caso de non telo, non engadir seccion ao toc
+        \addtocontents{toc}{%
+            \begingroup%
+                \setlength{\parindent}{0pt}%
+                \vspace{-5mm}%
+            \endgroup%
+        }
+    }
+
+    % Engadimos o nome do artigo
+    % vvvvvvvvvvvvvvv O ERRO DE COMPILACION ESTÁ AQUI vvvvvvvvvvvvvvvvvvvvv
+    \addcontentsline{toc}{section}{\protect{#2}}
+    % ^^^^^^^^^^^^^^^ O ERRO DE COMPILACION ESTÁ AQUI ^^^^^^^^^^^^^^^^^^^^^
+
+    % Engadimos o nome do autor. Pa que quede ben metese nunha minipage
+    \addtocontents{toc}{%
+        % Definindo largura fixa para a minipage de texto com alinhamento
+        % superior
+        \begin{minipage}[t][.3cm][t]{9cm}
+            % Ajuste fino para alinhar o resumo do texto com o topo da figura
+            % (altere de acordo com o topo da figura)
+            \protect{\small #3}%
+            % Ajuste fino para alinhar o nome do autor do texto com el resumen
+            \protect\vfill%
+            % Ajuste fino para espaçamento entre figura e resumo e próximo
+            % artigo do sumário
+            \protect\vspace{1cm}%
+            \protect%
+        \end{minipage}
+        \vfill
+    }
+    \addtocontents{toc}{\vspace{2em}}
+}
+
+% Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
+\NewDocumentCommand\Titular{ s m m m m }{%
+    % #1: (asterisco). Poñelo engade seccion ao toc
+    % #2: nome do artigo,
+    % #3: nome do autor,
+    % #4: estilo da páxina, cambia os encabezados (e no futuro pode que mais
+    %     cousas) A escoller entre:
+    %     divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
+    %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
+    % #5: subtítulo
+    %
+    \phantomsection%
+    % Primeiro mostramos o propio titular, como sempre
+    \begin{center}
+        \vspace*{-1cm}
+        % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
+        \begingroup
+            \setstretch{2}%
+            \noindent{\color{Resalte}\Huge \textbf{#2}} \\ % TITULO
+        \endgroup
+        \vspace{3mm}
+        {\Large #3} \\ % AUTOR
+        \vspace{3mm}
+        \textit{#5}  % SUBTITULO
+        \vspace{3mm}
+    \end{center}
+    % Comprobamos se o comando \Titular se usou con un asterisco ou no
+    \IfBooleanTF{#1}%
+        {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
+            \EngadeAoTOC*{#2}{#3}{#4}%
+        }%
+        {% se non temos asterisco, non engadimos seccion
+            \EngadeAoTOC{#2}{#3}{#4}%
+        }
+    \pagestyle{#4}%
+    % significado aprobeito pa meter esto aquí. Resetea números nas ecuacións e
+    % figuras
+    \setcounter{equation}{0}
+    \setcounter{figure}{0}
 }
 
 % Tipografia preciosa. Xoga cos espaciados moi ben para xustificar o texto.
@@ -459,12 +485,16 @@
 \newcommand{\imprimeData}{\@Data}
 
 % Artigos
-\def\PrimeiroArtigo#1{\def\@PrimeiroArtigo{#1}}
-\newcommand{\imprimePrimeiroArtigo}{\@PrimeiroArtigo}
+% \def\PrimeiroArtigo#1{\def\@PrimeiroArtigo{#1}}
+% \newcommand{\imprimePrimeiroArtigo}{\@PrimeiroArtigo}
 % \def\SegundoArtigo#1{\def\@SegundoArtigo{#1}}
 % \newcommand{\imprimeSegundoArtigo}{\@SegundoArtigo}
 % \def\TerceiroArtigo#1{\def\@TerceiroArtigo{#1}}
 % \newcommand{\imprimeTerceiroArtigo}{\@TerceiroArtigo}
+
+% O texto que aparece na imaxe da portada
+\def\ComentarioImaxePortada#1{\def\@ComentarioImaxePortada{#1}}
+\newcommand{\imprimeComentarioImaxePortada}{\@ComentarioImaxePortada}
 
 % TITULO REVISTA
 \newcommand{\imprimeTitulo}{MOMENTUM}
@@ -475,7 +505,11 @@
 % RUTA PARA A IMAXE DA PORTADA
 \def\ImaxePortada#1{\def\@ImaxePortada{#1}}
 \newcommand{\imprimeImaxePortada}{\@ImaxePortada}
-\setlength{\headheight}{20pt}
+\setlength{\headheight}{20pt} % :FACER: POR QUÉ ESTÁ ISTO AQUÍ??????
+
+% PARTICIPANTES DO PROXECTO. Usase no índice, no lado dereito ca cor de resalte
+\def\Participantes#1{\def\@Participantes{#1}}
+\newcommand{\imprimeParticipantes}{\textcolor{TextoEnResalte}{\@Participantes}}
 
 \makeatother
 % Todos esos comandos teñen a info da revista. Gardase o valor nunha variable,
@@ -490,6 +524,8 @@
 % \ImaxePortada{./cern.png}
 % \definecolor{Resalte}{HTML}{ff0000}
 % \definecolor{TextoEnResalte}{HTML}{000000}
+% \ComentarioImaxePortada{ A imaxe da portada e moi bonita}
+% \Participantes{ Rocio, \\ Arturo }%
 
 % Os comandos anteriores definen as variables. Pa mostralas no pdf hai que usar:
 %
@@ -503,7 +539,7 @@
 % \color{Resalte}         Para colorear cousas ca cor específica de cada revista
 
 % :FACER: remirar estos conteos...
-%\pagenumbering{arabic}\setcounter{page}{1}
+% \pagenumbering{arabic}\setcounter{page}{1}
 
 
 % outros macros e definicions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -89,11 +89,10 @@ forma seguinte (aproximada)
 % comandos para definir a informacion de cada revista
 \Numero{001}
 \Data{Xaneiro do 1900}
-\PrimeiroArtigo{Entrevista a Marie Curie}
 \ImaxePortada{./revistas/001/imaxes/cern.png}
-\definecolor{Resalte}{HTML}{ff0000}
+\definecolor{Resalte}{HTML}{ff0000} % cores especificos de cada revista
 \definecolor{TextoEnResalte}{HTML}{000000}
-\newcommand{\Autores}{\textcolor{TextoEnResalte}{
+\Participantes{
     {\Large \textbf{Dirección:}}     \\[0.5cm]
         Carl Sagan                   \\[0.2cm]
         ...                          \\[0.2cm]
@@ -112,7 +111,7 @@ forma seguinte (aproximada)
 \input{contraportada.tex}
 \end{document}
 ```
-Os comandos `\Numero, \Data, \PrimeiroArtigo, \ImaxePortada` e os
+Os comandos `\Numero, \Data, \ImaxePortada, \Participantes`, e os
 `\definecolor` deben usarse en cada revista e están explicados na [clase da
 revista](./revista.cls)
 
@@ -123,7 +122,7 @@ simplemente se inclúen no arquivo principal usando `\input{artigo.tex}`. Teñen
 a forma seguinte
 
 ```latex
-\titular % este comando permite definir a información concreta de cada artigo.
+\Titular*% este comando permite definir a información concreta de cada artigo.
 {Nome do artigo}
 {Axl Rose}
 {divulgacion}
@@ -152,6 +151,9 @@ O macro `titular` é o centro de cada artigo, o cal cambia cada sección,
 numeracións, formatos dos encabezados, define nomes... Está definido na clase
 da revista. Importante botarlle un ollo ás definicións dos encabezados que se
 poden usar (divulgacion, historia, etc.).
+
+Se queremos engadir unha nova sección ao índice, debemos usar o comando
+`\Titular*`, co asterisco
 
 ### Imaxes
 
@@ -196,8 +198,8 @@ Para o logo da USC é necesario ter `epstopdf`.
 
 Quen use sistemas online como Overleaf, poden simplemente descargar o proxecto
 completo premendo no botón grande e verde na páxina principal que pon **CODE**,
-e descargando un `.zip`. Este pode importarse normalmente a overleaf. 
-Recordade seleccionar no panel esquerdo o arquivo principal, que será, 
+e descargando un `.zip`. Este pode importarse normalmente a overleaf.
+Recordade seleccionar no panel esquerdo o arquivo principal, que será,
 por exemplo, `revistas/001/revista_001.tex`
 
 Dado que o proxecto non está moi optimizado, fixen un arquivo simplificado

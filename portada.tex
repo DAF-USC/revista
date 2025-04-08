@@ -1,3 +1,4 @@
+\pagenumbering{gobble}
 \thispagestyle{empty}
 
 % Creamos unha xeometria nova
@@ -13,15 +14,6 @@
 \setlength\parindent{0pt}
 
 % TITULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vspace*{1em}
-%{%
-%    \begin{center}%
-%    \includegraphics[width=0.81\linewidth]{logos/Momentum_4.jpeg}
-%    \end{center}
-    %\fontsize{70pt}{0pt}\selectfont%
-    %\FormateaTitulo{Resalte}\par%
-%}%
-
 \vspace*{2em}
 {%
     \centering%
@@ -29,8 +21,6 @@
     \FormateaTitulo{Resalte}\par%
 }%
 \vspace*{4em}
-
-%\vspace*{4em}
 
 % NUMERO DA REVISTA E DATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
@@ -51,8 +41,6 @@
 
 % IMAXE DE CADA REVISTA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % A imaxe da portada debe ser CADRADA EXACTAMENTE
-
-
 {
 \nointerlineskip
 \begin{picture}(\textwidth,\textwidth)%
@@ -60,35 +48,30 @@
 \end{picture}
 }
 
-% ARTIGOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{minipage}{\textwidth}
-%    \centering
-    % \setstretch{2} % esto dos espaciados dame dores de cabeza...
-    %\vspace*{1em}
-    %{\fontsize{26pt}{0pt}\selectfont \textit{\imprimePrimeiroArtigo}}\\
-%    \includegraphics[width=2.5cm]{logos/usc-branco-negro.eps}
-%\end{minipage}%
-
-% Imagenes superpuestas en la imagen principal 
-
-% En el documento8
+% IMAXES SUPERPOSTAS NA IMAXE DA PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[remember picture, overlay]
     % Imagen 1 (superpuesta)
-    \node[anchor=south west, xshift=0.9cm, yshift=3.cm,
-    fill=gray,
-    fill opacity=0.75, % transparencia del fondo
-    text opacity=1,   % el texto sigue opaco
-    %draw,             % opcional, para dibujar el borde
-    %rounded corners,  % opcional, para esquinas redondeadas
-    inner sep=5pt     % separación interna del texto al borde
-    ]  at (current page.south west) 
-    {\normalsize \textcolor{white}{{\textbf{1981: Primeira pedra da facultade de física.}}}};
+    \node[
+        anchor       = south west,
+        xshift       = 0.9cm,
+        yshift       = 3.cm,
+        fill         = gray,
+        fill opacity = 0.75, % transparencia del fondo
+        text opacity = 1,    % el texto sigue opaco
+        % draw,              % opcional, para dibujar el borde
+        % rounded corners,   % opcional, para esquinas redondeadas
+        inner sep=5pt        % separación interna del texto al borde
+    ]  at (current page.south west)
+    {\normalsize \textcolor{white}{\imprimeComentarioImaxePortada} };
 
     % Imagen 2 (superpuesta)
-    \node[anchor=south west, xshift=16.7cm, yshift=3.cm] at (current page.south west) 
+    \node[
+        anchor = south west,
+        xshift = 16.7cm,
+        yshift = 3.cm
+    ] at (current page.south west)
     {\includegraphics[width=3cm]{logos/usc-invertido.png}};
 \end{tikzpicture}
-
 
 % volvemos a cargar a xeometria que tiñamos no preambulo
 \restoregeometry

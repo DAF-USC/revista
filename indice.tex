@@ -1,60 +1,89 @@
-
 % Color del resalte trasparentado a la derecha del índice
 \begin{tikzpicture}[remember picture, overlay]
-    \draw[line width=0.73\textwidth,color=Resalte!65!white] ($(current page.north east) - (0,0)$) -- ($(current page.south east) - (0,0)$);
+    \draw[
+        line width = 0.73\textwidth,
+        color      = Resalte!65!white
+    ] ($(current page.north east) - (0,0)$) -- ($(current page.south east) - (0,0)$);
 \end{tikzpicture}
-% Columna de la izqueirda, está el índice y el Sobre Momentum:
-\begin{minipage}[t]{0.72\textwidth}
-    \vspace{-0.3cm}
-    \begin{minipage}[t]{\hsize}
-        \makebox[0pt][l]{
-            % Aquí incluimos el tableofcontens,
+% (non xoguedes a poñer liñas en blanco entre as tikzpictures, vai ir mal)
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Columna de la izqueirda, está el índice y el Sobre Momentum. Para colocar ben as
+% as cousas hai que usar moitos 'minipage'.
+\begin{minipage}[t]{0.72\textwidth}%
+    \vspace{-0.3cm}%
+    \begin{minipage}[t]{\hsize}%
+        \makebox[0pt][l]{%
+            % ============ TOC ===============================================
+            % Aquí incluimos el tableofcontens. Personalizado aparte no arquivo
+            % 'indice.tex', botádelle un ollo
             \begin{adjustbox}{valign=t,minipage={0.9\textwidth},margin={0pt,0pt}}
-                {   % Indice personalizable, con tamaño, color, fuente...
+                {
                     \section*{\Huge \textbf{Índice}}
-                    \begingroup
-                    % Esto es para que no salte el Indice default, y lo podamos poner nosotros
-                    \let\contentsname\relax
-                    \tableofcontents
-                    \endgroup
+                    \begingroup%
+                        % Esto es para que no salte el Indice default, y lo podamos
+                        % poner nosotros
+                        \let\contentsname\relax%
+                        \tableofcontents% <--- O 'TOC' CARGASE AQUí
+                    \endgroup%
                 }%
             \end{adjustbox}%
         }%
+        % ============== SOBRE MOMENTUM =======================
         % Texto debajo del índice, sobre momentum
         \vfill
         \begin{minipage}[t]{0.9\textwidth}
             \vfill
             \vspace{2cm}
-            {\Huge \color{Resalte!75!black} \textbf{Sobre Momentum}:} \\[1cm]Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista estudantil \textit{momentum}, unha revista que busca ser un medio de comunicación tanto dentro coma fóra da facultade de física onde expor os intereses científicos do estudantado. Cuestións de Divulgación, Actualidade, Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos temas que teñen cabida dentro deste proxecto. Esta revista está realizada integramente polo estudantado da Facultade de Física USC, onde pretendemos ter un recuncho de expresión máis aló do estrictamente académico. Fundada no ano 2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar. Non dubidedes en deixar a vosa pegada!
+            {\Huge \color{Resalte!75!black} \textbf{Sobre Momentum}:} \\[1cm]Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista estudantil \textit{Momentum}, unha revista que busca ser un medio de comunicación tanto dentro coma fóra da facultade de física onde expor os intereses científicos do estudantado. Cuestións de Divulgación, Actualidade, Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos temas que teñen cabida dentro deste proxecto. Esta revista está realizada integramente polo estudantado da Facultade de Física USC, onde pretendemos ter un recuncho de expresión máis aló do estrictamente académico. Fundada no ano 2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar. Non dubidedes en deixar a vosa pegada!
         \end{minipage}
     \end{minipage}
 \end{minipage}
 \hfill
-% Texto que está en la linea roja trasparente, logos y autores/editores/directores
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LADO DEREITO COS PARTICIPANTES, VARIOS LINKS, DATA, etc. Resaltado cunha cor
+%
 \begin{minipage}[t]{0.28\textwidth}
     \vspace{-0.3cm}
     \hspace{-0.7cm}
+    % Data e Número da revista
     \begin{center}
-        \textcolor{white}{\Large
-        \textbf{\today }\\[5mm]
-        \textbf{Número 001} \\[1.5cm]
+        \textcolor{TextoEnResalte}{\Large
+            \textbf{\today }\\[5mm]
+            \textbf{\imprimeNumero} \\[1.5cm]
         }
-    \end{center} 
-    \Autores \\[1.5cm]
+    \end{center}
+    % Aquí mostramos as persoas que participaron no proxecto.
+    \imprimeParticipantes \\[1.5cm]
+    % Links varios
     \begin{tikzpicture}[scale=1.5]
-       % \draw[thick, white] (0,0.5) -- (2.85,0.5);
-        \node at (0,0) {\includegraphics[width=0.7cm]{logos/GitHub-branco.png}};   
+        \node at (0,0) {\includegraphics[width=0.7cm]{logos/github-branco.png}};
         \begingroup
-        \hypersetup{urlcolor=white}
-        \node[anchor=west,align=left] at (0.5,0) {\textbf{\textcolor{white}{\href{https://github.com/DAF-USC/revista}{GitHub}
-        }}};
+            \hypersetup{urlcolor = TextoEnResalte}
+            \node[
+                anchor = west,
+                align  = left
+            ] at (0.5,0)
+            {
+                \textbf{\textcolor{TextoEnResalte}{\href{https://github.com/DAF-USC/revista}{GitHub}}}
+            };
         \endgroup
-        \node at (0,-1) {\includegraphics[width=0.7cm]{logos/Icone_Email.png}};
-        \node[anchor=west,align=left] at (0.5,-1) {\footnotesize \textbf{\textcolor{white}{revistafisicausc@gmail.com}
-        }};
-     %   \draw[thick, white] (0,-1.5) -- (2.58,-1.5);
+        \node at (0,-1) {\includegraphics[width=0.7cm]{logos/icona-email.png}};
+        \node[
+            anchor = west,
+            align  = left
+        ] at (0.5,-1)
+        {
+            \footnotesize \textbf{\textcolor{TextoEnResalte}{revistafisicausc@gmail.com} }
+        };
     \end{tikzpicture} \\[1.7cm]
+    %
+    % Logo da USC
     \begin{center}
-    \includegraphics[width=0.8\linewidth]{./logos/usc-invertido.png} % Logo 2
+        \includegraphics[width=0.8\linewidth]{./logos/usc-invertido.png}
     \end{center}
 \end{minipage}
+\newpage
+\pagenumbering{arabic}
