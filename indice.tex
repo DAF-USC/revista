@@ -8,23 +8,25 @@
 % (non xoguedes a poñer liñas en blanco entre as tikzpictures, vai ir mal)
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Columna de la izqueirda, está el índice y el Sobre Momentum. Para colocar ben as
-% as cousas hai que usar moitos 'minipage'.
+% Columna de la izqueirda, está el índice y el Sobre Momentum. Para colocar ben
+% as as cousas hai que usar moitos 'minipage'.
 \begin{minipage}[t]{0.72\textwidth}%
     \vspace{-0.3cm}%
     \begin{minipage}[t]{\hsize}%
         \makebox[0pt][l]{%
+            % :FACER: se metemos moitas cousas, non colle
+            %
             % ============ TOC ===============================================
             % Aquí incluimos el tableofcontens. Personalizado aparte no arquivo
-            % 'indice.tex', botádelle un ollo
+            % 'revista.cls', botádelle un ollo ao comando \SeccionTOC
             \begin{adjustbox}{valign=t,minipage={0.9\textwidth},margin={0pt,0pt}}
                 {
                     \section*{\Huge \textbf{Índice}}
                     \begingroup%
-                        % Esto es para que no salte el Indice default, y lo podamos
-                        % poner nosotros
+                        % Esto es para que no salte el Indice default, y lo
+                        % podamos poner nosotros
                         \let\contentsname\relax%
-                        \tableofcontents% <--- O 'TOC' CARGASE AQUí
+                        \tableofcontents% <--- o 'TOC' CARGASE AQUí
                     \endgroup%
                 }%
             \end{adjustbox}%
@@ -35,7 +37,17 @@
         \begin{minipage}[t]{0.9\textwidth}
             \vfill
             \vspace{2cm}
-            {\Huge \color{Resalte!75!black} \textbf{Sobre Momentum}:} \\[1cm]Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista estudantil \textit{Momentum}, unha revista que busca ser un medio de comunicación tanto dentro coma fóra da facultade de física onde expor os intereses científicos do estudantado. Cuestións de Divulgación, Actualidade, Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos temas que teñen cabida dentro deste proxecto. Esta revista está realizada integramente polo estudantado da Facultade de Física USC, onde pretendemos ter un recuncho de expresión máis aló do estrictamente académico. Fundada no ano 2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar. Non dubidedes en deixar a vosa pegada!
+            {\Huge \color{Resalte!75!black} \textbf{Sobre Momentum}:} \\[1cm]
+Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista
+estudantil \textit{Momentum}, unha revista que busca ser un medio de
+comunicación tanto dentro coma fóra da facultade de física onde expor os
+intereses científicos do estudantado. Cuestións de Divulgación, Actualidade,
+Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos
+temas que teñen cabida dentro deste proxecto. Esta revista está realizada
+integramente polo estudantado da Facultade de Física USC, onde pretendemos ter
+un recuncho de expresión máis aló do estrictamente académico. Fundada no ano
+2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar.
+Non dubidedes en deixar a vosa pegada!
         \end{minipage}
     \end{minipage}
 \end{minipage}

@@ -19,6 +19,9 @@
     }
 }
 % No caso de poñelo en todas as páxinas, pode pararse con \ClearShipoutPicture
+%
+% :FACER: imos cambiar este texto en cada revista?
+%
 {% os textos de agradecemento e similares
 \vspace*{2.4cm}
 \begin{center}
@@ -36,6 +39,7 @@
     Non dubides unirte ao proxecto!}
 \end{minipage} \\[3.15cm]
 
+% Estes textos SEGURO que se cambian en cada revista. Hai que metelo nun macro
 \begin{minipage}{0.75\linewidth}
     \centering
     {\normalsize  Agradecementos: \\[5mm]
@@ -95,16 +99,16 @@ posible sen eles! }
 \end{minipage}
 %
 %
-\hfill
+\hfill % deste tampouco
 %
-% Sobre o logo en formato .eps
+% :FACER: pasar .eps -> .pdf leva tempo. Igual deberíamos usar o PDF
+% directamente
 %
-% O orixinal ven de:
+% Sobre o logo en formato .eps. O orixinal ven de:
 % https://nubeusc.sharepoint.com/sites/servizos-oficina-web/Documentos%20compartidos/Forms/AllItems.aspx?csf=1&web=1&FolderCTID=0x012000441AD9196B55D84292BD3BC4FC87F798&id=%2Fsites%2Fservizos%2Doficina%2Dweb%2FDocumentos%20compartidos%2FImaxe%20corporativa%2FLogotipo%20da%20USC&viewid=a5e177b5%2D7018%2D46d6%2D9352%2Dfc57158bf6b7
-% (espero que a ligazón dure)
-% O arquivo .eps debe pasarse a PDF con 'epstopdf'. Esto debería facerse
-% automáticamente, supoñendo que existe o executable. Prefiro facelo así porque
-% o que comparten da USC ten ese formato
+% (espero que a ligazón dure) O arquivo .eps debe pasarse a PDF con 'epstopdf'.
+% Esto debería facerse automáticamente, supoñendo que existe o executable.
+% Prefiro facelo así porque o que comparten da USC ten ese formato
 \begin{minipage}[c][4cm]{5cm}
     \begin{picture}(5cm,4cm)%
         \put(0,0){\hbox{\includegraphics[width=5cm]{./logos/usc-branco-negro.eps}}}

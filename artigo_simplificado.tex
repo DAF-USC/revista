@@ -3,23 +3,44 @@
 % REVISTA FINAL. A revista final componse de varios arquivos que inclúen o que
 % aquí é o corpo do documento (dentro do \begin{document}). Esto so sirve para
 % poder compilar un artigo individual facilmente, pero non inclue a portada,
-% contraportada, e varios macros non están definidos
+% contraportada, e varios macros non están definidos. Esto no meu sistema
+% compílase nuns 10 s. A revista_001 completa, en case 30 s
 %
 % Para usalo fai falta poñer 3 cousas no mesmo diretorio
 % a clase da revista:   revista.cls
 % este artigo:          modelo_artigo.tex
 % as tipografias:       fontes\
 %
-% Opcionalmente, tamén é util ter a latexmkrc, pero non é necesario.
+% Opcionalmente, tamén é util ter o arquivo de configuracion 'latexmkrc', pero
+% non é necesario.
 %
 % COMPILACION:
-% Necesítase LuaLaTeX, non funciona doutro modo (nin o imos cambiar)
+% Necesítase LuaLaTeX, non funciona doutro modo (nin o imos cambiar). Tamén se
+% precisa Biber para a bibliografía
+%
+% Na maioría de editores debería bastar con premer calquer botón de 'executar'.
+% Se non funciona seguramente teñades que cambiar o método que usa voso editor
+% detrás de cámaras. Recordo que TeXStudio tiña un panel que deixaba
+% seleccionar qué compiladores/executables queremos usar. O mellor é usar
+% 'latexmk', o cal vai, á sua vez, elixir qué compiladores/executables se usan
+% de xeito automático
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Esto importa a clase definida no arquivo aparte, 'revista.cls'
 \documentclass{revista}
 
 \begin{document}
 
+% Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o titulo
+% e autor ao índice, resetear os conteos de figuras, e evidentemente imprimir
+% no PDF a propia información de cada artigo.
+%
+% \Titular   -> sen asterisco, non engade a sección ao indice
+% \Titular*  -> con asterisco, engade a sección ao indice.
+%
+% Ao ser unha versión simplificada da revista, da igual cal usedes. Eso xa se
+% cambiará logo na propia edición
+%
 % {TITULO}   Evidente, o titulo do artigo. Non debería ser moi longo.
 % {PERSONA}  Autores do artigo
 % {TEMA}     A escoller entre:
@@ -28,22 +49,28 @@
 %               programacion,pasatempos,anuncios,profesorado
 % {SUBTITULO} Un pequeno texto algo máis explicativo (e posiblemente longo) co
 %             titulo. E o único argumento do titular que pode quedar en branco
-\titular%
-{TITULO}
-{PERSONA}
-{divulgacion}
-{SUBTITULO}
+\Titular%
+{TITULO}%
+{PERSONA}%
+{divulgacion}%
+{SUBTITULO}%
 
 
 % 'refsection' sirve para que ao final, ao mostrar a bibliografía, esta solo
-% inclua as entradas que foron citadas DENTRO desta 'refsection'
+% inclua as entradas que foron citadas DENTRO desta 'refsection' con \cite. É
+% opcional, a menos que usades bibliografía, entón é obligatorio
 \begin{refsection}
+
+% O CORPO DO ARTIGO COMEZA DE AQUÍ EN DIANTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
 % 'multicols' danos bastante flexibilidade para colocar as cousas en duas
 % columnas. Se unha parte non debe ter 2 columnas, solo hai que rematar o
 % entorno 'multicols' antes, escribir o que queiramos (qedará en 1 columna), e
 % volver iniciar outro entorno 'multicols' para o resto
 \begin{multicols}{2}
+
 
 % Os únicos "niveis" que se permiten son de 'subsection' en abaixo. En
 % principio poden estar numerados ou no, a gusto de cada un
@@ -66,4 +93,3 @@ texto texto texto texto texto texto texto texto
 \end{refsection}
 
 \end{document}
-

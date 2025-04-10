@@ -10,7 +10,7 @@
 % os comentarios con :FACER: están para usar con ferramentas como grep
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{revista}[2025/03/22 Clase para a revista de Fisica USC]
+\ProvidesClass{revista}[2025/04/10 Clase para a revista de Fisica USC]
 
 \LoadClass[11pt,a4paper,twoside]{extarticle}
 
@@ -34,7 +34,8 @@
     BoldItalicFont = *-bolditalic,
 ]{lmroman10}
 % A tipografía para as matemáticas seleccinámola logo de cargar o paquete
-% 'unicode-math' máis abaixo
+% 'unicode-math' máis abaixo. A cousa é que primeiro hai que cargar os paquetes
+% de matemáticas e DESPOIS, unicode-math
 
 % Usar galego (como debe ser)
 \RequirePackage[galician]{babel}
@@ -59,7 +60,17 @@
 
 % Graficos e tal. Se podes soñalo, podes facelo con TikZ
 \RequirePackage{tikz}
- % para facer calculos cas posicions dos nodos, sumándolle cousas
+% para facer calculos cas posicions dos nodos, sumándolle cousas. Por exemplo,
+% fixádevos que ás coordenadas (current page.west) 'súmaselle' (2.5,-5)
+% \node[
+%     rounded corners,
+%     red!90,
+%     draw,
+%     regular polygon,
+%     regular polygon sides=6,
+%     minimum size=20 cm,
+%     ultra thick
+% ] at ($(current page.west)+(2.5,-5)$) {} ;
 \usetikzlibrary{calc}
 
 % Para poder usar os marxes de referencia para colocar nodos. Usase na portada
@@ -69,10 +80,12 @@
 % Pa ter fondos con \AddToShipoutPictureBG, usase na contraportada
 \RequirePackage{eso-pic}
 
-% Pa ter alphas (transparencia), por exemplo no fondo do botafumeiro
+% Pa ter alphas (transparencia), por exemplo no fondo do botafumeiro. Úsase o
+% switch e.g. \transparent{0.3}
 \RequirePackage{transparent}
 
-% E pos codigos QR da contraportada, con \qrcode{}
+% E pos codigos QR da contraportada, con \qrcode{}. Ralentizan moito a
+% compilación
 \RequirePackage{qrcode}
 
 % Para recuadros, fondos, etc.
@@ -91,7 +104,7 @@
     % showframe,            % mostra estructura, moi util
 }
 
-% esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
+% Esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
 % \RequirePackage{lua-visual-debug}
 
 % E xa que falamos de depuración, está o comando este pa mostrar todos os
@@ -99,18 +112,15 @@
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
 % \listfiles
 
-% :FACER: como usar duas columnas?
-% Por agora usamos a opcion 'twocolumn' da clase 'article'. Eventualmente
-% poderíamos pasar a usar os entornos de dúas columnas deste paquete.
-% Véxase:
-% https://www.overleaf.com/learn/latex/Multiple_columns
-% https://tex.stackexchange.com/a/285444
+% Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opcion da
+% clase 'twocols' porque esa da moitísimos problemas no caso de que queiramos
+% ter partes que non teñan 2 columnas. Aparte de que se pode configurar menos
 \RequirePackage{multicol}
+% E aumentamos a separación entre as columnas
 \setlength{\columnsep}{5mm}
 
 % Pa cambiar interlineados no momento usando \setstrech{}
 \usepackage{setspace}
-
 \setlength\parindent{5mm} % tamaño da indentación
 
 % Para graficos
@@ -143,8 +153,9 @@
 \RequirePackage{etoolbox}   % Para hacer condicionales
 \RequirePackage{trimspaces}
 
-% Esto pa cambiar facilmente o estilo das 'captions' das cousas. Queremos que este justificada
-% singlelinecheck=false: evita que LaTeX centre pies de una sola línea (por defecto, lo hace aunque hayas pedido justificación).
+% Esto pa cambiar facilmente o estilo das 'captions' das cousas. Queremos que
+% este justificada. singlelinecheck=false: evita que LaTeX centre pies de una
+% sola línea (por defecto, lo hace aunque hayas pedido justificación).
 \RequirePackage[
     justification   = justified,
     singlelinecheck = false
@@ -171,9 +182,9 @@
     \begin{tikzpicture}
         \node[
             shape     = circle,
-            draw      = Resalte,
-            fill      = Resalte,
-            text      = TextoEnResalte,
+            draw      = Resalte,        % Hai que definir estas cores en cada
+            fill      = Resalte,        % revista
+            text      = TextoEnResalte, %
             inner sep = 0pt,
             radius    = 0.5,
             inner sep = 1pt,
@@ -183,7 +194,7 @@
     \end{tikzpicture}
 }
 
-% esto e pa poñer o logo do momento no encabezado
+% Esto e pa poñer o logo do momento no encabezado
 \renewcommand\headrule{
     \vspace{-6pt}
     \hrulefill
@@ -192,8 +203,9 @@
     \hrulefill
 }
 
-% :FACER: 0 esto pode acortarse con arrays, e deberíase xuntar toda a
+% :FACER: esto pode acortarse con arrays, e deberíase xuntar toda a
 % funcionalidade de encabezados e titulos e así
+%
 % ESTILOS DE PÁXINA.
 % Estos estilos cambian os encabezados das páxinas dependendo dos artigos que
 % haxa.
@@ -365,6 +377,8 @@
 % Este macro pode invocarse con ou sen asterisco, ousexa \EngadeAoTOC*
 % Co asterisco, aparte do titulo, tamén engade unha seccion ao TOC
 %
+% Argumentos:
+%
 % #1 (asterisco) crear unha seccion no TOC ou no
 % #2 -> Nome do artigo
 % #3 -> Nome do autor
@@ -374,11 +388,11 @@
     % se usou cun asterisco ou no
     \IfBooleanTF{#1}%
     {% No caso de usar asterisco, angadir unha seccion ao TOC
-        \addtocontents{toc}{%
-            \begingroup%
-                \setlength{\parindent}{0pt}%
-                \protect\SeccionTOC{#4}%
-            \endgroup%
+        \addtocontents{toc}{%                %
+            \begingroup%                     % Esta parte deu MOITÍSIMOS
+                \setlength{\parindent}{0pt}% % problemas para facer.
+                \protect\SeccionTOC{#4}%     %
+            \endgroup%                       %
         }%
     }%
     {% No caso de non telo, non engadir seccion ao toc
@@ -391,9 +405,7 @@
     }
 
     % Engadimos o nome do artigo
-    % vvvvvvvvvvvvvvv O ERRO DE COMPILACION ESTÁ AQUI vvvvvvvvvvvvvvvvvvvvv
     \addcontentsline{toc}{section}{\protect{#2}}
-    % ^^^^^^^^^^^^^^^ O ERRO DE COMPILACION ESTÁ AQUI ^^^^^^^^^^^^^^^^^^^^^
 
     % Engadimos o nome do autor. Pa que quede ben metese nunha minipage
     \addtocontents{toc}{%
@@ -417,7 +429,7 @@
 
 % Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
 \NewDocumentCommand\Titular{ s m m m m }{%
-    % #1: (asterisco). Poñelo engade seccion ao toc
+    % #1: (asterisco). Poñelo engade seccion ao TOC
     % #2: nome do artigo,
     % #3: nome do autor,
     % #4: estilo da páxina, cambia os encabezados (e no futuro pode que mais
@@ -426,8 +438,9 @@
     %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
     % #5: subtítulo
     %
+    % engadimos unha sección 'baleira'
     \phantomsection%
-    % Primeiro mostramos o propio titular, como sempre
+    % Mostramos o propio titular, como sempre
     \begin{center}
         \vspace*{-1cm}
         % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
@@ -442,15 +455,16 @@
         \vspace{3mm}
     \end{center}
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
-    \IfBooleanTF{#1}%
+    \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
         {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
-            \EngadeAoTOC*{#2}{#3}{#4}%
+            \EngadeAoTOC*{#2}{#3}{#4}% metemoslle (#2)TITULO, (#3)AUTOR, (#4)ESTILO
         }%
         {% se non temos asterisco, non engadimos seccion
             \EngadeAoTOC{#2}{#3}{#4}%
         }
+    % Aplicamos o estilo de páxina
     \pagestyle{#4}%
-    % significado aprobeito pa meter esto aquí. Resetea números nas ecuacións e
+    % Aprobeito pa meter esto aquí. Resetea números nas ecuacións e
     % figuras
     \setcounter{equation}{0}
     \setcounter{figure}{0}
@@ -459,8 +473,8 @@
 % Tipografia preciosa. Xoga cos espaciados moi ben para xustificar o texto.
 \RequirePackage{microtype}
 
-% Texto de proba
-\RequirePackage{lipsum}
+% Texto de proba.
+% \RequirePackage{lipsum}
 
 % :FACER: cores desto..?
 \RequirePackage{hyperref}
@@ -484,7 +498,9 @@
 \def\Data#1{\def\@Data{#1}}
 \newcommand{\imprimeData}{\@Data}
 
-% Artigos
+% Artigos. Orixinalmente pensamos en engadir o nomer dalgún (ou varios) artigo
+% á portada. Deixoos aquí comentados polo pronto
+%
 % \def\PrimeiroArtigo#1{\def\@PrimeiroArtigo{#1}}
 % \newcommand{\imprimePrimeiroArtigo}{\@PrimeiroArtigo}
 % \def\SegundoArtigo#1{\def\@SegundoArtigo{#1}}
@@ -492,6 +508,10 @@
 % \def\TerceiroArtigo#1{\def\@TerceiroArtigo{#1}}
 % \newcommand{\imprimeTerceiroArtigo}{\@TerceiroArtigo}
 
+% :FACER: este texto pode non verse se a imaxe da portada ten cores moi claras
+% Tal vex deberíamos cambiar de sitio dito texto? Ou cambiarlle a cor? Máis
+% macros?
+%
 % O texto que aparece na imaxe da portada
 \def\ComentarioImaxePortada#1{\def\@ComentarioImaxePortada{#1}}
 \newcommand{\imprimeComentarioImaxePortada}{\@ComentarioImaxePortada}
