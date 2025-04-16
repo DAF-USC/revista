@@ -388,11 +388,11 @@
     % se usou cun asterisco ou no
     \IfBooleanTF{#1}%
     {% No caso de usar asterisco, angadir unha seccion ao TOC
-        \addtocontents{toc}{%                %
-            \begingroup%                     % Esta parte deu MOITÍSIMOS
-                \setlength{\parindent}{0pt}% % problemas para facer.
-                \protect\SeccionTOC{#4}%     %
-            \endgroup%                       %
+        \addtocontents{toc}{%
+            \begingroup%
+                \setlength{\parindent}{0pt}%
+                \protect\SeccionTOC{#4}\protect\par%
+            \endgroup%
         }%
     }%
     {% No caso de non telo, non engadir seccion ao toc
