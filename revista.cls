@@ -203,175 +203,45 @@
     \hrulefill
 }
 
-% :FACER: esto pode acortarse con arrays, e deberíase xuntar toda a
-% funcionalidade de encabezados e titulos e así
-%
-% ESTILOS DE PÁXINA.
-% Estos estilos cambian os encabezados das páxinas dependendo dos artigos que
-% haxa.
+% ESTILOS DE PÁXINA E ÍNDICES.
+% Estos estilos cambian os encabezados das páxinas e engaden 
+% os correspondetes indices dependendo dos artigos que haxa.
 
-% artigos de DIVULGACION
-\fancypagestyle{divulgacion}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{DIVULGACIÓN}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de HISTORIA
-\fancypagestyle{historia}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{HISTORIA}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de ACTUALIDADE DA FACULTADE
-\fancypagestyle{actualidadeFacultade}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{ACTUALIDADE DA FACULTADE}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de ACTUALIDADE CIENTIFICA
-\fancypagestyle{actualidadeCientifica}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{ACTUALIDADE CIENTÍFICA}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de FILOSOFIA
-\fancypagestyle{filosofia}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{FILOSOFÍA}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de ENTREVISTAS
-\fancypagestyle{entrevistas}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{ENTREVISTAS}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% artigos de PROGRAMACIÓN
-\fancypagestyle{programacion}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{PROGRAMACIÓN}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% seccions de PASATEMPOS
-\fancypagestyle{pasatempos}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{PASATEMPOS}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% seccions de ANUNCIOS
-\fancypagestyle{anuncios}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{ANUNCIOS}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% seccions do RINCON DO PROFESORADO
-\fancypagestyle{profesorado}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \fancyhead[LE,RO]{RECUNCHO DO PROFESORADO}
-    \fancyfoot[LE,RO]{\thepage}
-    \fancyfoot[LO,RE]{\imprimeTitulo}
-    \renewcommand{\footrulewidth}{0pt}
-    \headsep = 1.5cm
-}
-
-% :FACER: 0 simplificar esto todo. Tal vez colocar as cadeas en arrays.
-% comandos que crean as liñas de separacion para organizar por temáticas o
-% indice
-\newcommand{\IndiceDivulgacion}{%
+\newcommand{\definirEstiloEIndice}[2]{%
+  \fancypagestyle{#1}{%
+    \fancyhf{} % Limpa as cabeceiras e pés de páxina
+    \renewcommand{\headrulewidth}{0.4pt} % Engade liña no cabeceiro
+    \fancyhead[LE,RO]{\MakeUppercase{#2}} % Nome da sección
+    \fancyfoot[LE,RO]{\thepage} % Páxina
+    \fancyfoot[LO,RE]{\imprimeTitulo} % Título
+    \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
+    \headsep = 1.5cm % Espazo no cabeceiro
+  }
+  \expandafter\newcommand\csname Indice#1\endcsname{%
     \begin{tikzpicture}%
-        \draw[thick] (0,0) -- (4,0);%
-        \node[anchor=center] at (5.5,0)  {\textbf{Divulgacion}};%
-        \draw[thick] (7,0) -- (11,0);%
+      \node (c) at (5.5,0) {\textbf{#2}};%
+      \draw[thick] (0,0) -- ([xshift=-5pt]c.west);%
+      \draw[thick] ([xshift=+5pt]c.east) -- (11,0);%
     \end{tikzpicture}%
-}%
-\newcommand{\IndiceFilosofia}{%
-    \begin{tikzpicture}%
-        \draw[thick] (0,0) -- (4,0);%
-        \node[anchor=center] at (5.5,0) {\textbf{Filosofía}};%
-        \draw[thick] (7,0) -- (11,0);%
-    \end{tikzpicture}%
-}%
-\newcommand{\IndiceHistoria}{%
-    \begin{tikzpicture}%
-        \draw[thick] (0,0) -- (4,0);%
-        \node[anchor=center] at (5.5,0) {\textbf{Historia}};%
-        \draw[thick] (7,0) -- (11,0);%
-    \end{tikzpicture}%
-}%
-\newcommand{\IndiceProfesorado}{%
-    \begin{tikzpicture}%
-        \draw[thick] (0,0) -- (2.9,0);%
-        \node[anchor=center] at (5.5,0) {\textbf{Recuncho do Profesorado}};%
-        \draw[thick] (8.1,0) -- (11,0);%
-    \end{tikzpicture}%
-}%
-\newcommand{\IndiceEntrevistas}{%
-    \begin{tikzpicture}%
-        \draw[thick] (0,0) -- (4,0);%
-        \node[anchor=center] at (5.5,0)  {\textbf{Entrevistas}};%
-        \draw[thick] (7,0) -- (11,0);%
-    \end{tikzpicture}%
-}%
+  }
+}
 
-% :FACER: simplificar esto con expl3
+% SECCIÓNS DA REVISTA.
+% Engadir aquí novas seccións !!
+
+\definirEstiloEIndice{divulgacion}{Divulgación}
+\definirEstiloEIndice{historia}{Historia}
+\definirEstiloEIndice{actualidadeFacultade}{Actualidade da Facultade}
+\definirEstiloEIndice{actualidadeCientifica}{Actualidade Científica}
+\definirEstiloEIndice{filosofia}{Filosofía}
+\definirEstiloEIndice{profesorado}{Recuncho do Profesorado}
+\definirEstiloEIndice{entrevistas}{Entrevistas}
+\definirEstiloEIndice{programacion}{Programación}
+\definirEstiloEIndice{pasatempos}{Pasatempos}
+\definirEstiloEIndice{anuncios}{Anuncios}
+
 \newcommand{\SeccionTOC}[1]{%
-    \ifstrequal{#1}{divulgacion}{\IndiceDivulgacion}{%
-        \ifstrequal{#1}{historia}{\IndiceHistoria}{%
-            \ifstrequal{#1}{filosofia}{\IndiceFilosofia}{%
-                \ifstrequal{#1}{profesorado}{\IndiceProfesorado}{%
-                    \ifstrequal{#1}{entrevistas}{\IndiceEntrevistas}{%
-                        \IndiceEntrevistas
-                    }%
-                }%
-            }%
-        }%
-    }%
+\csname Indice#1\endcsname
 }
 
 % Este macro pode invocarse con ou sen asterisco, ousexa \EngadeAoTOC*
