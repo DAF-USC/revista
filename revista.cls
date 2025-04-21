@@ -37,6 +37,23 @@
 % 'unicode-math' máis abaixo. A cousa é que primeiro hai que cargar os paquetes
 % de matemáticas e DESPOIS, unicode-math
 
+% Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
+% { \FonteSimbolos bla bla bla ... }
+% A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
+% para sustituir as imaxes .PNG de cousas como mails,twitter,instagram, etc.
+% Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
+% esta tipografía. Para buscar os iconos: https://www.nerdfonts.com/cheat-sheet
+% É bastante posible que o editor que estedes usando non vos mostre o icono na
+% pantalla correctamente. Non é problema, mentres sexa o icono correcto no PDF
+% verase ben. Tamén é posible especificar o icono co seu código hexadecimal
+% explícitamente, escribindo ^^^^eb2a Sí, os catro ^ son necesarios, 'eb2a' é o
+% codigo hex.
+\newfontfamily{\FonteSimbolos}[
+    Extension   = .ttf,
+    UprightFont = *-Regular,
+    Path        = ./fontes/NerdFonts/,
+]{SymbolsNerdFontMono}
+
 % Usar galego (como debe ser)
 \RequirePackage[galician]{babel}
 % Usar babel pode fastidiar as citas con biblatex, asique hai que usar
