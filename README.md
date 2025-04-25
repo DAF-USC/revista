@@ -90,17 +90,25 @@ forma seguinte (aproximada)
 \Numero{001}
 \Data{Xaneiro do 1900}
 \ImaxePortada{./revistas/001/imaxes/cern.png}
-\definecolor{Resalte}{HTML}{ff0000} % cores especificos de cada revista
-\definecolor{TextoEnResalte}{HTML}{000000}
+\ComentarioImaxePortada{ Imaxe da portada }
+\CorResalte{ff0000} % cores especificos de cada revista, con codigos HTML hex
+\CorTextoEnResalte{000000}
+\LinkRepositorio{ guthib.com }
+\Correo{ correo@correo.correo }
+\SobreMomentum{ Esta é a revista momentum! }
 \Participantes{
     {\Large \textbf{Dirección:}}     \\[0.5cm]
         Carl Sagan                   \\[0.2cm]
-        ...                          \\[0.2cm]
     {\Large \textbf{Edición}}        \\[0.5cm]
         Albert Einstein              \\[0.2cm]
     {\Large \textbf{Diseño de Logo}} \\[0.5cm]
         Dirac                        \\[0.2cm]
-} }
+}
+\Despedida{ Adeus! }
+\Agradecementos{ Grazas a Todos! }
+\Drive{ https://linkaodrive.com }
+\WhatsApp{ https://link grupo whatsapp }
+
 \begin{document}
 \input{portada.tex}
 \input{indice.tex}

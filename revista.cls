@@ -418,6 +418,46 @@
 \def\Participantes#1{\def\@Participantes{#1}}
 \newcommand{\imprimeParticipantes}{\textcolor{TextoEnResalte}{\@Participantes}}
 
+% Texto do indice que presenta a revista
+\def\SobreMomentum#1{\def\@SobreMomentum{#1}}
+\newcommand{\imprimeSobreMomentum}{\@SobreMomentum}
+
+% LINK para o REPOSITORIO
+\def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
+\newcommand{\imprimeLinkRepositorio}{\@LinkRepositorio}
+
+% CORREO
+\def\Correo#1{\def\@Correo{#1}}
+\newcommand{\imprimeCorreo}{\@Correo}
+
+% Texto de DESPEDIDA, na contraportada
+\def\Despedida#1{\def\@Despedida{#1}}
+\newcommand{\imprimeDespedida}{\@Despedida}
+
+% AGRADECEMENTOS, na contraportada
+\def\Agradecementos#1{\def\@Agradecementos{#1}}
+\newcommand{\imprimeAgradecementos}{\@Agradecementos}
+
+% Link para o DRIVE
+\def\Drive#1{\def\@Drive{#1}}
+\newcommand{\imprimeDrive}{\@Drive}
+
+% Link para o grupo de WHATSAPP
+\def\WhatsApp#1{\def\@WhatsApp{#1}}
+\newcommand{\imprimeWhatsApp}{\@WhatsApp}
+
+% CORES de resalte. Non fai falta definir estos comandos, pero así podemos usar
+% na revista '\CorResalte{ff0000}' en vez de
+% '\definecolor{Resalte}{HTML}{ff0000}'. Algo máis limpo.
+\def\CorResalte#1{\def\@CorResalte{#1}}
+\newcommand{\defineCorResalte}{\definecolor{Resalte}{HTML}{\@CorResalte}}
+\def\CorTextoEnResalte#1{\def\@CorTextoEnResalte{#1}}
+\newcommand{\defineCorTextoEnResalte}{\definecolor{TextoEnResalte}{HTML}{\@CorTextoEnResalte}}
+
+% inicalizo as cores por se acaso
+\definecolor{Resalte}{HTML}{ff0000}
+\definecolor{TextoEnResalte}{HTML}{ffffff}
+
 \makeatother
 % Todos esos comandos teñen a info da revista. Gardase o valor nunha variable,
 % e imprimese no PDF con outro comando diferente. Esto da bastante
@@ -425,14 +465,27 @@
 
 % En cada revista hai que usar estos comandos ao comezo.
 %
-% \Numero{0}
-% \Data{Enero do 1900}
-% \PrimeiroArtigo{Entrevista a Marie Curie}
-% \ImaxePortada{./cern.png}
-% \definecolor{Resalte}{HTML}{ff0000}
-% \definecolor{TextoEnResalte}{HTML}{000000}
-% \ComentarioImaxePortada{ A imaxe da portada e moi bonita}
-% \Participantes{ Rocio, \\ Arturo }%
+% \Numero{001}
+% \Data{Xaneiro do 1900}
+% \ImaxePortada{./revistas/001/imaxes/cern.png}
+% \ComentarioImaxePortada{ Imaxe da portada }
+% \CorResalte{ff0000} % cores especificos de cada revista, con codigos HTML hex
+% \CorTextoEnResalte{000000}
+% \LinkRepositorio{ guthib.com }
+% \Correo{ correo@correo.correo }
+% \SobreMomentum{ Esta é a revista momentum! }
+% \Participantes{
+%     {\Large \textbf{Dirección:}}     \\[0.5cm]
+%         Carl Sagan                   \\[0.2cm]
+%     {\Large \textbf{Edición}}        \\[0.5cm]
+%         Albert Einstein              \\[0.2cm]
+%     {\Large \textbf{Diseño de Logo}} \\[0.5cm]
+%         Dirac                        \\[0.2cm]
+% }
+% \Despedida{ Adeus! }
+% \Agradecementos{ Grazas a Todos! }
+% \Drive{ https://linkaodrive.com }
+% \WhatsApp{ https://link grupo whatsapp }
 
 % Os comandos anteriores definen as variables. Pa mostralas no pdf hai que usar:
 %
@@ -440,10 +493,15 @@
 % \imprimeNumero          Numero da revista
 % \imprimeData            Data de creacion
 % \imprimeImaxePortada    ruta para a imaxe de portada, debe especificarse en cada revista
-% \imprimePrimeiroArtigo  %
-% \imprimePrimeiroArtigo  % Nomes dos artigos principais.
-% \imprimeTerceiroArtigo  %
 % \color{Resalte}         Para colorear cousas ca cor específica de cada revista
+% \color{TextoEnResalte}  Para colorear texto que esté sobre fondo ca cor do resalte
+% \imprimeParticipantes   Nomes dos participantes
+% \imprimeSobreMomentum
+% \imprimeLinkRepositorio
+% \imprimeDespedida
+% \imprimeAgradecementos
+% \imprimeDrive
+% \imprimeWhatsApp
 
 % :FACER: remirar estos conteos...
 % \pagenumbering{arabic}\setcounter{page}{1}
