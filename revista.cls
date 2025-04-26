@@ -425,10 +425,12 @@
 % LINK para o REPOSITORIO
 \def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
 \newcommand{\imprimeLinkRepositorio}{\@LinkRepositorio}
+\LinkRepositorio{https://github.com/DAF-USC/revista}
 
 % CORREO
 \def\Correo#1{\def\@Correo{#1}}
 \newcommand{\imprimeCorreo}{\@Correo}
+\Correo{revistafisicausc@gmail.com}
 
 % Texto de DESPEDIDA, na contraportada
 \def\Despedida#1{\def\@Despedida{#1}}
@@ -441,10 +443,12 @@
 % Link para o DRIVE
 \def\Drive#1{\def\@Drive{#1}}
 \newcommand{\imprimeDrive}{\@Drive}
+\Drive{https://drive.google.com/drive/folders/1BSCyGXvnZneKDR1o6fI8nUZ4px71IsLs?usp=sharing}
 
 % Link para o grupo de WHATSAPP
 \def\WhatsApp#1{\def\@WhatsApp{#1}}
 \newcommand{\imprimeWhatsApp}{\@WhatsApp}
+\WhatsApp{https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk}
 
 % CORES de resalte. Non fai falta definir estos comandos, pero así podemos usar
 % na revista '\CorResalte{ff0000}' en vez de

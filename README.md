@@ -93,8 +93,6 @@ forma seguinte (aproximada)
 \ComentarioImaxePortada{ Imaxe da portada }
 \CorResalte{ff0000} % cores especificos de cada revista, con codigos HTML hex
 \CorTextoEnResalte{000000}
-\LinkRepositorio{ guthib.com }
-\Correo{ correo@correo.correo }
 \SobreMomentum{ Esta é a revista momentum! }
 \Participantes{
     {\Large \textbf{Dirección:}}     \\[0.5cm]
@@ -106,8 +104,6 @@ forma seguinte (aproximada)
 }
 \Despedida{ Adeus! }
 \Agradecementos{ Grazas a Todos! }
-\Drive{ https://linkaodrive.com }
-\WhatsApp{ https://link grupo whatsapp }
 
 \begin{document}
 \input{portada.tex}
@@ -119,9 +115,19 @@ forma seguinte (aproximada)
 \input{contraportada.tex}
 \end{document}
 ```
-Os comandos `\Numero, \Data, \ImaxePortada, \Participantes`, e os
-`\definecolor` deben usarse en cada revista e están explicados na [clase da
-revista](./revista.cls)
+
+Os comandos `\Numero, \Data, \ImaxePortada, \ComentarioImaxePortada,
+\SobreMomentum, \Despedida, \Agradecementos, \CorResalte, \CorTextoEnResalte
+\Participantes`, e os `\definecolor` deben usarse en cada revista xa que
+conteñen información específica para cada número. Están explicados na [clase da
+revista](./revista.cls).
+
+Adicionalmente, os macros ` \LinkRepositorio, \Correo, \Drive, \WhatsApp`
+defínense na propia clase da revista porque, en principio, conteñen información
+que non tería sentido cambiar entre os números.
+
+Para mostrar calquera desos valores só hai que prefixar o macro con imprime,
+e.g. `\imprimeCorreo, ou \imprimeNumero`
 
 ### Artigos
 
