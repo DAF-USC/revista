@@ -441,9 +441,9 @@
 \newcommand{\imprimeAgradecementos}{\@Agradecementos}
 
 % Link para o DRIVE
-\def\Drive#1{\def\@Drive{#1}}
-\newcommand{\imprimeDrive}{\@Drive}
-\Drive{https://drive.google.com/drive/folders/1BSCyGXvnZneKDR1o6fI8nUZ4px71IsLs?usp=sharing}
+\def\EdicionsAnteriores#1{\def\@EdicionsAnteriores{#1}}
+\newcommand{\imprimeEdicionsAnteriores}{\@EdicionsAnteriores}
+\EdicionsAnteriores{https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum}
 
 % Link para o grupo de WHATSAPP
 \def\WhatsApp#1{\def\@WhatsApp{#1}}
