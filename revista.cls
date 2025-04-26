@@ -425,7 +425,7 @@
 % LINK para o REPOSITORIO
 \def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
 \newcommand{\imprimeLinkRepositorio}{\@LinkRepositorio}
-\LinkRepositorio{https://github.com/DAF-USC/revista}
+\LinkRepositorio{DAF-USC/revista}
 
 % CORREO
 \def\Correo#1{\def\@Correo{#1}}

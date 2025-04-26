@@ -62,23 +62,23 @@
     \imprimeParticipantes \\[1.5cm]
     % Links varios
     \begin{tikzpicture}[scale=1.5]
-        \node at (0,0) {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont \textcolor{TextoEnResalte}  };
         \begingroup
-            \hypersetup{urlcolor = TextoEnResalte}
-            \node[
-                anchor = west,
-                align  = left
-            ] at (0.5,0)
-            {
-                \textbf{\textcolor{TextoEnResalte}{\href{\imprimeLinkRepositorio}{GitHub}}}
-            };
-        \node at (0,-1) { \FonteSimbolos\fontsize{20pt}{0pt}\selectfont \textcolor{TextoEnResalte}  };
+        \hypersetup{urlcolor = TextoEnResalte}
+        \node at (0,0) { \FonteSimbolos\fontsize{20pt}{0pt}\selectfont \textcolor{TextoEnResalte}  };
+        \node[
+            anchor = west,
+            align  = left
+        ] at (0.5,0)
+        {
+            \footnotesize \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
+        };
+        \node at (0,-1) {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont \textcolor{TextoEnResalte}  };
         \node[
             anchor = west,
             align  = left
         ] at (0.5,-1)
         {
-            \footnotesize \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
+            \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
         };
         \endgroup
     \end{tikzpicture} \\[1.7cm]
