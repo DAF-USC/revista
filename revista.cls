@@ -402,6 +402,7 @@
 % O texto que aparece na imaxe da portada
 \def\ComentarioImaxePortada#1{\def\@ComentarioImaxePortada{#1}}
 \newcommand{\imprimeComentarioImaxePortada}{\@ComentarioImaxePortada}
+\ComentarioImaxePortada{}
 
 % TITULO REVISTA
 \newcommand{\imprimeTitulo}{MOMENTUM}
@@ -417,10 +418,12 @@
 % PARTICIPANTES DO PROXECTO. Usase no índice, no lado dereito ca cor de resalte
 \def\Participantes#1{\def\@Participantes{#1}}
 \newcommand{\imprimeParticipantes}{\textcolor{TextoEnResalte}{\@Participantes}}
+\Participantes{}
 
 % Texto do indice que presenta a revista
 \def\SobreMomentum#1{\def\@SobreMomentum{#1}}
 \newcommand{\imprimeSobreMomentum}{\@SobreMomentum}
+\SobreMomentum{}
 
 % LINK para o REPOSITORIO
 \def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
@@ -435,10 +438,12 @@
 % Texto de DESPEDIDA, na contraportada
 \def\Despedida#1{\def\@Despedida{#1}}
 \newcommand{\imprimeDespedida}{\@Despedida}
+\Despedida{}
 
 % AGRADECEMENTOS, na contraportada
 \def\Agradecementos#1{\def\@Agradecementos{#1}}
 \newcommand{\imprimeAgradecementos}{\@Agradecementos}
+\Agradecementos{}
 
 % Link para o DRIVE
 \def\EdicionsAnteriores#1{\def\@EdicionsAnteriores{#1}}
