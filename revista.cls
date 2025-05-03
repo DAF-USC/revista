@@ -190,6 +190,7 @@
 \RequirePackage[scr]{rsfso}
 \RequirePackage{adjustbox}
 \RequirePackage{ragged2e} % Para justificar minipages
+\RequirePackage{float}
 
 % Encabezados e pe de paxina
 % Pa facilitar a creacion cun par de comandos
