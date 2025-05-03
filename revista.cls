@@ -153,6 +153,7 @@
 \RequirePackage{mathrsfs}   % letras reviradas \mathcal
 \RequirePackage{polynomial} % polinomios simples
 \RequirePackage{tensor}     % indices e eso
+\RequirePackage{braket}
 
 \RequirePackage{svrsymbols} % simbolos variados
 \RequirePackage{adforn}     %
