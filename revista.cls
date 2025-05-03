@@ -153,6 +153,7 @@
 \RequirePackage{mathrsfs}   % letras reviradas \mathcal
 \RequirePackage{polynomial} % polinomios simples
 \RequirePackage{tensor}     % indices e eso
+\RequirePackage{braket}
 
 \RequirePackage{svrsymbols} % simbolos variados
 \RequirePackage{adforn}     %
@@ -189,6 +190,7 @@
 \RequirePackage[scr]{rsfso}
 \RequirePackage{adjustbox}
 \RequirePackage{ragged2e} % Para justificar minipages
+\RequirePackage{float}
 
 % Encabezados e pe de paxina
 % Pa facilitar a creacion cun par de comandos

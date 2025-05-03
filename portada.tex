@@ -11,6 +11,7 @@
     nofoot = true, % desactivar o pe de paxina
 }
 
+\begingroup % un grupo para que o de parindent non afecte ao resto da revista
 \setlength\parindent{0pt}
 
 % TITULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,6 +73,7 @@
     ] at (current page.south west)
     {\includegraphics[width=3cm]{logos/usc-invertido.png}};
 \end{tikzpicture}
+\endgroup % <-- este cerra o grupo que contén o de \setlenght\parindent{0pt}
 
 % volvemos a cargar a xeometria que tiñamos no preambulo
 \restoregeometry
