@@ -465,7 +465,7 @@
     \hypersetup{linkcolor = {Resalte!55!black}}%
 }%
 
-\newcommand{\defineCorTextoEnResalte}[1]{
+\newcommand{\CorTextoEnResalte}[1]{
     \definecolor{TextoEnResalte}{HTML}{#1}
 }
 
