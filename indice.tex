@@ -1,3 +1,5 @@
+\begingroup % un grupo para que o de parindent non afecte ao resto da revista
+\setlength\parindent{0pt}
 % Color del resalte trasparentado a la derecha del índice
 \begin{tikzpicture}[remember picture, overlay]
     \draw[
@@ -88,5 +90,6 @@
         \includegraphics[width=0.8\linewidth]{./logos/usc-invertido.png}
     \end{center}
 \end{minipage}
+\endgroup % <-- este cerra o grupo que contén o de \setlenght\parindent{0pt}
 \newpage
 \pagenumbering{arabic}

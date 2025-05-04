@@ -63,17 +63,13 @@
 % :FACER: non temos un estilo concreto para a bibliografía
 % Bibliografia
 \RequirePackage[
-    style  = alphabetic,
+    % style  = alphabetic,
     natbib = true,
 ]{biblatex}
 \addbibresource{bibliografia.bib}
 
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
 \RequirePackage{xcolor}
-
-% Inicializo as coreas agora. En cada artigo é necesario cambialas
-\definecolor{Resalte}{HTML}{ff0000}
-\definecolor{TextoEnResalte}{HTML}{ffffff}
 
 % Graficos e tal. Se podes soñalo, podes facelo con TikZ
 \RequirePackage{tikz}
@@ -459,13 +455,21 @@
 
 % CORES de resalte. Non fai falta definir estos comandos, pero así podemos usar
 % na revista '\CorResalte{ff0000}' en vez de
-% '\definecolor{Resalte}{HTML}{ff0000}'. Algo máis limpo.
-\def\CorResalte#1{\def\@CorResalte{#1}}
-\newcommand{\defineCorResalte}{\definecolor{Resalte}{HTML}{\@CorResalte}}
-\def\CorTextoEnResalte#1{\def\@CorTextoEnResalte{#1}}
-\newcommand{\defineCorTextoEnResalte}{\definecolor{TextoEnResalte}{HTML}{\@CorTextoEnResalte}}
+% '\definecolor{Resalte}{HTML}{ff0000}'. Algo máis limpo. Ollo, hai que meter o
+% de \hypersetup aquí para que as cores dos links cambien en cada revista. Na
+% clase, definimos as cores (nunhas liñas máis adiante), e se non metesemos o
+% hypersetup no macro este, na revista non poderíamos cambiar as cores dos
+% links
+\newcommand{\CorResalte}[1]{%
+    \definecolor{Resalte}{HTML}{#1}%
+    \hypersetup{linkcolor = {Resalte!55!black}}%
+}%
 
-% inicalizo as cores por se acaso
+\newcommand{\defineCorTextoEnResalte}[1]{
+    \definecolor{TextoEnResalte}{HTML}{#1}
+}
+
+% Inicializo as coreas agora. En cada artigo é necesario cambialas cos macros anteriores
 \definecolor{Resalte}{HTML}{ff0000}
 \definecolor{TextoEnResalte}{HTML}{ffffff}
 
