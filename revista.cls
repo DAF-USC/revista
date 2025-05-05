@@ -187,6 +187,7 @@
 \RequirePackage{adjustbox}
 \RequirePackage{ragged2e} % Para justificar minipages
 \RequirePackage{float}
+\RequirePackage[small, unboxed]{cwpuzzle}
 
 % Encabezados e pe de paxina
 % Pa facilitar a creacion cun par de comandos
@@ -465,7 +466,7 @@
     \hypersetup{linkcolor = {Resalte!55!black}}%
 }%
 
-\newcommand{\CorTextoEnResalte}[1]{
+\newcommand{\defineCorTextoEnResalte}[1]{
     \definecolor{TextoEnResalte}{HTML}{#1}
 }
 
