@@ -66,12 +66,15 @@
 % 'csquotes'
 \RequirePackage{csquotes}
 
-% :FACER: non temos un estilo concreto para a bibliografía
-% Bibliografia
+% BIBLIOGRAFIA. Pasamos a usar o método máis comodo, xeral e rápido: CSL
+% https://www.ctan.org/pkg/citation-style-language
+% https://github.com/citation-style-language/styles
+% https://www.zotero.org/styles
 \RequirePackage[
-    % style  = alphabetic,
-    natbib = true,
-]{biblatex}
+    style       = american-physics-society,
+    % locale      = gl, % non furrula aquí, pero cargase solo con babel galician
+    ref-section = section
+]{citation-style-language}
 \addbibresource{bibliografia.bib}
 
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
