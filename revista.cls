@@ -135,6 +135,15 @@
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
 % \listfiles
 
+% Para ter algo máis de info, engadimos ao PDF o numero ca contribucion con
+% gitinfo2. O que fai o paquete é engadir un 'git hook' ao proxecto, o cal xera
+% un arquivo (.git/gitHeadInfo.gin) con info sobre a versión (rama, hash da
+% HEAD, etc.) o cal logo se le con latex e se pode acceder con varios comandos
+% como.
+\RequirePackage[
+    missing = {NoGit}, % qué mostrar se non tamos nun repositorio de git
+]{gitinfo2}
+
 % Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opcion da
 % clase 'twocols' porque esa da moitísimos problemas no caso de que queiramos
 % ter partes que non teñan 2 columnas. Aparte de que se pode configurar menos
