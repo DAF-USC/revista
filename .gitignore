@@ -15,6 +15,9 @@
 *.ilg
 *.ind
 
+# arquivos comprimidos
+*.zip
+
 # varios
 tex.err
 tex.err.bak
