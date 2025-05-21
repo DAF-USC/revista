@@ -264,7 +264,7 @@ LaTeX3 (expl3)
 - Repositorio (expl3): https://github.com/latex3/latex3
 
 Experimetal
-- LaTeX Laboratory, cousas máis novedosas e en desenvolvemento, e.g. o `\NewDocumentCommand`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
+- LaTeX Laboratory, cousas máis novedosas e en desenvolvemento, e.g. o `\DocumentMetadata`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
 - LaTeX Laboratory **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/latex-lab
 
 Outros
