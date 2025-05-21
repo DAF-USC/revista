@@ -266,6 +266,7 @@ LaTeX3 (expl3)
 Experimetal
 - LaTeX Laboratory, cousas máis novedosas e en desenvolvemento, e.g. o `\DocumentMetadata`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
 - LaTeX Laboratory **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/latex-lab
+- Un monton de docs que están aparte (e.g. l3pdfmeta): https://ctan.org/tex-archive/macros/latex/contrib/pdfmanagement-testphase
 
 Outros
 - Funcions de Lua (potentes): https://ctan.org/tex-archive/macros/luatex/latex e https://ctan.org/tex-archive/macros/luatex/generic
