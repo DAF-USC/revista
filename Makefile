@@ -24,4 +24,8 @@ rula: revistas/$(numero)/revista_$(numero).tex
 limpa:
 	rm -rf .pdf/* .aux/* # pra limpar os diretorios
 
+# accion para empaquetar os arquivos necesarios para o artigo simplificado
+modelo:
+	zip -r modelo.zip fontes/ artigo_simplificado.tex revista.cls latexmkrc *.csl
+
 .PHONY: rula limpa

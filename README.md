@@ -1,3 +1,5 @@
+(texto non actualizado, estamos en obras ata rematar o verán!)
+
 # Revista MOMENTUM
 
 Este é repositorio oficial da revista **MOMENTUM**, creada de 0 por
@@ -240,3 +242,58 @@ make limpa      # limpar os arquivos auxiliares
 Por defecto, ca configuración de latexmk adxunta, ao compilar unha revista
 o PDF que se xere gárdase no directorio `./pdf/` e os arquivos auxiliares
 en `./aux/`.
+
+# Varios links e documentos utiles
+
+## Paxinas oficiais principais
+
+- Proxecto de Latex principal: https://www.latex-project.org/
+- Arquivo principal con paquetes, documentos e ferramentas: https://www.ctan.org/
+- LuaTex: https://www.luatex.org/
+
+## Documentacions e repositorios principais
+
+LaTeX2e
+- Documentos (e arquivos) base oficiais (inclue **luatex** en ltluatex.pdf): https://ctan.org/tex-archive/macros/latex/base
+- Documentos (e arquivos) base oficiais **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/base
+- Repositorio: https://github.com/latex3/latex2e
+
+LaTeX3 (expl3)
+- Documentos (e arquivos) de LaTeX3: https://ctan.org/tex-archive/macros/latex/required/l3kernel
+- Documentos (e arquivos) de LaTeX3 **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/l3kernel
+- Repositorio (expl3): https://github.com/latex3/latex3
+
+Experimetal
+- LaTeX Laboratory, cousas máis novedosas e en desenvolvemento, e.g. o `\DocumentMetadata`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
+- LaTeX Laboratory **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/latex-lab
+- Un monton de docs que están aparte (e.g. l3pdfmeta): https://ctan.org/tex-archive/macros/latex/contrib/pdfmanagement-testphase
+
+Docs principais de Luatex
+- Paquete en CTAN: https://ctan.org/pkg/luatex
+- Funcions de Lua (potentes): https://ctan.org/tex-archive/macros/luatex/latex e https://ctan.org/tex-archive/macros/luatex/generic
+
+## Documentacións utiles
+
+- Preguntas e Respostas máis importantes: https://tex.stackexchange.com/
+- Overleaf Docs: https://www.overleaf.com/learn
+- LaTeX Wikibook (algo desactualizado pero ten cousas da base de La/TeX moi utiles): https://en.wikibooks.org/wiki/LaTeX
+- Varias referencias: https://latexref.xyz/
+- Preguntas comuns: https://texfaq.org/
+
+## Simbolos e tipografias
+
+- Mega lista de fontes: https://tug.org/FontCatalogue/
+- Mega lista de simbolos: https://www.ctan.org/pkg/comprehensive
+
+## Tagging project
+
+- Proxecto (non de LaTeX): https://taggedpdf.com/
+- Introduccion ao uso do proxecto: https://latex3.github.io/tagging-project/documentation/prototype-usage-instructions
+- Compatibilidade de varios paquetes e clases co proxecto: https://latex3.github.io/tagging-project/tagging-status/
+- Proxecto en CTAN, coa documentación oficial: https://www.ctan.org/pkg/tagpdf
+- Repositorio de `tagpdf`: https://github.com/latex3/tagpdf
+
+## Outros
+
+- Lista con moitas cousas LaTeXeras: https://github.com/egeerardyn/awesome-LaTeX
+- Logotipia de LaTeX: https://github.com/latex3/branding
