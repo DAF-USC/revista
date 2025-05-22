@@ -268,7 +268,8 @@ Experimetal
 - LaTeX Laboratory **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/latex-lab
 - Un monton de docs que están aparte (e.g. l3pdfmeta): https://ctan.org/tex-archive/macros/latex/contrib/pdfmanagement-testphase
 
-Outros
+Docs principais de Luatex
+- Paquete en CTAN: https://ctan.org/pkg/luatex
 - Funcions de Lua (potentes): https://ctan.org/tex-archive/macros/luatex/latex e https://ctan.org/tex-archive/macros/luatex/generic
 
 ## Documentacións utiles
