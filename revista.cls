@@ -506,6 +506,28 @@
 \definecolor{Resalte}{HTML}{ff0000}
 \definecolor{TextoEnResalte}{HTML}{ffffff}
 
+% Un macro para os pasatempos, para facilitarnos algo a vida
+%
+% #1 (entre corchetes [...]) texto opcional á dereita
+% #2 TITULO. Primeiro argumento entre parenteses recurvos {...}
+% #3 AUTOR. Segundo argumento entre parenteses recurvos {...}
+%
+% Exemplos:
+% \Pasatempo[fontes: wikipedia]{Encrucillado}{Manolito}
+% \Pasatempo{Integral dificil}{Alvaro}
+%
+% :FACER: non me convence meter todo dentro do argumendo de \section, pero
+% funciona... asique todo ben
+\NewDocumentCommand\Pasatempo{ o m m }{%
+    \section*{%
+        \textcolor{Resalte}{#2 }% AUTOR
+        {\normalfont \itshape #3}% TITULO DO PASATEMPO
+        \IfNoValueTF{#1}%
+            {}%
+            {\hfill {\small #1}}%
+    }%
+}
+
 \makeatother
 % Todos esos comandos teñen a info da revista. Gardase o valor nunha variable,
 % e imprimese no PDF con outro comando diferente. Esto da bastante
