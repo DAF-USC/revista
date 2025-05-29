@@ -26,9 +26,11 @@
 
 % Tipografía Sans Serif. Usase con \textsf{ aaa }
 \setsansfont[
-    Path      = ./fontes/LatinModern/,
-    Extension = .otf,
-]{lmsans10-regular}
+    Path        = ./fontes/LatinModern/,
+    Extension   = .otf,
+    UprightFont = *-regular,
+    BoldFont    = *-bold,
+]{lmsans10}
 
 % Tipografía xeral
 \setmainfont[
@@ -188,13 +190,14 @@
 % sola línea (por defecto, lo hace aunque hayas pedido justificación).
 % :FACER: tal vez podemos customizar algo mais as captions (sans serif?)
 \RequirePackage{caption}
+\renewcommand{\bfdefault}{bx}
 \captionsetup{
     font            = footnotesize,
     justification   = justified,
     skip            = 6pt,
     singlelinecheck = false,
-    labelfont       = {bf,small},
-    textfont        = {small}
+    labelfont       = {bf,sf,small},
+    textfont        = {sf,small}
 }
 
 % Uns paquetes varios que non organicei
