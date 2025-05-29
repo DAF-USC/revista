@@ -167,7 +167,7 @@
 \RequirePackage{adforn}     %
 
 
-\RequirePackage{unicode-math}
+\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 % :FACER: escoller outra tipografia para as mates, esta non ten varios simbolos
 % A maiores, teño a sospeita de que algúns simbolos e caracteres matemáticos funcionan mal,
 % véxase o de lim -> l1'm da revista_002 no pasatempo de alvaro
