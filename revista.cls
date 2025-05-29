@@ -528,6 +528,18 @@
     }%
 }
 
+% CITAS TEXTUAIS
+%   Argumentos:
+%   #1: Contido da cita
+%   #2: Autor
+\newcommand{\Cita}[2]{%
+  \begin{quotation}
+  {\itshape #1}\\
+  \vspace{1ex}
+  \hfill — #2
+  \end{quotation}
+}
+
 \makeatother
 % Todos esos comandos teñen a info da revista. Gardase o valor nunha variable,
 % e imprimese no PDF con outro comando diferente. Esto da bastante
