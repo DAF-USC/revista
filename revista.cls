@@ -61,9 +61,9 @@
 ]{SymbolsNerdFontMono}
 
 % Usar galego (como debe ser)
-\RequirePackage[galician]{babel}
-% Usar babel pode fastidiar as citas con biblatex, asique hai que usar
-% 'csquotes'
+\RequirePackage{polyglossia}
+\setmainlanguage{galician}
+% Para garantizar que as citas funcionen ben con BibLaTeX:
 \RequirePackage{csquotes}
 
 % BIBLIOGRAFIA. Pasamos a usar o método máis comodo, xeral e rápido: CSL
@@ -576,9 +576,12 @@
 % :FACER: remirar estos conteos...
 % \pagenumbering{arabic}\setcounter{page}{1}
 
+%%%%%%%%%%%%%
+% DEFINICIÓNS
+%%%%%%%%%%%%%
 
-% outros macros e definicions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acento gráfico ao lim
+\renewcommand{\lim}{\mathop{\mathrm{lím}}\limits}
 
-% para os diferenciais inexactos
+% Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
