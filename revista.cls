@@ -10,7 +10,7 @@
 % os comentarios con :FACER: están para usar con ferramentas como grep
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{revista}[2025/05/06 Clase para a revista de Fisica USC]
+\ProvidesClass{revista}[2025/05/31 Clase para a revista de Fisica USC]
 
 \LoadClass[11pt,a4paper,twoside]{extarticle}
 
@@ -190,7 +190,6 @@
 % sola línea (por defecto, lo hace aunque hayas pedido justificación).
 % :FACER: tal vez podemos customizar algo mais as captions (sans serif?)
 \RequirePackage{caption}
-\renewcommand{\bfdefault}{bx}
 \captionsetup{
     font            = footnotesize,
     justification   = justified,
