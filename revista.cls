@@ -337,42 +337,47 @@
 }
 
 % Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
-\NewDocumentCommand\Titular{ s m m m m }{%
+\NewDocumentCommand\Titular{ s m m o o }{%
     % #1: (asterisco). Poñelo engade seccion ao TOC
     % #2: nome do artigo,
-    % #3: nome do autor,
-    % #4: estilo da páxina, cambia os encabezados (e no futuro pode que mais
+    % #3: estilo da páxina, cambia os encabezados (e no futuro pode que mais
     %     cousas) A escoller entre:
     %     divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
     %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
+    % #4: nome do autor
     % #5: subtítulo
     %
     % engadimos unha sección 'baleira'
     \phantomsection%
     % Mostramos o propio titular, como sempre
     \begin{center}
-        \vspace*{-5mm}
         % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
+        \vspace*{-5mm}
+        % TITULO --------------------------------------------------
         \begingroup
-            \setstretch{2}%
-            \noindent{\color{Resalte}\Huge \textbf{#2}} \\ % TITULO
+            \setstretch{2}\noindent{\color{Resalte}\Huge \textbf{#2}} \\
         \endgroup
+        % AUTORÍA -------------------------------------------------
+        \IfNoValueTF{#4} % comprobamos se o argumento do autor está baleiro
+            { SEN AUTOR } % se SI está baleiro
+            {\vspace*{3mm}\Large #4 \\} % se NON está baleiro
         \vspace{3mm}
-        {\Large #3} \\ % AUTOR % :FACER: autores opcionais, debería salir facil con expl3
-        \vspace{3mm}
-        \textit{#5}  % SUBTITULO
+        % SUBTITULO -----------------------------------------------
+        \IfNoValueTF{#5}
+            { SEN SUBj}
+            {\textit{#5}}
         \vspace{-3mm}
     \end{center}
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
-    \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
-        {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
-            \EngadeAoTOC*{#2}{#3}{#4}% metemoslle (#2)TITULO, (#3)AUTOR, (#4)ESTILO
-        }%
-        {% se non temos asterisco, non engadimos seccion
-            \EngadeAoTOC{#2}{#3}{#4}%
-        }
+    % \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
+    %     {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
+    %         \EngadeAoTOC*{#2}{#3}{#4}% metemoslle (#2)TITULO, (#3)AUTOR, (#4)ESTILO
+    %     }%
+    %     {% se non temos asterisco, non engadimos seccion
+    %         \EngadeAoTOC{#2}{#3}{#4}%
+    %     }
     % Aplicamos o estilo de páxina
-    \pagestyle{#4}%
+    \pagestyle{#3}%
     % Aprobeito pa meter esto aquí. Resetea números nas ecuacións e
     % figuras
     \setcounter{equation}{0}
