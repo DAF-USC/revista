@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{revista}[2025/05/31 Clase para a revista de Fisica USC]
 
-\LoadClass[11pt,a4paper,twoside]{extarticle}
+\LoadClass[11pt,a4paper,twoside]{article}
 
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
