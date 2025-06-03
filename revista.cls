@@ -243,7 +243,7 @@
 }
 
 % ESTILOS DE PÁXINA E ÍNDICES.
-% Estos estilos cambian os encabezados das páxinas e engaden 
+% Estos estilos cambian os encabezados das páxinas e engaden
 % os correspondetes indices dependendo dos artigos que haxa.
 
 \newcommand{\definirEstiloEIndice}[2]{%
@@ -336,48 +336,73 @@
     \addtocontents{toc}{\vspace{2em}}
 }
 
-% Un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
-\NewDocumentCommand\Titular{ s m m o o }{%
-    % #1: (asterisco). Poñelo engade seccion ao TOC
-    % #2: nome do artigo,
-    % #3: estilo da páxina, cambia os encabezados (e no futuro pode que mais
-    %     cousas) A escoller entre:
-    %     divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
-    %     filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
-    % #4: nome do autor
-    % #5: subtítulo
-    %
-    % engadimos unha sección 'baleira'
+% Este é un pequeno macro que fai uso da nova funcionalidade de Experimental
+% LaTeX 3 (expl3 para os amigos). Comproba se un argumento está BALEIRO, ousexa
+% '\exemplo{}' ten un argumento baleiro.
+\ExplSyntaxOn
+    \cs_set_eq:NN  \EstaBaleiro  \tl_if_blank:nTF
+\ExplSyntaxOff
+
+% Agora un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
+%
+% #1: (asterisco *). Poñelo engade seccion ao Indice
+% #2: ESTILO DA PÁXINA cambia os encabezados: A escoller entre:
+%         divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
+%         filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
+% #3: TITULO do artigo
+% #4: AUTORIA
+% #5: SUBTITULO
+%
+% Exemplo:
+%
+% \Titular*       -> asterisco, polo que no Indice aparece seccion
+% {divulgacion}   -> OBLIGATORIO especificar o ESTILO
+% {titulo}        -> OBLIGATORIO especificar o TITULO
+% {noether}       -> OPCIONAL especificar a AUTORÍA
+% {subtitulo}     -> OPCIONAL especificar o SUBTITULO
+%
+% IMPORTANTE: Se non se quere especificar algo (autor ou subtitulo), hai que
+% poñerlle os parenteses igualmente, pero baleiros, é dicir:
+%
+% \Titular*
+% {divulgacion}
+% {titulo}
+% {}              -> sen autoría, cos parenteses baleiros
+% {}              -> sen subtitulo, cos parenteses baleiros
+%
+\NewDocumentCommand\Titular{ s m m m m }{%
+    % Primeiro, engadimos unha sección 'baleira'
     \phantomsection%
-    % Mostramos o propio titular, como sempre
+    % Mostramos o propio titular, como sempre. Todo dentro dun `center`
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{center}
         % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
         \vspace*{-5mm}
-        % TITULO --------------------------------------------------
+        % TITULO
         \begingroup
-            \setstretch{2}\noindent{\color{Resalte}\Huge \textbf{#2}} \\
+            \setstretch{2}\noindent{\color{Resalte}\Huge \textbf{#3}} \\
         \endgroup
-        % AUTORÍA -------------------------------------------------
-        \IfNoValueTF{#4} % comprobamos se o argumento do autor está baleiro
-            { SEN AUTOR } % se SI está baleiro
-            {\vspace*{3mm}\Large #4 \\} % se NON está baleiro
-        \vspace{3mm}
-        % SUBTITULO -----------------------------------------------
-        \IfNoValueTF{#5}
-            { SEN SUBj}
-            {\textit{#5}}
-        \vspace{-3mm}
+        % AUTORÍA
+        \EstaBaleiro{#4}% comprobamos se a autoría está baleira
+            {\vspace*{3mm}}%                           --> se NON hai autor
+            {\vspace*{3mm}\Large #4 \\ \vspace*{3mm}}% --> se SI hai autor
+        % SUBTITULO
+        \EstaBaleiro{#5}% comprobamos se o subtitulo está baleiro
+            {\vspace*{-3mm}}%              --> se NON hai subtitulo
+            {\textit{#5} \vspace*{-3mm}}%   --> se SI hai subtitulo
+        %
     \end{center}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
-    % \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
-    %     {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
-    %         \EngadeAoTOC*{#2}{#3}{#4}% metemoslle (#2)TITULO, (#3)AUTOR, (#4)ESTILO
-    %     }%
-    %     {% se non temos asterisco, non engadimos seccion
-    %         \EngadeAoTOC{#2}{#3}{#4}%
-    %     }
+    \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
+        {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
+            \EngadeAoTOC*{#3}{#4}{#2}% metemoslle (#3)TITULO, (#4)AUTOR, (#2)ESTILO
+        }%
+        {% se non temos asterisco, non engadimos seccion
+            \EngadeAoTOC{#3}{#4}{#2}%
+        }
     % Aplicamos o estilo de páxina
-    \pagestyle{#3}%
+    \pagestyle{#2}%
     % Aprobeito pa meter esto aquí. Resetea números nas ecuacións e
     % figuras
     \setcounter{equation}{0}
