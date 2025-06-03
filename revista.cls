@@ -385,7 +385,7 @@
         % AUTORÍA
         \EstaBaleiro{#4}% comprobamos se a autoría está baleira
             {\vspace*{3mm}}%                           --> se NON hai autor
-            {\vspace*{3mm}\Large #4 \\ \vspace*{3mm}}% --> se SI hai autor
+            {\vspace*{3mm}{\Large #4} \\ \vspace*{3mm}}% --> se SI hai autor
         % SUBTITULO
         \EstaBaleiro{#5}% comprobamos se o subtitulo está baleiro
             {\vspace*{-3mm}}%              --> se NON hai subtitulo
