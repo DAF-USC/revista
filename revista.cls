@@ -14,6 +14,11 @@
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
+% Este paquete pode usarse para crear un .dep auxiliar cas versións usadas dos
+% paquetes, máis comparar dita lista con outra predefinida (dependencias.tex)
+\RequirePackage[warning]{snapshot}
+\input{dependencias.tex}
+
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
 \RequirePackage{fontspec}
@@ -135,7 +140,8 @@
 % E xa que falamos de depuración, está o comando este pa mostrar todos os
 % paquetes que se usan (implícita e explícitamente) e súas versións. Toda esa
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
-% \listfiles
+\listfiles
+
 
 % Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opcion da
 % clase 'twocols' porque esa da moitísimos problemas no caso de que queiramos
