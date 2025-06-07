@@ -20,7 +20,7 @@ meu_worktree_2/ |
 meu_worktree_3/ |
 (etc.)          |
 ]]
-function gitInfo()
+function gitInfo2()
     -- Onde está o repositorio. En xeral debería ser .git/ pero hai casos
     -- exceptionais
     local ruta_REPO = ".git"
@@ -114,6 +114,137 @@ function gitInfo()
         -- O hash son 40 caracteres, collendo os 7 primeiros debería chegar. E
         -- imprimimolo directamente
         tex.sprint(string.sub(hash, 1, 7))
+    end
+
+end
+
+function gitInfo()
+
+    -- LFS, Lua File System
+    -- Comprobamos se .git é un directorio (99% dos casos) ou un ficheiro (e.g.
+    -- usando worktrees) Alternativas a pelo:
+    -- https://www.geeks3d.com/hacklab/20210901/how-to-check-if-a-directory-exists-in-lua-and-in-python/
+    -- https://stackoverflow.com/questions/1340230/check-if-directory-exists-in-lua/40195356#40195356
+    -- Pode devolver:
+    -- file,directory,link,socket,namedpipe,chardevice,blockdevice,other
+    -- Véxase: https://lunarmodules.github.io/luafilesystem/manual.html
+    local tipo, _ = lfs.attributes(".git","mode")
+
+    -- Se non se atopa ou hai algún erro
+    if tipo == nil then tex.print("[SIN .GIT]") return end
+
+    -- O caso típico, temos o espazo de traballo cos nosos ficheiros e ao lago
+    -- o repositorio en .git
+    if tipo == "directory" then
+
+        -- Intento abrir o ficheiro HEAD
+        local HEAD = io.open(".git/HEAD")
+        -- Se non abre, rematamos o traballo
+        if HEAD == nil then tex.print("HEAD non abre") return end
+
+        -- Lemos a primeira liña (sen eof, inda que da igual)
+        local info = HEAD:read("l")
+        -- E cerramos o ficheiro
+        HEAD:close()
+
+        -- .git/HEAD ten unha liña como -> ref: refs/heads/principal
+        -- Uso algo de regex para coller a ultima palabra, que é o nome da rama
+        -- véxase https://www.lua.org/pil/20.1.html
+        local rama
+        _, _, rama = string.find( info , "/([^/]+)$" )
+
+        -- O nome da rama en xeral non ten caracteres raros, o máis comun pode
+        -- ser o '_', asique o escapo. Supoño que estaría ben facelo con máis
+        -- caracteres especiais de TeX, pero por agora val
+        local rama_escapada = string.gsub(rama, "_", "\\_")
+        tex.sprint(rama_escapada .. ":")
+
+        -- A ruta para obter o hash, soe estar en .git/refs/heads/[rama]/
+        local ficheiro_HASH = io.open(".git/refs/heads/" .. rama, "r")
+        -- Outra comprobacion
+        if ficheiro_HASH == nil then tex.print("ficheiroHASH non abre") return end
+
+        -- Lemos os contidos, coma antes
+        info = ficheiro_HASH:read("l")
+        ficheiro_HASH:close()
+
+        -- O hash son 40 caracteres, collendo os 7 primeiros debería chegar
+        -- e.g. 5fde70ec
+        local hash = tex.sprint(string.sub(info, 1, 7))
+        tex.sprint(hash)
+        return
+
+    -- No caso de que temos nun worktree de git. Véxase:
+    -- https://git-scm.com/docs/git-worktree
+    -- Pode que haxa outros casos cun .git que sea un arquivo, non os coñezo
+    elseif tipo == "file" then
+
+        -- Primeiro, intento abrir .git como se fose un arquivo. É posible, por
+        -- exemplo, se estamos usando worktrees (como é meu caso)
+        local GIT = io.open(".git")
+        if GIT == nil then tex.print("GIT non abre") return end
+
+        -- Lemos os contidos
+        local info = GIT:read("l")
+        GIT:close()
+
+        -- Ao usar worktrees, .git é un ficheiro que contén, por exemplo:
+        -- gitdir: /home/david/.deivis_datos/proxectos/uni/revista/worktrees/WT3
+        --
+        -- Uso regex e dúas capturas para coller a ruta correcta ao repo (que
+        -- sería análogo a onde está .git nun repositorio normal) e gardoo en
+        -- 'ruta_BASE'. Tamén gardo o nome do worktree en 'worktree' porque
+        -- logo fará falta
+        --
+        -- véxase https://www.lua.org/pil/20.1.html para o tema de string.find
+        local ruta_BASE
+        local worktree
+        _, _, ruta_BASE, worktree = string.find( info, "^gitdir:%s(.-)/worktrees/([^/]+)$" )
+
+        -- tex.sprint(ruta)
+        -- tex.sprint(worktree)
+
+        -- ruta_BASE: directorio onde está o repositorio, con HEAD (non do wotktree), config, refs/, etc.
+        -- ruta_BASE/wortrees/[nome worktree]: dentro está o HEAD correcto
+        local HEAD = io.open(ruta_BASE .. "/worktrees/" .. worktree .. "/HEAD")
+
+        -- Abrir, checkear, ler... como antes
+        if HEAD == nil then tex.sprint("HEAD non abre") return end
+
+        local info = HEAD:read("l")
+        HEAD:close()
+
+        local rama
+        _, _, rama = string.find( info , "/([^/]+)$" )
+
+        local rama_escapada = string.gsub(rama, "_", "\\_")
+        tex.sprint(rama_escapada .. ":")
+
+        -- Para o hash, en ruta_BASE/
+        local ficheiro_HASH = io.open(ruta_BASE .. "/refs/heads/" .. rama, "r")
+        -- Outra comprobacion :FACER: quedei aqui
+        if ficheiro_HASH == nil then
+            -- tex.print("ficheiroHASH non abre") return
+            -- Pode ocurrir, que ao facer cousas como 'git gc' ou
+            -- 'maintenance', ou tendo un repo tremendamente grande, en vez de
+            -- ter as cousas en /refs/HEADS/[rama]/ estén en 'packed-refs'
+            ficheiro_HASH = io.open(ruta_BASE .. "/packed-refs","r")
+            if ficheiro_HASH == nil then tex.sprint("HASH non abre")
+        end
+
+        -- Lemos os contidos, coma antes
+        info = ficheiro_HASH:read("a")
+        ficheiro_HASH:close()
+
+        -- O hash son 40 caracteres, collendo os 7 primeiros debería chegar
+        -- e.g. 5fde70ec
+        local hash = tex.sprint(string.sub(info, 1, 7))
+        tex.sprint(hash)
+        return
+
+
+        return
+
     end
 
 end
