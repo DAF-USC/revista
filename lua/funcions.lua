@@ -1,23 +1,21 @@
 -- Este é un arquivo onde podemos meter funcións escritas con Lua. Podemos
 -- chamalas despois no documento con \directlua{\minha_funcion()}
 --
--- Documentación de Lua: https://www.lua.org/ftp/refman-5.0.pdf
+-- Documentación de Lua: https://www.lua.org/manual/5.3/
 -- Documentacion de Luatex: https://ctan.org/pkg/luatex
-
---[[
-Devolve a rama e o hash da HEAD actual de git. Funciona con 2 estructuras:
-
-.git/           | o normal, tendo os arquivos no mesmo directorio que .git/
-ficheiro        | e sendo .git/ un directorio con HEAD, config, refs/, etc.
-ficheiro2       |
-etc             |
-
-
-.git            | parecido, pero aquí .git é un arquivo que contén
-ficheiro        | gitdir: /ruta/ata/meu/proxecto/REVISTA/worktrees/WT3
-ficheiro2       |
-etc             |
-]]
+--
+-- Devolve a rama e o hash da HEAD actual de git. Funciona con 2 estructuras:
+--
+-- .git/       | o normal, tendo os arquivos no mesmo directorio que .git/
+-- ficheiro    | e sendo .git/ un directorio con HEAD, config, refs/, etc.
+-- ficheiro2   |
+-- etc         |
+--
+--
+-- .git        | parecido, pero aquí .git é un arquivo que contén o texto:
+-- ficheiro    | "gitdir: /ruta/ata/meu/PROXECTO/worktrees/WT3"
+-- ficheiro2   |
+-- etc         |
 
 function gitInfo()
 
@@ -25,16 +23,15 @@ function gitInfo()
     -- usando worktrees) Alternativas a pelo:
     -- https://www.geeks3d.com/hacklab/20210901/how-to-check-if-a-directory-exists-in-lua-and-in-python/
     -- https://stackoverflow.com/questions/1340230/check-if-directory-exists-in-lua/40195356#40195356
-    -- Pode devolver:
-    -- file,directory,link,socket,namedpipe,chardevice,blockdevice,other
+    -- Usando LFS (Lua File System) é sinxelo.
     -- Véxase: https://lunarmodules.github.io/luafilesystem/manual.html
     local tipo, _ = lfs.attributes(".git","mode")
 
-    -- Se non se atopa ou hai algún erro, mostrámolo e rematamos
+    -- Se non se atopa ou hai algún erro, mostrámolo e rematamos a función
     if tipo == nil then tex.print("[SIN .GIT]") return end
 
-    -- O caso típico, temos o espazo de traballo cos nosos ficheiros e ao lago
-    -- o repositorio en .git
+    -- O caso típico, temos o espazo de traballo cos nosos ficheiros e ao lado
+    -- o repositorio en .git/ o cal é un directorio
     if tipo == "directory" then
 
         -- Intento abrir o ficheiro HEAD
@@ -43,15 +40,15 @@ function gitInfo()
         -- Se non abre, rematamos o traballo
         if HEAD == nil then tex.print("HEAD non abre") return end
 
-        -- Lemos a primeira liña con 'l' (sen EOF, inda que da igual)
+        -- Lemos a primeira liña con 'l', ousexa só unha liña do arquivo
         local info = HEAD:read("l")
         -- E cerramos o ficheiro
         HEAD:close()
 
         -- .git/HEAD ten unha liña como -> ref: refs/heads/principal
         -- Uso algo de regex para coller a ultima palabra, que é o nome da rama
-        -- véxase https://www.lua.org/pil/20.1.html
-        local _, _, rama = string.find( info , "/([^/]+)$" )
+        -- véxase https://www.lua.org/manual/5.3/manual.html#pdf-string.match
+        local rama = string.match( info , "/([^/]+)$" )
 
         -- O nome da rama en xeral non ten caracteres raros, o máis comun pode
         -- ser o '_', asique o escapo. Supoño que estaría ben facelo con máis
@@ -78,18 +75,29 @@ function gitInfo()
             -- é problema, porque queremos a última referencia, a cal está en
             -- .git/refs/heads/[rama], o cal é o PRIMEIRO sitio que buscamos.
             -- Asique se existe, escollemos o correcto. Creo.
-            ficheiro_HASH = io.open(ruta_BASE .. "/packed-refs","r")
+            ficheiro_HASH = io.open(".git/packed-refs","r")
 
             -- Se nin así funciona, rematamos
             if ficheiro_HASH == nil then tex.sprint("HASH non abre") return end
 
-            -- Lemos o packed-refs. Usase 'a' porque son varias liñas
+            -- Lemos o packed-refs. Usase 'a' porque son varias liñas.
+            -- IMPORTANTE: lendo con "a" todo o contido do arquivo pasa a ser
+            -- unha soa cadena. Se o ficheiro ten varias liñas, concaténanse.
+            -- Hai que telo enconta logo usando regex, dado que ^ e $ son máis
+            -- delicados
             info = ficheiro_HASH:read("a")
             ficheiro_HASH:close()
 
             -- O ficheiro 'packed-refs' ten varias liñas como:
             -- 152204658ccc8c4126477370cdfb5de8b49348ab refs/heads/[rama]
-            local _, _, hash = string.find( info , "^(%d+)%srefs/heads/"..rama .."$" )
+            -- .-            -> coincide con calquera caracter, a menor cantidade de veces
+            -- (%x+)         -> coincide con caracteres hex, mínimo un
+            -- %srefs/heads/ -> espazo e logo o literal "refs/heads/"
+            -- Como comentei antes, non hai que usar ^ nin $ porque inda que o
+            -- que buscamos no arquivo esté agarrado ao comezo ^ ou ao final $,
+            -- esa estructura desfaise porque ao ler o arquivo xuntanse todas
+            -- as liñas!
+            local hash = string.match( info , ".-(%x+)%srefs/heads/"..rama )
 
             -- O hash son 40 caracteres, collendo os 7 primeiros debería chegar
             -- e.g. 5fde70ec
@@ -113,8 +121,7 @@ function gitInfo()
     -- Pode que haxa outros casos cun .git que sea un arquivo, non os coñezo
     elseif tipo == "file" then
 
-        -- Primeiro, intento abrir .git como se fose un arquivo. É posible, por
-        -- exemplo, se estamos usando worktrees (como é meu caso)
+        -- Primeiro, intento abrir .git como se fose un arquivo.
         local GIT = io.open(".git")
 
         -- Se non se pode, rematamos
@@ -126,6 +133,7 @@ function gitInfo()
 
         -- Ao usar worktrees, .git é un ficheiro que contén, por exemplo:
         -- gitdir: /home/david/.deivis_datos/proxectos/uni/revista/worktrees/WT3
+        -- onde o directorio base do repositorio é "revista"
         --
         -- Uso regex e dúas capturas para coller a ruta correcta ao repo (que
         -- sería análogo a onde está .git nun repositorio normal) e gardoo en
@@ -134,7 +142,8 @@ function gitInfo()
         local _, _, ruta_BASE, worktree = string.find( info, "^gitdir:%s(.-)/worktrees/([^/]+)$" )
 
         -- ruta_BASE: directorio onde está o repositorio, con HEAD (non do worktree), config, refs/, etc.
-        -- ruta_BASE/wortrees/[nome worktree]: dentro está o HEAD correcto
+        -- ruta_BASE/wortrees/[nome worktree]: dentro está o HEAD do propio Worktree que estamos usando
+        -- xa sei que é un rollo, non me culpedes, foi Torvalds quen creou esto
         local HEAD = io.open(ruta_BASE .. "/worktrees/" .. worktree .. "/HEAD")
 
         -- Abrir, checkear, ler... como antes
@@ -143,7 +152,7 @@ function gitInfo()
         local info = HEAD:read("l")
         HEAD:close()
 
-        local _, _, rama = string.find( info , "/([^/]+)$" )
+        local rama = string.match( info , "/([^/]+)$" )
 
         local rama_escapada = string.gsub(rama, "_", "\\_")
         tex.sprint(rama_escapada .. ":")
@@ -162,8 +171,7 @@ function gitInfo()
             info = ficheiro_HASH:read("a")
             ficheiro_HASH:close()
 
-            local hash
-            _, _, hash = string.find( info , "^(%d+)%srefs/heads/"..rama .."$" )
+            local hash = string.match( info , ".-(%x+)%srefs/heads/"..rama )
 
             tex.sprint(string.sub(hash, 1, 7))
             return
