@@ -51,13 +51,18 @@
 %%%: última versión de texlive. Tamén debería funcionar en Overleaf sen problema
 %%%: porque Overleaf usa texlive. Se usades algunha outra plataforma e vos da
 %%%: algún erro comentádenolo
+%%%:
+%%%: Adicionalmente, fixádevos que esque arquivo ten todos os comentarios escritos
+%%%: con '###:' Esto é a posta, xa que temos un script aparte para eliminalos de
+%%%: golpe cando os recibimos cos contidos dun artigo real. Entón, os VOSOS
+%%%: comentarios, escribídeos normal, cun so '#', senón igual o borramos sen querer
 %%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%:
 %%%: Esto importa a clase definida no arquivo aparte, 'revista.cls'
 \documentclass{revista}
-
+%%%:
 \begin{document}
-
+%%%:
 %%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o titulo
 %%%: e autor ao índice, resetear os conteos de figuras, e evidentemente imprimir
 %%%: no PDF a propia información de cada artigo.
@@ -90,19 +95,18 @@
 %%%: NOTA: é obligatorio por agora, imos deixar de necesitalo na 003 en adiante (se
 %%%: todo vai ben)
 \begin{refsection}
-
+%%%:
 %%%: O CORPO DO ARTIGO COMEZA DE AQUÍ EN DIANTE
 %%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
-
+%%%:
+%%%:
 %%%: DUAS COLUMNAS ==============================================================
 %%%: 'multicols' danos bastante flexibilidade para colocar as cousas en duas
 %%%: columnas. Se unha parte non debe ter 2 columnas, solo hai que rematar o
 %%%: entorno 'multicols' antes, escribir o que queiramos (qedará en 1 columna), e
 %%%: volver iniciar outro entorno 'multicols' para o resto
 \begin{multicols}{2}
-
 
 %%%: SECCIONS E ESTRUCTURA ======================================================
 %%%: Os únicos "niveis" que se permiten son de 'subsection' en abaixo. En
@@ -124,7 +128,7 @@ texto texto texto texto texto texto texto texto
 %%%: adiante. Se podedes, intentade que as imaxes non sexan demasiado pesadas,
 %%%: porfavor
 \begin{centering}
-    % Metese a figura como sempre. Podese xogar co ancho pa axustala
+%%%: Metese a figura como sempre. Podese xogar co ancho pa axustala
     \includegraphics[width=0.65\linewidth]{miña_foto_bonita.png}
     \captionof{figure}{Texto a pe de paxina, interesante...}
 \end{centering}
@@ -168,11 +172,11 @@ texto texto texto texto texto texto texto texto
 %%%: citala no propio texto, hai que usar:
 %%%:
 %%%: \nocite{caratheodory_1909}
-
+%%%:
 %%%: Para mostrar a bibliografía ao final, usamos este comando
 \printbibliography
-
+%%%:
 \end{multicols}
 \end{refsection}
-
+%%%:
 \end{document}
