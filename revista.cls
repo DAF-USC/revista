@@ -29,6 +29,7 @@
     Path        = ./fontes/LatinModern/,
     Extension   = .otf,
     UprightFont = *-regular,
+    ItalicFont  = *-oblique,
     BoldFont    = *-bold,
 ]{lmsans10}
 
