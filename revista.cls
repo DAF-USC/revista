@@ -159,18 +159,19 @@
 \RequirePackage{amsthm}     % definir teoremas
 \RequirePackage{diffcoeff}  % derivadas
 \RequirePackage{esint}      % integrais diferentes
+\RequirePackage{polynomial} % polinomios simples
+\RequirePackage{tensor}     % indices e eso
+\RequirePackage{braket} % :FACER: metin este porque alguen o tiña no artigo, non sei que fai
 \RequirePackage{mathrsfs}   % letras reviradas \mathcal
 % Esto é para eliminar un waring do paquete mathrsfs
-% Véxase: https://tex.stackexchange.com/a/10701
+% Orixe da solucion: https://tex.stackexchange.com/a/10701
+% Referencia de \DeclareFontShape: https://web.mit.edu/newtex/doc/latex/base/fntguide/node22.html
 \DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
 \DeclareFontShape{U}{rsfs}{m}{n}{%
     <-6> rsfs5
     <6-8> rsfs7
     <8-> rsfs10
 }{}
-\RequirePackage{polynomial} % polinomios simples
-\RequirePackage{tensor}     % indices e eso
-\RequirePackage{braket} % :FACER: metin este porque alguen o tiña no artigo, non sei que fai
 
 % :FACER: seguimos necesitandoe stes dous paquetes?  vvvvvvvvvvv
 \RequirePackage{svrsymbols} % simbolos variados
