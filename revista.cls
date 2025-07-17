@@ -413,11 +413,15 @@
         }
     % Aplicamos o estilo de páxina
     \pagestyle{#2}%
-    % Aprobeito pa meter esto aquí. Resetea números nas ecuacións e
-    % figuras
-    \setcounter{equation}{0}
+    % Aprobeito pa meter esto aquí. Resetea números nas figuras
     \setcounter{figure}{0}
 }
+
+% Orixinalmente tamén cambiábamos a numeración das ecuacións dentro de
+% 'Titular' con '\setcounter{equation}{0}, pero dábanos warnings do tipo:
+% ignoring duplicate destination with the name 'equation.1'
+% asique pasamos a facelo deste modo
+\numberwithin{equation}{section}
 
 % Tipografia preciosa. Xoga cos espaciados moi ben para xustificar o texto.
 \RequirePackage{microtype}
