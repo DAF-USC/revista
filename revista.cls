@@ -592,6 +592,9 @@
 % PORTADA 
 %%%%%%%%%
 \long\def\Portada{%
+  % Esto de 'pageanchor' é para que non nos de un aviso do tipo
+  % ignoring duplicate destination with the same name 'page.1' etc.
+  \hypersetup{pageanchor=false}
   \pagenumbering{gobble}
   \thispagestyle{empty}
   
@@ -689,6 +692,7 @@
   
   % volvemos a cargar a xeometria que tiñamos no preambulo
   \restoregeometry
+  \hypersetup{pageanchor=true}
 }
 
 %%%%%%%%
