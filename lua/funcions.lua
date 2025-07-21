@@ -3,21 +3,33 @@
 --
 -- Documentación de Lua: https://www.lua.org/manual/5.3/
 -- Documentacion de Luatex: https://ctan.org/pkg/luatex
---
--- Devolve a rama e o hash da HEAD actual de git. Funciona con 2 estructuras:
---
--- .git/       | o normal, tendo os arquivos no mesmo directorio que .git/
--- ficheiro    | e sendo .git/ un directorio con HEAD, config, refs/, etc.
--- ficheiro2   |
--- etc         |
---
---
--- .git        | parecido, pero aquí .git é un arquivo que contén o texto:
--- ficheiro    | "gitdir: /ruta/ata/meu/PROXECTO/worktrees/WT3"
--- ficheiro2   |
--- etc         |
 
+-- :FACER: pode que mereza a pena sustituir esto por 'luagit' de ctan.
+-- :FACER: algún modo de saber se estamos en 'dirty state' ?
+-- :FACER: parece que hai un erro a veces, ao poñernos en 'detached state', pode ser polos regexes?
+-- :FACER: qué pasa se usamos 'sparse-checkout' ?
 function gitInfo()
+    --[[
+    Esta funcións devolve a rama e o hash da HEAD actual de git. Para dito fin,
+    busca nos directorios de git (.git e similares) para obter o nome da rama
+    na que estamos, e con esa información obter o hash da última contribución
+    Funciona con 2 estructuras:
+
+    .git/       | o normal, tendo os arquivos no mesmo directorio que .git/
+    ficheiro    | e sendo .git/ un directorio con HEAD, config, refs/, etc.
+    ficheiro2   |
+    etc         |
+
+
+    .git        | parecido, pero aquí .git é un ARQUIVO que contén o texto:
+    ficheiro    | "gitdir: /ruta/ata/meu/PROXECTO/worktrees/WT3"
+    ficheiro2   |
+    etc         |
+
+    Sí, parecen estructuras iguais, pero o feito de que nun caso .git sexa un
+    directorio e no outro un ficheiro normal, é fundamentalmente diferente, e
+    cambia o modo de buscar a información que queremos
+    ]]
 
     -- Comprobamos se .git é un directorio (99% dos casos) ou un ficheiro (e.g.
     -- usando worktrees) Alternativas a pelo:

@@ -12,5 +12,8 @@ $pdf_mode = 4;
 # xera arquivo .fls para manter o fio dos arquivos usados na compilacion
 $recorder = 1;
 
+# mostra canto levou compilar o documento
+$show_time = 1;
+
 # O comando específico de lualatex
 $lualatex = "lualatex --file-line-error --interaction=nonstopmode --shell-escape %O %S";
