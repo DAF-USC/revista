@@ -882,3 +882,97 @@
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
+
+\DeclareOption*{%
+    % Unha mensaxe de aviso
+    % :FACER: igual deberíamos matar o proceso neste caso, en vez de só avisar.
+    % Véxase sec. 4.8 de cslguide.pdf
+    \PackageWarning{revista}{Non existe a opción ‘\CurrentOption’}%
+}
+
+% Opción 'completa', a cal mostra a portada, índice e contraportada.
+\DeclareOption{completa}{
+    % gustaríame usar codigos de escape ASCII para colorear cousas en \typeout
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \AtBeginDocument{%
+        \Portada%
+        \Indice%
+    }
+    \AtEndDocument{%
+        \Contraportada%
+    }
+}
+
+\DeclareOption{simple}{
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+}
+
+\DeclareOption{impresa}{
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \geometry{
+        mag = 1414
+    }
+    \AtBeginDocument{%
+        \Portada%
+        \Indice%
+    }
+    \AtEndDocument{%
+        \Contraportada%
+    }
+}
+
+% Outra alternativa. Non fun capaz de facer que cuadre.
+% Deixoo comentado
+
+\iffalse
+\DeclareOption{impresa}{
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    % Aquí cambio a xeometría para todo o documento.
+    \geometry{
+        % Por un lado, poden usarse as opcións 'layout'
+        %               < A4 >   < aumento >
+        layoutwidth  = 210mm  -    9mm,
+        layoutheight = 297mm  -    27mm,
+        showcrop
+    }
+    \AtBeginDocument{%
+        % A portada ten unha xeometría diferente
+        \newgeometry{
+            top    = 2mm,
+            left   = 5mm,
+            right  = 5mm,
+            bottom = 5mm,
+            nohead = true,
+            nofoot = true,
+            layoutwidth  = 210mm  -    9mm,
+            layoutheight = 297mm  -    27mm,
+            showcrop
+        }
+        \Portada%
+        \restoregeometry
+        \newgeometry{
+            layoutwidth  = 210mm  -    9mm,
+            layoutheight = 297mm  -    27mm,
+            showcrop
+        }
+        \Indice%
+    }
+    \AtEndDocument{%
+        % A contraportada ten unha xeometría diferente
+        \newgeometry{
+            top    = 5mm,
+            left   = 6mm,
+            right  = 6mm,
+            bottom = 8mm,
+            nohead = true,
+            nofoot = true,
+            layoutwidth  = 210mm  -    9mm,
+            layoutheight = 297mm  -    27mm,
+            showcrop
+        }
+        \Contraportada%
+    }
+}
+\fi
+
+\ProcessOptions\relax
