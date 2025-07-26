@@ -882,3 +882,32 @@
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
+
+% OPCIONS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Un caso límite, se alguén usa unha opción que non existe, mostra un aviso
+\DeclareOption*{%
+    % :FACER: igual deberíamos matar o proceso neste caso, en vez de só avisar.
+    % Véxase sec. 4.8 de cslguide.pdf
+    \PackageWarning{revista}{Non existe a opción ‘\CurrentOption’}%
+}
+
+% Opción COMPLETA, a cal mostra a portada, índice e contraportada.
+\DeclareOption{completa}{
+    % Gustaríame usar codigos de escape ASCII para colorear cousas en \typeout
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    % Véxase:
+    % LATEX’s hook management, sec. 2.9, en lthook.pdf
+    \AtBeginDocument{%
+        \Portada%
+        \Indice%
+    }
+    \AtEndDocument{%
+        \Contraportada%
+    }
+}
+
+% Opción SIMPLE, para mostrar só os artigos
+\DeclareOption{simple}{
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+}
