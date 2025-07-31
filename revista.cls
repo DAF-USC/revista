@@ -891,11 +891,11 @@
 \newif\ifOpcionsBaleiras
 \OpcionsBaleirastrue % fagoo 'true'
 
-% Un caso límite, se alguén usa unha opción que non existe, mostra un aviso
+% Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
 \DeclareOption*{%
     % Véxase sec. 4.8 de cslguide.pdf
     \ClassError{revista}{%
-        ‘\CurrentOption’ non é unha opción válida Usa %
+        ‘\CurrentOption’ non é unha opción válida. Usa %
         unha opición válida: simple, completa%
     }
     {}
