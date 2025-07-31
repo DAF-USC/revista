@@ -885,19 +885,26 @@
 
 % OPCIONS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Creo un booleano. Fareino 'false' se usamos calquera opcion. Se non usamos
+% ningunha, será 'true', e usarei esto para dar un erro no caso de non usar
+% ningunha opcion
+\newif\ifOpcionsBaleiras
+\OpcionsBaleirastrue % fagoo 'true'
+
 % Un caso límite, se alguén usa unha opción que non existe, mostra un aviso
 \DeclareOption*{%
-    % :FACER: igual deberíamos matar o proceso neste caso, en vez de só avisar.
     % Véxase sec. 4.8 de cslguide.pdf
-    \PackageWarning{revista}{Non existe a opción ‘\CurrentOption’}%
+    \ClassError{revista}{%
+        ‘\CurrentOption’ non é unha opción válida Usa %
+        unha opición válida: simple, completa%
+    }
+    {}
 }
 
 % Opción COMPLETA, a cal mostra a portada, índice e contraportada.
 \DeclareOption{completa}{
-    % Gustaríame usar codigos de escape ASCII para colorear cousas en \typeout
     \typeout{Estás a usar a opción ‘\CurrentOption’}
-    % Véxase:
-    % LATEX’s hook management, sec. 2.9, en lthook.pdf
+    % Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
     \AtBeginDocument{%
         \Portada%
         \Indice%
@@ -905,9 +912,18 @@
     \AtEndDocument{%
         \Contraportada%
     }
+    \OpcionsBaleirasfalse % fago o booleano 'false'
 }
 
-% Opción SIMPLE, para mostrar só os artigos
+% Opción SIMPLE, para mostrar só os artigos.
 \DeclareOption{simple}{
     \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse % fago o booleano 'false'
 }
+
+\ProcessOptions\relax
+
+% Se non escollemos ningunha destas opcions, salta un erro
+\ifOpcionsBaleiras
+    \ClassError{revista}{Non escolleches ningunha opción}{}
+\fi
