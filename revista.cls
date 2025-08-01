@@ -8,7 +8,7 @@
 % CPU (dudo que pase).
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{revista}[2025/07/21 Clase para a revista de Fisica USC]
+\ProvidesClass{revista}[2025/08/01 Clase para a revista de Fisica USC]
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
@@ -895,10 +895,8 @@
 \DeclareOption*{%
     % Véxase sec. 4.8 de cslguide.pdf
     \ClassError{revista}{%
-        ‘\CurrentOption’ non é unha opción válida. Usa %
-        unha opición válida: simple, completa%
-    }
-    {}
+        ‘\CurrentOption’ non é unha opción válida.%
+         Opcións posíbeis: simple, completa}{}
 }
 
 % Opción COMPLETA, a cal mostra a portada, índice e contraportada.
@@ -925,5 +923,6 @@
 
 % Se non escollemos ningunha destas opcions, salta un erro
 \ifOpcionsBaleiras
-    \ClassError{revista}{Non escolleches ningunha opción}{}
+    \ClassError{revista}{Non escolliches ningunha opción.%
+                         Opcións posíbeis: simple, completa}{}
 \fi
