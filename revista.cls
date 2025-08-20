@@ -372,20 +372,16 @@
 % {}              -> sen subtitulo, debe ir cos parenteses baleiros
 %
 \NewDocumentCommand\Titular{ s m m m m }{%
-    % Primeiro, engadimos unha sección 'baleira'
-    \phantomsection%
     % Mostramos o propio titular, como sempre. Todo dentro dun `center`
     \begin{center}
         % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
-        \vspace*{-5mm}
+        \vspace*{-2.5em}
         % TITULO
-        \begingroup
-            \setstretch{2}\noindent{\color{Resalte}\Huge \textbf{#3}} \\
-        \endgroup
+        \section*{\textcolor{Resalte}{\Huge \textbf{#3}}}
         % AUTORÍA
         \EstaBaleiro{#4}% comprobamos se a autoría está baleira
-            {\vspace*{3mm}}%                             --> se NON hai autor
-            {\vspace*{3mm}{\Large #4} \\ \vspace*{3mm}}% --> se SI hai autor
+            {\vspace*{3mm}}%                                           --> se NON hai autor
+            {\vspace*{3mm}{\vspace*{-1em}\Large #4} \\ \vspace*{3mm}}% --> se SI hai autor
         % SUBTITULO
         \EstaBaleiro{#5}% comprobamos se o subtitulo está baleiro
             {\vspace*{-3mm}}%               --> se NON hai subtitulo
