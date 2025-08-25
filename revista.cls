@@ -401,7 +401,8 @@
     \pagestyle{#2}%
     % Aprobeito pa meter esto aquí. Resetea números nas figuras
     \setcounter{figure}{0}
-    \setcounter{equation}{0}
+    \stepcounter{section}
+    \counterwithin*{equation}{section}
     % :FACER: se varias ecuacións teñen o mesmo tag, da un aviso do tipo:
     %
     % ignoring duplicate destination with the name 'equation.1'
