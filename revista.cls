@@ -403,15 +403,7 @@
     \setcounter{figure}{0}
     \stepcounter{section}
     \counterwithin*{equation}{section}
-    % :FACER: se varias ecuacións teñen o mesmo tag, da un aviso do tipo:
-    %
-    % ignoring duplicate destination with the name 'equation.1'
-    %
-    % Creo que non se pode evitar a menos que teñan tags claramente diferenes.
-    % Se queremos que en cada artigo se vexan como (1), ..., (7), entón é
-    % imposible evitar os avisos (imos ter ecuacións co mesmo tag,
-    % necesariamente) Queda pendente probar se ao referenciar unha ecuación
-    % imos á que é ou no. Unha solución é que as ecuacións se numeren como
+    % Outra opción é que as ecuacións se numeren como
     % (1.1), (1.2), (2.1), etc. así evitamos repeticions. Deixo varios macros
     % acá porlas moscas \numberwithin{equation}{section}
     % \renewcommand\theequation{\arabic{equation}}
