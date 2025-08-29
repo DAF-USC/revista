@@ -12,8 +12,6 @@
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
-% Cargamos funcions de Lua
-\directlua{dofile('lua/funcions.lua')}
 
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
@@ -908,6 +906,8 @@
     \typeout{Estás a usar a opción ‘\CurrentOption’}
     % Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
     \AtBeginDocument{%
+        % Cargamos funcions de Lua
+        \directlua{dofile('funcions.lua')}
         \Portada%
         \Indice%
     }

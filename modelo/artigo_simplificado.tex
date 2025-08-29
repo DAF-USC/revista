@@ -1,15 +1,15 @@
 %%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%: Este é o modelo dun artigo simplificado. NON ESTÁ COMPLETO. ESTO NO É A
 %%%: REVISTA FINAL. A revista final componse de varios arquivos que inclúen o que
-%%%: aquí é o corpo do documento (dentro do \begin{document}). Esto so sirve para
-%%%: poder compilar un artigo individual facilmente, pero non inclue a portada,
-%%%: contraportada, e varios macros non están definidos. Esto no meu sistema
+%%%: aquí é o corpo do documento (dentro do \begin{document}). Esto no meu sistema
 %%%: compílase nuns 10 s. A revista_001 completa, en case 50 s
 %%%:
 %%%: Para usalo fai falta poñer 3 cousas no mesmo diretorio
 %%%: a clase da revista:                   revista.cls
 %%%: este artigo:                          modelo_artigo.tex
 %%%: as tipografias:                       fontes\LatinModern
+%%%: o esquema da bibliografía             american-physics-society.csl
+%%%: a bibliografía                        bibliografia.bib
 %%%: (OPCIONAL) configuracion de latexmk   latexmkrc
 %%%:
 %%%: COMO COMPILAR ESTO:
@@ -18,7 +18,7 @@
 %%%: pasada", polo que certa informacións, como as referencias internas, non se
 %%%: xeran ao compilar o documento unha vez. En xeral é necesarios darlle varias
 %%%: pasadas ao documento, dependendo dos paquetes que usemos. Os comandos exactos
-%%%: usados para compilar a revista 002, son (creo):
+%%%: usados para compilar orixinalmente a revista 002, eran (creo):
 %%%:
 %%%: lualatex --file-line-error --interaction=nonstopmode --shell-escape  -recorder -output-directory=".aux"  "revistas/002/revista_002.tex"
 %%%: biber  ".aux/revista_002.bcf"
@@ -130,7 +130,7 @@ texto texto texto texto texto texto texto texto
 %%%: itálica, cun nome ao final. Creamos un macro porque todo o mundo as facía
 %%%: diferentes, e ás veces funcionaban e ás veces non. Poden usarse como:
 \Cita{
-A álxebra é xenerosa, frecuentemente da máis do que pide
+A álxebra é xenerosa, frecuentemente da máis do que se lle pide
 }
 {D'Alembert}
 
