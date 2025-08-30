@@ -16,12 +16,12 @@ Os *conventional commits* son un conxunto de regras para estandarizar as mensaxe
 
 Segundo as necesidades do proxecto, utilízanse uns ou outros tipos de commits. Para a revista decidimos empregar os habituais, mais modificando lixeiramente as definicións para adaptalas ás nosas necesidades.
 
-Un commit xenérico terá a seguinte estrutura:
-```bash
+Un **commit xenérico** terá a seguinte estrutura:
+```
 <tipo>(<contexto opcional>): <descrición>
 ```
-E defínense os seguintes tipos:
-```bash
+E defínense os seguintes **tipos**:
+```
   feat:     Engadir unha nova funcionalidade ou artigo.
   fix:      Corrección dun bug ou errata.
   docs:     Cambios na documentación (README, comentarios, etc.).
@@ -35,13 +35,14 @@ E defínense os seguintes tipos:
   revert:   Reverter un commit anterior.
 ```
 Ademais, cómpre ter en conta que
-- O contexto é opcional, e pode indicar a revista ou ficheiro afectado.
-- Os commits que introduzan cambios críticos deben ser indicados cun ! antes do :.
+- O **contexto** é *opcional*, e pode indicar a revista ou ficheiro afectado.
+- Os commits que introduzan **cambios críticos** deben ser indicados cun ! antes do :.
 
-Por último, deixamos algúns exemplos de uso:
-```bash
+Por último, deixamos algúns **exemplos de uso**:
+```
  feat(002): engadir artigo DARKO
  fix(003): corrixir erratas varios artigos
  fix(revista)!: definición imaxe portada
  docs(readme): actualizar instrucións de instalación
 ```
+Para máis referencias, tamén podedes botarlle unha ollada a proxectos semellantes. Por exemplo, o historial de commits de [An Infinitely Large Napkin](https://github.com/vEnhance/napkin/commits/).
