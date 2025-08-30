@@ -12,6 +12,50 @@
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
+% OPCIONS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Creo varios booleanos. Dependendo de qué opción escollamos, fareinos 'true'
+% ou no. Esto non é necesario, podería meter unha gran parte do código dentro
+% do '\DeclareOption', pero hai cousas que non podería, como cargar paquetes
+% (non se pode usar '\RequirePackage' nin macros que inda non están definidos
+\newif\ifOpcionsBaleiras\OpcionsBaleirastrue % fagoo 'true' por defecto
+\newif\ifSimple\Simplefalse % fagoo 'false' por defecto
+\newif\ifCompleta\Completafalse % ídem
+
+% Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
+\DeclareOption*{%
+    % Véxase sec. 4.8 de cslguide.pdf
+    \ClassError{revista}{%
+        ‘\CurrentOption’ non é unha opción válida.%
+         Opcións posíbeis: simple, completa}{}
+}
+
+% Opción COMPLETA, a cal mostra a portada, índice e contraportada.
+\DeclareOption{completa}{
+    \Completatrue
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse
+}
+
+% Opción SIMPLE, para mostrar só os artigos.
+\DeclareOption{simple}{
+    \Simpletrue
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse
+}
+
+\ProcessOptions\relax
+
+% Se non escollemos ningunha destas opcions, salta un erro
+\ifOpcionsBaleiras
+    \ClassError{revista}{Non escolliches ningunha opción.%
+                         Opcións posíbeis: simple, completa}{}
+\fi
+
+\ifCompleta
+    % cargamos funcions de lua
+    \directlua{dofile('funcions.lua')}
+\fi
 
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
@@ -275,6 +319,7 @@
     \csname Indice#1\endcsname
 }
 
+% :FACER: á larga debería simplificar toda esta funcionalidade, máis a de \Titular
 % Este macro pode invocarse con ou sen asterisco, ousexa \EngadeAoTOC*
 % Co asterisco, aparte do titulo, tamén engade unha seccion ao TOC
 %
@@ -677,6 +722,13 @@
     \hypersetup{pageanchor=true}
 }
 
+% Se usamos a opción 'completa', mostramos a portada
+% Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
+\ifCompleta
+    \AtBeginDocument{\Portada}
+\fi
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ___ _   _ ____ ___ ____ _____ %
 % |_ _| \ | |  _ \_ _/ ___| ____|%
@@ -773,6 +825,11 @@
     \pagenumbering{arabic}
 }
 
+% Se usamos a opción 'completa', mostramos o índice
+\ifCompleta
+    \AtBeginDocument{\Indice}
+\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   ____ ___  _   _ _____ ____      _    ____   ___  ____ _____  _    ____    _    %
 %  / ___/ _ \| \ | |_   _|  _ \    / \  |  _ \ / _ \|  _ \_   _|/ \  |  _ \  / \   %
@@ -868,6 +925,11 @@
     \end{minipage}
 }
 
+% Se usamos a opción 'completa', mostramos a contraportada ao final
+\ifCompleta
+    \AtEndDocument{\Contraportada}
+\fi
+
 % DEFINICIÓNS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Localización ao galego dos operadores matemáticos
@@ -884,49 +946,3 @@
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
-
-% OPCIONS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Creo un booleano. Fareino 'false' se usamos calquera opcion. Se non usamos
-% ningunha, será 'true', e usarei esto para dar un erro no caso de non usar
-% ningunha opcion
-\newif\ifOpcionsBaleiras
-\OpcionsBaleirastrue % fagoo 'true'
-
-% Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
-\DeclareOption*{%
-    % Véxase sec. 4.8 de cslguide.pdf
-    \ClassError{revista}{%
-        ‘\CurrentOption’ non é unha opción válida.%
-         Opcións posíbeis: simple, completa}{}
-}
-
-% Opción COMPLETA, a cal mostra a portada, índice e contraportada.
-\DeclareOption{completa}{
-    \typeout{Estás a usar a opción ‘\CurrentOption’}
-    % Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
-    \AtBeginDocument{%
-        % Cargamos funcions de Lua
-        \directlua{dofile('funcions.lua')}
-        \Portada%
-        \Indice%
-    }
-    \AtEndDocument{%
-        \Contraportada%
-    }
-    \OpcionsBaleirasfalse % fago o booleano 'false'
-}
-
-% Opción SIMPLE, para mostrar só os artigos.
-\DeclareOption{simple}{
-    \typeout{Estás a usar a opción ‘\CurrentOption’}
-    \OpcionsBaleirasfalse % fago o booleano 'false'
-}
-
-\ProcessOptions\relax
-
-% Se non escollemos ningunha destas opcions, salta un erro
-\ifOpcionsBaleiras
-    \ClassError{revista}{Non escolliches ningunha opción.%
-                         Opcións posíbeis: simple, completa}{}
-\fi
