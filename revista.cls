@@ -99,12 +99,14 @@
 % pantalla correctamente. Non é problema, mentres sexa o icono correcto no PDF
 % verase ben. Tamén é posible especificar o icono co seu código hexadecimal
 % explícitamente, escribindo ^^^^eb2a Sí, os catro ^ son necesarios, 'eb2a' é o
-% codigo hex.
-\newfontfamily{\FonteSimbolos}[
-    Extension   = .ttf,
-    UprightFont = *-Regular,
-    Path        = ./fontes/NerdFonts/,
-]{SymbolsNerdFontMono}
+% codigo hex. Ollo, so cargamos estas tipografías na version completa
+\ifCompleta
+    \newfontfamily{\FonteSimbolos}[
+        Extension   = .ttf,
+        UprightFont = *-Regular,
+        Path        = ./fontes/NerdFonts/,
+    ]{SymbolsNerdFontMono}
+\fi
 
 % Usar galego (como debe ser)
 \RequirePackage{polyglossia}
