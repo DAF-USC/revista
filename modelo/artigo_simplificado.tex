@@ -4,19 +4,19 @@
 %%%: aquí é o corpo do documento (dentro do \begin{document}). Esto no meu sistema
 %%%: compílase nuns 10 s. A revista_001 completa, en case 50 s
 %%%:
-%%%: Para usalo fai falta poñer 3 cousas no mesmo diretorio
+%%%: Para usalo fai falta poñer 3 cousas no mesmo directorio
 %%%: a clase da revista:                   revista.cls
 %%%: este artigo:                          modelo_artigo.tex
-%%%: as tipografias:                       fontes\LatinModern
+%%%: as tipografías:                       fontes\LatinModern
 %%%: o esquema da bibliografía             american-physics-society.csl
 %%%: a bibliografía                        bibliografia.bib
-%%%: (OPCIONAL) configuracion de latexmk   latexmkrc
+%%%: (OPCIONAL) configuración de latexmk   latexmkrc
 %%%:
 %%%: COMO COMPILAR ESTO:
 %%%:
 %%%: Primeiro, é importante lembrar que os compiladores de TeX/LaTeX son de "unha
-%%%: pasada", polo que certa informacións, como as referencias internas, non se
-%%%: xeran ao compilar o documento unha vez. En xeral é necesarios darlle varias
+%%%: pasada", polo que certa información, como as referencias internas, non se
+%%%: xeran ao compilar o documento unha vez. En xeral é necesario darlle varias
 %%%: pasadas ao documento, dependendo dos paquetes que usemos. Os comandos exactos
 %%%: usados para compilar orixinalmente a revista 002, eran (creo):
 %%%:
@@ -37,22 +37,22 @@
 %%%: Se non queredes traballar a pelo na terminal, sabede na maioría de editores
 %%%: debería bastar con premer calquer botón de 'executar'. Se non funciona
 %%%: seguramente teñades que cambiar o método que usa voso editor detrás de
-%%%: cámaras. Recordo que TeXStudio tiña un panel que deixaba seleccionar qué
+%%%: cámaras. Recordo que TeXStudio tiña un panel que deixaba seleccionar que
 %%%: compiladores/executables queremos usar. O mellor é usar 'latexmk', o cal vai,
-%%%: á sua vez, elixir qué compiladores/executables se usan de xeito automático,
-%%%: como xa comentei antes. Nalguns editores este tipo de compilación pode
-%%%: chamarse 'rápida' ou áutomática'
+%%%: á súa vez, elixir qué compiladores/executables se usan de xeito automático,
+%%%: como xa comentei antes. Nalgúns editores este tipo de compilación pode
+%%%: chamarse 'rápida' ou 'automática'.
 %%%:
-%%%: Todos os paquetes necesarios deberían estar dispoñible no teu sistema se tes
+%%%: Todos os paquetes necesarios deberían estar dispoñibles no teu sistema se tes
 %%%: unha instalación completa de TeX/LaTeX. En Linux Ubuntu está texlive
 %%%: instalable co paquete 'texlive-full' a través de 'apt'. En Windows está
 %%%: MikTeX, e en Mac xuraría que existe MacTeX. LaTeX é un rollo de manter en
-%%%: distinstas plataformas, e en principio só prometemos que funcione en linux ca
+%%%: distintas plataformas, e en principio só prometemos que funcione en Linux ca
 %%%: última versión de texlive. Tamén debería funcionar en Overleaf sen problema
 %%%: porque Overleaf usa texlive. Se usades algunha outra plataforma e vos da
-%%%: algún erro comentádenolo
+%%%: algún erro comentádenolo.
 %%%:
-%%%: Adicionalmente, fixádevos que esque arquivo ten todos os comentarios escritos
+%%%: Adicionalmente, fixádevos que este arquivo ten todos os comentarios escritos
 %%%: con '###:' Esto é a posta, xa que temos un script aparte para eliminalos de
 %%%: golpe cando os recibimos cos contidos dun artigo real. Entón, os VOSOS
 %%%: comentarios, escribídeos normal, cun so '#', senón igual o borramos sen querer
@@ -64,12 +64,12 @@
 %%%:
 \begin{document}
 %%%:
-%%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o titulo
-%%%: e autor ao índice, resetear os conteos de figuras, e evidentemente imprimir
+%%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o título
+%%%: e autor ao índice, reiniciar os conteos de figuras, e evidentemente imprimir
 %%%: no PDF a propia información de cada artigo.
 %%%:
-%%%: \Titular   -> sen asterisco, non engade a sección ao indice
-%%%: \Titular*  -> con asterisco, engade a sección ao indice.
+%%%: \Titular   -> sen asterisco, non engade a sección ao índice
+%%%: \Titular*  -> con asterisco, engade a sección ao índice.
 %%%:
 %%%: Ao ser unha versión simplificada da revista, da igual cal usedes. Eso xa se
 %%%: cambiará logo na propia edición
@@ -94,32 +94,33 @@
 %%%:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 %%%:
 %%%:
-%%%: DUAS COLUMNAS ==============================================================
-%%%: 'multicols' danos bastante flexibilidade para colocar as cousas en duas
+%%%: DÚAS COLUMNAS ==============================================================
+%%%: 'multicols' danos bastante flexibilidade para colocar as cousas en dúas
 %%%: columnas. Se unha parte non debe ter 2 columnas, solo hai que rematar o
-%%%: entorno 'multicols' antes, escribir o que queiramos (qedará en 1 columna), e
-%%%: volver iniciar outro entorno 'multicols' para o resto
+%%%: entorno 'multicols' antes, escribir o que queiramos (quedará en 1 columna), e
+%%%: volver iniciar outro entorno 'multicols' para o resto.
 \begin{multicols}{2}
 
-%%%: SECCIONS E ESTRUCTURA ======================================================
+%%%: SECCIÓNS E ESTRUCTURA ======================================================
 %%%: Os únicos "niveis" que se permiten son de 'subsection' en abaixo. En
-%%%: principio poden estar numerados ou no, a gusto de cada un
+%%%: principio poden estar numerados ou non, a gusto de cada un.
 \subsection*{Introdución}
 
 Texto texto texto texto texto texto texto texto texto texto texto texto texto
 texto texto texto texto texto texto texto texto
 
+Isto é unha referencia \cite{clave_1919}.
 \subsection*{Introdución}
 
 Texto texto texto texto texto texto texto texto texto texto texto texto texto
 texto texto texto texto texto texto texto texto
 
 %%%: IMAXES =====================================================================
-%%%: Podense engadir imaxes co entorno 'figure' e ca opción [H] (é obligatoria)
-%%%: Se podedes, intentade que as imaxes non sexan demasiado pesadas, porfavor
-\begin{figure}[H]
+%%%: Pódense engadir imaxes co entorno 'figure' e ca opción [H] (é obrigatoria)
+%%%: Se podedes, intentade que as imaxes non sexan demasiado pesadas, por favor.
+\begin{figure}[H] 
     \centering
-%%%: Metese a figura como sempre. Podese xogar co ancho pa axustala
+%%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
     \includegraphics[width=0.65\linewidth]{exemplo_imaxe.jpeg}
     \caption{Texto a pe de paxina, interesante...}
     \label{im:exemplo}
@@ -135,11 +136,11 @@ A álxebra é xenerosa, frecuentemente da máis do que se lle pide
 {D'Alembert}
 
 %%%: CITAS E REFERENCIAS BIBLIOGRÁFICAS. ========================================
-%%%: O manexo da bibliogrfía en LaTeX é unhe experiencia necesariamente mala,
+%%%: O manexo da bibliografía en LaTeX é unha experiencia necesariamente mala,
 %%%: sempre. O primeiro punto é asimilalo. Para poder citar cousas, é necesario
 %%%: ter un arquivo ao lado (no mesmo directorio) que se chame bibliografía.bib, o
 %%%: cal ten a información dos libros, artigos, etc. O contido de dito arquivo é
-%%%: algo así (sí, un formato tremendamente feo):
+%%%: algo así (si, un formato tremendamente feo):
 %%%:
 %%%: @Article{caratheodory_1909,
 %%%:   Title    = {Untersuchungen über die Grundlagen der Thermodynamik},
@@ -155,15 +156,15 @@ A álxebra é xenerosa, frecuentemente da máis do que se lle pide
 %%%:   Language = {de}
 %%%: }
 %%%:
-%%%: Sen dito arquivo, non se pode xerar a bibliografía automáticamente. Este
+%%%: Sen dito arquivo, non se pode xerar a bibliografía automaticamente. Este
 %%%: formato de texto dise que está en formato 'bib' ou 'bibtex'. É posible buscar
 %%%: ditas referencias en formato 'bib' en internet. En xeral, nas páxinas oficias
-%%%: das editoriais que teñen os artigos ou libros, soe haber unha opcion tipo
+%%%: das editoriais que teñen os artigos ou libros, adoita haber unha opción tipo
 %%%: 'download citation in bib format' ou algo similar.
 %%%:
 %%%: Unha vez tendes o arquivo 'bibliografia.bib' nun documento no mesmo
-%%%: directorio que esto, podese citar moi facil simplemente escribindo (para o
-%%%: caso da referencia de Carahteodory de exemplo):
+%%%: directorio que esto, pódese citar moi fácil simplemente escribindo (para o
+%%%: caso da referencia de Caratheodory de exemplo):
 %%%:
 %%%: \cite{caratheodory_1909}
 %%%:
