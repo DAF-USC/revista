@@ -47,14 +47,13 @@ vez ou varias, toda achega é valiosa. Se tes dúbidas ou ideas, podes escribirn
 ao correo ou preguntar nos grupos da DAF e da revista!
 
 ## Índice de contidos
-1. [Como participar na revista?](#como-participar-na-revista)
-2. [Estrutura do repositorio](#estrutura-do-repositorio)
-3. [Estrutura das revistas](#estrutura-das-revistas)
+1. [Estrutura do repositorio](#estrutura-do-repositorio)
+2. [Estrutura das revistas](#estrutura-das-revistas)
    - [Revistas](#revistas)
    - [Artigos](#artigos)
    - [Portada](#portada)
    - [Imaxes](#imaxes)
-4. [Compilación](#compilación)
+3. [Compilación](#compilación)
    - [Algunhas dependencias](#algunhas-dependencias)
    - [Pero, como compilo isto?](#pero-como-compilo-isto)
 
@@ -90,7 +89,8 @@ correspondentes `.tex` e unha carpeta `imaxes/`.
 - `modelo/` - Cartafol co exemplo de artigo simplificado e as súas dependencias.
 - `trebellos/` - Recursos auxiliares e outros scripts da equipa de edición.
 
-<p align="right"> <a href="#indice-de-contidos">(voltar ao índice)</a> </p>
+<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+
 ## Estrutura das revistas
 ### Revistas
 
@@ -147,7 +147,8 @@ que non tería sentido cambiar entre os números.
 Para mostrar calquera deses valores só hai que prefixar o macro con imprime,
 e.g. `\imprimeCorreo` ou `\imprimeNumero`.
 
-<p align="right"> <a href="#indice-de-contidos">(voltar ao índice)</a> </p>
+<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+
 ### Artigos
 
 Gárdanse no mesmo directorio que o `revista_001.tex` correspondente,
@@ -197,7 +198,8 @@ Algunhas cousas a ter en conta:
 das cales só as dous primeiras son obrigatorias, as outras dúas poden quedar
 en branco.
 
-<p align="right"> <a href="#indice-de-contidos">(voltar ao índice)</a> </p>
+<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+
 <!--
 ### Portada
 
@@ -244,7 +246,8 @@ revista inclúese un `\listfiles` polo que cada vez que se compila un documento
 deberían aparecer listados todos os ficheiros `*.sty` e similares que se están
 usando dentro da logfile.
 
-<p align="right"> <a href="#indice-de-contidos">(voltar ao índice)</a> </p>
+<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+
 ### Pero como compilo isto?
 
 Quen use sistemas online como Overleaf, poden simplemente descargar o proxecto
@@ -277,4 +280,5 @@ make limpa      # limpar os arquivos auxiliares
 Por defecto, ca configuración de latexmk adxunta, ao compilar unha revista
 o PDF que se xere gárdase no directorio `./pdf/` e os arquivos auxiliares
 en `./aux/`.
-<p align="right"> <a href="#indice-de-contidos">(voltar ao índice)</a> </p>
+
+<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
