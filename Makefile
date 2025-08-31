@@ -26,6 +26,6 @@ limpa:
 
 # accion para empaquetar os arquivos necesarios para o artigo simplificado
 modelo:
-	zip -r modelo.zip fontes/ artigo_simplificado.tex revista.cls latexmkrc *.csl
+	zip -r modelo.zip modelo/
 
-.PHONY: rula limpa
+.PHONY: rula limpa modelo

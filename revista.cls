@@ -1,19 +1,61 @@
-% Este é o formato da revista. Se buscas por qué tal cou cal cousa se ve como
+% Este é o formato da revista. Se buscas por que tal ou cal cousa se ve como
 % se ve, deberías mirar aquí. Intentei que esto estivese comentado na medida do
 % posible, para facilitar o uso e modificación desto no futuro. Todo esto foi
 % escrito de 0 por varios estudantes da facultade de física da universidade de
-% Santiago de Compostela.  Se queres saber como contribuir, botalle un ollo ao
+% Santiago de Compostela.  Se queres saber como contribuír, botádelle un ollo ao
 % arquivo README.md. Este é un proxecto libre, de uso e de responsabilidade. En
 % ningún momento nos imos facer responsables se compilas esto e se che queima a
 % CPU (dudo que pase).
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{revista}[2025/08/01 Clase para a revista de Fisica USC]
+\ProvidesClass{revista}[2025/08/01 Clase para a revista de Física USC]
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
-% Cargamos funcions de Lua
-\directlua{dofile('lua/funcions.lua')}
+% OPCIÓNS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Creo varios booleanos. Dependendo de que opción escollamos, fareinos 'true'
+% ou no. Esto non é necesario, podería meter unha gran parte do código dentro
+% do '\DeclareOption', pero hai cousas que non podería, como cargar paquetes
+% (non se pode usar '\RequirePackage' nin macros que inda non están definidos
+\newif\ifOpcionsBaleiras\OpcionsBaleirastrue % fágoo 'true' por defecto
+\newif\ifSimple\Simplefalse % fágoo 'false' por defecto
+\newif\ifCompleta\Completafalse % ídem
+
+% Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
+\DeclareOption*{%
+    % Véxase sec. 4.8 de cslguide.pdf
+    \ClassError{revista}{%
+        ‘\CurrentOption’ non é unha opción válida.%
+         Opcións posíbeis: simple, completa}{}
+}
+
+% Opción COMPLETA, a cal mostra a portada, índice e contraportada.
+\DeclareOption{completa}{
+    \Completatrue
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse
+}
+
+% Opción SIMPLE, para mostrar só os artigos.
+\DeclareOption{simple}{
+    \Simpletrue
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse
+}
+
+\ProcessOptions\relax
+
+% Se non escollemos ningunha destas opcións, salta un erro.
+\ifOpcionsBaleiras
+    \ClassError{revista}{Non escolliches ningunha opción.%
+                         Opcións posíbeis: simple, completa}{}
+\fi
+
+\ifCompleta
+    % cargamos funcións de lua
+    \directlua{dofile('funcions.lua')}
+\fi
 
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
@@ -28,7 +70,7 @@
     BoldFont       = *-bold,
     BoldItalicFont = *-bolditalic,
 ]{lmroman10}
-% A tipografía para as matemáticas seleccinámola logo de cargar o paquete
+% A tipografía para as matemáticas seleccionámola logo de cargar o paquete
 % 'unicode-math' máis abaixo.
 
 % Tipografía monoespaciada. Usase con \texttt{ aaa }
@@ -50,25 +92,27 @@
 % Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
 % { \FonteSimbolos bla bla bla ... }
 % A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
-% para sustituir as imaxes .PNG de cousas como mails,twitter,instagram, etc.
+% para substituír as imaxes .PNG de cousas como mails,twitter,instagram, etc.
 % Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
-% esta tipografía. Para buscar os iconos: https://www.nerdfonts.com/cheat-sheet
-% É bastante posible que o editor que estedes usando non vos mostre o icono na
-% pantalla correctamente. Non é problema, mentres sexa o icono correcto no PDF
-% verase ben. Tamén é posible especificar o icono co seu código hexadecimal
-% explícitamente, escribindo ^^^^eb2a Sí, os catro ^ son necesarios, 'eb2a' é o
-% codigo hex.
-\newfontfamily{\FonteSimbolos}[
-    Extension   = .ttf,
-    UprightFont = *-Regular,
-    Path        = ./fontes/NerdFonts/,
-]{SymbolsNerdFontMono}
+% esta tipografía. Para buscar as iconas: https://www.nerdfonts.com/cheat-sheet
+% É bastante posible que o editor que esteades usando non vos mostre a icona na
+% pantalla correctamente. Non é problema, mentres sexa a icona correcta no PDF
+% verase ben. Tamén é posible especificar a icona co seu código hexadecimal
+% explicitamente, escribindo ^^^^eb2a Si, os catro ^ son necesarios, 'eb2a' é o
+% codigo hex. Ollo, só cargamos estas tipografías na versión completa
+\ifCompleta
+    \newfontfamily{\FonteSimbolos}[
+        Extension   = .ttf,
+        UprightFont = *-Regular,
+        Path        = ./fontes/NerdFonts/,
+    ]{SymbolsNerdFontMono}
+\fi
 
 % Usar galego (como debe ser)
 \RequirePackage{polyglossia}
 \setmainlanguage{galician}
 
-% BIBLIOGRAFIA. Pasamos a usar o método máis comodo, xeral e rápido: CSL
+% BIBLIOGRAFIA. Pasamos a usar o método máis cómodo, xeral e rápido: CSL
 % https://www.ctan.org/pkg/citation-style-language
 % https://github.com/citation-style-language/styles
 % https://www.zotero.org/styles
@@ -81,9 +125,9 @@
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
 \RequirePackage{xcolor}
 
-% Graficos e tal. Se podes soñalo, podes facelo con TikZ.
+% Gráficos e tal. Se podes soñalo, podes facelo con TikZ.
 \RequirePackage{tikz}
-% para facer calculos cas posicions dos nodos, sumándolle cousas. Por exemplo,
+% para facer cálculos cas posicións dos nodos, sumándolle cousas. Por exemplo,
 % fixádevos que ás coordenadas (current page.west) 'súmaselle' (2.5,-5)
 % \node[
 %     red!90,
@@ -101,14 +145,14 @@
 % switch e.g. \transparent{0.3}
 \RequirePackage{transparent}
 
-% E pos codigos QR da contraportada, con \qrcode{}. Ralentizan moito a
+% E pos códigos QR da contraportada, con \qrcode{}. Retardan moito a
 % compilación
 \RequirePackage{qrcode}
 
-% Para recuadros, fondos, etc.
+% Para recadros, fondos, etc.
 \RequirePackage{tcolorbox}
 
-% Xeometria do documento. Na portada e na contraportada sobreescribimos a
+% Xeometría do documento. Na portada e na contraportada sobreescribimos a
 % xeometría con \newgeometry e volvemos a esta con \restoregeometry
 \RequirePackage{geometry}
 \geometry{
@@ -118,18 +162,18 @@
     right       = 10mm,    % marxe dereito
     bottom      = 25mm,    % marxe inferior
     nomarginpar = true,    % desactivar marxe para notas
-    % showframe,            % mostra estructura, moi util
+    % showframe,            % mostra estrutura, moi útil
 }
 
 % Esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
 % \RequirePackage{lua-visual-debug}
 
 % E xa que falamos de depuración, está o comando este pa mostrar todos os
-% paquetes que se usan (implícita e explícitamente) e súas versións. Toda esa
+% paquetes que se usan (implícita e explicitamente) e súas versións. Toda esa
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
 \listfiles
 
-% Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opcion da
+% Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opción da
 % clase 'twocols' porque esa da moitísimos problemas no caso de que queiramos
 % ter partes que non teñan 2 columnas. Aparte de que se pode configurar menos
 \RequirePackage{multicol}
@@ -137,16 +181,16 @@
 % E aumentamos a separación entre as columnas
 \setlength{\columnsep}{5mm}
 
-% Pa cambiar interlineados no momento usando \setstrech{}
+% Pa cambiar interliñados no momento usando \setstrech{}
 \usepackage{setspace}
 \setlength\parindent{5mm} % tamaño da indentación
 
-% Para graficos
+% Para gráficos
 \RequirePackage{graphicx}
 % \RequirePackage{svg}
 
 % Mates e todo eso. Hai variedade, de feito, máis dos que se usan. Miña
-% intención é que a xente sepa que existen
+% intención é que a xente saiba que existen
 \RequirePackage{mathtools}  % mates xerais
 \RequirePackage{amssymb}    % simbolos adicionais
 \RequirePackage{amsthm}     % definir teoremas
@@ -157,8 +201,8 @@
 \RequirePackage{braket}     % notación bra-ket
 \RequirePackage{mathrsfs}   % letras reviradas \mathcal
 
-% Esto é para eliminar un waring do paquete mathrsfs
-% Orixe da solucion: https://tex.stackexchange.com/a/10701
+% Esto é para eliminar un warning do paquete mathrsfs
+% Orixe da solución: https://tex.stackexchange.com/a/10701
 % Referencia de \DeclareFontShape: https://web.mit.edu/newtex/doc/latex/base/fntguide/node22.html
 \DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
 \DeclareFontShape{U}{rsfs}{m}{n}{%
@@ -184,8 +228,8 @@
 ]{latinmodern-math}
 
 % Esto pa cambiar facilmente o estilo das 'captions' das cousas. Queremos que
-% este justificada. singlelinecheck=false: evita que LaTeX centre pies de una
-% sola línea (por defecto, lo hace aunque hayas pedido justificación).
+% este xustificada. singlelinecheck=false: evita que LaTeX centre pés dunha
+% soa liña (por defecto, o que fai aínda que se pida xustificación).
 \RequirePackage{caption}
 \captionsetup{
     font            = footnotesize,
@@ -201,12 +245,12 @@
 \RequirePackage{booktabs}
 \RequirePackage[scr]{rsfso}
 \RequirePackage{adjustbox}
-\RequirePackage{ragged2e} % Para justificar minipages
+\RequirePackage{ragged2e} % Para xustificar minipages
 \RequirePackage{float}
 \RequirePackage[small, unboxed]{cwpuzzle}
 \RequirePackage{soul}
 
-% Encabezados e pe de paxina, pa facilitar a creacion cun par de comandos
+% Encabezados e pé de páxina, pa facilitar a creación cun par de comandos
 \RequirePackage{fancyhdr}
 \setlength\headheight{20pt}
 
@@ -237,8 +281,8 @@
 }
 
 % ESTILOS DE PÁXINA E ÍNDICES.
-% Estos estilos cambian os encabezados das páxinas e engaden
-% os correspondetes indices dependendo dos artigos que haxa.
+% Estes estilos cambian os encabezados das páxinas e engaden
+% os correspondentes índices dependendo dos artigos que haxa.
 
 \NewDocumentCommand\definirEstiloEIndice{ m m }{%
     \fancypagestyle{#1}{%
@@ -277,20 +321,21 @@
     \csname Indice#1\endcsname
 }
 
-% Este macro pode invocarse con ou sen asterisco, ousexa \EngadeAoTOC*
-% Co asterisco, aparte do titulo, tamén engade unha seccion ao TOC
+% :FACER: á larga debería simplificar toda esta funcionalidade, máis a de \Titular
+% Este macro pode invocarse con ou sen asterisco, ou sexa \EngadeAoTOC*.
+% Co asterisco, aparte do título, tamén engade unha seccion ao TOC.
 %
 % Argumentos:
 %
-% #1 (asterisco) crear unha seccion no TOC ou no
+% #1 (asterisco) crear unha sección no TOC ou no
 % #2 -> Nome do artigo
-% #3 -> Nome do autor
+% #3 -> Nome da autoría
 % #4 -> Estilo da páxina (TIPO de artigo)
 \NewDocumentCommand\EngadeAoTOC{ s m m m }{%
-    % Primeiro, engadimos seccion ao TOC ou no? Depende de se o macro
+    % Primeiro, engadimos sección ao TOC ou no? Depende de se o macro
     % se usou cun asterisco ou no
     \IfBooleanTF{#1}%
-    {% No caso de usar asterisco, angadir unha seccion ao TOC
+    {% No caso de usar asterisco, engadir unha sección ao TOC
         \addtocontents{toc}{%
             \begingroup%
                 \setlength{\parindent}{0pt}%
@@ -298,7 +343,7 @@
             \endgroup%
         }%
     }%
-    {% No caso de non telo, non engadir seccion ao toc
+    {% No caso de non telo, non engadir sección ao toc
         \addtocontents{toc}{%
             \begingroup%
                 \setlength{\parindent}{0pt}%
@@ -310,7 +355,7 @@
     % Engadimos o nome do artigo
     \addcontentsline{toc}{section}{\protect{#2}}
 
-    % Engadimos o nome do autor. Pa que quede ben metese nunha minipage
+    % Engadimos o nome da autoría. Pa que quede ben metese nunha minipage
     \addtocontents{toc}{%
         % Definindo largura fixa para a minipage de texto com alinhamento
         % superior
@@ -318,7 +363,7 @@
             % Ajuste fino para alinhar o resumo do texto com o topo da figura
             % (altere de acordo com o topo da figura)
             \protect{\small #3}%
-            % Ajuste fino para alinhar o nome do autor do texto com el resumen
+            % Ajuste fino para alinhar o nome da autoría do texto com el resumen
             \protect\vfill%
             % Ajuste fino para espaçamento entre figura e resumo e próximo
             % artigo do sumário
@@ -331,7 +376,7 @@
 }
 
 % Este é un pequeno macro que fai uso da nova funcionalidade de Experimental
-% LaTeX 3 (expl3 para os amigos). Comproba se un argumento está BALEIRO, ousexa
+% LaTeX 3 (expl3 para os amigos). Comproba se un argumento está BALEIRO, ou sexa
 % '\exemplo{}' ten un argumento baleiro.
 \ExplSyntaxOn
     \cs_set_eq:NN  \EstaBaleiro  \tl_if_blank:nTF
@@ -346,7 +391,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Agora un dos comandos máis importantes. Debe usarse ao comezo de cada artigo.
 %
-% #1: (asterisco *). Poñelo engade seccion ao Indice
+% #1: (asterisco *). Poñelo engade sección ao índice
 % #2: ESTILO DA PÁXINA cambia os encabezados: A escoller entre:
 %         divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
 %         filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
@@ -356,25 +401,25 @@
 %
 % Exemplo:
 %
-% \Titular*       -> asterisco, polo que no Indice aparece seccion
-% {divulgacion}   -> OBLIGATORIO especificar o ESTILO
-% {titulo}        -> OBLIGATORIO especificar o TITULO
+% \Titular*       -> asterisco, polo que no índice aparece sección
+% {divulgacion}   -> OBRIGATORIO especificar o ESTILO
+% {titulo}        -> OBRIGATORIO especificar o TÍTULO
 % {noether}       -> OPCIONAL especificar a AUTORÍA
 % {subtitulo}     -> OPCIONAL especificar o SUBTITULO
 %
-% IMPORTANTE: Se non se quere especificar algo (autor ou subtitulo), hai que
-% poñerlle os parenteses igualmente, pero baleiros, é dicir:
+% IMPORTANTE: Se non se quere especificar algo (autoría ou subtitulo), hai que
+% poñerlle os parénteses igualmente, pero baleiros, é dicir:
 %
 % \Titular*
 % {divulgacion}
 % {titulo}
-% {}              -> sen autoría, debe ir cos parenteses baleiros
-% {}              -> sen subtitulo, debe ir cos parenteses baleiros
+% {}              -> sen autoría, debe ir cos parénteses baleiros
+% {}              -> sen subtitulo, debe ir cos parénteses baleiros
 %
 \NewDocumentCommand\Titular{ s m m m m }{%
     % Mostramos o propio titular, como sempre. Todo dentro dun `center`
     \begin{center}
-        % Esto es para que cuando el texto ocupe más de dos líneas, se amplie
+        % Isto é para que cando o texto ocupe máis de dúas liñas, se amplíe
         \vspace*{-2.5em}
         % TITULO
         \section*{\textcolor{Resalte}{\Huge \textbf{#3}}}
@@ -391,7 +436,7 @@
 
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
     \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
-        {% no caso de ter o asterisco, engadimos unha seccion ao TOC.
+        {% no caso de ter o asterisco, engadimos unha sección ao TOC.
             \EngadeAoTOC*{#3}{#4}{#2}% (#3)TITULO, (#4)AUTOR, (#2)ESTILO
         }%
         {% se non temos asterisco, non engadimos seccion
@@ -399,17 +444,17 @@
         }
     % Aplicamos o estilo de páxina
     \pagestyle{#2}%
-    % Aprobeito pa meter esto aquí. Resetea números nas figuras
+    % Aproveito pa meter esto aquí. Reinicia números nas figuras
     \setcounter{figure}{0}
     \stepcounter{section}
     \counterwithin*{equation}{section}
     % Outra opción é que as ecuacións se numeren como
-    % (1.1), (1.2), (2.1), etc. así evitamos repeticions. Deixo varios macros
-    % acá porlas moscas \numberwithin{equation}{section}
+    % (1.1), (1.2), (2.1), etc. así evitamos repeticións. Deixo varios macros
+    % acá por se as moscas \numberwithin{equation}{section}
     % \renewcommand\theequation{\arabic{equation}}
 }
 
-% Tipografia preciosa. Xoga cos espaciados moi ben para xustificar o texto.
+% Tipografía preciosa. Xoga cos espazados moi ben para xustificar o texto.
 \RequirePackage{microtype}
 
 % Paquete para links
@@ -426,7 +471,7 @@
 %% VARIABLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Estas son varias 'variables', mellor dito, macros onde gardamos algúns
 % valores para logo mostralos onde queiramos. Uso '\makeatletter' para que o
-% símbolo '@' (que se chama, 'at'), sexa unha letra (de ahí o de 'make at
+% símbolo '@' (que se chama, 'at'), sexa unha letra (de aí o de 'make at
 % letter'). Fago esto porque usando \def\... é a maneira máis simple que coñezo
 % de definir macros coma estos, 'simples'
 \makeatletter
@@ -510,11 +555,11 @@
 %
 % As cores defínense usando formato HTML, e.g. algo como ff0000 (vermello puro)
 %
-% Técnicamente, non fai falta definir estos comandos, pero así podemos escribir
+% Tecnicamente, non fai falta definir estos comandos, pero así podemos escribir
 % '\CorResalte{ff0000}' en vez de '\definecolor{Resalte}{HTML}{ff0000}', o cal
 % é algo máis limpo. OLLO, hai que meter o de \hypersetup aquí para que as
 % cores dos links cambien en cada revista: na clase, definimos as cores (nunhas
-% liñas máis adiante), e se non metesemos o hypersetup no macro este, na
+% liñas máis adiante), e se non metésemos o hypersetup no macro este, na
 % revista non poderíamos cambiar as cores dos links.
 \NewDocumentCommand\CorResalte{ m }{%
     \definecolor{Resalte}{HTML}{#1}%
@@ -532,8 +577,8 @@
 % Un macro para os pasatempos, para facilitarnos algo a vida
 %
 % #1 (entre corchetes [...]) texto opcional á dereita
-% #2 TITULO. Primeiro argumento entre parenteses recurvos {...}
-% #3 AUTOR. Segundo argumento entre parenteses recurvos {...}
+% #2 TITULO. Primeiro argumento entre parénteses recurvos {...}
+% #3 AUTORÍA. Segundo argumento entre parénteses recurvos {...}
 %
 % Exemplos:
 % \Pasatempo[fontes: wikipedia]{Encrucillado}{Manolito}
@@ -543,7 +588,7 @@
 % funciona... asique todo ben
 \NewDocumentCommand\Pasatempo{ o m m }{%
     \section*{%
-        \textcolor{Resalte}{#2 }% AUTOR
+        \textcolor{Resalte}{#2 }% AUTORÍA
         {\normalfont \itshape #3}% TITULO DO PASATEMPO
         \IfNoValueTF{#1}%
             {}%
@@ -567,7 +612,7 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Finalmente, os macros para xerar a portada, o indice e a contraportada
+% Finalmente, os macros para xerar a portada, o índice e a contraportada
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ____   ___  ____ _____  _    ____    _     %
@@ -583,7 +628,7 @@
     \pagenumbering{gobble}
     \thispagestyle{empty}
 
-    % Creamos unha xeometria nova
+    % Creamos unha xeometría nova
     \newgeometry{
         top    = 2mm,  % marxe superior
         left   = 5mm,  % marxe esquerdo
@@ -640,8 +685,8 @@
                 \setlength{\fboxrule}{2pt}% grosor do borde
                 \fbox{%
                     % Hai que poñer \textwidth-4p porque \fbox crea unha liña
-                    % cun certo grosor, a cal move a imaxe un pouco. Cada borde
-                    % da \fbox ten 2pt, e a imaxe movese polo tanto o doble
+                    % cun certo grosor, a cal move a imaxe un pouco. Cada bordo
+                    % da \fbox ten 2pt, e a imaxe movese polo tanto o dobre
                     % (4pt) para arriba e abaixo. Así encaixa perfecto
                     \includegraphics[width=\textwidth-4pt]{\imprimeImaxePortada}%
                 }%
@@ -669,15 +714,22 @@
             xshift = 0.55cm,
             yshift = 0.5cm
         ] at (current page.south west)
-        % :FACER: cambiamos moito de logos, igual metemos esto nun macro tamen?
+        % :FACER: cambiamos moito de logos, igual metemos esto nun macro tamén?
         {\includegraphics[width=12cm]{logos/vicerreitoria-branco-negro.pdf}};
     \end{tikzpicture}
     \endgroup% <-- este cerra o grupo que contén o de \setlenght\parindent{0pt}
 
-    % volvemos a cargar a xeometria que tiñamos no preambulo
+    % volvemos a cargar a xeometría que tiñamos no preámbulo
     \restoregeometry
     \hypersetup{pageanchor=true}
 }
+
+% Se usamos a opción 'completa', mostramos a portada
+% Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
+\ifCompleta
+    \AtBeginDocument{\Portada}
+\fi
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ___ _   _ ____ ___ ____ _____ %
@@ -689,18 +741,18 @@
 \NewDocumentCommand\Indice{}{%
     \begingroup % un grupo para que o de parindent non afecte ao resto da revista
     \setlength\parindent{0pt}
-    % Color del resalte trasparentado a la derecha del índice
+    % Cor de resalte transparentado á dereita do índice
     \begin{tikzpicture}[remember picture, overlay]
         \draw[
             line width = 0.73\textwidth,
             color      = Resalte!65!white
         ] ($(current page.north east) - (0,0)$) -- ($(current page.south east) - (0,0)$);
     \end{tikzpicture}
-    % (non xoguedes a poñer liñas en blanco entre as tikzpictures, vai ir mal)
+    % (non xoguedes a poñer liñas en branco entre as tikzpictures, vai ir mal)
     % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % Columna de la izqueirda, está el índice y el Sobre Momentum.
+    % Columna da esquerda, está o índice e o Sobre Momentum.
     % Para colocar ben
-    % as as cousas hai que usar moitos 'minipage'.
+    % as cousas hai que usar moitos 'minipage'.
     \begin{minipage}[t]{0.72\textwidth}%
         \vspace{-0.3cm}%
         \begin{minipage}[t]{\hsize}%
@@ -711,9 +763,9 @@
                         \section*{\Huge \textbf{Índice}}
                         \begingroup%
                             % Esto e para que non salte o Indice default, e o
-                            % poidamos poñer nos
+                            % poidamos poñer nós
                             \let\contentsname\relax%
-                            \tableofcontents% <--- o 'TOC' CARGASE AQUí
+                            \tableofcontents% <--- o 'TOC' CÁRGASE AQUí
                         \endgroup%
                     }%
                 \end{adjustbox}%
@@ -752,7 +804,7 @@
                     \footnotesize
                     \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
                 };
-                % Comentado mentras pensamos se metemos a revista na DAF ou no
+                % Comentado mentres pensamos se metemos a revista na DAF ou non
                 % \node at (0,-1)
                 % {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                 % \textcolor{TextoEnResalte}{  }};
@@ -775,6 +827,11 @@
     \pagenumbering{arabic}
 }
 
+% Se usamos a opción 'completa', mostramos o índice
+\ifCompleta
+    \AtBeginDocument{\Indice}
+\fi
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   ____ ___  _   _ _____ ____      _    ____   ___  ____ _____  _    ____    _    %
 %  / ___/ _ \| \ | |_   _|  _ \    / \  |  _ \ / _ \|  _ \_   _|/ \  |  _ \  / \   %
@@ -789,7 +846,7 @@
         right  = 6mm,  % marxe dereito
         bottom = 8mm,  % marxe inferior
         nohead = true, % desactivar o encabezado
-        nofoot = true, % desactivar o pe de paxina
+        nofoot = true, % desactivar o pé de páxina
     }
 
     % FONDO %
@@ -829,10 +886,10 @@
     \vspace{-1cm}
     \hrulefill
 
-    % O do QR non sei por qué pero a veces colocase mal. Mirando con
-    % lua-visual-debug pareceme que crea un numero incrible de boxes
+    % O do QR non sei por que pero ás veces colocase mal. Mirando con
+    % lua-visual-debug paréceme que crea un numero incrible de boxes
     % que pode que
-    % toleen a colocacion doutras cousas. Por agora furrula, polos pelos.
+    % toleen a colocación doutras cousas. Por agora furrula, polos pelos.
     \begin{minipage}[c][5cm]{5cm}
         \begin{center}
             Edicións anteriores: \\[2mm]
@@ -870,6 +927,11 @@
     \end{minipage}
 }
 
+% Se usamos a opción 'completa', mostramos a contraportada ao final
+\ifCompleta
+    \AtEndDocument{\Contraportada}
+\fi
+
 % DEFINICIÓNS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Localización ao galego dos operadores matemáticos
@@ -886,47 +948,3 @@
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
-
-% OPCIONS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Creo un booleano. Fareino 'false' se usamos calquera opcion. Se non usamos
-% ningunha, será 'true', e usarei esto para dar un erro no caso de non usar
-% ningunha opcion
-\newif\ifOpcionsBaleiras
-\OpcionsBaleirastrue % fagoo 'true'
-
-% Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
-\DeclareOption*{%
-    % Véxase sec. 4.8 de cslguide.pdf
-    \ClassError{revista}{%
-        ‘\CurrentOption’ non é unha opción válida.%
-         Opcións posíbeis: simple, completa}{}
-}
-
-% Opción COMPLETA, a cal mostra a portada, índice e contraportada.
-\DeclareOption{completa}{
-    \typeout{Estás a usar a opción ‘\CurrentOption’}
-    % Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
-    \AtBeginDocument{%
-        \Portada%
-        \Indice%
-    }
-    \AtEndDocument{%
-        \Contraportada%
-    }
-    \OpcionsBaleirasfalse % fago o booleano 'false'
-}
-
-% Opción SIMPLE, para mostrar só os artigos.
-\DeclareOption{simple}{
-    \typeout{Estás a usar a opción ‘\CurrentOption’}
-    \OpcionsBaleirasfalse % fago o booleano 'false'
-}
-
-\ProcessOptions\relax
-
-% Se non escollemos ningunha destas opcions, salta un erro
-\ifOpcionsBaleiras
-    \ClassError{revista}{Non escolliches ningunha opción.%
-                         Opcións posíbeis: simple, completa}{}
-\fi

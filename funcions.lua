@@ -200,3 +200,4 @@ function gitInfo()
     end
 
 end
+
