@@ -26,6 +26,6 @@ limpa:
 
 # accion para empaquetar os arquivos necesarios para o artigo simplificado
 modelo:
-	zip -r modelo.zip modelo/
+	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
 
 .PHONY: rula limpa modelo
