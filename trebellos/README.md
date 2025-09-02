@@ -22,27 +22,26 @@ Un **commit xenérico** terá a seguinte estrutura:
 ```
 E defínense os seguintes **tipos**:
 ```
-  feat:     Engadir unha nova funcionalidade ou artigo.
-  fix:      Corrección dun bug ou errata.
-  docs:     Cambios na documentación (README, comentarios, etc.).
-  style:    Cambios de estilo no código (formato, espazos, punto e coma, etc.).
-  refactor: Reestruturación do código sen engadir funcionalidades nin corrixir bugs.
-  perf:     Melloras no rendemento.
-  build:    Cambios que afectan o sistema de compilación ou dependencias externas.
-  chore:    Tarefas de mantemento que non afectan ao código principal (scripts, hooks, .gitignore, etc.).
-  test:     Engadir ou actualizar tests.
-  ci:       Cambios nos ficheiros de configuración de integración continua (CI).
-  revert:   Reverter un commit anterior.
+  novo:   Engadir unha nova funcionalidade ou artigo.
+  apaño:  Corrección dun bug ou errata.
+  docs:   Cambios na documentación (README, comentarios, etc.).
+  estilo: Cambios de estilo no código (formato, espazos, punto e coma, etc.).
+  orde:   Reestruturación do código sen engadir funcionalidades nin corrixir bugs.
+  rend:   Melloras no rendemento.
+  comp:   Cambios que afectan o sistema de compilación ou dependencias externas.
+  tarefa: Tarefas de mantemento que non afectan ao código principal (scripts, hooks, .gitignore, etc.).
+  tornar: Reverter un commit anterior.
 ```
 Ademais, cómpre ter en conta que
 - O **contexto** é *opcional*, e pode indicar a revista ou ficheiro afectado.
 - Os commits que introduzan **cambios críticos** deben ser indicados cun ! antes do :.
+- Co fin de facer o proceso máis intuitivo, e un pouco por desprezo á lingua franca tamén, traducíronse os tipos de Conventional Commits. A equivalencia coa terminolxía habitual é `novo -> feat`, `apaño -> fix`, `estilo -> style`, ` orde -> refactor`, `rend -> perf`, `comp -> build`, `tarefa -> chore` e `tornar -> revert`.
 
 Por último, deixamos algúns **exemplos de uso**:
 ```
- feat(002): engadir artigo DARKO
- fix(003): corrixir erratas varios artigos
- fix(revista)!: definición imaxe portada
+ novo(002): engadir artigo DARKO
+ apaño(003): corrixir erratas varios artigos
+ apaño(revista)!: definición imaxe portada
  docs(readme): actualizar instrucións de instalación
 ```
 Para máis referencias, tamén podedes botarlle unha ollada a proxectos semellantes. Por exemplo, o historial de commits de [An Infinitely Large Napkin](https://github.com/vEnhance/napkin/commits/).
