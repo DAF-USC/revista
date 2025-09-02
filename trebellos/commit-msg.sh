@@ -8,7 +8,7 @@ COMMIT_MSG_FILE=$1
 # Le a mensaxe de commit do ficheiro
 COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
-CONVENTIONAL_COMMIT_REGEX='^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert)(\([a-zA-Z0-9_.-]+\))?(!)?:\s.*$'
+CONVENTIONAL_COMMIT_REGEX='^(novo|apaño|docs|estilo|orde|rend|comp|tarefa|tornar)(\([a-zA-Z0-9_.-]+\))?(!)?:\s.*$'
 
 # Comproba se a mensaxe de commit cadra co regex
 if ! [[ $COMMIT_MSG =~ $CONVENTIONAL_COMMIT_REGEX ]]; then
