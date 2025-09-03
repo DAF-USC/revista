@@ -64,7 +64,7 @@ O repositorio contén:
 
 - `revista.cls` - Clase de LaTeX para a revista.
 - `american-physics-society.csl` - Estilo de citas bibliográficas do Citation Style Language.
-- `funcions.lua` - Códigos feitos en lua relacionadas coa compilación e o control de versións.
+- `funcions.lua` - Códigos feitos en lua relacionados coa compilación e o control de versións.
 - `bibliografia.bib` - Base de datos bibliográfica.
 - `latexmkrc` e `Makefile` - Axudas para compilar a revista.
 
@@ -95,15 +95,15 @@ correspondentes `.tex` e un cartafol `imaxes/`.
 ## Estrutura das revistas
 ### Revistas
 
-Os arquivos comúns a todas as revistas, como o estilo da revista, `revista.cls`
+Os **arquivos comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
 e o estilo bibliográfico American Physics Society, `american-physica-society.csl`,
 deben estar na raíz do proxecto.
 
-Cada número da revista ten o seu propio cartafol en [`revistas/`](./revistas),
+Cada **número da revista** ten o seu propio cartafol en [`revistas/`](./revistas),
 e dentro destes é onde se gardan os arquivos específicos de cada revista, como
 os artigos e as imaxes.
 
-O arquivo principal de cada revista noméase como, se é a revista número 001,
+O **arquivo principal** de cada revista noméase como, se é a revista número 001,
 `revistas/001/revista_001.tex`. Este é o arquivo principal a compilar, e ten a
 forma seguinte (aproximada):
 
@@ -111,7 +111,7 @@ forma seguinte (aproximada):
 % Opcións: simple (só artigos) ou completa (portada, índice e contraportada)
 \documentclass[completa]{revista}
 
-% Comandos para definir a informacion de cada revista
+% Comandos para definir a información de cada revista
 \Numero{001}
 \Data{Xaneiro do 1900}
 \ImaxePortada{./revistas/001/imaxes/pedra.jpg} % Imaxe que aparecerá na portada
@@ -172,8 +172,7 @@ a seguinte forma:
 
 \begin{multicols}{2} % Para ter varias columnas
 
-% As distintas partes sepáranse con 'subsections' SEMPRE
-\subsection*{Introdución}
+\subsection*{Introdución} % As distintas partes sepáranse con 'subsections' SEMPRE
 
 Bos días anduriños, neste artigo ensinareivos como facer fisión nuclear caseira
 cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
@@ -189,7 +188,7 @@ por axudarme a sacar a fonte do laboratorio de nuclear. Vémonos na próxima!!
 \end{multicols}
 ```
 O macro `\Titular` é o centro de cada artigo: cambia as seccións da revista,
-reinicia numeracións, da formato aos encabezados, define nomes...
+reinicia numeracións, dá formato aos encabezados, define nomes...
 
 Algunhas cousas a ter en conta:
 
@@ -252,11 +251,11 @@ facilidades á hora de crear documentos accesíbeis.
 As tipografías usadas están incluídas no directorio `fontes/`,
 polo que non é necesario instalalas.
 
-Dependendo de onde se vaia a compilar o proxecto hai dúas rutas:
+Dependendo de onde se vaia compilar o proxecto hai dúas rutas:
 
 - Instalación local:
   - Para os paquetes, é recomendábel unha **instalación completa de TeX Live 2025**,
-xa que é a única que aseguramos que funcione e está dispoñíbel en tódolos
+xa que é a única versión que aseguramos que funcione e está dispoñíbel en tódolos
 sistemas operativos.
   - En Windows e macOS, MiKTeX descarga a última versión dos paquetes segundo
 sexan necesarios dende o repositorio oficial, CTAN, polo que tamén debería
@@ -276,9 +275,10 @@ Solución de erros:
 
 - (Só TeX Live) Usamos o paquete `citation-style-language` para a bibliografía.
 Recentemente, actualizouse para solucionar un erro relacionado coa bibliografía
-dependente da sección (cortesía de @deivisCode), e esta versión aínda non está
-en TeX Live. Para que funcione correctamente, teredes que instalar o paquete
-manualmente no voso *texmf tree*. Para iso, descargade o [paquete do CTAN](https://ctan.org/pkg/citation-style-language)
+dependente da sección (cortesía do noso [@deivisCode](https://github.com/deivisCode)),
+e esta versión aínda non está en TeX Live. Polo que, para que funcione
+correctamente, teredes que instalar o paquete manualmente no voso *texmf tree*. 
+Para iso, descargade o [paquete do CTAN](https://ctan.org/pkg/citation-style-language)
 e descomprimídeo no seguinte directorio (previamente creado):
     - Linux: `$HOME/texmf/tex/latex/csl`
     - Windows: `C:\Users\<o-voso-usuario>\texmf\tex\latex\csl`
