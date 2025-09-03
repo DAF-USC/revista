@@ -24,7 +24,7 @@ Exemplares anteriores: [Revista Estudantil Momentum](https://www.usc.gal/gl/cent
 
 Contacto: [revistafisicaUSC@gmail.com](mailto:revistafisicaUSC@gmail.com)
 
-## Como participar na revista?
+## :memo: Como participar na revista?
 
 Hai varias formas de participar, segundo os intereses e inquedanzas de cada persoa:
 
@@ -47,18 +47,18 @@ O proxecto funciona grazas á participación aberta: non importa se colaboras un
 vez ou varias, toda achega é valiosa. Se tes dúbidas ou ideas, podes escribirnos
 ao correo ou preguntar nos grupos da DAF e da revista!
 
-## Índice de contidos
-1. [Estrutura do repositorio](#estrutura-do-repositorio)
-2. [Estrutura das revistas](#estrutura-das-revistas)
+## :mag: Índice de contidos
+1. [Estrutura do repositorio](#card_file_box-estrutura-do-repositorio)
+2. [Estrutura das revistas](#newspaper-estrutura-das-revistas)
    - [Revistas](#revistas)
    - [Artigos](#artigos)
-3. [Artigo simplificado](#artigo-simplificado)
-4. [Compilación](#compilación)
+3. [Artigo simplificado](#page_facing_up-artigo-simplificado)
+4. [Compilación](#toolbox-compilación)
    - [Dependencias](#dependencias)
-   - [Como compilo isto?](#pero-como-compilo-isto)
-5. [Outros enlaces e documentos](#outros-enlaces-e-documentos)
+   - [Como compilo isto?](#como-compilo-isto)
+5. [Outros enlaces e documentos](#books-outros-enlaces-e-documentos)
 
-## Estrutura do repositorio
+## :card_file_box: Estrutura do repositorio
 
 O repositorio contén:
 
@@ -90,9 +90,9 @@ correspondentes `.tex` e un cartafol `imaxes/`.
 - `modelo/` - Cartafol co exemplo de artigo simplificado e as súas dependencias.
 - `trebellos/` - Recursos auxiliares e outros scripts da equipa de edición.
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
-## Estrutura das revistas
+## :newspaper: Estrutura das revistas
 ### Revistas
 
 Os **arquivos comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
@@ -151,7 +151,7 @@ hai que prefixar o macro con imprime, e.g. `\imprimeCorreo` ou `\imprimeNumero`.
 
 Máis información sobre a implementación e particularidades na [clase da revista](./revista.cls).
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 ### Artigos
 
@@ -201,7 +201,7 @@ Algunhas cousas a ter en conta:
 das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
 en branco.
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 <!--
 ### Portada
@@ -229,7 +229,7 @@ tamaño.
 
 -->
 
-## Artigo simplificado
+## :page_facing_up: Artigo simplificado
 
 Existe un modelo de artigo simplificado para a xente que queira utilizalo
 no proceso de creación de contido ou fedellar coa clase da revista. O artigo
@@ -239,7 +239,10 @@ Tamén inclúe numerosos comentarios sobre as formas preferidas para engadir
 imaxes, citas e referencias.
 
 Podedes encontralo nos [*releases*](https://github.com/DAF-USC/revista/releases) da revista.
-## Compilación
+
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
+
+## :toolbox: Compilación
 
 ### Dependencias
 
@@ -291,7 +294,7 @@ revista inclúese un `\listfiles` polo que cada vez que se compila un documento
 deberían aparecer listados todos os ficheiros `*.sty` e similares que se están
 usando dentro da logfile. -->
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 ### Como compilo isto?
 
@@ -323,10 +326,10 @@ Por defecto, ca configuración de `latexmk` adxunta, ao compilar unha revista
 o PDF que se xere gárdase no directorio `./pdf/` e os arquivos auxiliares
 en `./aux/`.
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
-## Outros enlaces e documentos
+## :books: Outros enlaces e documentos
 O repositorio ten unha [Wiki](https://github.com/DAF-USC/revista/wiki) na que
 se inclúen ligazóns útiles e documentos relevantes da revista.
 
-<p align="right"><a href="#índice-de-contidos">(voltar ao índice)</a></p>
+<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
