@@ -92,6 +92,7 @@ correspondentes `.tex` e un cartafol `imaxes/`.
    └── ...
 ```
 - `logos/` - Logos da universidade, facultade e institucións colaboradoras en PDF.
+- `fontes/` - Tipos de letra empregados na revista.
 - `modelo/` - Cartafol co exemplo de artigo simplificado e as súas dependencias.
 - `trebellos/` - Recursos auxiliares e outros scripts da equipa de edición.
 
