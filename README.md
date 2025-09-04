@@ -251,7 +251,7 @@ funcionar.
   tamaño do repo. Se clonades o repositorio sen telo instalado, en vez dos
   ficheiros reais, teredes eses punteiros de texto e o proxecto dará erros na
   compilación.
-  - Execución en liña (Overleaf):
+- Execución en liña (Overleaf):
   - No Overleaf ides a `Menu -> Settings` e cambiades `Compiler: LuaLaTeX` e
   `TeX Live version: 2024`.
   - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
