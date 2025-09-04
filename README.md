@@ -28,19 +28,24 @@ Contacto: [revistafisicaUSC@gmail.com](mailto:revistafisicaUSC@gmail.com)
 
 Hai varias formas de participar, segundo os intereses e inquedanzas de cada persoa:
 
-- **Produción de contidos**: escribir artigos, entrevistas, textos de divulgación...,
+- **Produción de contidos**: escribir artigos, entrevistas, pasatempos...,
 xa sexa como colaboración puntual ou de maneira máis continuada. As contribucións
 envíanse a [revistafisicaUSC@gmail.com](mailto:revistafisicaUSC@gmail.com), en
 formato plano ou LaTeX.
 
-- **Comisión de Edición**: encárgase do deseño visual, da tradución e corrección lingüística, e
-do formato final da revista.
+- **Comisión de Edición**: encárgase de implementar o deseño visual, garantir a
+reproducibilidade dos códigos e coidar que o formato final sexa limpo, coherente
+e profesional.
 
-- **Comisión de Produción**: busca recursos, promove a revista e mantén o contacto
-con institucións e colaboradores externos.
+- **Comisión de Corrección**: vela pola calidade lingüística da revista a través da
+tradución e localización dos contidos, así como da corrección textual.
+
+- **Comisión de Produción**: xestiona recursos, promove a revista, mantén o contacto
+con institucións e colaboradores externos e procura apoios para garantir a
+lonxevidade do proxecto.
 
 - **Comisión de Dirección**: coordina o proxecto no seu conxunto, vela polo
-mantemento da esencia creativa da revista, coordina a sección de entrevistas
+mantemento da identidade creativa da revista, coordina a sección de entrevistas
 e aproba os artigos enviados.
 
 O proxecto funciona grazas á participación aberta: non importa se colaboras unha
@@ -142,7 +147,8 @@ Os comandos `\Numero`, `\Data`, `\ImaxePortada`, `\ComentarioImaxePortada`,
 deben estar presentes en cada revista xa que conteñen información específica
 de cada número. No tocante a imaxe da portada, cómpre que sexa *exactamente*
 cadrada para non ter problemas na compilación, isto pode facerse
-con programas como [Inkscape](https://inkscape.org/), [Gimp](https://www.gimp.org/) ou [ImageMagick](https://imagemagick.org/)
+con programas como [Inkscape](https://inkscape.org/), [Gimp](https://www.gimp.org/)
+ou [ImageMagick](https://imagemagick.org/)
 
 Adicionalmente, tamén se definen os macros `\LinkRepositorio`, `\Correo`,
 `\Drive`, `\WhatsApp` inda que, nun principio, conteñen información
@@ -203,37 +209,11 @@ en branco.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
-<!--
-### Portada
-
-Cada número ten unha portada distinta. A imaxe correspondente
-defínese en cada `revista_001.tex` no comando `\ImaxePortada`.
-
-### Imaxes
-
-Cada revista ten as imaxes gardadas nun subcartafol ao lado do documento
-correspondente. Para engadir imaxes usamos:
-```latex
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.65\linewidth]{imaxe_bonita.jpeg}
-    \caption{Texto a pe de paxina, interesante...}
-    \label{im:exemplo}
-\end{figure}
-```
-Neste proxecto usamos o sistema [GIT-LFS](https://git-lfs.com/) para manexar
-arquivos binarios, entre os cales están as imaxes. Inda así, é recomendábel que
-non sexan demasiado grandes. Podedes usar [Gimp](https://www.gimp.org/) ou,
-como fago eu, [convert](https://imagemagick.org/), para reducirlles algo o
-tamaño.
-
--->
-
 ## :page_facing_up: Artigo simplificado
 
 Existe un modelo de artigo simplificado para a xente que queira utilizalo
-no proceso de creación de contido ou fedellar coa clase da revista. O artigo
-simplificado non require preocuparse pola estrutura do proxecto nin pola
+no proceso de creación de contido ou que queira fedellar coa clase da revista.
+O artigo simplificado non require preocuparse pola estrutura do proxecto nin pola
 inicialización dos macros, polo que debería ser máis rápido de compilar.
 Tamén inclúe numerosos comentarios sobre as formas preferidas para engadir
 imaxes, citas e referencias.
@@ -247,7 +227,7 @@ Podedes encontralo nos [*releases*](https://github.com/DAF-USC/revista/releases)
 ### Dependencias
 
 Este proxecto usa [LuaLaTeX](https://www.luatex.org/) para o proceso de
-compilación, xa que nos da vantaxes no uso de distintas tipografías, da
+compilación, xa que nos dá vantaxes no uso de distintas tipografías, dá
 acceso a `\directlua`, opcións de depurado usando o paquete
 [lua-visual-debug](https://www.ctan.org/search?phrase=lua-visual-debug), e máis
 facilidades á hora de crear documentos accesíbeis.
@@ -264,10 +244,13 @@ sistemas operativos.
 sexan necesarios dende o repositorio oficial, CTAN, polo que tamén debería
 funcionar.
   - Se ides facer **git clone** do repositorio precisaredes instalar tamén `git-lfs`,
-  que é o que empregamos para manter un tamaño razoábel nas imaxes, fontes e
-  logos. LFS substitúe os ficheiros por punteiros de texto que dirixen a un
-  servidor LFS separado.
-- Execución en liña (Overleaf):
+  que é o que empregamos para evitar gardar copias completas de todos os ficheiros
+  pesados (imaxes, PDFs, fontes) en cada versión. Usando LFS, descárganse só as
+  versións actuais e mantéñense punteiros ás anteriores, o que reduce moito o
+  tamaño do repo. Se clonades o repositorio sen telo instalado, en vez dos
+  ficheiros reais, teredes eses punteiros de texto e o proxecto dará erros na
+  compilación.
+  - Execución en liña (Overleaf):
   - No Overleaf ides a `Menu -> Settings` e cambiades `Compiler: LuaLaTeX` e
   `TeX Live version: 2024`.
   - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
@@ -280,19 +263,13 @@ Solución de erros:
 Recentemente, actualizouse para solucionar un erro relacionado coa bibliografía
 dependente da sección (cortesía do noso [@deivisCode](https://github.com/deivisCode)),
 e esta versión aínda non está en TeX Live. Polo que, para que funcione
-correctamente, teredes que instalar o paquete manualmente no voso *texmf tree*. 
+correctamente, teredes que instalar o paquete manualmente no voso *texmf tree*.
 Para iso, descargade o [paquete do CTAN](https://ctan.org/pkg/citation-style-language)
 e descomprimídeo no seguinte directorio (previamente creado):
     - Linux: `$HOME/texmf/tex/latex/csl`
     - Windows: `C:\Users\<o-voso-usuario>\texmf\tex\latex\csl`
     - macOS: `~/Library/texmf/tex/latex/csl`
 
-
-<!-- Para os paquetes e resto de dependencias, é recomendábel unha instalación
-completa de TeXLive, inda que seguramente MiKTeX tamén funcione. Na clase da
-revista inclúese un `\listfiles` polo que cada vez que se compila un documento
-deberían aparecer listados todos os ficheiros `*.sty` e similares que se están
-usando dentro da logfile. -->
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
