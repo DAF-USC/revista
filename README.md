@@ -142,7 +142,7 @@ Os comandos `\Numero`, `\Data`, `\ImaxePortada`, `\ComentarioImaxePortada`,
 deben estar presentes en cada revista xa que conteñen información específica
 de cada número. No tocante a imaxe da portada, cómpre que sexa *exactamente*
 cadrada para non ter problemas na compilación, isto pode facerse
-con programas como [Inkscape](https://inkscape.org/) ou [Gimp](https://www.gimp.org/).
+con programas como [Inkscape](https://inkscape.org/), [Gimp](https://www.gimp.org/) ou [ImageMagick](https://imagemagick.org/)
 
 Adicionalmente, tamén se definen os macros `\LinkRepositorio`, `\Correo`,
 `\Drive`, `\WhatsApp` inda que, nun principio, conteñen información
