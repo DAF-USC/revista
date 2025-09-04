@@ -15,7 +15,7 @@ e accesíbel.
 
 Este proxecto, impulsado polo estudantado de Física da USC, naceu no ano 2025
 co obxectivo de crear un recuncho de expresión que vaia máis aló do estritamente
-académico, aberto ás xeracións actuais e tamén ás vindeiras.
+académico, aberto ás xeracións actuais, pasadas e vindeiras.
 
 A equipa de *Momentum* agradece profundamente calquera suxestión. Non dubidedes en deixar
 a vosa pegada!
