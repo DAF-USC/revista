@@ -288,9 +288,9 @@
     \fancypagestyle{#1}{%
         \fancyhf{} % Limpa as cabeceiras e pés de páxina
         \renewcommand{\headrulewidth}{0.4pt} % Engade liña no cabeceiro
-        \fancyhead[LE,RO]{\MakeUppercase{#2}} % Nome da sección
+        \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
         \fancyfoot[LE,RO]{\thepage} % Páxina
-        \fancyfoot[LO,RE]{\imprimeTitulo} % Título
+        \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}} % Título
         \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
         \headsep = 1cm % Espazo no cabeceiro
     }
