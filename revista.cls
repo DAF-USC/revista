@@ -607,6 +607,10 @@
     }%
 }
 
+% PREGUNTAS nunha entrevista
+\NewDocumentCommand{\Pregunta}{ m }{%
+    \vspace{0.6em} \noindent \textit{\textbf{#1}} \vspace{0.6em}%
+}
 
 % CITAS TEXTUAIS
 %
@@ -615,11 +619,19 @@
 % #1: Contido da cita
 % #2: Autoría
 \NewDocumentCommand\Cita{ m m }{%
-    \begin{quotation}
-        {\itshape #1}\\
-        \vspace{1ex}
-        \hfill — #2
-    \end{quotation}
+    \begin{minipage}[t]{\hsize}
+        \vspace*{0.5em}
+        \begin{quotation}
+            {\noindent \itshape #1}\\
+            \vspace{-4ex}
+            % \hfill — #2 % Como estaba antes <-
+            \hfill
+            \begin{flushright}
+            — #2
+            \end{flushright}
+        \end{quotation}
+        \vspace*{0.5em}
+    \end{minipage}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
