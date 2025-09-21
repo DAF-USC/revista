@@ -123,7 +123,7 @@
 \addbibresource{bibliografia.bib}
 
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
-\RequirePackage{xcolor}
+\RequirePackage[table]{xcolor}
 
 % Gráficos e tal. Se podes soñalo, podes facelo con TikZ.
 \RequirePackage{tikz}
