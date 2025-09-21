@@ -8,7 +8,7 @@
 % CPU (dudo que pase).
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{revista}[2025/08/01 Clase para a revista de Física USC]
+\ProvidesClass{revista}[2025/09/21 Clase para a revista de Física USC]
 
 \LoadClass[11pt,a4paper,twoside]{article}
 
@@ -522,7 +522,7 @@
 % LINK para o REPOSITORIO
 \def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
 \newcommand{\imprimeLinkRepositorio}{\@LinkRepositorio}
-\LinkRepositorio{DAF-USC/revista}
+\LinkRepositorio{fisicaUSC/revista}
 
 % CORREO
 \def\Correo#1{\def\@Correo{#1}}
