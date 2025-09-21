@@ -73,6 +73,7 @@
 % A tipografía para as matemáticas seleccionámola logo de cargar o paquete
 % 'unicode-math' máis abaixo.
 
+% :FACER: MONO e variantes
 % Tipografía monoespaciada. Usase con \texttt{ aaa }
 \setmonofont[
     Path      = ./fontes/LatinModern/,
@@ -432,23 +433,23 @@
     \begin{center}
         % Isto é para que cando o texto ocupe máis de dúas liñas, se amplíe
         \vspace*{-2.5em}
-        % TITULO
+        % TÍTULO
         \section*{\textcolor{Resalte}{\Huge \textbf{#3}}}
         % AUTORÍA
         \EstaBaleiro{#4}% comprobamos se a autoría está baleira
             {\vspace*{3mm}}%                                           --> se NON hai autor
             {\vspace*{3mm}{\vspace*{-1em}\Large #4} \\ \vspace*{3mm}}% --> se SI hai autor
-        % SUBTITULO
-        \EstaBaleiro{#5}% comprobamos se o subtitulo está baleiro
-            {\vspace*{-3mm}}%               --> se NON hai subtitulo
-            {\textit{#5} \vspace*{-3mm}}%   --> se SI hai subtitulo
+        % SUBTÍTULO
+        \EstaBaleiro{#5}% comprobamos se o subtítulo está baleiro
+            {\vspace*{-3mm}}%               --> se NON hai subtítulo
+            {\textit{#5} \vspace*{-3mm}}%   --> se SI hai subtítulo
         %
     \end{center}
 
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
     \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
         {% no caso de ter o asterisco, engadimos unha sección ao TOC.
-            \EngadeAoTOC*{#3}{#4}{#2}% (#3)TITULO, (#4)AUTOR, (#2)ESTILO
+            \EngadeAoTOC*{#3}{#4}{#2}% (#3)TÍTULO, (#4)AUTOR, (#2)ESTILO
         }%
         {% se non temos asterisco, non engadimos seccion
             \EngadeAoTOC{#3}{#4}{#2}%
