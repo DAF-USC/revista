@@ -825,20 +825,18 @@
                     align  = left
                 ] at (0.3,0)
                 {
-                    \footnotesize
                     \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
                 };
-                % Comentado mentres pensamos se metemos a revista na DAF ou non
-                % \node at (0,-1)
-                % {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont
-                % \textcolor{TextoEnResalte}{  }};
-                % \node[
-                %     anchor = west,
-                %     align  = left
-                % ] at (0.5,-1)
-                % {
-                %     \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
-                % };
+                \node at (0,-1)
+                {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont
+                \textcolor{TextoEnResalte}{  }};
+                \node[
+                    anchor = west,
+                    align  = left
+                ] at (0.5,-1)
+                {
+                    \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
+                };
             \endgroup
         \end{tikzpicture} \\[1.7cm]
         % Logo da USC
