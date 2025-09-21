@@ -725,7 +725,7 @@
             xshift       = 0.9cm,
             yshift       = 3.7cm,
             fill         = gray,
-            fill opacity = 0.75, % transparencia do fondo
+            fill opacity = 0.8, % transparencia do fondo
             text opacity = 1,    % o texto sigue opaco
             inner sep    = 5pt   % separación interna do texto ao borde
         ]  at (current page.south west)
@@ -878,7 +878,7 @@
             \parbox[b][1.2\paperheight]{\paperwidth}{
                 \vfill
                 \centering
-                {\transparent{0.05}\includegraphics{logos/botafumeiro.png}}
+                {\transparent{0.07}\includegraphics{logos/botafumeiro.png}}
                 \vfill
             }
         }
