@@ -355,7 +355,13 @@
     % Engadimos o nome do artigo
     \addcontentsline{toc}{section}{\protect{#2}}
 
-    % Engadimos o nome da autoría. Pa que quede ben metese nunha minipage
+    % Engadimos o nome da autoría:
+    % :FACER: esto funciona ben?
+    \IfBlankTF{#3}%
+    {% Se a autoría (#3) está baleira aplícase outro espazado
+        \addtocontents{toc}{\vspace{1.5em}}
+    }%
+    {% Se hai autoría engadese ao toc cunha minipage
     \addtocontents{toc}{%
         % Definindo largura fixa para a minipage de texto com alinhamento
         % superior
@@ -370,9 +376,10 @@
             \protect\vspace{1cm}%
             \protect%
         \end{minipage}
-        \vfill
-    }
-    \addtocontents{toc}{\vspace{2em}}
+        \vfill}
+        \addtocontents{toc}{\vspace{2em}}
+    }%
+
 }
 
 % Este é un pequeno macro que fai uso da nova funcionalidade de Experimental
