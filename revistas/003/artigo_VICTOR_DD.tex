@@ -1,0 +1,274 @@
+\Titular%
+{divulgacion}%
+{O signo menos que vale un premio Nobel}%
+{Víctor Díaz Díaz}%
+{Breve historia do descubrimento da liberdade asintótica e o nacemento da cromodinámica cuántica.}%
+
+\begin{multicols}{2}
+
+\subsection*{Introdución}
+
+A cromodinámica cuántica (QCD) foi o último bloque do Modelo Estándar en ser
+descuberto. Contra todas as expectativas, foron os esforzos por demostrar que
+non era posible construír unha teoría coma ela os que finalmente fixeron que se
+atopase.
+
+Neste artigo vou expoñer brevemente a historia da QCD e a liberdade asintótica,
+un concepto intimamente ligado con esta, baseándome principalmente no discurso
+da entrega do premio Nobel a D. Gross \cite{GrossNobel}, no que lembra a
+historia do traballo polo que precisamente recibiu o galardón. Os detalles
+técnicos e os cálculos concretos son moi longos e complicados, polo que os
+omitirei cando sexa posible e procurarei dar unha explicación conceptual.
+
+\subsection*{O contexto}
+
+A situación das teorías cuánticas de campos (QFTs) nos 1960s era moi delicada.
+Despois de ser inventadas para tratar a electrodinámica de xeito cuántico
+intentáronse aplicar á descrición das interaccións nucleares feble e forte,
+descubertas nas décadas anteriores, pero os resultados non eran satisfactorios.
+
+O obstáculo principal era o feito de que, xa a primeira orde en teoría de
+perturbacións, as teorías devolvían resultados infinitos. As correccións
+cuánticas facían que os valores dos parámetros observables diverxesen,
+contradicindo claramente o feito experimental de que os seus valores son
+finitos e provocando que a teoría non puidese facer ningunha predición útil.
+
+Un importante paso cara a adiante foi dado cando R. Feynman, J. Schwinger, S.
+Tomonaga e F. Dyson formularon o proceso da renormalización, que conseguía
+eliminar os infinitos e devolvía á electrodinámica cuántica (QED) a capacidade
+preditiva. Deste esforzo xorde a correspondencia entre teoría e experimento
+máis precisa que contamos a día de hoxe: o momento dipolar magnético anómalo do
+electrón \cite{g_exp, g_teor}.
+
+No entanto, non quedaba clara a interpretación física do fenómeno da
+renormalización, e moitos víano como un simple truco matemático que non
+resolvía o problema fundamentalmente. Esto fixo que as QFTs quedasen nun
+segundo plano e deixaron de verse como unha ferramenta seria. Así, exploráronse
+outros métodos diferentes para intentar formalizar as interaccións nucleares,
+como a teoría da matriz $S$ ou a álxebra de correntes. En xeral, estes
+formalismos alternativos traballaban con obxectos que se poderían deducir dunha
+teoría de campos, pero que tamén podían determinarse por outros métodos.
+
+\subsection*{O comportamento ultravioleta das QFTs}
+
+Os anos seguintes traeríanlle máis problemas aínda ás QFTs da man de L. Landau
+e outros colegas seus que emprega na súa contra precisamente os resultados
+proporcionados pola renormalización.
+
+Para entender o ataque de Landau debemos empezar por presentar a conclusión
+máis importante que se deriva do proceso de renormalización: as constantes de
+acoplamento das QFTs non son realmente constantes, dependen da escala de
+enerxías na que se observe. O xeito de cuantificar esta dependencia é a través
+da función $\beta$, definida como
+
+\begin{equation}
+    \beta(g) \equiv \frac{\text{d}g}{\text{d} \ln \mu} = \mu
+    \frac{\text{d}g}{\text{d}\mu},
+\end{equation}
+
+\noindent onde $g$ é unha determinada constante de acoplamento e $\mu$ é a
+escala de enerxía \cite{Ramond}.
+
+Un xeito simple de regularizar unha teoría que presente infinitos é establecer
+un corte na escala de enerxías, un valor $\mu=\Lambda$ moito maior que a escala
+observable $\mu=m$ que evita que as partículas virtuais chegen a ter momento
+infinito e produzan diverxencias. Así, fíxase o valor das constantes de
+acoplamento no ultravioleta, $g(\Lambda)$. Os posibles valores de momento que
+se atopen entre o corte e a escala observable intégranse, o que modifica o
+valor das constantes de acoplamento para enerxías inferiores ao corte. Este
+procedemento dá resultados útiles, pero idealmente quereriamos estender o corte
+ao infinito, de xeito que a teoría sexa aplicable a calquera escala de
+enerxías. Para QED, e o resto de QFTs que se coñecían no momento, a función
+$\beta(g)$ verifica a relación \cite{Srednicki}
+
+\begin{equation}
+    \int_{g(m)}^{g(\Lambda)} \frac{\text{d}g}{\beta(g)} = \ln \frac{\Lambda}{m}.
+    \label{eq:RGF}
+\end{equation}
+
+\noindent É obvio que no límite $\Lambda \to \infty$ o lado dereito da ecuación
+diverxe. Para o lado esquerdo, pola súa parte, poden darse dous casos \cite{Landau1}:
+
+\textbf{1)} Que a función $\beta$ tamén diverxa, de xeito que $g(\Lambda) \to \infty$ para
+algún valor finito de enerxía e o parámetro presenta o que se coñece como
+\textit{polo de Landau}. Isto volve a teoría inconsistente a altas enerxías.
+
+\textbf{2)} Se a función $\beta$ se mantén positiva e medra de xeito máis rápido que
+$\mathcal{O}(g)$, o lado esquerdo de \eqref{eq:RGF} aproximarase a un valor
+finito, de xeito que
+
+\begin{equation}
+    \int_{g(m)}^{\infty} \frac{\text{d}g}{\beta(g)} = \ln
+    \frac{\Lambda_\text{max}}{m}.
+\end{equation}
+
+\noindent A primeira orde, podemos aproximar este valor finito da enerxía como $
+\Lambda_\text{max} \approx m e^{\beta_2 / g(m)}$, onde $\beta_2$ é unha
+constante positiva, de xeito que $\Lambda_\text{max} \to \infty$ implica $g(m)
+\to 0$ para calquera $m$ e a teoría é \textit{trivial}, de xeito que non hai
+interaccións. Isto contradí claramente as observacións experimentais.
+
+
+En calquera caso, atopamos un problema que non podemos evitar. Todas estas
+conclusións son aplicables a QED, e xa que sabemos que a interacción
+electromagnética existe, vémonos forzados a concluír que a teoría non pode ser
+válida a escalas de enerxía arbitrariamente altas. Isto indica que se necesita
+unha teoría máis completa nese réxime, pero non supón un problema inmediato
+porque a maior parte de procesos de interese ocorren a enerxías inferiores.
+
+Non obstante, a argumentación de Landau ten unha importancia maiúscula ao
+pretender describir a interacción forte cunha QFT, porque as escalas de enerxía
+de interese correspóndense con aquelas nas que as teorías poden dar problemas.
+Isto parecía ser o golpe definitivo ao propósito de describir as interaccións
+nucleares con teorías de campos.
+
+\subsection*{A liberdade asintótica}
+
+O argumento de Landau era forte, pero non infranqueable. O problema da
+trivialidade cuántica podía evitarse de dous xeitos se se relaxaban as
+expectativas formadas a partir de QED: se a función $\beta$ non medra de xeito
+máis rápido que $\mathcal{O}(g)$ ou se se volve negativa a partir dalgún valor
+$g_* > g(m)$. Unha teoría tal denominaríase \textit{asintoticamente libre}. No
+entanto, isto era pouco máis que unha resposta \textit{ad hoc}, e ningunha das
+teorías coñecidas producía eses resultados. O propio Landau aseveraba que non
+podía existir ningunha teoría que fose asintoticamente libre \cite{Landau2}.
+
+A seguinte peza nesta historia son os experimentos de \textit{deep-inelastic
+scattering} (DIS). Nestes procesos fanse interactuar electróns con protóns a
+tan alta enerxía que os primeiros son capaces de interactuar con elementos
+constituíntes dos últimos, e os resultados experimentais parecían indicar que,
+a moi altas enerxías, os protóns comportanse como unha colección de tres
+partículas libres puntuais de spin $1/2$ \cite{DIS1, DIS2}, o cal parecía
+requirir unha teoría de campos que fose asintoticamente libre.
+
+Nos anos seguintes, as teorías de campos serían revividas por numerosos éxitos,
+especialmente coa unificación electrofeble, pero a fricción destas cos
+resultados do DIS mantívose. Neste contexto foi no que D. Gross se propuxo
+demostrar que non existían teorías cuánticas de campos renormalizables que
+presentasen liberdade asintótica, dando por rematada finalmente a discusión
+\cite{GrossNobel}. Xunto con C. Callan, conseguiron demostrar que as
+observacións experimentais de DIS só podían corresponderse cunha teoría con
+liberdade asintótica \cite{GrossCallan} e posteriormente, xunto con S. Coleman,
+que as teorías con interaccións escalares, tipo Yukawa ou gauge abelianas (como
+QED) non eran asintóticamente libres \cite{GrossColeman}. As teorías gauge non
+abelianas (Yang-Mills) quedaban excluídas da investigación orixinal porque os
+métodos empregados non funcionaban nelas e o seu tratamento era aínda moi
+complicado. Posteriormente, Gross e F. Wilczek decidiron rematar o traballo e
+calcular a función $\beta$ para teorías Yang-Mills, para o que tamén contaron
+co apoio de H.D. Politzer, que era estudante de Coleman nese momento. Para unha
+teoría gauge non abeliana, a función $\beta$ ten a forma
+
+\begin{equation}
+    \beta(\alpha) \equiv \mu \frac{\text{d}\alpha(\mu)}{\text{d}\mu}
+    = \frac{\alpha^2}{\pi} b_1 + \mathcal{O}(\alpha^3),
+\end{equation}
+
+\noindent onde $\alpha = g^2/4\pi$ e $g$ é a constante de acoplamento. O
+obxectivo era precisamente calcular o parámetro $b_1$ e demostrar que era
+positivo.
+
+Gross e Wilczek chegaron a un primeiro resultado en febreiro de 1973: a teoría
+non era asintoticamente libre. O parámetro $b_1$ era positivo, de xeito que a
+función $\beta$ era positiva. Pero, dispostos a publicar os resultados e dar
+por rematado o traballo, Gross atopou un erro. Nun punto dos cálculos,
+escribiran un signo erróneo nun dos termos. Corrixírono, e deste xeito obtiñan
+un signo diferente para o parámetro $b_1$. Pouco despois, Politzer rematou de
+facer os cálculos pola súa parte, chegando ao mesmo resultado. O que atoparon
+foi \cite{GrossWilczek, Politzer}
+
+\begin{equation}
+    b_1 = - \left(\frac{11}{6} C_A - \frac{2}{3} \sum_R n_R T_R \right).
+\end{equation}
+
+\noindent Esta expresión é válida para unha teoría $SU(N)$ xeral, e depende de
+múltiples parámetros con orixe en teoría de grupos que non vou explicar en
+detalle. A importancia capital deste resultado está no signo global. Para un
+amplo rango de posibilidades, as teorías Yang-Mills son asintoticamente libres,
+e especificamente na teoría consistente cos resultados experimentais tense que
+$b_1 = -3.5$.
+
+Deste xeito nacía a cromodinámica cuántica como unha teoría gauge non abeliana,
+despois de que o esforzo por demostrar que unha teoría tal non era posible fose
+detido no último momento unicamente por un signo, algo tan simple e fácil de
+omitir por equivocación.
+
+\subsection*{Interpretación física da liberdade asintótica}
+
+Unha vez discutida a natureza matemática da renormalización e a liberdade
+asintótica, é interesante intentar dar un significado físico a estes fenómenos.
+
+En primeiro lugar, consideremos unha carga puntual de magnitude $e$. O
+potencial producido por dita carga puntual é proporcional á distancia á que se
+observe segundo
+
+\begin{equation}
+    U(r) \sim \frac{e}{r}.
+\end{equation}
+
+\noindent Este é un feito ben coñecido na electrostática clásica, pero que pode
+explicarse tamén dende a perspectiva do grupo de renormalización se
+identificamos
+
+\begin{equation}
+    e(m) = \frac{e(\Lambda)}{r},
+\end{equation}
+
+\noindent onde $m \sim r^{-1}$ en unidades naturais. Isto é una consecuencia de
+que, nun contexto relativista, variar a distancia é similar a variar a enerxía,
+e polo tanto podemos calcular a función $\beta$ correspondente como función da
+distancia.
+
+A interpretación física do feito consiste en imaxinar o baleiro como un medio
+dieléctrico cheo de pares electrón-positrón. Ao colocar unha carga puntual, os
+pares alíñanse compensando o campo da carga puntual, de xeito que a carga
+efectiva que se observa a distancias finitas é diferente da carga real que se
+introduciu. Canto maior sexa a distancia, máis forte é o apantallamento e menor
+é a carga efectiva. Por outra banda, o que sucede nas teorías asintoticamente
+libres é precisamente o contrario. Colocar unha <<carga non
+abeliana>> no baleiro causaría que os pares presentes neste se
+aliñasen de xeito que o efecto se magnificase, dando lugar a un campo moito
+máis intenso e que a carga efectiva, en lugar de apantallarse, medre.
+
+O que está a suceder é, de feito, algo moi similar ao que ocorre de xeito
+macroscópico ao someter un material a un campo electromagnético. Clasicamente,
+todos os materiais son dieléctricos e colocalos en presenza dun campo
+electromagnético causa que este sexa apantallado. Non obstante, cando se
+introducen consideracións cuánticas, algúns materiais poden ser agora
+paramagnéticos, de xeito que colocalos na presenza dun campo electromagnético
+fai que estes produzan o seu propio campo e contribúan a aumentar a intensidade
+total \cite{Momentum}.
+
+No caso que nos ocupa a nós, o comportamento clásico correspóndese co carácter
+abeliano e o comportamento cuántico correspóndese co carácter non abeliano. De
+xeito resumido, a diferenza entre os dous casos débese ás propiedades dos
+bosóns que transmiten a interacción correspondente (fotóns e gluóns): os bosóns
+abelianos non teñen carga mentres que os non abelianos si, facendo que poidan
+interactuar entre eles e dando orixe a novos fenómenos.
+
+\subsection*{Conclusións}
+
+A historia do descubrimento da liberdade asintótica e o nacemento da
+cromodinámica cuántica é un exemplo claro dun feito que adoita ignorarse á hora
+de presentar o avance científico: o camiño da investigación está cheo de ideas
+equivocadas, erros de cálculo e moita sorte. A QCD formulouse ao intentar
+demostrar que sería imposible de facerse. Para min é unha das mellores
+historias da física e o que a fai mellor é, como no caso de toda boa historia,
+as ensinanzas que contén.
+
+Se esta historia ten unha mensaxe útil para calquera estudante de ciencias debe
+ser a seguinte: á hora de facer cálculos é moi importante que todos e cada un
+dos pasos que se dean sexan coherentes. Un simple signo non só ten unha
+relevancia <<numérica>>, na que o resultado pode
+estar máis ou menos preto do correcto, senón que pode ter implicacións
+conceptuais moi importantes á hora de interpretar a teoría da que se derivan. A
+perspectiva de que <<un signo non é tan importante>>
+só pode entenderse unha vez que a teoría está ben asentada, e unha discrepancia
+deste tipo pode identificarse totalmente cun erro de cálculo. No entanto, ao
+traballar con teorías novas e obter resultados por primeira vez non existe nada
+que nos guíe máis que os propios cálculos que facemos, polo que é moi
+importante evitar erros deste tipo.
+
+
+\printbibliography
+
+\end{multicols}
