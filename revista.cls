@@ -793,7 +793,7 @@
         % Data e Número da revista
         \begin{center}
             \textcolor{TextoEnResalte}{\Large
-                \textbf{\today }        \\[5mm]
+                \textbf{\imprimeData} \\[5mm] % :FACER: por qué \today non funciona?? Non o pon en galego...
                 \textbf{\imprimeNumero} \\[1.5cm]
             }
         \end{center}
