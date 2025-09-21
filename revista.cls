@@ -729,7 +729,7 @@
             text opacity = 1,    % o texto sigue opaco
             inner sep    = 5pt   % separación interna do texto ao borde
         ]  at (current page.south west)
-        {\normalsize \textcolor{white}{\imprimeComentarioImaxePortada} };
+        {\normalsize \textcolor{white}{\textsf{\imprimeComentarioImaxePortada}} };
 
         % Imaxe 2 (superposta)
         \node[
@@ -800,6 +800,7 @@
     % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % LADO DEREITO COS PARTICIPANTES, VARIOS LINKS, DATA, etc, resaltado cunha cor
     \begin{minipage}[t]{0.28\textwidth}
+        \sffamily % texto na dereita en SansSerif, vese mellor
         \vspace{-0.3cm}
         \hspace{-0.7cm}
         % Data e Número da revista
