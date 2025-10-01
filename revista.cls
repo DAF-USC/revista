@@ -318,9 +318,8 @@
 \definirEstiloEIndice{pasatempos}{Pasatempos}
 \definirEstiloEIndice{anuncios}{Anuncios}
 \definirEstiloEIndice{opinion}{Opinión}
-\definirEstiloEIndice{disertacions}{Microdisertacións}
+\definirEstiloEIndice{miscelanea}{Miscelánea}
 \definirEstiloEIndice{reportaxes}{Reportaxe}
-\definirEstiloEIndice{microdisertacions}{Micro Diseracións}
 
 \newcommand{\SeccionTOC}[1]{%
     \csname Indice#1\endcsname
