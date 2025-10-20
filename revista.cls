@@ -612,6 +612,14 @@
     }%
 }
 
+% Seccións de Opinión. Similar a \Pasatempo pero sen texto opcional
+\NewDocumentCommand\Opinion{ m m }{%
+    \section*{%
+        \textcolor{Resalte}{#2 \\}% AUTORÍA
+        {\normalfont \itshape #1}% TITULO DO PASATEMPO
+    }%
+}
+
 % PREGUNTAS nunha entrevista
 \NewDocumentCommand{\Pregunta}{ m }{%
     \vspace{0.6em} \noindent \textit{\textbf{#1}} \vspace{0.6em}%
