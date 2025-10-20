@@ -816,7 +816,7 @@
             }
         \end{center}
         % Aquí mostramos as persoas que participaron no proxecto.
-        \imprimeParticipantes \\[1.5cm]
+        \imprimeParticipantes \\[1.3cm]
         % Links varios
         \begin{tikzpicture}[scale=1.5, anchor=west]
             \begingroup
@@ -825,11 +825,11 @@
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
-                \node at (0,-0.5)
+                \node at (0,-0.4)
                 {
                     \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
                 };
-                \node at (0,-1) {
+                \node at (0,-1.1) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
@@ -837,11 +837,11 @@
                 {
                     \href{https://www.instagram.com/\imprimeInstagram}{\textbf{@\imprimeInstagram}}
                 };
-                \node at (0,-2) {
+                \node at (0,-2.2) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
-                \node at (0,-2.5)
+                \node at (0,-2.6)
                 {
                     \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
                 };
