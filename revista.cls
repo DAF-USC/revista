@@ -835,7 +835,7 @@
                 };
                 \node at (0,-1.5)
                 {
-                    \href{https://www.instagram.com/\imprimeInstagram}{\textbf{\imprimeInstagram}}
+                    \href{https://www.instagram.com/\imprimeInstagram}{\textbf{@\imprimeInstagram}}
                 };
                 \node at (0,-2) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
