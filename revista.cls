@@ -821,7 +821,7 @@
         \begin{tikzpicture}[scale=1.5, anchor=west]
             \begingroup
                 \hypersetup{urlcolor = TextoEnResalte}
-                \node at (0,0) {
+                \node at (0.1,0) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
@@ -829,7 +829,7 @@
                 {
                     \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
                 };
-                \node at (0,-1.1) {
+                \node at (0.1,-1.1) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
@@ -837,7 +837,7 @@
                 {
                     \href{https://www.instagram.com/\imprimeInstagram}{\textbf{@\imprimeInstagram}}
                 };
-                \node at (0,-2.2) {
+                \node at (0.1,-2.2) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
