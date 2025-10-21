@@ -529,6 +529,11 @@
 \newcommand{\imprimeCorreo}{\@Correo}
 \Correo{revistafisicausc@gmail.com}
 
+% INSTA
+\def\Instagram#1{\def\@Instagram{#1}}
+\newcommand{\imprimeInstagram}{\@Instagram}
+\Instagram{momentum.usc}
+
 % Texto de DESPEDIDA, na contraportada. :FACER: fedellar mais con estos macros?
 \def\Despedida#1{\def\@Despedida{#1}}
 \newcommand{\imprimeDespedida}{%
@@ -807,38 +812,41 @@
         \begin{center}
             \textcolor{TextoEnResalte}{\Large
                 \textbf{\imprimeData} \\[5mm] % :FACER: por qué \today non funciona?? Non o pon en galego...
-                \textbf{\imprimeNumero} \\[1.5cm]
+                \textbf{\imprimeNumero} \\[1.1cm]
             }
         \end{center}
         % Aquí mostramos as persoas que participaron no proxecto.
-        \imprimeParticipantes \\[1.5cm]
+        \imprimeParticipantes \\[1.3cm]
         % Links varios
-        \begin{tikzpicture}[scale=1.5]
+        \begin{tikzpicture}[scale=1.5, anchor=west]
             \begingroup
                 \hypersetup{urlcolor = TextoEnResalte}
-                \node at (0,0) {
+                \node at (0.1,0) {
                     \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
                     \textcolor{TextoEnResalte}{  }
                 };
-                \node[
-                    anchor = west,
-                    align  = left
-                ] at (0.3,0)
+                \node at (0,-0.4)
                 {
                     \href{mailto:\imprimeCorreo}{\textbf{\imprimeCorreo}}
                 };
-                \node at (0,-1)
-                {\FonteSimbolos\fontsize{20pt}{0pt}\selectfont
-                \textcolor{TextoEnResalte}{  }};
-                \node[
-                    anchor = west,
-                    align  = left
-                ] at (0.5,-1)
+                \node at (0.1,-1.1) {
+                    \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
+                    \textcolor{TextoEnResalte}{  }
+                };
+                \node at (0,-1.5)
+                {
+                    \href{https://www.instagram.com/\imprimeInstagram}{\textbf{@\imprimeInstagram}}
+                };
+                \node at (0.1,-2.2) {
+                    \FonteSimbolos\fontsize{20pt}{0pt}\selectfont
+                    \textcolor{TextoEnResalte}{  }
+                };
+                \node at (0,-2.6)
                 {
                     \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
                 };
             \endgroup
-        \end{tikzpicture} \\[1.7cm]
+        \end{tikzpicture} \\[1cm]
         % Logo da USC
         \begin{center}
             \includegraphics[width=0.8\linewidth]{logos/usc-negativo-escuro.pdf}
