@@ -612,11 +612,14 @@
     }%
 }
 
-% Seccións de Opinión. Similar a \Pasatempo pero sen texto opcional
+% Macro para as seccións de opinion
+%
+% #1 TITULO
+% #2 AUTORIA
 \NewDocumentCommand\Opinion{ m m }{%
     \section*{%
-        \textcolor{Resalte}{#2 \\}% AUTORÍA
-        {\normalfont \itshape #1}% TITULO DO PASATEMPO
+        \textcolor{Resalte}{#2 \\}%
+        {\normalfont \itshape #1}%
     }%
 }
 
