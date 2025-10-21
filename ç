@@ -1,0 +1,13 @@
+novo(004): engadido artigo de Carballeira
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch proba_004
+# Your branch is up to date with 'origin/proba_004'.
+#
+# Changes to be committed:
+#	new file:   revistas/004/artigo_CARBALLEIRA.tex
+#	new file:   revistas/004/imaxes/emc2.jpg
+#	modified:   revistas/004/revista_004.tex
+#
