@@ -618,8 +618,8 @@
 % #2 AUTORIA
 \NewDocumentCommand\Opinion{ m m }{%
     \section*{%
-        \textcolor{Resalte}{#2 \\}%
-        {\normalfont \itshape #1}%
+        \textcolor{Resalte}{#1 \\}%
+        {\normalfont \itshape #2}%
     }%
 }
 
