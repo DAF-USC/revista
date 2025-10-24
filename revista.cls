@@ -612,6 +612,17 @@
     }%
 }
 
+% Macro para as seccións de opinion
+%
+% #1 TITULO
+% #2 AUTORIA
+\NewDocumentCommand\Opinion{ m m }{%
+    \section*{%
+        \textcolor{Resalte}{#1 \\}%
+        {\normalfont \itshape #2}%
+    }%
+}
+
 % PREGUNTAS nunha entrevista
 \NewDocumentCommand{\Pregunta}{ m }{%
     \vspace{0.6em} \noindent \textit{\textbf{#1}} \vspace{0.6em}%
