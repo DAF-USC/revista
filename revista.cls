@@ -921,7 +921,7 @@
     \vspace*{3em}
 
     % Mostramos rama:hash usada para compilar esta revista
-    % \texttt{\directlua{gitInfo()}}
+    \texttt{\directlua{gitInfo()}}
 
     \vfill
     \vspace{-1cm}
