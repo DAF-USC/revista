@@ -44,7 +44,7 @@ ela non podía evitar sentir unha certa frustración cara á
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{revistas/004/imaxes/mary1.png}
+    \includegraphics[width=\linewidth]{revistas/004/imaxes/mary1.png}
     \caption{
         Mary Tsingou na súa xuventude, traballando no laboratorio de Los
         Álamos.
@@ -87,6 +87,12 @@ analiticamente, derivaba en que non se afondara nelas. Porén, coa creación de
 supercomputadoras como a MANIAC I, Fermi vía unha nova ferramenta para o estudo
 das características non lineais.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{revistas/004/imaxes/mary2.png}
+    \caption{Algoritmo orixinal escrito á man por Mary Tsingou en 1953.}
+\end{figure}
+
 O modelo a seguiren era sinxelo: unha cadea de N partículas, con masa unidade,
 unidas mediante unha interacción cuadrática, cun termo non lineal débil. Dito
 doutra forma, intentaban representar a evolución dun cristal cara ao equilibrio
@@ -99,57 +105,52 @@ entón un desafío, pois era imposible acadar unha solución analítica. Aquí e
 o papel de Tsingou, quen foi a encargada de deseñar e implementar o algoritmo e
 o código das ecuacións correspondentes para a súa solución.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.83\linewidth]{revistas/004/imaxes/mary2.png}
-    \caption{Algoritmo orixinal escrito á man por Mary Tsingou en 1953.}
-\end{figure}
-
 A ecuación de partida define o desprazamento da partícula $j$, tendo en conta a
 ecuación lineal de movemento (a clásica do oscilador harmónico) e o parámetro
 de non linearidade ($\alpha$), para definir o movemento non lineal de cada
 elemento.
-
-\begin{align}
-    \nonumber m\ddot{u}_j =\ &k(u_{j+1} + u_{j-1}-2u_j )\\
-    \nonumber &+ 2k\alpha [(u_{j+1} - u_j ) - (u_j - u_{j-1} )]
-\end{align}
-
+%
+\begin{align*}
+    m\ddot{u}_j =\ &k(u_{j+1} + u_{j-1}-2u_j )\\
+    &+ 2k\alpha [(u_{j+1} - u_j ) - (u_j - u_{j-1} )].
+\end{align*}
+%
 Para calcular a enerxía de cada partícula en base ao seu desprazamento,
 escríbese esta ecuación do movemento en termos do hamiltoniano. É preciso ter
 en conta tamén o elemento da non lineal, polo que a ecuación será o
-hamiltoniano do oscilador harmónico acoplado máis un termo non lineal:
-
-\begin{align}
-    \nonumber H = \frac{1}{2}\sum_{i=0}^N \left(\frac{p_i^2}{m} +
-    k(u_{i+1} -u_i)^2 + \frac{\alpha}{3}k(u_{i+1} - u_i)^3\right)
-\end{align}
-
+hamiltoniano do oscilador harmónico acoplado máis un termo non lineal
+%
+\begin{align*}
+    H = \frac{1}{2}\sum_{i=0}^N \left(\frac{p_i^2}{m} +
+    k(u_{i+1} -u_i)^2 + \frac{\alpha}{3}k(u_{i+1} - u_i)^3\right).
+\end{align*}
+%
 Ao non ser lineal a ecuación de movemento, non é posible atopar unha solución
-analítica, mais si que se pode descompoñer en modos normais:
-
-\begin{align}
-    \nonumber H =\ &\frac{1}{2}\sum_{j=1}^N \left(\frac{{p'}_j^2}{m} +m\omega_j^2q_j^2\right) \\
-    \nonumber &+\frac{\alpha}{3}\sum_{j,l,m=1}^N c_{jlm}a_ja_la_m\omega_j\omega_l\omega_m
-\end{align}
-
+analítica, mais si que se pode descompoñer en modos normais
+%
+\begin{align*}
+    H =\ &\frac{1}{2}\sum_{j=1}^N \left(\frac{{p'}_j^2}{m} +m\omega_j^2q_j^2\right) \\
+    &+\frac{\alpha}{3}\sum_{j,l,m=1}^N c_{jlm}a_ja_la_m\omega_j\omega_l\omega_m.
+\end{align*}
+%
 Tras isto, calcúlanse os coeficientes non lineais $c_{jml}$ e ponse $q_j$ en
 forma exponencial. Despois, súmase para ter en consideración unha ecuación
-xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$:
-
-\begin{align}
-    \nonumber S_n &= \sum_j^N(-i)^nF\left[\sum_k A\left(e^{(i\frac{j+i)k\pi}{N+1}}-e^{i\frac{jk\pi}{N+1}}\right)\right]^n\\
-    \nonumber S_n &= F\sum_j^N\left[a_ke^{i\frac{(j+i/2)k\pi}{N+1}}2\sin\left(\frac{k\pi}{2(N+1)}\right)\right]^n\\
-    \nonumber S_n &= F\sum_j^N\left[a_k\frac{\omega_k}{\omega_0}e^{i\frac{(j+i/2)k\pi}{N+1}}\right]^n
-\end{align}
-
+xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
+%
+\begin{align*}
+    S_n &= \sum_j^N(-i)^nF\left[\sum_k A\left(e^{i\frac{(j+i)k\pi}{N+1}}-e^{i\frac{jk\pi}{N+1}}\right)\right]^n\\
+    S_n &= F\sum_j^N\left[a_k\exp\left(i\frac{(j+i/2)k\pi}{N+1}\right)2\sin\left(\frac{k\pi}{2(N+1)}\right)\right]^n\\
+    S_n &= F\sum_j^N\left[a_k\frac{\omega_k}{\omega_0}\exp\left(i\frac{(j+i/2)k\pi}{N+1}\right)\right]^n.
+\end{align*}
+%
 Saltando un par de pasos intermedios, os termos non lineais serían os
-seguintes, tendo en conta a repetición dos índices $jlm$:
-
-\begin{align}
-    \nonumber c_{jlm} = 2k\frac{(N+1)F}{\omega_0^3}Z(x)D(x)=\frac{k}{\omega_0^3\sqrt{2(N+1)}}Z(x)D(x)
-\end{align}
-
+seguintes, tendo en conta a repetición dos índices $jlm$
+%
+\begin{align*}
+    c_{jlm} &= 2k\frac{(N+1)F}{\omega_0^3}Z(x)D(x) \\
+            &=\frac{k}{\omega_0^3\sqrt{2(N+1)}}Z(x)D(x).
+\end{align*}
+%
 Baixo estes cálculos, Mary Tsingou programou o MANIAC para que se desen os
 resultados dos cálculos. Nas iteracións iniciais, o sistema funcionaba tal como
 Fermi prevía: a enerxía ía pasando dun modo a outro na cadea, e finalmente o
@@ -164,7 +165,7 @@ senón que mostraba unha especie de periodicidade case exacta no seu regreso.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{revistas/004/imaxes/mary3.png}
+    \includegraphics[width=\linewidth]{revistas/004/imaxes/mary3.png}
     \caption{
         Resultados do experimento orixinal nos que se mostra que a enerxía
         volve de novo ao modo 1, ou modo inicial, tras unha cantidade
