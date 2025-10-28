@@ -118,7 +118,7 @@
 % https://github.com/citation-style-language/styles
 % https://www.zotero.org/styles
 \RequirePackage[
-    style       = american-physics-society,
+    style       = estilo-bibliografia,
     ref-section = section
 ]{citation-style-language}
 \addbibresource{bibliografia.bib}
