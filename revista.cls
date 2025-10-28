@@ -817,17 +817,15 @@
     % LADO DEREITO COS PARTICIPANTES, VARIOS LINKS, DATA, etc, resaltado cunha cor
     \begin{minipage}[t]{0.28\textwidth}
         \sffamily % texto na dereita en SansSerif, vese mellor
-        \vspace{-0.3cm}
-        \hspace{-0.7cm}
         % Data e Número da revista
         \begin{center}
             \textcolor{TextoEnResalte}{\Large
-                \textbf{\imprimeData} \\[5mm] % :FACER: por qué \today non funciona?? Non o pon en galego...
-                \textbf{\imprimeNumero} \\[1.1cm]
+                \textbf{\imprimeData} \\[3mm] % :FACER: por qué \today non funciona?? Non o pon en galego...
+                \textbf{\imprimeNumero} \\[0.9cm] % :FACER: estos putos espazos verticais volvenme loco, tocar CALQUEIRA cousa dos participantes fai que se cree unha páxina en branco antes do indice... ????????'
             }
         \end{center}
         % Aquí mostramos as persoas que participaron no proxecto.
-        \imprimeParticipantes \\[1.3cm]
+        \imprimeParticipantes \\[1.1cm]
         % Links varios
         \begin{tikzpicture}[scale=1.5, anchor=west]
             \begingroup
@@ -855,6 +853,11 @@
                 \node at (0,-2.6)
                 {
                     \href{https://github.com/\imprimeLinkRepositorio}{\texttt{\imprimeLinkRepositorio}}
+                };
+                % Mostramos rama:hash usada para compilar esta revista
+                \node at (0,-2.9) {
+                    {\FonteSimbolos \textcolor{TextoEnResalte}{}}
+                    \textcolor{TextoEnResalte}{\texttt{\directlua{gitInfo()}}}
                 };
             \endgroup
         \end{tikzpicture} \\[1cm]
@@ -919,9 +922,6 @@
 
     \thispagestyle{empty}
     \vspace*{3em}
-
-    % Mostramos rama:hash usada para compilar esta revista
-    % \texttt{\directlua{gitInfo()}}
 
     \vfill
     \vspace{-1cm}
