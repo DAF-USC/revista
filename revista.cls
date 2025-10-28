@@ -625,7 +625,7 @@
 
 % PREGUNTAS nunha entrevista
 \NewDocumentCommand{\Pregunta}{ m }{%
-    \vspace{0.6em} \noindent \textit{\textbf{#1}} \vspace{0.6em}%
+    \vspace{0.6em} \noindent \textsf{\textbf{#1}} \vspace{0.6em}%
 }
 
 % CITAS TEXTUAIS
