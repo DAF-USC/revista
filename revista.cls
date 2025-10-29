@@ -87,6 +87,7 @@
     UprightFont = *-regular,
     ItalicFont  = *-oblique,
     BoldFont    = *-bold,
+    BoldItalicFont = *-boldoblique,
 ]{lmsans10}
 
 
