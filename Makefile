@@ -13,11 +13,11 @@
 SHELL := bash
 
 # qué accion se vai executar por defecto
-.DEFAULT_GOAL := rula
+.DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
 # esta accion mira se existe o arquivo revista/001/revista_001.tex e en caso
 # afirmativo, executa 'latexmk' con dito arquivo
-rula: revistas/$(numero)/revista_$(numero).tex
+.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex
 	latexmk revistas/$(numero)/revista_$(numero).tex
 
 # accion para limpar os arquivos auxiliares
@@ -28,4 +28,10 @@ limpa:
 modelo:
 	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
 
-.PHONY: rula limpa modelo
+# Para facer os carteis propagandísticos
+propaganda: .pdf/revista_$(numero).pdf
+	convert .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
+	typst compile --root . --input numero=$(numero) trebellos/propaganda.typ .pdf/propaganda.pdf
+	rm .pdf/paxinas_[0-9][0-9][0-9]_[^0]*.pdf
+
+.PHONY: limpa modelo propaganda
