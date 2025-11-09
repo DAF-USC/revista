@@ -1,20 +1,22 @@
+# Máis información: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files
+
 cff-version: 1.2.0
 message: "Se desexas citar a revista estudantil 'Momentum', usa os metadatos deste ficheiro."
-type: periodical
 title: "Momentum: a revista estudantil da Facultade de Física da USC"
 abstract: "Revista estudantil de carácter científico que busca fomentar e cultivar o interese e curiosidad pola física e a ciencia."
 authors:
   - name: "Comité Editorial de Momentum"
     type: entity
+    city: Santiago de Compostela
+    country: ES
+    region: Galiza
+    email: revistafisicaUSC@gmail.com
+
 version: 1.0.0 # Versión inicial do ficheiro CFF
 date-released: 2025-01-01 # Collendo 2025 como ano de lanzamento
-url: https://github.com/fisicaUSC/revista
-repository-artifact: https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum
-
-publisher:
-  name: "Estudantado da Facultade de Física, USC"
-  type: entity
-  location: "Santiago de Compostela, Galiza"
+url: >-
+  https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum
+repository-code: 'https://github.com/fisicaUSC/revista'
 
 keywords:
   - física
@@ -24,3 +26,16 @@ keywords:
   - publicación independente
   - galego
   - USC
+
+preferred-citation:
+  type: article
+  title: "Momentum: a revista estudantil da Facultade de Física da USC"
+  authors:
+   - name: "Comité Editorial de Momentum"
+     type: entity
+     city: Santiago de Compostela
+     region: Galiza
+     country: ES
+     email: revistafisicaUSC@gmail.com
+  url: >-
+    https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum
