@@ -3,7 +3,7 @@
 cff-version: 1.2.0
 message: "Se desexas citar a revista estudantil 'Momentum', usa os metadatos deste ficheiro."
 title: "Momentum: a revista estudantil da Facultade de Física da USC"
-abstract: "Revista estudantil de carácter científico que busca fomentar e cultivar o interese e curiosidad pola física e a ciencia."
+abstract: "Revista estudantil de carácter científico que busca fomentar e cultivar o interese e curiosidade pola física e a ciencia."
 authors:
   - name: "Comité Editorial de Momentum"
     type: entity
