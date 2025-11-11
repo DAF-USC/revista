@@ -31,7 +31,7 @@ modelo:
 # Para facer os carteis propagandísticos
 propaganda: .pdf/revista_$(numero).pdf
 	convert .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
-	typst compile --root . --input numero=$(numero) trebellos/propaganda.typ .pdf/propaganda.pdf
+	typst compile --diagnostic-format short --root . --input numero=$(numero) --input cor=$(cor) trebellos/propaganda.typ .pdf/propaganda.pdf
 	rm .pdf/paxinas_[0-9][0-9][0-9]_[^0]*.pdf
 
 .PHONY: limpa modelo propaganda
