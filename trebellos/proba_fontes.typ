@@ -1,8 +1,12 @@
 /*
     Un documento de proba con moitas opcións para poder ver o efecto nun texto
     de proba. So hai que comentar/descomentar liñas pa ver que fai cada cousa
+
+    Ollo, esto é un documento de TYPST, non de LaTeX
+    https://typst.app/
 */
 
+// https://typst.app/docs/reference/model/par/
 #set par(
     spacing: 3em,
     justify: true,
@@ -17,6 +21,8 @@
         ),
     ),
 )
+
+// https://typst.app/docs/reference/text/text/
 #set text(
 
     font      : "New Computer Modern",
