@@ -28,6 +28,10 @@ limpa:
 modelo:
 	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
 
+ifeq ($(cor),)
+cor := FF0000
+endif
+
 # Para facer os carteis propagandísticos
 propaganda: .pdf/revista_$(numero).pdf
 	convert .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
