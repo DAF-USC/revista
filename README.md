@@ -170,9 +170,8 @@ a seguinte forma:
 % O comando \Titular permite definir a información concreta de cada artigo
 
 \Titular*          % O asterisco fai que apareza unha sección nova no Índice
-{divulgacion}      % (Obrigatorio) Estilo  Opcións: divulgacion, historia, actualidadeFacultade,
-                   %                                actualidadeCientifica, filosofia, profesorado,
-                   %                                entrevistas, programacion, pasatempos, anuncios
+{divulgacion}      % (Obrigatorio) Estilo  Máis abaixo pódense atopar os estilos
+                   %                       dispoñíbeis.
 {Título do artigo} % (Obrigatorio) Título
 {Axl Rose}         % (Opcional)    Autoría
 {Subtítulo}        % (opcional)    Preferíbelmente non moi longo para que colla ben ^_^
