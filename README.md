@@ -6,19 +6,19 @@
   </picture> <h1></h1>
 </div>
 
-*Momentum*, de carácter científico, busca ser un medio de comunicación tanto dentro
-coma fóra da Facultade de Física, coa finalidade de fomentar e cultivar o interese
-e a curiosidade pola física e a ciencia. Por medio de artigos de divulgación, novas
-científicas, entrevistas a personalidades, achegas sobre a historia e filosofía da ciencia,
-e mesmo algún que outro artigo de corte popular, a revista pretende ofrecer unha visión ampla
-e accesíbel.
+*Momentum*, de carácter científico, busca ser un medio de comunicación tanto
+dentro coma fóra da Facultade de Física, coa finalidade de fomentar e cultivar
+o interese e a curiosidade pola física e a ciencia. Por medio de artigos de
+divulgación, novas científicas, entrevistas a personalidades, achegas sobre a
+historia e filosofía da ciencia, e mesmo algún que outro artigo de corte
+popular, a revista pretende ofrecer unha visión ampla e accesíbel.
 
 Este proxecto, impulsado polo estudantado de Física da USC, naceu no ano 2025
-co obxectivo de crear un recuncho de expresión que vaia máis aló do estritamente
-académico, aberto ás xeracións actuais, pasadas e vindeiras.
+co obxectivo de crear un recuncho de expresión que vaia máis aló do
+estritamente académico, aberto ás xeracións actuais, pasadas e vindeiras.
 
-A equipa de *Momentum* agradece profundamente calquera suxestión. Non dubidedes en deixar
-a vosa pegada!
+A equipa de *Momentum* agradece profundamente calquera suxestión. Non dubidedes
+en deixar a vosa pegada!
 
 Exemplares anteriores: [Revista Estudantil Momentum](https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum)
 
@@ -68,7 +68,7 @@ ao correo ou preguntar nos grupos da DAF e da revista!
 O repositorio contén:
 
 - `revista.cls` - Clase de LaTeX para a revista.
-- `american-physics-society.csl` - Estilo de citas bibliográficas do Citation Style Language.
+- `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language.
 - `funcions.lua` - Códigos feitos en lua relacionados coa compilación e o control de versións.
 - `bibliografia.bib` - Base de datos bibliográfica.
 - `latexmkrc` e `Makefile` - Axudas para compilar a revista.
@@ -102,7 +102,7 @@ correspondentes `.tex` e un cartafol `imaxes/`.
 ### Revistas
 
 Os **arquivos comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
-e o estilo bibliográfico American Physics Society, `american-physica-society.csl`,
+e o estilo bibliográfico, `momentum-citacions.csl`,
 deben estar na raíz do proxecto.
 
 Cada **número da revista** ten o seu propio cartafol en [`revistas/`](./revistas),
@@ -187,9 +187,10 @@ cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
 ...
 
 \subsection*{Agradecementos}
-No primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a tódolos marabillosos
-profesores que tiven ata o momento. Por suposto, agradecer tamén a [REDACTADO]
-por axudarme a sacar a fonte do laboratorio de nuclear. Vémonos na próxima!!
+No primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
+tódolos marabillosos profesores que tiven ata o momento. Por suposto, agradecer
+tamén a [REDACTADO] por axudarme a sacar a fonte do laboratorio de nuclear.
+Vémonos na próxima!!
 
 \printbibliography
 \end{multicols}
@@ -199,14 +200,15 @@ reinicia numeracións, dá formato aos encabezados, define nomes...
 
 Algunhas cousas a ter en conta:
 
-- Os encabezados que se poden usar son `divulgacion`, `historia`, `actualidadeFacultade`,
-`actualidadeCientifica`, `filosofia`, `profesorado`, `entrevistas`, `programacion`,
-`pasatempos` e `anuncios`. Podemos engadir máis baixo demanda.
--  Se queremos engadir unha nova sección ao índice, debemos usar o comando
-`\Titular*`, co asterisco.
+- Os encabezados que se poden usar son `divulgacion`, `historia`,
+  `actualidadeFacultade`, `actualidadeCientifica`, `filosofia`, `profesorado`,
+  `entrevistas`, `programacion`, `pasatempos`, `anuncios`, `anuncios`,
+  `opinion`, `miscelanea` e `reportaxes`. Podemos engadir máis baixo demanda.
+- Se queremos engadir unha nova sección ao índice, debemos usar o comando
+  `\Titular*`, co asterisco.
 - O macro do `\Titular` ten catro opcións (estilo, título, autor e subtítulo),
-das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
-en branco.
+  das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
+  en branco.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
