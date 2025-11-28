@@ -37,7 +37,9 @@ endif
 
 # Separar o PDF da revista en páxinas numeradas como .pdf/revista_001_3.pdf
 .pdf/paxinas_$(numero)_0.pdf: .pdf/revista_$(numero).pdf
-	convert .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
+	magick .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
+	rm .pdf/paxinas_$(numero)_[0-9]?.pdf
+	rm .pdf/paxinas_$(numero)_[^0].pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
 # Usase como 'make propaganda numero=004 cor=89fa3c'
