@@ -119,7 +119,7 @@
 % https://github.com/citation-style-language/styles
 % https://www.zotero.org/styles
 \RequirePackage[
-    style       = estilo-bibliografia,
+    style       = momentum-citacions,
     ref-section = section
 ]{citation-style-language}
 \addbibresource{bibliografia.bib}
