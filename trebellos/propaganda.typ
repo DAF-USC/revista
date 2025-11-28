@@ -1,7 +1,7 @@
 #import "@preview/tiaoma:0.3.0"
 
 #set text(
-    font: "New Computer Modern",
+    font: "Latin Modern Roman",
     tracking : -0.04em,
     weight: "medium"
 )
@@ -82,7 +82,7 @@
             rows : 2,
             // stroke:1pt,
             inset: 1em,
-            text(size: 24pt, font: "New Computer Modern Sans", weight: "bold")[Edicións\ da Revista],
+            text(size: 24pt, font: "Latin Modern Sans", weight: "bold")[Edicións\ da Revista],
             QR1
         )
     ),
@@ -93,7 +93,7 @@
             rows : 2,
             // stroke:1pt,
             inset: 1em,
-            text(size: 24pt, font: "New Computer Modern Sans", weight: "bold")[Participa,\ Whatsapp],
+            text(size: 24pt, font: "Latin Modern Sans", weight: "bold")[Participa,\ Whatsapp],
             QR1
         ),
     )
@@ -118,7 +118,7 @@
         y:0,
         link("mailto:revistafisicausc@gmail.con")[
             #text(
-                font : "Symbols Nerd Font",
+                font : "Symbols Nerd Font Mono",
                 size : 20pt,
                 box[󰊫]
             )
@@ -136,7 +136,7 @@
         y:1,
         link("https://www.instagram.com/momentum.usc/")[
             #text(
-                font : "Symbols Nerd Font",
+                font : "Symbols Nerd Font Mono",
                 size : 20pt,
                 box[]
             )
@@ -167,7 +167,7 @@
             )
             #h(1em)
             #text(
-                font : "FiraCode Nerd Font",
+                font : "Symbols Nerd Font Mono",
                 size : 20pt,
                 box[󰊫]
             )
@@ -185,7 +185,7 @@
             )
             #h(1em)
             #text(
-                font : "FiraCode Nerd Font",
+                font : "Symbols Nerd Font Mono",
                 size : 20pt,
                 box[]
             )

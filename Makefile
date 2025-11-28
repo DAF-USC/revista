@@ -28,14 +28,28 @@ limpa:
 modelo:
 	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
 
+# Para facer os carteis propagandísticos
+
+# Por defecto, a cor do titulo da propaganda é vermello puro
 ifeq ($(cor),)
 cor := FF0000
 endif
 
-# Para facer os carteis propagandísticos
-propaganda: .pdf/revista_$(numero).pdf
+# Separar o PDF da revista en páxinas numeradas como .pdf/revista_001_3.pdf
+.pdf/paxinas_$(numero)_0.pdf: .pdf/revista_$(numero).pdf
 	convert .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
-	typst compile --diagnostic-format short --root . --input numero=$(numero) --input cor=$(cor) trebellos/propaganda.typ .pdf/propaganda.pdf
-	rm .pdf/paxinas_[0-9][0-9][0-9]_[^0]*.pdf
+
+# Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
+# Usase como 'make propaganda numero=004 cor=89fa3c'
+propaganda: .pdf/paxinas_$(numero)_0.pdf
+	typst compile \
+		--diagnostic-format=short \
+		--root=. \
+		--ignore-embedded-fonts \
+		--ignore-system-fonts \
+		--font-path=fontes \
+		--input numero=$(numero) \
+		--input cor=$(cor) \
+		trebellos/propaganda.typ .pdf/propaganda.pdf
 
 .PHONY: limpa modelo propaganda
