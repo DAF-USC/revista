@@ -70,19 +70,19 @@ O repositorio contén:
 - `revista.cls` - Clase de LaTeX para a revista.
 - `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language.
 - `funcions.lua` - Códigos feitos en lua relacionados coa compilación e o control de versións.
-- `bibliografia.bib` - Base de datos bibliográfica.
 - `latexmkrc` e `Makefile` - Axudas para compilar a revista.
 
 Cartafoles principais:
 
 - `revistas/` - Contén as edicións da revista, cada unha nun subcartafol numerado
 (`001`, `002`, ...). Cada edición inclúe o ficheiro principal `.tex`, os artigos
-correspondentes `.tex` e un cartafol `imaxes/`.
+correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
 ```
 .
 └── revistas/
    ├── 001/
    │  ├── revista_001.tex
+   │  ├── bibliografia_001.bib
    │  ├── artigo_TITULO.tex
    │  └── imaxes/
    │     ├── portada_001.png
@@ -121,7 +121,8 @@ forma seguinte (aproximada):
 \Numero{001}
 \Data{Xaneiro do 1900}
 \ImaxePortada{./revistas/001/imaxes/pedra.jpg} % Imaxe que aparecerá na portada
-\ComentarioImaxePortada{ Comentario que acompaña a imaxe. }
+\ComentarioImaxePortada{Comentario que acompaña a imaxe.}
+\Bibliografia{revistas/001/bibliografia_001.bib}
 \CorResalte{ff0000} % Cor específico da revista, en HTML HEX
 \CorTextoEnResalte{000000} % Cor do texto na portada e índice
 \Participantes{
@@ -132,8 +133,8 @@ forma seguinte (aproximada):
     {\Large \textbf{Diseño de Logo}} \\[0.5cm]
         Dirac                        \\[0.2cm]
 }
-\Despedida{ Adeus! }
-\Agradecementos{ Grazas a Todos! }
+\Despedida{Adeus!}
+\Agradecementos{Grazas a Todos!}
 
 \begin{document}
 
@@ -256,7 +257,7 @@ funcionar.
   - No Overleaf ides a `Menu -> Settings` e cambiades `Compiler: LuaLaTeX` e
   `TeX Live version: 2024`.
   - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
-  posíbel que non podades compilar o proxecto enteiro, só artigos individuais
+  posíbel que non poidades compilar o proxecto enteiro, só artigos individuais
   ou, en ocasións, nin iso.
 
 Solución de erros:
