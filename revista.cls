@@ -122,7 +122,10 @@
     style       = momentum-citacions,
     ref-section = section
 ]{citation-style-language}
-\addbibresource{bibliografia.bib}
+% Macro para cargar a bibliografía
+\newcommand{\Bibliografia}[1]{%
+\addbibresource{#1}%
+}
 
 % Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
 \RequirePackage[table]{xcolor}
