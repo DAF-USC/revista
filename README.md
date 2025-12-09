@@ -202,8 +202,8 @@ Algunhas cousas a ter en conta:
 
 - Os encabezados que se poden usar son `divulgacion`, `historia`,
   `actualidadeFacultade`, `actualidadeCientifica`, `filosofia`, `profesorado`,
-  `entrevistas`, `programacion`, `pasatempos`, `anuncios`, `anuncios`,
-  `opinion`, `miscelanea` e `reportaxes`. Podemos engadir máis baixo demanda.
+  `entrevistas`, `programacion`, `pasatempos`, `anuncios`, `opinion`,
+  `miscelanea` e `reportaxes`. Podemos engadir máis baixo demanda.
 - Se queremos engadir unha nova sección ao índice, debemos usar o comando
   `\Titular*`, co asterisco.
 - O macro do `\Titular` ten catro opcións (estilo, título, autor e subtítulo),
@@ -303,8 +303,8 @@ make modelo     # Obter un ZIP cos arquivos para o artigo simplificado
 ```
 
 Por defecto, ca configuración de `latexmk` adxunta, ao compilar unha revista
-o PDF que se xere gárdase no directorio `./pdf/` e os arquivos auxiliares
-en `./aux/`.
+o PDF que se xere gárdase no directorio `.pdf/` e os arquivos auxiliares
+en `.aux/`.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
