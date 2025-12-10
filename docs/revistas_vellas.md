@@ -4,7 +4,7 @@ O modelo e estilo da revista van cambiando pouco a pouco con cada novo número
 o cal leva consigo cambios no funcionamento internos de diferentes macros de
 LaTeX e da propia estrutura do proxecto. Hai varios arquivos, como a
 [clase](../revista.cls), que é común a todas as revistas a pesar de que se
-cambia moi a miudo. Esto significa que se intentades compilar agora mesma a
+cambia moi a miúdo. Esto significa que se intentades compilar agora mesma a
 revista 001 vaise ver cos cambios actuais e _non_ como se vía orixinalmente.
 Aquí comentámosvos varias maneiras de obter a versión orixinal.
 

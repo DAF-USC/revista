@@ -16,46 +16,46 @@ Esto que tendes diante non é un titorial, senón unha lista de variedade de rec
 - Proxecto de Latex principal: https://www.latex-project.org/
 - Arquivo principal con paquetes, documentos e ferramentas: https://www.ctan.org/
 
-## Documentacions e repositorios principais
+## Documentacións e repositorios principais
 
 LaTeX2e
 - Documentos (e arquivos) base oficiais (inclue **luatex** en ltluatex.pdf): https://ctan.org/tex-archive/macros/latex/base
-- Documentos (e arquivos) base oficiais **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/base
+- Documentos (e arquivos) base oficiais **(PRE-PUBLICACIÓN)**: https://ctan.org/tex-archive/macros/latex-dev/base
 - Repositorio: https://github.com/latex3/latex2e
 
 LaTeX3 (expl3)
 - Documentos (e arquivos) de LaTeX3: https://ctan.org/tex-archive/macros/latex/required/l3kernel
-- Documentos (e arquivos) de LaTeX3 **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/l3kernel
+- Documentos (e arquivos) de LaTeX3 **(PRE-PUBLICACIÓN)**: https://ctan.org/tex-archive/macros/latex-dev/required/l3kernel
 - Repositorio (expl3): https://github.com/latex3/latex3
 
 Experimetal
-- LaTeX Laboratory, cousas máis novedosas e en desenvolvemento, e.g. o `\DocumentMetadata`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
+- LaTeX Laboratory, cousas máis novidosas e en desenvolvemento, e.g. o `\DocumentMetadata`: https://ctan.org/tex-archive/macros/latex/required/latex-lab
 - LaTeX Laboratory **(PRE-PUBLICACION)**: https://ctan.org/tex-archive/macros/latex-dev/required/latex-lab
-- Un monton de docs que están aparte (e.g. l3pdfmeta): https://ctan.org/tex-archive/macros/latex/contrib/pdfmanagement-testphase
+- Un montón de docs que están aparte (e.g. l3pdfmeta): https://ctan.org/tex-archive/macros/latex/contrib/pdfmanagement-testphase
 
 Docs principais de Luatex
 - LuaTex: https://www.luatex.org/
 - Paquete en CTAN: https://ctan.org/pkg/luatex
-- Funcions de Lua (potentes): https://ctan.org/tex-archive/macros/luatex/latex e https://ctan.org/tex-archive/macros/luatex/generic
+- Funcións de Lua (potentes): https://ctan.org/tex-archive/macros/luatex/latex e https://ctan.org/tex-archive/macros/luatex/generic
 
-## Documentacións utiles
+## Documentacións útiles
 
 - PDF con todos os cambios na historia de LaTeX: https://www.ctan.org/pkg/ltnews
 - Preguntas e Respostas máis importantes: https://tex.stackexchange.com/
 - Overleaf Docs: https://www.overleaf.com/learn
-- LaTeX Wikibook (algo desactualizado pero ten cousas da base de La/TeX moi utiles): https://en.wikibooks.org/wiki/LaTeX
+- LaTeX Wikibook (algo desactualizado pero ten cousas da base de La/TeX moi útiles): https://en.wikibooks.org/wiki/LaTeX
 - Varias referencias: https://latexref.xyz/
-- Preguntas comuns: https://texfaq.org/
+- Preguntas comúns: https://texfaq.org/
 
-## Simbolos e tipografias
+## Símbolos e tipografías
 
 - Mega lista de fontes: https://tug.org/FontCatalogue/
-- Mega lista de simbolos: https://www.ctan.org/pkg/comprehensive
+- Mega lista de símbolos: https://www.ctan.org/pkg/comprehensive
 
 ## Tagging project
 
 - Proxecto (non de LaTeX): https://taggedpdf.com/
-- Introduccion ao uso do proxecto: https://latex3.github.io/tagging-project/documentation/prototype-usage-instructions
+- Introdución ao uso do proxecto: https://latex3.github.io/tagging-project/documentation/prototype-usage-instructions
 - Compatibilidade de varios paquetes e clases co proxecto: https://latex3.github.io/tagging-project/tagging-status/
 - Proxecto en CTAN, coa documentación oficial: https://www.ctan.org/pkg/tagpdf
 - Repositorio de `tagpdf`: https://github.com/latex3/tagpdf

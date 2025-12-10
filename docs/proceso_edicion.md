@@ -11,7 +11,7 @@ O primeiro paso é conseguir unha copia completa do proxecto da revista. Hai
 dous modos principais de facelo:
 
 + Podedes ir á [páxina de GitHub](https://github.com/fisicaUSC/revista) da
-  revista e premer o botón verde que pon `CODE`, e logo na ventana desdobrada
+  revista e premer o botón verde que pon `CODE`, e logo na ventá desdobrada
   en `Download ZIP`. Así poderedes descargar o contido completo do proxecto en
   formato ZIP, que se pode extraer con calquera ferramenta de descompresión como
   [[7z](https://www.7-zip.org/)]. Gardade os contidos nun directorio limpo ao que
@@ -30,7 +30,7 @@ Agora que temos o proxecto da revista descargado, fai falla obter os contidos
 dos novos artigos.
 
 Dito contido está mediado pola comisión de dirección. Os artigos para un certo
-número recíbense no correo da diretiva e estes están encargados de poñelos a
+número recíbense no correo da directiva e estes están encargados de poñelos a
 man do resto do equipo nunha carpeta aberta na rede, concretamente en Drive.
 Cada artigo á súa vez, nunha carpeta individual con todo o contido que
 compartiron os redactores. É necesario descargar dita carpeta específica e
@@ -39,7 +39,7 @@ gardala para traballar localmente.
 É típico que a carpeta do artigo que se comparte teña información que é
 totalmente irrelevante, como ficheiros auxiliares (p.e. `.log`, `.aux`),
 arquivos de configuración propietarios (p.e. `.DS_Store`), arquivos duplicados,
-subcarpetas extrañas, ... Personalmente comezo eliminando toda esta borralla
+subcarpetas estrañas, ... Persoalmente comezo eliminando toda esta borralla
 que non sirve de nada.
 
 ## 2. Engadir o contido á revista
@@ -56,11 +56,11 @@ Algúns redactores usan o modelo simplificado da revista, outros mandan un
 escrita en LaTeX e fai falla engadir o que mandan os redactores ao proxecto.
 
 - **ARQUIVO PRINCIPAL**: Sempre imos ter un arquivo *principal* co texto do
-  artigo. Quenes usan o modelo simplificado ás veces non lle cambian o nome
+  artigo. Quen usan o modelo simplificado ás veces non lle cambian o nome
   polo que se sigue a chamar `artigo_simplificado.tex`. Outros usuarios de LaTeX
   simplemente lle poñen `documento.tex` ou tal vez o propio título do artigo. No
-  caso de quenes escriben en Writer, haberá un só documento `.odt` ou tal vez
-  `.docx`. En calqueira caso, é necesario engadir os contidos do arquivo
+  caso de ques escriben en Writer, haberá un só documento `.odt` ou tal vez
+  `.docx`. En calquera caso, é necesario engadir os contidos do arquivo
   principal no sitio correcto do proxecto da revista. Se dito arquivo se chama
   `documento.tex` e estamos a editar a revista `006`, entón debemos copiar os
   contidos de `documento.tex` a un novo ficheiro no proxecto da revista na ruta
@@ -72,12 +72,12 @@ escrita en LaTeX e fai falla engadir o que mandan os redactores ao proxecto.
   \Titular*% O asterisco fai que apareza ---------- estilo ---------- no índice
   {divulgacion}% ESTILO
   {Por que o bosón de Higgs non é moi <<natural>>}% TITULO
-  {Víctor Díaz Díaz}% AUTORIA
+  {Víctor Díaz Díaz}% AUTORÍA
   {Breve explicación da relación entre o problema da xerarquía e a
   supersimetría.}% SUBTITULO
   ```
 
-  Podedes ver unha esplicación máis detallada de como funciona o macro
+  Podedes ver unha explicación máis detallada de como funciona o macro
   `\Titular` na clase da revista.
 
 - **IMAXES**: As distintas imaxes que envían deben copiarse ao proxecto da
@@ -108,7 +108,7 @@ escrita en LaTeX e fai falla engadir o que mandan os redactores ao proxecto.
   O contido do `.bib` debe copiarse e engadirse ao no arquivo
   `revistas/006/bibliografia_006.bib` (ou o número que corresponda). Hai que
   ser cauto ca clave de cada referencia (no exemplo, caratheodory_1909) e evitar
-  que esté repetida noutra entrada anterior.
+  que estea repetida noutra entrada anterior.
 
   Ás veces a xente _non_ manda a bibliografía en dito formato senón que a
   escriben literal no propio documento, por exemplo `\noident\textit{Titulo};
@@ -128,7 +128,7 @@ como exemplo.
 En dito arquivo deben cargarse os ficheiros individuais de cada artigo, facendo
 simplemente `\input{revistas/004/artigo_DIRAC.tex}`.
 
-Na terminal, estando no diretorio raíz do proxecto, compílase a revista co
+Na terminal, estando no directorio raíz do proxecto, compílase a revista co
 programa
 [[latexmk](https://ctan.fisiquimicamente.com/support/latexmk/latexmk.pdf)]. Só
 hai que executar
@@ -148,11 +148,11 @@ aparecer. Véxase [unha lista de erros típicos](erros_tipicos.md)
 - Os títulos non deben ser demasiado longos pra que colla no índice. Unha
   primeira referencia son uns 60 caracteres máximo.
 - Os subtítulos dos titulares deben rematar en punto.
-- Non se debe abusar de certos recusos estilísticos. A énfase dunha palabra
+- Non se debe abusar de certos recursos estilísticos. A énfase dunha palabra
   móstrase con `\emph{}` (itálica). Non é bo ter moitos `\textbf{}`. En xeral,
   cambialos por énfase normal.
 - Cambiar todos os `\it`, `\bf`, etc. por `\textit{}`, `\textbf{}`.
-- Os cambios de parágrafo créanse cunha liña en branco ou són con `\\`. Non se
+- Os cambios de parágrafo créanse cunha liña en branco ou son con `\\`. Non se
   debe usar unha `\\` seguido dunha liña en branco.
 - Hai que cambiar todos os `$$ ... $$` por `\[ ... \]` ou
   ```latex
@@ -162,21 +162,21 @@ aparecer. Véxase [unha lista de erros típicos](erros_tipicos.md)
   ```
   [[tex stackexchange](https://tex.stackexchange.com/questions/503/why-is-preferable-to)]
   [[ltnews](https://ctan.javinator9889.com/macros/latex/base/ltnews.pdf)]
-- As ecuacións en modo `displaymath` siguen formando parte do texto, polo que
+- As ecuacións en modo `displaymath` seguen formando parte do texto, polo que
   non se preceden con `:` e poden rematar con `.` ou `,` dependendo do caso.
 - Os artigos deben ocupar un número enteiro de páxinas.
 - Hai que reducir a calidade e peso das imaxes pra que non ocupen demasiado.
   Unha primeira referencia é que pesen menos de 1MB, pero idealmente debería
   ser menos. Podedes usar [[GIMP](https://www.gimp.org/)] para as imaxes
   rasterizadas ou [[Inkscape](https://inkscape.org/)] para as vectoriais, ambas
-  ferramentas gráficas e cunha interfaz da liña de comandos. Tamén se pode usar
+  ferramentas gráficas e cunha interface da liña de comandos. Tamén se pode usar
   [[Imagemagick](https://imagemagick.org/)] dende a terminal con comandos coma
   `magick ORIXINAL.png -resize 60% -quality 72 REDUCIDA.jpg`
 - En xeral, as imaxes quedan mellor se ocupan o ancho completo da columna, o
   cal se consigue con `\includegraphics[width=\linewidth]{foto.png}`. Pode ser
   necesario recortala pra darlle unha forma correcta e que encaixe.
 
-- A ser posible hai que doblar as liñas a (aprox) 79 caracteres.
+- A ser posible hai que dobrar as liñas a (aprox) 79 caracteres.
 - En xeral, hai que intentar que o código sexa lexible.
 
 
