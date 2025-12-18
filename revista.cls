@@ -276,6 +276,8 @@
     \end{tikzpicture}
 }
 
+%HOLA
+
 % Esto e pa poñer o logo do momento no encabezado
 \renewcommand\headrule{
     \vspace{-6pt}
