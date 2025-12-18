@@ -1,15 +1,15 @@
 # Como compilar unha revista vella?
 
-O modelo e estilo da revista van cambiando pouco a pouco con cada novo número
-o cal leva consigo cambios no funcionamento internos de diferentes macros de
+O modelo e estilo da revista van cambiando pouco a pouco con cada novo número,
+o cal leva consigo cambios internos no funcionamento de diferentes macros de
 LaTeX e da propia estrutura do proxecto. Hai varios arquivos, como a
 [clase](../revista.cls), que é común a todas as revistas a pesar de que se
-cambia moi a miúdo. Esto significa que se intentades compilar agora mesma a
+cambia moi a miúdo. Isto significa que se intentades compilar agora mesmo a
 revista 001 vaise ver cos cambios actuais e _non_ como se vía orixinalmente.
 Aquí comentámosvos varias maneiras de obter a versión orixinal.
 
 - Clonade o proxecto do repositorio oficial de GitHub, en fisicaUSC/revista
-- Na terminal podedes ver o historial do proxecto con `git log --all`
+- No terminal podedes ver o historial do proxecto con `git log --all`
 - Deberiades ver nalgures punteiros co nome `tag: 004` ou o número que sexa.
   Son [[tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging)], que non
   son máis que punteiros de git típicos pero con nome e, opcionalmente,

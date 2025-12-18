@@ -10,7 +10,7 @@ texto próximas.
 
 ### As fontes non están
 
-Este proxecto usa o sistema [Git LFS](https://git-lfs.com/) pra manexar os
+Este proxecto usa o sistema [Git LFS](https://git-lfs.com/) para manexar os
 arquivos binarios, e entre eles as fontes. Asegurádevos de ter instalado Git
 LFS.
 

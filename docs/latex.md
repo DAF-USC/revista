@@ -5,21 +5,21 @@ LaTeX. Se queredes iniciarvos, meu mellor consello é que aprendades LaTeX
 *realmente*, como fariades con calquera outra linguaxe de programación. Non vos
 conformedes con titoriais de 20 minutos de YouTube máis algún curso
 introdutorio. Aprendede como funciona o proceso de compilación, a sintaxe en
-detalle, o proceso de tokenización, etc. Copiar e pegar macros apenas sirve pra
+detalle, o proceso de tokenización, etc. Copiar e pegar macros apenas sirve para
 facer unhas memorias de laboratorio. LaTeX é bastante
 [complexo](https://tex.stackexchange.com/questions/222500/why-is-latex-so-complicated)
 
-Esto que tendes diante non é un titorial, senón unha lista de variedade de recursos útiles pra consultar cando faga falla.
+Isto que tendes diante non é un titorial, senón unha lista de variedade de recursos útiles para consultar cando faga falla.
 
-## Paxinas oficiais principais
+## Páxinas oficiais principais
 
-- Proxecto de Latex principal: https://www.latex-project.org/
+- Proxecto de LaTeX principal: https://www.latex-project.org/
 - Arquivo principal con paquetes, documentos e ferramentas: https://www.ctan.org/
 
 ## Documentacións e repositorios principais
 
 LaTeX2e
-- Documentos (e arquivos) base oficiais (inclue **luatex** en ltluatex.pdf): https://ctan.org/tex-archive/macros/latex/base
+- Documentos (e arquivos) base oficiais (inclúe **luatex** en ltluatex.pdf): https://ctan.org/tex-archive/macros/latex/base
 - Documentos (e arquivos) base oficiais **(PRE-PUBLICACIÓN)**: https://ctan.org/tex-archive/macros/latex-dev/base
 - Repositorio: https://github.com/latex3/latex2e
 
