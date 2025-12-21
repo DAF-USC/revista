@@ -2,13 +2,13 @@
 %%%: Este é o modelo dun artigo simplificado. NON ESTÁ COMPLETO. ESTO NO É A
 %%%: REVISTA FINAL. A revista final componse de varios arquivos que inclúen o que
 %%%: aquí é o corpo do documento (dentro do \begin{document}). Esto no meu sistema
-%%%: compílase nuns 10 s. A revista_001 completa, en case 50 s
+%%%: compílase nuns 10 s. A revista_001 completa, en case 50 s.
 %%%:
 %%%: Para usalo fai falta poñer 3 cousas no mesmo directorio
 %%%: a clase da revista:                   revista.cls
 %%%: este artigo:                          modelo_artigo.tex
 %%%: as tipografías:                       fontes\LatinModern
-%%%: o esquema da bibliografía             american-physics-society.csl
+%%%: o esquema da bibliografía             momentum-citacions.csl
 %%%: a bibliografía                        bibliografia.bib
 %%%: (OPCIONAL) configuración de latexmk   latexmkrc
 %%%:
@@ -35,11 +35,11 @@
 %%%: escribimos 'latexmk artigo_simplificado.tex' e xa estaría.
 %%%:
 %%%: Se non queredes traballar a pelo na terminal, sabede na maioría de editores
-%%%: debería bastar con premer calquer botón de 'executar'. Se non funciona
+%%%: debería bastar con premer calquera botón de 'executar'. Se non funciona
 %%%: seguramente teñades que cambiar o método que usa voso editor detrás de
 %%%: cámaras. Recordo que TeXStudio tiña un panel que deixaba seleccionar que
 %%%: compiladores/executables queremos usar. O mellor é usar 'latexmk', o cal vai,
-%%%: á súa vez, elixir qué compiladores/executables se usan de xeito automático,
+%%%: á súa vez, elixir que compiladores/executables se usan de xeito automático,
 %%%: como xa comentei antes. Nalgúns editores este tipo de compilación pode
 %%%: chamarse 'rápida' ou 'automática'.
 %%%:
@@ -62,6 +62,10 @@
 %%%: 'simple' porque non queremos portada, índice nin contraportada neste caso
 \documentclass[simple]{revista}
 %%%:
+%%%: Primeiro, cargamos a información bibliográfica
+\Bibliografia{bibliografia.bib}
+%%%:
+%%%:
 \begin{document}
 %%%:
 %%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o título
@@ -77,7 +81,8 @@
 %%%: {TEMA}      A escoller entre:
 %%%:                divulgacion,historia,actualidadeFacultade,
 %%%:                actualidadeCientifica,filosofia,entrevistas,
-%%%:                programacion,pasatempos,anuncios,profesorado
+%%%:                programacion,pasatempos,anuncios,profesorado,
+%%%:                opinion,miscelanea,reportaxes.
 %%%: {TITULO}    Evidente, o titulo do artigo. Non debería ser moi longo.
 %%%: {AUTORÍA}   Autoría do artigo
 %%%: {SUBTITULO} Un pequeno texto algo máis explicativo (e posiblemente longo) co
@@ -118,7 +123,7 @@ texto texto texto texto texto texto texto texto
 %%%: IMAXES =====================================================================
 %%%: Pódense engadir imaxes co entorno 'figure' e ca opción [H] (é obrigatoria)
 %%%: Se podedes, intentade que as imaxes non sexan demasiado pesadas, por favor.
-\begin{figure}[H] 
+\begin{figure}[H]
     \centering
 %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
     \includegraphics[width=0.65\linewidth]{exemplo_imaxe.jpeg}

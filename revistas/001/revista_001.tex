@@ -1,27 +1,27 @@
-\documentclass{revista}
-
+\documentclass[completa]{revista}
 \Numero{001}
 \Data{Abril 2025}
 \ImaxePortada{./revistas/001/imaxes/pedra.jpg}
 \ComentarioImaxePortada{\textbf{1981: Primeira pedra da facultade de física.}}
+\Bibliografia{revistas/001/bibliografia_001.bib}
 \CorResalte{ff0000}
 \CorTextoEnResalte{ffffff}
-\SobreMomentum{
-    Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista
-    estudantil \textit{Momentum}, unha revista que busca ser un medio de
-    comunicación tanto dentro coma fóra da facultade de física onde expor os
-    intereses científicos do estudantado. Cuestións de Divulgación, Actualidade,
-    Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos
-    temas que teñen cabida dentro deste proxecto. Esta revista está realizada
-    integramente polo estudantado da Facultade de Física USC, onde pretendemos ter
-    un recuncho de expresión máis aló do estrictamente académico. Fundada no ano
-    2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar.
-    Non dubidedes en deixar a vosa pegada!
-}
+%\SobreMomentum{
+%    Tras uns cantos meses de traballo, por fin podemos dar saída á nova revista
+%    estudantil \textit{Momentum}, unha revista que busca ser un medio de
+%    comunicación tanto dentro coma fóra da facultade de física onde expor os
+%    intereses científicos do estudantado. Cuestións de Divulgación, Actualidade,
+%    Entrevistas, Historia, Filosofía da Ciencia, Opinión, Programación... Son todos
+%    temas que teñen cabida dentro deste proxecto. Esta revista está realizada
+%    integramente polo estudantado da Facultade de Física USC, onde pretendemos ter
+%    un recuncho de expresión máis aló do estrictamente académico. Fundada no ano
+%    2025 co obxectivo de persistir na historia, esforzámonos sempre en mellorar.
+%    Non dubidedes en deixar a vosa pegada!
+%}
 \Participantes{%
     {\Large \textbf{Dirección}}     \\[0.5cm] %
         Álvaro Pallas Otero          \\[0.2cm] %
-        Sebastián Táboas Pazo        \\[0.25cm]% 
+        Sebastián Táboas Pazo        \\[0.25cm]%
         Celia Álvarez Álvarez        \\[0.25cm]%
         Daniel Vázquez Lago          \\[0.75cm]%
     {\Large \textbf{Edición}}        \\[0.5cm]%
@@ -64,10 +64,6 @@
 }
 
 \begin{document}
-\Portada
-\Indice
-
-\setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
 
 \input{./revistas/001/artigo_DECANATO.tex}         \newpage
 \input{./revistas/001/artigo_CARATHEODORY.tex}     \newpage
@@ -77,5 +73,4 @@
 \input{./revistas/001/artigo_IRMAS.tex}            \newpage
 \input{./revistas/001/artigo_XEOCENTRISMO.tex}     \newpage
 
-\Contraportada
 \end{document}

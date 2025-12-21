@@ -6,19 +6,19 @@
   </picture> <h1></h1>
 </div>
 
-*Momentum*, de carácter científico, busca ser un medio de comunicación tanto dentro
-coma fóra da Facultade de Física, coa finalidade de fomentar e cultivar o interese
-e a curiosidade pola física e a ciencia. Por medio de artigos de divulgación, novas
-científicas, entrevistas a personalidades, achegas sobre a historia e filosofía da ciencia,
-e mesmo algún que outro artigo de corte popular, a revista pretende ofrecer unha visión ampla
-e accesíbel.
+*Momentum*, de carácter científico, busca ser un medio de comunicación tanto
+dentro coma fóra da Facultade de Física, coa finalidade de fomentar e cultivar
+o interese e a curiosidade pola física e a ciencia. Por medio de artigos de
+divulgación, novas científicas, entrevistas a personalidades, achegas sobre a
+historia e filosofía da ciencia, e mesmo algún que outro artigo de corte
+popular, a revista pretende ofrecer unha visión ampla e accesíbel.
 
 Este proxecto, impulsado polo estudantado de Física da USC, naceu no ano 2025
-co obxectivo de crear un recuncho de expresión que vaia máis aló do estritamente
-académico, aberto ás xeracións actuais, pasadas e vindeiras.
+co obxectivo de crear un recuncho de expresión que vaia máis aló do
+estritamente académico, aberto ás xeracións actuais, pasadas e vindeiras.
 
-A equipa de *Momentum* agradece profundamente calquera suxestión. Non dubidedes en deixar
-a vosa pegada!
+A equipa de *Momentum* agradece profundamente calquera suxestión. Non dubidedes
+en deixar a vosa pegada!
 
 Exemplares anteriores: [Revista Estudantil Momentum](https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum)
 
@@ -68,21 +68,21 @@ ao correo ou preguntar nos grupos da DAF e da revista!
 O repositorio contén:
 
 - `revista.cls` - Clase de LaTeX para a revista.
-- `american-physics-society.csl` - Estilo de citas bibliográficas do Citation Style Language.
+- `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language.
 - `funcions.lua` - Códigos feitos en lua relacionados coa compilación e o control de versións.
-- `bibliografia.bib` - Base de datos bibliográfica.
 - `latexmkrc` e `Makefile` - Axudas para compilar a revista.
 
 Cartafoles principais:
 
 - `revistas/` - Contén as edicións da revista, cada unha nun subcartafol numerado
 (`001`, `002`, ...). Cada edición inclúe o ficheiro principal `.tex`, os artigos
-correspondentes `.tex` e un cartafol `imaxes/`.
+correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
 ```
 .
 └── revistas/
    ├── 001/
    │  ├── revista_001.tex
+   │  ├── bibliografia_001.bib
    │  ├── artigo_TITULO.tex
    │  └── imaxes/
    │     ├── portada_001.png
@@ -102,7 +102,7 @@ correspondentes `.tex` e un cartafol `imaxes/`.
 ### Revistas
 
 Os **arquivos comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
-e o estilo bibliográfico American Physics Society, `american-physica-society.csl`,
+e o estilo bibliográfico, `momentum-citacions.csl`,
 deben estar na raíz do proxecto.
 
 Cada **número da revista** ten o seu propio cartafol en [`revistas/`](./revistas),
@@ -121,7 +121,8 @@ forma seguinte (aproximada):
 \Numero{001}
 \Data{Xaneiro do 1900}
 \ImaxePortada{./revistas/001/imaxes/pedra.jpg} % Imaxe que aparecerá na portada
-\ComentarioImaxePortada{ Comentario que acompaña a imaxe. }
+\ComentarioImaxePortada{Comentario que acompaña a imaxe.}
+\Bibliografia{revistas/001/bibliografia_001.bib}
 \CorResalte{ff0000} % Cor específico da revista, en HTML HEX
 \CorTextoEnResalte{000000} % Cor do texto na portada e índice
 \Participantes{
@@ -132,8 +133,8 @@ forma seguinte (aproximada):
     {\Large \textbf{Diseño de Logo}} \\[0.5cm]
         Dirac                        \\[0.2cm]
 }
-\Despedida{ Adeus! }
-\Agradecementos{ Grazas a Todos! }
+\Despedida{Adeus!}
+\Agradecementos{Grazas a Todos!}
 
 \begin{document}
 
@@ -170,9 +171,8 @@ a seguinte forma:
 % O comando \Titular permite definir a información concreta de cada artigo
 
 \Titular*          % O asterisco fai que apareza unha sección nova no Índice
-{divulgacion}      % (Obrigatorio) Estilo  Opcións: divulgacion, historia, actualidadeFacultade,
-                   %                                actualidadeCientifica, filosofia, profesorado,
-                   %                                entrevistas, programacion, pasatempos, anuncios
+{divulgacion}      % (Obrigatorio) Estilo  Máis abaixo pódense atopar os estilos
+                   %                       dispoñíbeis.
 {Título do artigo} % (Obrigatorio) Título
 {Axl Rose}         % (Opcional)    Autoría
 {Subtítulo}        % (opcional)    Preferíbelmente non moi longo para que colla ben ^_^
@@ -187,9 +187,10 @@ cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
 ...
 
 \subsection*{Agradecementos}
-No primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a tódolos marabillosos
-profesores que tiven ata o momento. Por suposto, agradecer tamén a [REDACTADO]
-por axudarme a sacar a fonte do laboratorio de nuclear. Vémonos na próxima!!
+No primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
+tódolos marabillosos profesores que tiven ata o momento. Por suposto, agradecer
+tamén a [REDACTADO] por axudarme a sacar a fonte do laboratorio de nuclear.
+Vémonos na próxima!!
 
 \printbibliography
 \end{multicols}
@@ -199,14 +200,15 @@ reinicia numeracións, dá formato aos encabezados, define nomes...
 
 Algunhas cousas a ter en conta:
 
-- Os encabezados que se poden usar son `divulgacion`, `historia`, `actualidadeFacultade`,
-`actualidadeCientifica`, `filosofia`, `profesorado`, `entrevistas`, `programacion`,
-`pasatempos` e `anuncios`. Podemos engadir máis baixo demanda.
--  Se queremos engadir unha nova sección ao índice, debemos usar o comando
-`\Titular*`, co asterisco.
+- Os encabezados que se poden usar son `divulgacion`, `historia`,
+  `actualidadeFacultade`, `actualidadeCientifica`, `filosofia`, `profesorado`,
+  `entrevistas`, `programacion`, `pasatempos`, `anuncios`, `opinion`,
+  `miscelanea` e `reportaxes`. Podemos engadir máis baixo demanda.
+- Se queremos engadir unha nova sección ao índice, debemos usar o comando
+  `\Titular*`, co asterisco.
 - O macro do `\Titular` ten catro opcións (estilo, título, autor e subtítulo),
-das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
-en branco.
+  das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
+  en branco.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
@@ -255,7 +257,7 @@ funcionar.
   - No Overleaf ides a `Menu -> Settings` e cambiades `Compiler: LuaLaTeX` e
   `TeX Live version: 2024`.
   - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
-  posíbel que non podades compilar o proxecto enteiro, só artigos individuais
+  posíbel que non poidades compilar o proxecto enteiro, só artigos individuais
   ou, en ocasións, nin iso.
 
 Solución de erros:
@@ -301,8 +303,8 @@ make modelo     # Obter un ZIP cos arquivos para o artigo simplificado
 ```
 
 Por defecto, ca configuración de `latexmk` adxunta, ao compilar unha revista
-o PDF que se xere gárdase no directorio `./pdf/` e os arquivos auxiliares
-en `./aux/`.
+o PDF que se xere gárdase no directorio `.pdf/` e os arquivos auxiliares
+en `.aux/`.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
