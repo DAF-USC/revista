@@ -313,3 +313,9 @@ O repositorio ten unha [Wiki](https://github.com/DAF-USC/revista/wiki) na que
 se inclúen ligazóns útiles e documentos relevantes da revista.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
+
+## Licenzas
+
+Tipos de letra: 
+- [Latin Modern](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) Licenza GUST (baseada en LPPL) 
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) Licenza MIT 
