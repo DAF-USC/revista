@@ -22,3 +22,6 @@
 tex.err
 tex.err.bak
 tags
+
+# mac >:(
+.DS_Store
