@@ -757,8 +757,14 @@
             xshift = 0.55cm,
             yshift = 0.5cm
         ] at (current page.south west)
-        % :FACER: cambiamos moito de logos, igual metemos esto nun macro tamén?
         {\includegraphics[width=12cm]{logos/vicerreitoria-branco-negro.pdf}};
+        \node[
+            anchor = south west,
+%            xshift = 10.55cm, % A carón do logo de vicerreitoría
+            xshift = 15.75cm,  % Aliñado á dereita
+            yshift = 0.75cm
+        ] at (current page.south west)
+        {\includegraphics[scale=0.4]{logos/IGFAE_acronimo_escuro.pdf}};
     \end{tikzpicture}
     \endgroup% <-- este cerra o grupo que contén o de \setlenght\parindent{0pt}
 
@@ -865,6 +871,7 @@
                 };
             \endgroup
         \end{tikzpicture} \\[1cm]
+
         % Logo da USC
         \begin{center}
             \includegraphics[width=0.8\linewidth]{logos/usc-negativo-escuro.pdf}
@@ -966,7 +973,8 @@
         \begin{center}
             Co financiamento de: \\[2mm]
             \begin{picture}(5cm,4cm)%
-                \put(-60,30){\hbox{\includegraphics[width=11cm]{logos/vicerreitoria-branco-negro.pdf}}}
+                \put(-60,55){\hbox{\includegraphics[width=11cm]{logos/vicerreitoria-branco-negro.pdf}}}
+                \put(-17,05){\hbox{\includegraphics[scale=0.6]{logos/IGFAE_denominador_escuro.pdf}}}
             \end{picture}
         \end{center}
     \end{minipage}
