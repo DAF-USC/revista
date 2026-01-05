@@ -138,7 +138,7 @@ latexmk revistas/004/revista_004.tex
 ```
 
 Para usuarios de Linux ofrécese unha [Makefile](../Makefile) e pode escribirse
-simplemente `make numero=004`.
+simplemente `make n=004`.
 
 Neste punto, o típico é ter que arranxar os erros de compilación que poden
 aparecer. Véxase [unha lista de erros típicos](erros_tipicos.md)

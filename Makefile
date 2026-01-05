@@ -4,7 +4,7 @@
 # porque pode ser tedioso escribir de cada vez comandos máis e máis longos.
 # Tamén se pode usar neste caso máis simple.
 #
-# Para compilar unha revista, escribir 'make numero=001', ou poñer o numero que
+# Para compilar unha revista, escribir 'make n=001', ou poñer o n que
 # proceda.
 #
 # Para limpiar os arquivos auxiliares, escribir 'make limpa'
@@ -13,12 +13,12 @@
 SHELL := bash
 
 # qué accion se vai executar por defecto
-.DEFAULT_GOAL := .pdf/revista_$(numero).pdf
+.DEFAULT_GOAL := .pdf/revista_$(n).pdf
 
 # esta accion mira se existe o arquivo revista/001/revista_001.tex e en caso
 # afirmativo, executa 'latexmk' con dito arquivo
-.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex
-	latexmk revistas/$(numero)/revista_$(numero).tex
+.pdf/revista_$(n).pdf: revistas/$(n)/revista_$(n).tex
+	latexmk revistas/$(n)/revista_$(n).tex
 
 # accion para limpar os arquivos auxiliares
 limpa:
@@ -36,21 +36,21 @@ cor := FF0000
 endif
 
 # Separar o PDF da revista en páxinas numeradas como .pdf/revista_001_3.pdf
-.pdf/paxinas_$(numero)_0.pdf: .pdf/revista_$(numero).pdf
-	magick .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
-	rm .pdf/paxinas_$(numero)_[0-9]?.pdf
-	rm .pdf/paxinas_$(numero)_[^0].pdf
+.pdf/paxinas_$(n)_0.pdf: .pdf/revista_$(n).pdf
+	magick .pdf/revista_$(n).pdf .pdf/paxinas_$(n)_%d.pdf
+	rm .pdf/paxinas_$(n)_[0-9]?.pdf
+	rm .pdf/paxinas_$(n)_[^0].pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
-# Usase como 'make propaganda numero=004 cor=89fa3c'
-propaganda: .pdf/paxinas_$(numero)_0.pdf
+# Usase como 'make propaganda n=004 cor=89fa3c'
+propaganda: .pdf/paxinas_$(n)_0.pdf
 	typst compile \
 		--diagnostic-format=short \
 		--root=. \
 		--ignore-embedded-fonts \
 		--ignore-system-fonts \
 		--font-path=fontes \
-		--input numero=$(numero) \
+		--input n=$(n) \
 		--input cor=$(cor) \
 		trebellos/propaganda.typ .pdf/propaganda.pdf
 

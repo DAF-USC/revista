@@ -297,9 +297,10 @@ Tamén deixamos un `Makefile` moi conveniente para os que usen Linux e similares
 co que é posíbel facer:
 
 ```bash
-make numero=001 # Compilar a revista número 001
+make n=001 # Compilar a revista número 001
 make limpa      # Limpar os arquivos auxiliares
 make modelo     # Obter un ZIP cos arquivos para o artigo simplificado
+make propaganda n=001 cor=ff0000 # para xerar oscarteis propagandísticos
 ```
 
 Por defecto, ca configuración de `latexmk` adxunta, ao compilar unha revista
