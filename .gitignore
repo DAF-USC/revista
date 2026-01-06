@@ -18,10 +18,22 @@
 # arquivos comprimidos
 *.zip
 
+# mac >:(
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# windows >:(
+Thumbs.db
+[Dd]esktop.ini
+*.lnk
+
+# editores
+.vscode/
+
 # varios
 tex.err
 tex.err.bak
 tags
-
-# mac >:(
-.DS_Store
+*.patch
+*.diff
