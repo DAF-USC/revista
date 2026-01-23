@@ -151,7 +151,7 @@
     % No caso da versión impresa queremos uns marxes máis grandes
     \NewDocumentCommand\DocumentoMarxeSuperior{}{20mm}
     \NewDocumentCommand\DocumentoMarxeInferior{}{25mm}
-    \NewDocumentCommand\DocumentoMarxeInterior{}{10mm}
+    \NewDocumentCommand\DocumentoMarxeInterior{}{20mm} % aumentado
     \NewDocumentCommand\DocumentoMarxeExterior{}{10mm}
 \else
     \NewDocumentCommand\DocumentoMarxeSuperior{}{20mm}
@@ -169,7 +169,7 @@
     inner       = \DocumentoMarxeInterior,
     outer       = \DocumentoMarxeExterior,
     nomarginpar = true,    % desactivar marxe para notas
-    % showframe,            % mostra estrutura, moi útil
+    showframe,            % mostra estrutura, moi útil
 }
 
 % Esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
