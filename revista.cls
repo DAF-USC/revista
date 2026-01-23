@@ -147,13 +147,27 @@
 
 % Xeometría do documento. Na portada e na contraportada sobreescribimos a
 % xeometría con \newgeometry e volvemos a esta con \restoregeometry
+\ifImpresa
+    % No caso da versión impresa queremos uns marxes máis grandes
+    \NewDocumentCommand\DocumentoMarxeSuperior{}{20mm}
+    \NewDocumentCommand\DocumentoMarxeInferior{}{25mm}
+    \NewDocumentCommand\DocumentoMarxeInterior{}{10mm}
+    \NewDocumentCommand\DocumentoMarxeExterior{}{10mm}
+\else
+    \NewDocumentCommand\DocumentoMarxeSuperior{}{20mm}
+    \NewDocumentCommand\DocumentoMarxeInferior{}{25mm}
+    \NewDocumentCommand\DocumentoMarxeInterior{}{20mm}
+    \NewDocumentCommand\DocumentoMarxeExterior{}{10mm}
+\fi
+
+
 \RequirePackage{geometry}
 \geometry{
     paper       = a4paper, % tamaño do papel
-    top         = 20mm,    % marxe superior
-    left        = 10mm,    % marxe esquerdo
-    right       = 10mm,    % marxe dereito
-    bottom      = 25mm,    % marxe inferior
+    top         = \DocumentoMarxeSuperior,
+    bottom      = \DocumentoMarxeInferior,
+    inner       = \DocumentoMarxeInterior,
+    outer       = \DocumentoMarxeExterior,
     nomarginpar = true,    % desactivar marxe para notas
     % showframe,            % mostra estrutura, moi útil
 }
@@ -658,13 +672,24 @@
     \hypersetup{pageanchor=false}
     \pagenumbering{gobble}
     \thispagestyle{empty}
+    \ifImpresa
+        \NewDocumentCommand\PortadaMarxeSuperior{}{2mm}
+        \NewDocumentCommand\PortadaMarxeInferior{}{5mm}
+        \NewDocumentCommand\PortadaMarxeInterior{}{5mm}
+        \NewDocumentCommand\PortadaMarxeExterior{}{5mm}
+    \else
+        \NewDocumentCommand\PortadaMarxeSuperior{}{2mm}
+        \NewDocumentCommand\PortadaMarxeInferior{}{5mm}
+        \NewDocumentCommand\PortadaMarxeInterior{}{5mm}
+        \NewDocumentCommand\PortadaMarxeExterior{}{5mm}
+    \fi
 
     % Creamos unha xeometría nova
     \newgeometry{
-        top    = 2mm,  % marxe superior
-        left   = 5mm,  % marxe esquerdo
-        right  = 5mm,  % marxe dereito
-        bottom = 5mm,  % marxe inferior
+        top    = \PortadaMarxeSuperior,
+        bottom = \PortadaMarxeInferior,
+        inner  = \PortadaMarxeInterior,
+        outer  = \PortadaMarxeExterior,
         nohead = true, % desactivar o encabezado
         nofoot = true, % desactivar o pe de paxina
     }
