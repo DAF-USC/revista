@@ -21,13 +21,14 @@
 \newif\ifOpcionsBaleiras\OpcionsBaleirastrue % fágoo 'true' por defecto
 \newif\ifSimple\Simplefalse % fágoo 'false' por defecto
 \newif\ifCompleta\Completafalse % ídem
+\newif\ifImpresa\Impresafalse % ídem
 
 % Un caso límite, se alguén usa unha opción que non existe, soltamos un erro
 \DeclareOption*{%
     % Véxase sec. 4.8 de cslguide.pdf
     \ClassError{revista}{%
         ‘\CurrentOption’ non é unha opción válida.%
-         Opcións posíbeis: simple, completa}{}
+         Opcións posíbeis: simple, completa, impresa}{}
 }
 
 % Opción COMPLETA, a cal mostra a portada, índice e contraportada.
@@ -44,6 +45,13 @@
     \OpcionsBaleirasfalse
 }
 
+% Opción IMPRESA, que é a completa con páxinas en branco (para que o total sexa múltiplo de 4)
+\DeclareOption{impresa}{
+    \Impresatrue
+    \typeout{Estás a usar a opción ‘\CurrentOption’}
+    \OpcionsBaleirasfalse
+}
+
 \ProcessOptions\relax
 
 % Se non escollemos ningunha destas opcións, salta un erro.
@@ -52,14 +60,13 @@
                          Opcións posíbeis: simple, completa}{}
 \fi
 
-\ifCompleta
-    % cargamos funcións de lua
-    \directlua{dofile('funcions.lua')}
-\fi
+
 
 % :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
 \RequirePackage{fontspec}
+% IMPORTANTE: ao final deste ficheiro usamos os distintos booleanos para cargar
+% certas cousas, entre elas outra tipografía. IMPORTANTE botarlle unha ollada
 
 % Tipografía xeral
 \setmainfont[
@@ -90,25 +97,6 @@
     BoldItalicFont = *-boldoblique,
 ]{lmsans10}
 
-
-% Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
-% { \FonteSimbolos bla bla bla ... }
-% A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
-% para substituír as imaxes .PNG de cousas como mails,twitter,instagram, etc.
-% Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
-% esta tipografía. Para buscar as iconas: https://www.nerdfonts.com/cheat-sheet
-% É bastante posible que o editor que esteades usando non vos mostre a icona na
-% pantalla correctamente. Non é problema, mentres sexa a icona correcta no PDF
-% verase ben. Tamén é posible especificar a icona co seu código hexadecimal
-% explicitamente, escribindo ^^^^eb2a Si, os catro ^ son necesarios, 'eb2a' é o
-% codigo hex. Ollo, só cargamos estas tipografías na versión completa
-\ifCompleta
-    \newfontfamily{\FonteSimbolos}[
-        Extension   = .ttf,
-        UprightFont = *-Regular,
-        Path        = ./fontes/NerdFonts/,
-    ]{SymbolsNerdFontMono}
-\fi
 
 % Usar galego (como debe ser)
 \RequirePackage{polyglossia}
@@ -773,13 +761,6 @@
     \hypersetup{pageanchor=true}
 }
 
-% Se usamos a opción 'completa', mostramos a portada
-% Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
-\ifCompleta
-    \AtBeginDocument{\Portada}
-\fi
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ___ _   _ ____ ___ ____ _____ %
 % |_ _| \ | |  _ \_ _/ ___| ____|%
@@ -882,11 +863,6 @@
     \pagenumbering{arabic}
 }
 
-% Se usamos a opción 'completa', mostramos o índice
-\ifCompleta
-    \AtBeginDocument{\Indice}
-\fi
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   ____ ___  _   _ _____ ____      _    ____   ___  ____ _____  _    ____    _    %
 %  / ___/ _ \| \ | |_   _|  _ \    / \  |  _ \ / _ \|  _ \_   _|/ \  |  _ \  / \   %
@@ -980,10 +956,6 @@
     \end{minipage}
 }
 
-% Se usamos a opción 'completa', mostramos a contraportada ao final
-\ifCompleta
-    \AtEndDocument{\Contraportada}
-\fi
 
 % DEFINICIÓNS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1001,3 +973,125 @@
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
+
+%% BOOLEANOS E OPCIONS
+% Meto esto todo ao final porque así está todo xunto _logo_ de definir todos os macros
+
+% Se usamos a opción 'completa', mostramos a portada
+% Véxase: LATEX’s hook management, sec. 2.9, en lthook.pdf
+\ifCompleta
+    % Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
+    % { \FonteSimbolos bla bla bla ... }
+    % A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
+    % para substituír as imaxes .PNG de cousas como mails,twitter,instagram, etc.
+    % Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
+    % esta tipografía. Para buscar as iconas: https://www.nerdfonts.com/cheat-sheet
+    % É bastante posible que o editor que esteades usando non vos mostre a icona na
+    % pantalla correctamente. Non é problema, mentres sexa a icona correcta no PDF
+    % verase ben. Tamén é posible especificar a icona co seu código hexadecimal
+    % explicitamente, escribindo ^^^^eb2a Si, os catro ^ son necesarios, 'eb2a' é o
+    % codigo hex. Ollo, só cargamos estas tipografías na versión completa
+    \newfontfamily{\FonteSimbolos}[
+        Extension   = .ttf,
+        UprightFont = *-Regular,
+        Path        = ./fontes/NerdFonts/,
+    ]{SymbolsNerdFontMono}
+
+    % cargamos funcións de lua
+    \directlua{dofile('funcions.lua')}
+
+    \AtBeginDocument{%
+        \Portada%
+        \Indice%
+    }
+    \AtEndDocument{\Contraportada}
+\fi
+
+\ifImpresa
+    \newfontfamily{\FonteSimbolos}[
+        Extension   = .ttf,
+        UprightFont = *-Regular,
+        Path        = ./fontes/NerdFonts/,
+    ]{SymbolsNerdFontMono}
+    \directlua{dofile('funcions.lua')}
+\fi
+
+% Macro para gardar o número de páxinas en branco necesarias para a versión impresa
+% :FACER: igual estaría ben meter esto dentro das propias opcións de clase, e.g.
+% [impresa, branco=3]. Xa postos podemos meter máis cousas eí
+\makeatletter
+    \def\PaxinasEnBrancoNecesarias#1{\def\@PaxinasEnBrancoNecesarias{#1}}
+    \newcommand{\imprimePaxinasEnBrancoNecesarias}{\@PaxinasEnBrancoNecesarias}
+    \PaxinasEnBrancoNecesarias{0}
+\makeatother
+
+
+% Macro para crear unha páxina en branco
+% https://tex.stackexchange.com/a/331068
+\newcommand\PaxinaEnBranco{%
+    \clearpage
+    \begingroup
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \hypersetup{pageanchor=false}%
+    \clearpage
+    \endgroup
+}
+
+\RequirePackage{ifthen}
+\NewDocumentCommand\EngadePaxinas{ m }{
+    \PaxinasEnBrancoNecesarias{#1}
+    \ifImpresa
+        \ifthenelse{\equal{\imprimePaxinasEnBrancoNecesarias}{0}}
+            {                                  %
+                \AtBeginDocument{              % Se non fai falla engadir páxinas
+                    \Portada                   %
+                    \Indice                    %
+                }                              %
+                \AtEndDocument{\Contraportada} %
+            }
+            {
+                \ifthenelse{\equal{\imprimePaxinasEnBrancoNecesarias}{1}}
+                    {
+                        \AtBeginDocument{              %
+                            \Portada                   % Se fai falla engadir 1 páxina, metémola entre
+                            \PaxinaEnBranco            % a portada e o índice
+                            \Indice                    %
+                        }                              %
+                        \AtEndDocument{\Contraportada} %
+                    }
+                    {
+                        \ifthenelse{\equal{\imprimePaxinasEnBrancoNecesarias}{2}}
+                            {
+                                \AtBeginDocument{               %
+                                    \Portada                    % Se fai falla engadir 2 páxinas, metémos unha
+                                    \PaxinaEnBranco             % entre a portada e o índice, e outra entre o índice
+                                    \Indice                     % e o corpo do documento
+                                    \PaxinaEnBranco             %
+                                }                               %
+                                \AtEndDocument{\Contraportada}  %
+                            }
+                            {
+                                \ifthenelse{\equal{\imprimePaxinasEnBrancoNecesarias}{3}}
+                                    {
+                                        \AtBeginDocument{    %
+                                            \Portada         % Se fai falla engadir 3 paxinas, metemos
+                                            \PaxinaEnBranco  %    - unha entre portada e índice
+                                            \Indice          %    - unha entre índice e corpo
+                                            \PaxinaEnBranco  %    - unha antes da contraportada
+                                        }                    %
+                                        \AtEndDocument{      %
+                                            \PaxinaEnBranco  %
+                                            \Contraportada   %
+                                        }
+                                    }
+                                    {
+                                        % Caso límite se metemos un número que non sexa 0,1,2,3
+                                        \ClassError{revista}{\PaxinasEnBrancoNecesarias non é un número válido}{Escolle 0, 1, 2, 3}
+                                    }
+                            }
+                    }
+            }
+    \fi
+}
