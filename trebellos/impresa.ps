@@ -1,0 +1,18 @@
+% Esto é un comando de PostScript, os cales usan unha especie de "Reverse Polish Notation".
+%
+% Algúns documentos:
+% https://superuser.com/a/905279
+% https://www.lexjansen.com/phuse/2018/ad/AD07.pdf
+% https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf
+<<
+/Paxina 1 def
+/Install
+{
+    /Paxina
+    Paxina 1 add def
+        Paxina 2 mod 1 eq
+        {28 0 translate}
+        {}
+    ifelse
+} bind
+>> setpagedevice

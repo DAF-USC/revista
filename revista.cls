@@ -10,7 +10,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{revista}[2025/09/21 Clase para a revista de Física USC]
 
-\LoadClass[11pt,a4paper,twoside]{article}
+\LoadClass[11pt,a4paper,twoside]{article} % :FACER: fai falla este 'twoside'?
 
 % OPCIÓNS DA CLASE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -793,7 +793,7 @@
     % Cor de resalte transparentado á dereita do índice
     \begin{tikzpicture}[remember picture, overlay]
         \draw[
-            line width = 0.73\textwidth,
+            line width = 0.73\textwidth, % :FACER: non sebería ser 72?
             color      = Resalte!65!white
         ] ($(current page.north east) - (0,0)$) -- ($(current page.south east) - (0,0)$);
     \end{tikzpicture}

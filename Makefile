@@ -12,6 +12,9 @@
 # shell por defecto
 SHELL := bash
 
+# https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
+.PRECIOUS: .pdf/revista_$(numero).pdf
+
 # qué accion se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
@@ -19,6 +22,35 @@ SHELL := bash
 # afirmativo, executa 'latexmk' con dito arquivo
 .pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
 	latexmk revistas/$(numero)/revista_$(numero).tex
+
+# regra para xerar a versión impresa da revista
+impresa: .pdf/revista_$(numero).pdf
+	# A maior parte desto son parámetros de GS que podedes ler en
+	# https://ghostscript.readthedocs.io/en/gs10.02.1/
+	# O relevante é 'trebellos/impresa.ps', que é un script de PostScript. Nese
+	# ficheiro están as instruccións para manipular o PDF
+	#
+	# Algúns datos:
+	#
+	# Tamaño A4: 595pts × 842pts (210mm × 297mm)
+	# 1cm = 28pts
+	# -dDEVICEHEIGHTPOINTS=842 (alto dun A4)
+	# -dDEVICEWIDTHPOINTS=623 (=595+28, i.e. ancho A4 máis marxe adicional)
+	gs \
+		-q \
+		-dNOPAUSE \
+		-dBATCH \
+		-dSAFER \
+		-sDEVICE=pdfwrite \
+		-sOutputFile=.pdf/revista_$(numero)_IMPRESA.pdf \
+		-dPDFSETTINGS="/printer" \
+		-dCompatibilityLevel="1.7" \
+		-dUseCropBox \
+		-dFIXEDMEDIA \
+		-dDEVICEHEIGHTPOINTS=842 \
+		-dDEVICEWIDTHPOINTS=623 \
+		trebellos/impresa.ps \
+		-f .pdf/revista_$(numero).pdf
 
 # accion para limpar os arquivos auxiliares
 limpa:
