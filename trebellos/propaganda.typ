@@ -16,7 +16,7 @@
 )
 #set par( justify: true, first-line-indent: 0mm, leading : 0.4em)
 
-#let ruta_portada = "/.pdf/paxinas_" + sys.inputs.at("numero") + "_0.pdf"
+#let ruta_portada = "/.pdf/portada_" + sys.inputs.at("numero") + ".pdf"
 #let correo = "revistafisicaUSC@gmail.com"
 #let edicions = "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum"
 
