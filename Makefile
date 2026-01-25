@@ -45,7 +45,7 @@ endif
 		-dSAFER \
 		-sOutputFile=.pdf/portada_$(numero).pdf \
 		-sDEVICE=pdfwrite \
-		-dFirstPage=0 \
+		-dFirstPage=1 \
 		-dLastPage=1 \
 		-f .pdf/revista_$(numero).pdf
 
