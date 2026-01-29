@@ -988,13 +988,13 @@
 % Fonte: https://github.com/reutenauer/polyglossia/blob/b8a594cda8b55fab1234bc226b4aa52ddc4045a6/tex/gloss-spanish.ldf#L92
 % Notas: a abreviatura oficial de tanxente en galego é tan.
 \renewcommand{\lim}{\mathop{\mathrm{lím}}\limits}
-\renewcommand{\max}{\mathop{\mathrm{máx}}}
-\renewcommand{\min}{\mathop{\mathrm{mín}}}
-\renewcommand{\inf}{\mathop{\mathrm{ínf}}} % Elemento ínfimo
-\renewcommand{\mod}{\mathop{\mathrm{mód}}} % Módulo
-\renewcommand{\sin}{\mathop{\mathrm{sen}}}
-\renewcommand{\arcsin}{\mathop{\mathrm{arcsen}}}
-\renewcommand{\sinh}{\mathop{\mathrm{senh}}}
+\renewcommand{\max}{\mathop{\mathrm{máx}}\nolimits}
+\renewcommand{\min}{\mathop{\mathrm{mín}}\nolimits}
+\renewcommand{\inf}{\mathop{\mathrm{ínf}}\nolimits} % Elemento ínfimo
+\renewcommand{\mod}{\mathop{\mathrm{mód}}\nolimits} % Módulo
+\renewcommand{\sin}{\mathop{\mathrm{sen}}\nolimits}
+\renewcommand{\arcsin}{\mathop{\mathrm{arcsen}}\nolimits}
+\renewcommand{\sinh}{\mathop{\mathrm{senh}}\nolimits}
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}
