@@ -1,85 +1,3 @@
-%%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%: Este é o modelo dun artigo simplificado. NON ESTÁ COMPLETO. ESTO NO É A
-%%%: REVISTA FINAL. A revista final componse de varios arquivos que inclúen o que
-%%%: aquí é o corpo do documento (dentro do \begin{document}). Esto no meu sistema
-%%%: compílase nuns 10 s. A revista_001 completa, en case 50 s
-%%%:
-%%%: Para usalo fai falta poñer 3 cousas no mesmo directorio
-%%%: a clase da revista:                   revista.cls
-%%%: este artigo:                          modelo_artigo.tex
-%%%: as tipografías:                       fontes\LatinModern
-%%%: o esquema da bibliografía             american-physics-society.csl
-%%%: a bibliografía                        bibliografia.bib
-%%%: (OPCIONAL) configuración de latexmk   latexmkrc
-%%%:
-%%%: COMO COMPILAR ESTO:
-%%%:
-%%%: Primeiro, é importante lembrar que os compiladores de TeX/LaTeX son de "unha
-%%%: pasada", polo que certa información, como as referencias internas, non se
-%%%: xeran ao compilar o documento unha vez. En xeral é necesario darlle varias
-%%%: pasadas ao documento, dependendo dos paquetes que usemos. Os comandos exactos
-%%%: usados para compilar orixinalmente a revista 002, eran (creo):
-%%%:
-%%%: lualatex --file-line-error --interaction=nonstopmode --shell-escape  -recorder -output-directory=".aux"  "revistas/002/revista_002.tex"
-%%%: biber  ".aux/revista_002.bcf"
-%%%: lualatex --file-line-error --interaction=nonstopmode --shell-escape  -recorder -output-directory=".aux"  "revistas/002/revista_002.tex"
-%%%: biber  ".aux/revista_002.bcf"
-%%%: lualatex --file-line-error --interaction=nonstopmode --shell-escape  -recorder -output-directory=".aux"  "revistas/002/revista_002.tex"
-%%%: lualatex --file-line-error --interaction=nonstopmode --shell-escape  -recorder -output-directory=".aux"  "revistas/002/revista_002.tex"
-%%%:
-%%%: Evidentemente é un rollo escribir esto cada vez. A maneira REAL que usamos
-%%%: para compilar a revista é usando o programa 'latexmkrc', o cal executa os
-%%%: compiladores e outros executables na orde correcta as veces que faga falta.
-%%%: No directorio temos o arquivo 'latexmkrc', que ten unha pequena configuración
-%%%: para que 'latexmk' se execute como queremos. Na terminal, simplemente
-%%%: escribimos 'latexmk artigo_simplificado.tex' e xa estaría.
-%%%:
-%%%: Se non queredes traballar a pelo na terminal, sabede na maioría de editores
-%%%: debería bastar con premer calquer botón de 'executar'. Se non funciona
-%%%: seguramente teñades que cambiar o método que usa voso editor detrás de
-%%%: cámaras. Recordo que TeXStudio tiña un panel que deixaba seleccionar que
-%%%: compiladores/executables queremos usar. O mellor é usar 'latexmk', o cal vai,
-%%%: á súa vez, elixir qué compiladores/executables se usan de xeito automático,
-%%%: como xa comentei antes. Nalgúns editores este tipo de compilación pode
-%%%: chamarse 'rápida' ou 'automática'.
-%%%:
-%%%: Todos os paquetes necesarios deberían estar dispoñibles no teu sistema se tes
-%%%: unha instalación completa de TeX/LaTeX. En Linux Ubuntu está texlive
-%%%: instalable co paquete 'texlive-full' a través de 'apt'. En Windows está
-%%%: MikTeX, e en Mac xuraría que existe MacTeX. LaTeX é un rollo de manter en
-%%%: distintas plataformas, e en principio só prometemos que funcione en Linux ca
-%%%: última versión de texlive. Tamén debería funcionar en Overleaf sen problema
-%%%: porque Overleaf usa texlive. Se usades algunha outra plataforma e vos da
-%%%: algún erro comentádenolo.
-%%%:
-%%%: Adicionalmente, fixádevos que este arquivo ten todos os comentarios escritos
-%%%: con '###:' Esto é a posta, xa que temos un script aparte para eliminalos de
-%%%: golpe cando os recibimos cos contidos dun artigo real. Entón, os VOSOS
-%%%: comentarios, escribídeos normal, cun so '#', senón igual o borramos sen querer
-%%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%:
-%%%: Esto importa a clase definida no arquivo aparte, 'revista.cls'. Usamos a opción
-%%%: 'simple' porque non queremos portada, índice nin contraportada neste caso
-%%%:
-%%%:
-%%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o título
-%%%: e autor ao índice, reiniciar os conteos de figuras, e evidentemente imprimir
-%%%: no PDF a propia información de cada artigo.
-%%%:
-%%%: \Titular   -> sen asterisco, non engade a sección ao índice
-%%%: \Titular*  -> con asterisco, engade a sección ao índice.
-%%%:
-%%%: Ao ser unha versión simplificada da revista, da igual cal usedes. Eso xa se
-%%%: cambiará logo na propia edición
-%%%:
-%%%: {TEMA}      A escoller entre:
-%%%:                divulgacion,historia,actualidadeFacultade,
-%%%:                actualidadeCientifica,filosofia,entrevistas,
-%%%:                programacion,pasatempos,anuncios,profesorado
-%%%: {TITULO}    Evidente, o titulo do artigo. Non debería ser moi longo.
-%%%: {AUTORÍA}   Autoría do artigo
-%%%: {SUBTITULO} Un pequeno texto algo máis explicativo (e posiblemente longo) co
-%%%:             titulo. E o único argumento do titular que pode quedar en branco
 \Titular%
 {filosofia}%
 {Érase unha vez un gato...}%
@@ -87,79 +5,66 @@
 {Como se probaría que está vivo e morto e que significa isto}%
 
 
-%%%: O CORPO DO ARTIGO COMEZA DE AQUÍ EN DIANTE
-%%%:%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-%%%:
-%%%:
-%%%: DÚAS COLUMNAS ==============================================================
-%%%: 'multicols' danos bastante flexibilidade para colocar as cousas en dúas
-%%%: columnas. Se unha parte non debe ter 2 columnas, solo hai que rematar o
-%%%: entorno 'multicols' antes, escribir o que queiramos (quedará en 1 columna), e
-%%%: volver iniciar outro entorno 'multicols' para o resto.
 \begin{multicols}{2}
 
-%%%: SECCIÓNS E ESTRUCTURA ======================================================
-%%%: Os únicos "niveis" que se permiten son de 'subsection' en abaixo. En
-%%%: principio poden estar numerados ou non, a gusto de cada un.
 \subsection*{O infame \textit{gedankenexperiment}}
 
 Todo os estudantes de física do universo coñecido escoitamos algunha vez falar
-  sobre o paradoxo do gato de Schrödinger e, malia isto, en ningún momento dos
-  nosos estudos démoslle nin tan sequera un mínimo tratamento. A percepción
-  xeral, quizais, é que este paradoxo é unha mera popularización da Mecánica
-  Cuántica ou, peor, que é un problema xa resolto, histórico, pero sen
-  relevancia actual. O certo é que a través deste \textit{gedankenexperiment}
-  Schrödinger pretendía sinalar os problemas conceptuais e de conexión co mundo
-  clásico que a mecánica cuántica estándar (a chamada Interpretación de
-  Copenhague) presentaba e presenta. Así, nun artigo de $1935$
-  \cite{schrodinger1} no que discutía a situación da mecánica cuántica e dos
-  seus problemas interpretativos, o austríaco escribía o seguinte: \footnote{É
-  de interese resaltar que o paradoxo non ocupa no absoluto un rol central no
-  seu artigo, é un mero exemplo dentro dun capítulo onde discute a natureza
-  ontolóxica da función de ondas.}
+sobre o paradoxo do gato de Schrödinger e, malia isto, en ningún momento dos
+nosos estudos démoslle nin tan sequera un mínimo tratamento. A percepción
+xeral, quizais, é que este paradoxo é unha mera popularización da Mecánica
+Cuántica ou, peor, que é un problema xa resolto, histórico, pero sen
+relevancia actual. O certo é que a través deste \textit{gedankenexperiment}
+Schrödinger pretendía sinalar os problemas conceptuais e de conexión co mundo
+clásico que a mecánica cuántica (a chamada Interpretación de
+Copenhague) presentaba e presenta. Así, nun artigo de $1935$
+\cite{schrodinger1} no que discutía a situación da mecánica cuántica e dos
+seus problemas interpretativos, o austríaco escribía o seguinte:~\footnote{É
+de interese resaltar que o paradoxo non ocupa no absoluto un rol central no
+seu artigo, é un mero exemplo dentro dun capítulo onde discute a natureza
+ontolóxica da función de ondas.}
 
-\Cita{ Un pode incluso establecer casos bastante ridículos. Un gato está
-  encerrado nunha cámara de aceiro, xunto ao seguinte diabólico dispositivo
-  (que debe estar protexido fronte a interferencia directa do gato): nun
-  contador Geiger hai unha pequena cantidade de substancia radioactiva, tan
-  pequena, que quizais no curso dunha hora un dos átomos decaia, pero tamén,
-  con igual probabilidade, se cadra ningún; se ocorre, o tubo do contador
-  descárgase e a través dun relé libera un martelo que rompe un pequeno frasco
-  de ácido cianhídrico. Se se deixa que todo este sistema funcione por si só
-  durante una hora, diríase que o gato aínda vive se mentres tanto ningún átomo
-  decaeu. O primeiro decaemento atómico teríao envelenado. A función $\Psi$ do
-  sistema enteiro expresaría isto contendo ao gato vivo e ao gato morto
-  (perdóese a expresión) mesturados ou difusos en partes iguais. }
-  {Schrödinger} 
+\Cita{Un pode incluso establecer casos bastante ridículos. Un gato está
+encerrado nunha cámara de aceiro, xunto ao seguinte diabólico dispositivo
+(que debe estar protexido fronte a interferencia directa do gato): nun
+contador Geiger hai unha pequena cantidade de substancia radioactiva, tan
+pequena, que quizais no curso dunha hora un dos átomos decaia, pero tamén,
+con igual probabilidade, se cadra ningún; se ocorre, o tubo do contador
+descárgase e a través dun relé libera un martelo que rompe un pequeno frasco
+de ácido cianhídrico. Se se deixa que todo este sistema funcione por si só
+durante una hora, diríase que o gato aínda vive se mentres tanto ningún átomo
+decaeu. O primeiro decaemento atómico teríao envelenado. A función $\Psi$ do
+sistema enteiro expresaría isto contendo ao gato vivo e ao gato morto
+(perdóese a expresión) mesturados ou difusos en partes iguais.}
+{Schrödinger} 
 
 Así, neste artigo exploraremos o xeito no que podemos trasladar propiedades
-  cuánticas a obxectos clásicos, se isto é posible e que é o que realmente
-  queremos dicir cando afirmamos que o gato \textit{<<está vivo e morto á
-  vez>>}.
+cuánticas a obxectos clásicos, se isto é posible e que é o que realmente
+queremos dicir cando afirmamos que o gato \textit{<<está vivo e morto á
+vez>>}.
 
 \subsection*{Medindo o inmedible}
 
 Como é que un átomo pode \textit{<<contaxiar>>} as súas propiedades cuánticas a
-  un ente macroscópico coma un gato? Como sabemos, a desintegración dun átomo
-  radioactivo é un fenómeno puramente aleatorio: é imposible predicir cando vai
-  emitir radiación. O átomo, por si só, é polo tanto intratable como sistema
-  físico: precisamos facer experimentos con moitos átomos idénticos para obter
-  resultados dos que extraer estatisticamente conclusións físicas \footnote{O
-  mesmo sucederá co gato, será necesario o sacrificio de centos deles en
-  condicións semellantes de saúde.}. Esta é a gran verdade á que nos enfronta a
-  mecánica cuántica estándar. Xa, neste intre e sen aínda progresar no
-  experimento mental, podemos intuír que era o que Schrödinger quería criticar:
-  o anti-realismo, a noción de que un único átomo é intratable, e que se cadra
-  extraer conclusións acerca da realidade deste máis alá do seu comportamento
-  estatístico é algo que pode resultar paradóxico.
+un ente macroscópico coma un gato? Como sabemos, a desintegración dun átomo
+radioactivo é un fenómeno puramente aleatorio: é imposible predicir cando vai
+emitir radiación. O átomo, por si só, é polo tanto intratable como sistema
+físico: precisamos facer experimentos con moitos átomos idénticos para obter
+resultados dos que extraer estatisticamente conclusións físicas~\footnote{O
+mesmo sucederá co gato, será necesario o sacrificio de centos deles en
+condicións semellantes de saúde.}. Esta é a gran verdade á que nos enfronta a
+mecánica cuántica estándar. Xa, neste intre e sen aínda progresar no
+experimento mental, podemos intuír que era o que Schrödinger quería criticar:
+o anti-realismo, a noción de que un único átomo é intratable, e que se cadra
+extraer conclusións acerca da realidade deste máis alá do seu comportamento
+estatístico é algo que pode resultar paradóxico.
  
 \begin{figure}[H] 
-	\centering
-	%%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
-	\includegraphics[width=0.7\linewidth]{revistas/005/imaxes/schrodinger1.png}
-	\caption{Alternativas do Gato de Schrödinger (Wikipedia)}
-	\label{schrodinger1}
+  \centering
+  %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
+  \includegraphics[width=0.9\linewidth]{revistas/005/imaxes/schrodinger1.png}
+  \caption{Alternativas do Gato de Schrödinger (Wikipedia)}
+  \label{schrodinger1}
 \end{figure}
 
 Describamos polo tanto como o átomo inflúe sobre o gato. Supoñamos que o átomo
@@ -173,7 +78,7 @@ sería análoga a unha teoría da probabilidade clásica; por exemplo, nada nos
 impide facer, para unha moeda
 
 \begin{equation}
-	\ket{\Psi} = \frac{1}{\sqrt{2}} \ket{cara} + \frac{1}{\sqrt{2}} \ket{cruz} 
+  \ket{\Psi} = \frac{1}{\sqrt{2}} \ket{\text{cara}} + \frac{1}{\sqrt{2}} \ket{\text{cruz}}.
 \end{equation}
 
 A diferenza estriba en que as distintas posibilidades do sistema poden dalgún
@@ -188,11 +93,11 @@ posibilidade; no caso da base de posición, na dobre fenda, a fase asociada a
 cada punto do espazo. 
 
 \begin{figure}[H] 
-	\centering
-	%%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
-	\includegraphics[width=0.85\linewidth]{revistas/005/imaxes/dobre_fenda.png}
-	\caption{Experimento da dobre fenda (Wikipedia)}
-	\label{dobre_fenda}
+  \centering
+  %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
+  \includegraphics[width=0.75\linewidth]{revistas/005/imaxes/dobre_fenda.png}
+  \caption{Experimento da dobre fenda (Wikipedia).}
+  \label{dobre_fenda}
 \end{figure}
 
 E é máis axeitada porque a interferencia non só se dá no espazo físico, nunha
@@ -205,7 +110,7 @@ Así, ao principio, o estado do átomo será análogo o da moeda ($1=$ excitado,
 $0=$ desexcitado)
 
 \begin{equation}
-		\ket{\Psi} = \frac{1}{\sqrt{2}} \ket{1} + \frac{1}{\sqrt{2}} \ket{0} 
+  \ket{\Psi} = \frac{1}{\sqrt{2}} \ket{1} + \frac{1}{\sqrt{2}} \ket{0}.
 \end{equation}
 
 Pero algo marca a diferenza: a fase evoluciona co tempo en relación coa
@@ -215,7 +120,7 @@ Posto que neste caso traballamos precisamente na base de enerxía, cada unha das
 posibilidades terá asociada unha fase $\phi = \frac{E}{\hbar}t$, tal que
 
 \begin{equation}
-	\ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1} + e^{i\Phi}\ket{0} );~~~\Phi= \frac{E_2 - E_1}{\hbar}t
+  \ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1} + e^{i\Phi}\ket{0} );~~~\Phi= \frac{E_2 - E_1}{\hbar}t.
 \end{equation}
 
 Este é o movemento ondulatorio que existe nunha base bidimensional: unha
@@ -228,18 +133,18 @@ non se libera. Isto entrelaza ambas posibilidades, herdando a fase relativa do
 átomo, de xeito que
 
 \begin{equation}
-	\ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}} + e^{i\Phi}\ket{0, \text{non veleno}} )
+  \ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}} + e^{i\Phi}\ket{0, \text{non veleno}} ).
 \end{equation}
 
 Por último, se o veleno se libera o gato morre e se non se libera entón
-mantense vivo: volve suceder o entrelazamento e obtemos \footnote{Resaltar que
+mantense vivo: volve suceder o entrelazamento e obtemos~\footnote{Resaltar que
 este paradoxo non resolve a discusión de cando é o punto exacto no que morre un
 ser vivo: <<morto>> e <<vivo>> son etiquetas que designan o estado de cada un
 dos átomos do gato cando o veleno é liberado e cando non o é, respectivamente.}
 
 \begin{equation}
   \begin{split}
-	  \ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}, \text{morto}} + \\ 
+    \ket{\Psi} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}, \text{morto}} + \\ 
     e^{i\Phi}\ket{0, \text{non veleno}, \text{vivo}} )
   \end{split}
 \end{equation}
@@ -252,17 +157,17 @@ entrelazamento
 
 \begin{equation}
   \begin{split}
-	  \ket{\Psi, D} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}, \text{morto}, M} \\ 
-    + e^{i\Phi}\ket{0, \text{non veleno}, \text{vivo}, V} )
+    \ket{\Psi, D} = \frac{1}{\sqrt{2}}( \ket{1, \text{veleno}, \text{morto}, M} \\ 
+    + e^{i\Phi}\ket{0, \text{non veleno}, \text{vivo}, V} ).
   \end{split}
 \end{equation}
 
-\begin{figure}[H] 	
-	\centering
-	%%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
-	\includegraphics[width=0.75\linewidth]{revistas/005/imaxes/schrodinger2.jpg}
-	\caption{Detector de estado vital}
-	\label{schrodinger2}
+\begin{figure}[H]   
+  \centering
+  %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
+  \includegraphics[width=0.75\linewidth]{revistas/005/imaxes/schrodinger2.jpg}
+  \caption{Detector de estado vital.}
+  \label{schrodinger2}
 \end{figure}
 
 Por que, entón, obtemos un único resultado, se a cadea de entrelazamentos non
@@ -279,37 +184,37 @@ fase $\Phi$ está presente, pero non se manifesta nas nosas medidas. Precisamos
 un observable que sexa sensible a esta fase. Para simplificar, vexamos primeiro
 que instrumento temos que empregar para observar a interferencia do átomo: 
 
-\begin{figure}[H] 	
-	\centering
-	%%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
-	\includegraphics[width=0.8\linewidth]{revistas/005/imaxes/interferometro.jpg}
-	\caption{Porta de Hadamard con detectores de excitación}
-	\label{interferometro}
+\begin{figure}[H]   
+  \centering
+  %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
+  \includegraphics[width=0.6\linewidth]{revistas/005/imaxes/interferometro.jpg}
+  \caption{Porta de Hadamard con detectores de excitación.}
+  \label{interferometro}
 \end{figure}
 
 Esta é a chamada <<porta de Hadamard>>. No noso caso, consiste nunha cavidade
 que, mediante radiación electromagnética, pode facer que o átomo se excite por
 absorción ou que se desexcite por emisión estimulada coa mesma probabilidade. A
 base na que mide é precisamente a que combina estado excitado con desexcitado
-\footnote{O signo menos no segundo estado de medida é debido a que ambos deben
+~\footnote{O signo menos no segundo estado de medida é debido a que ambos deben
 de ser ortogonais e á súa vez ser unha combinación de excitado e desexcitado.}
 
 \begin{align}
-	 \ket{1} \rightarrow & \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \\
-	 \ket{0} \rightarrow & \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) 
+   \ket{1} \rightarrow & \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \\
+   \ket{0} \rightarrow & \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) 
 \end{align}
 
 Se sometemos o átomo a esta medida, o estado entrelazado quedará como
 
 \begin{equation}
-	\ket{\Psi} = \frac{1}{2} \left[ (1+e^{i\Phi})\ket{0} + (1-e^{i\Phi})\ket{1} \right]
+  \ket{\Psi} = \frac{1}{2} \left[ (1+e^{i\Phi})\ket{0} + (1-e^{i\Phi})\ket{1} \right].
 \end{equation}
 
 De xeito que, se nos fixamos, por exemplo, na probabilidade de que o medidor de
 estado excitado se active
 
 \begin{equation}
-	|\braket{1|\Psi}|^2 = sen^2(\Phi/2)
+  |\braket{1|\Psi}|^2 = \sin{}^2(\Phi/2)
 \end{equation}
 
 Obtemos interferencia! A existencia da fase fará que o átomo estea excitado con
@@ -358,59 +263,9 @@ de onda global $\Psi$ para todo o universo. \\
 
 \textit{E ben, como se sente estar en superposición?}
 
-%%%: IMAXES =====================================================================
-%%%: Pódense engadir imaxes co entorno 'figure' e ca opción [H] (é obrigatoria)
-%%%: Se podedes, intentade que as imaxes non sexan demasiado pesadas, por favor.
 
 
-%%%: CITAS TEXTUAIS =============================================================
-%%%: Para poñer texto como unha cita 'narrativa', con texto algo máis estreito, en
-%%%: itálica, cun nome ao final. Creamos un macro porque todo o mundo as facía
-%%%: diferentes, e ás veces funcionaban e ás veces non. Poden usarse como:
 
 
-%%%: CITAS E REFERENCIAS BIBLIOGRÁFICAS. ========================================
-%%%: O manexo da bibliografía en LaTeX é unha experiencia necesariamente mala,
-%%%: sempre. O primeiro punto é asimilalo. Para poder citar cousas, é necesario
-%%%: ter un arquivo ao lado (no mesmo directorio) que se chame bibliografía.bib, o
-%%%: cal ten a información dos libros, artigos, etc. O contido de dito arquivo é
-%%%: algo así (si, un formato tremendamente feo):
-%%%:
-%%%: @Article{caratheodory_1909,
-%%%:   Title    = {Untersuchungen über die Grundlagen der Thermodynamik},
-%%%:   Volume   = 67,
-%%%:   ISSN     = {0025-5831, 1432-1807},
-%%%:   DOI      = {10.1007/BF01450409},
-%%%:   Number   = 3,
-%%%:   Journal  = {Mathematische Annalen},
-%%%:   Author   = {Carathéodory, C.},
-%%%:   Year     = 1909,
-%%%:   Month    = sep,
-%%%:   Pages    = {355–386},
-%%%:   Language = {de}
-%%%: }
-%%%:
-%%%: Sen dito arquivo, non se pode xerar a bibliografía automaticamente. Este
-%%%: formato de texto dise que está en formato 'bib' ou 'bibtex'. É posible buscar
-%%%: ditas referencias en formato 'bib' en internet. En xeral, nas páxinas oficias
-%%%: das editoriais que teñen os artigos ou libros, adoita haber unha opción tipo
-%%%: 'download citation in bib format' ou algo similar.
-%%%:
-%%%: Unha vez tendes o arquivo 'bibliografia.bib' nun documento no mesmo
-%%%: directorio que esto, pódese citar moi fácil simplemente escribindo (para o
-%%%: caso da referencia de Caratheodory de exemplo):
-%%%:
-%%%: \cite{caratheodory_1909}
-%%%:
-%%%: Existen outros comandos como \parencite, \textcite, etc. Simplemente mostran
-%%%: diferente as citas no propio texto. TENDE COIDADO, PODE QUE NON FUNCIONEN.
-%%%: No caso de que queirades que unha referencia apareza ao final de todo, pero non
-%%%: queredes citala no propio texto, hai que usar:
-%%%:
-%%%: \nocite{caratheodory_1909}
-%%%:
-%%%: Para mostrar a bibliografía ao final, usamos este comando
 \printbibliography
-%%%:
 \end{multicols}
-%%%:
