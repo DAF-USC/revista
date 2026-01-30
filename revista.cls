@@ -285,6 +285,9 @@
     \hrulefill
 }
 
+\RequirePackage{lastpage} % Acceder a LastPage
+\RequirePackage{refcount} % Obter o número asociado a LastPage
+
 % ESTILOS DE PÁXINA E ÍNDICES.
 % Estes estilos cambian os encabezados das páxinas e engaden
 % os correspondentes índices dependendo dos artigos que haxa.
@@ -294,8 +297,37 @@
         \fancyhf{} % Limpa as cabeceiras e pés de páxina
         \renewcommand{\headrulewidth}{0.4pt} % Engade liña no cabeceiro
         \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
-        \fancyfoot[LE,RO]{\thepage} % Páxina
-        \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}} % Título
+
+        % Calculamos a posición do número da páxina dinámicamente
+        % Síntoo por quen teña que manter isto...
+
+        % O número da páxina vai á esquerda se faltan 0 ou 1 páxina para que o
+        % número de páxinas totais sexa múltiplo de 4, e á dereita se faltan 2
+        % ou 3 páxinas. Isto faise así considerando unha orde de inserción de
+        % páxinas en branco de (1) antes do índice, (2) antes da contraportada
+        % e (3) despois do índice
+
+        % Número total de páxinas (antes de engadir portada + contraportada)
+        \edef\totalPaxinas{\getrefbykeydefault{LastPage}{page}{0}}
+        % Para o obter o número de páxinas reais sumamos 2
+        \edef\totalPaxinasReal{\the\numexpr\totalPaxinas + 2\relax}
+
+        % Esta operación obten a distancia ao múltiplo de 4 máis cercano
+        \edef\distanciaMultiplo{\numexpr\totalPaxinasReal - (\totalPaxinasReal / 4 * 4)\relax}
+
+        % Se o resto é 0 ou 3, número de páxina á esquerda nas impares
+        % Este valor pódese comprobar con \the\numexpr\distanciaMultiplo
+        \ifnum\distanciaMultiplo=0 % Faltan 0 páxinas para o múltipo de 4
+            \fancyfoot[LE,RO]{\thepage}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
+            \fancyfoot[LE,RO]{\thepage}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else % distanciaMultiplo pode ser 1 (falta -1 páxina), -2 (faltan +3 páxinas)
+            \fancyfoot[LO,RE]{\thepage}
+            \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \fi\fi
+
         \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
         \headsep = 1cm % Espazo no cabeceiro
     }

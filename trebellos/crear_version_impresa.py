@@ -4,6 +4,7 @@ import os
 
 # O factor de escala 0.96 equivale a reducir o contido un 4 %
 FACTOR_ESCALA = 0.96
+DESPRAZAMENTO_MARXES = 15 # Desprazamento lateral para a encadernación en px
 
 def version_impresa(pdf_entrada, pdf_saida):
     """
@@ -20,13 +21,33 @@ def version_impresa(pdf_entrada, pdf_saida):
     """
     # Abrimos o documento PDF orixinal
     doc_orixinal = fitz.open(pdf_entrada)
+    # Tamaño das páxinas
+    tamaño_paxina = doc_orixinal[0].rect
+
+    # Páxinas en branco necesarias para completar o múltiplo de 4
+    faltan = (4 - (doc_orixinal.page_count % 4)) % 4
+
+    # Engadimos páxinas na seguinte orde: despois da portada, antes da
+    # contraportada, e despois do índice
+
+    # Nota: o valor doc_novo.page_count calcúlase antes de inserir unha páxina
+    # na posición 1, tras isto o tamaño total do PDF é page_count + 1. Polo que
+    # usamos doc_novo.page_count para a páxina anterior á contraportada en
+    # lugar de doc_novo.page_count - 1.
+
+    posibeis_posicions = [1, doc_orixinal.page_count, 3]
+    for pos in range(faltan):
+        doc_orixinal.insert_page(pno=posibeis_posicions[pos],
+                             width=tamaño_paxina.width,
+                             height=tamaño_paxina.height)
+
+    # Gardamos a nova posición do índice, no caso de que se modificase
+    pos_indice = 2 if faltan != 0 else 1
 
     # Creamos un documento baleiro
     doc_novo = fitz.open()
 
-    for paxina in doc_orixinal:
-        # Tamaño da páxina actual
-        tamaño_paxina = paxina.rect
+    for num, paxina in enumerate(doc_orixinal):
 
         # Nova páxina co mesmo tamaño
         paxina_nova = doc_novo.new_page(
@@ -41,6 +62,14 @@ def version_impresa(pdf_entrada, pdf_saida):
         # Calculamos os desprazamentos para centrar o contido
         desprazamento_x = (tamaño_paxina.width - ancho_escalado) / 2
         desprazamento_y = (tamaño_paxina.height - alto_escalado) / 2
+
+        # Desprazamento para marxes asimétricas
+        # Excluímos portada (0), índice (pos_indice) e contraportada (total - 1)
+        if num not in (0, pos_indice, doc_orixinal.page_count - 1):
+            if num % 2 != 0:  # Índices impares corresponden a páxinas pares (dereita)
+                desprazamento_x += DESPRAZAMENTO_MARXES
+            else:           # Páxina par (esquerda)
+                desprazamento_x -= DESPRAZAMENTO_MARXES
 
         # Rectángulo onde se colocará o contido escalado
         rectangulo_destino = fitz.Rect(
@@ -58,21 +87,6 @@ def version_impresa(pdf_entrada, pdf_saida):
             paxina.number
         )
 
-    # Páxina inmediatamente despois da portada en branco
-    doc_novo.insert_page(
-        pno=1,  # posición 2 (os índices comezan en 0)
-        width=tamaño_paxina.width,
-        height=tamaño_paxina.height
-    )
-
-    # O número de páxinas total debe ser múltiplo de 4. Se non se cumpre isto,
-    # engadimos páxinas en branco ao final
-    if doc_novo.page_count % 4 == 1:
-        doc_novo.insert_page(
-            pno=doc_novo.page_count - 1,
-            width=tamaño_paxina.width,
-            height=tamaño_paxina.height
-        )
 
     # Gardamos o documento PDF final
     doc_novo.save(pdf_saida)
