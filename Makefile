@@ -17,7 +17,7 @@ SHELL := bash
 
 # esta accion mira se existe o arquivo revista/001/revista_001.tex e en caso
 # afirmativo, executa 'latexmk' con dito arquivo
-.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex
+.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
 	latexmk revistas/$(numero)/revista_$(numero).tex
 
 # accion para limpar os arquivos auxiliares
@@ -35,15 +35,28 @@ ifeq ($(cor),)
 cor := FF0000
 endif
 
-# Separar o PDF da revista en páxinas numeradas como .pdf/revista_001_3.pdf
-.pdf/paxinas_$(numero)_0.pdf: .pdf/revista_$(numero).pdf
-	magick .pdf/revista_$(numero).pdf .pdf/paxinas_$(numero)_%d.pdf
-	rm .pdf/paxinas_$(numero)_[0-9]?.pdf
-	rm .pdf/paxinas_$(numero)_[^0].pdf
+# O mesmo pero ca cor do texto en resalte
+ifeq ($(cortexto),)
+cortexto := FFFFFF
+endif
+
+# Extrae a portada da revista
+# https://www.ghostscript.com/documentation/index.html
+.pdf/portada_$(numero).pdf: .pdf/revista_$(numero).pdf
+	gs \
+		-q \
+		-dBATCH \
+		-dNOPAUSE \
+		-dSAFER \
+		-sOutputFile=.pdf/portada_$(numero).pdf \
+		-sDEVICE=pdfwrite \
+		-dFirstPage=1 \
+		-dLastPage=1 \
+		-f .pdf/revista_$(numero).pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
-# Usase como 'make propaganda numero=004 cor=89fa3c'
-propaganda: .pdf/paxinas_$(numero)_0.pdf
+# Usase como 'make propaganda numero=004 cor=89fa3c cortexto=ffffff'
+.pdf/propaganda_$(numero).pdf: .pdf/portada_$(numero).pdf
 	typst compile \
 		--diagnostic-format=short \
 		--root=. \
@@ -52,6 +65,18 @@ propaganda: .pdf/paxinas_$(numero)_0.pdf
 		--font-path=fontes \
 		--input numero=$(numero) \
 		--input cor=$(cor) \
-		trebellos/propaganda.typ .pdf/propaganda.pdf
+		--input cortexto=$(cortexto) \
+		trebellos/propaganda.typ .pdf/propaganda_$(numero).pdf
+
+propaganda: .pdf/propaganda_$(numero).pdf
+	gs \
+		-q \
+		-dBATCH \
+		-dNOPAUSE \
+		-dSAFER \
+		-sPageList=1,2 \
+		-sOutputFile=.pdf/propaganda_$(numero)_%d.pdf \
+		-sDEVICE=pdfwrite \
+		-f .pdf/propaganda_$(numero).pdf
 
 .PHONY: limpa modelo propaganda
