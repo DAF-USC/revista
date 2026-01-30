@@ -762,9 +762,9 @@
             anchor = south west,
 %            xshift = 10.55cm, % A carón do logo de vicerreitoría
             xshift = 15.75cm,  % Aliñado á dereita
-            yshift = 0.75cm
+            yshift = 0.80cm
         ] at (current page.south west)
-        {\includegraphics[scale=0.4]{logos/IGFAE_acronimo_escuro.pdf}};
+        {\includegraphics[scale=0.40]{logos/IGFAE_acronimo_escuro.pdf}};
     \end{tikzpicture}
     \endgroup% <-- este cerra o grupo que contén o de \setlenght\parindent{0pt}
 
@@ -942,39 +942,36 @@
     % lua-visual-debug paréceme que crea un numero incrible de boxes
     % que pode que
     % toleen a colocación doutras cousas. Por agora furrula, polos pelos.
-    \begin{minipage}[c][5cm]{5cm}
+    \begin{minipage}[c][5cm]{3.5cm}
         \begin{center}
             Edicións anteriores: \\[2mm]
             \hypersetup{urlcolor=black}
-            \qrset{height = 4cm}%
+            \qrset{height = 3cm}%
             % Que quede para a posteridade que rickrolleei a Celia e
             % a Sebas con este QR
             \qrcode{\imprimeEdicionsAnteriores}
         \end{center}
     \end{minipage}
     %
-    \hfill % non se deben poñer liñas en branco arredor deste \hfill
-    %
-    \begin{minipage}[c][5cm]{4cm}
+    \begin{minipage}[c][5cm]{3.5cm}
         \begin{center}
-            Participa! (WhatsApp) \\[2mm]
+            WhatsApp: \\[2mm]
             \hypersetup{urlcolor=black}
-            \qrset{height = 4cm}%
+            \qrset{height = 3cm}%
             % Que quede para a posteridade que rickrolleei a Celia e
             % a Sebas con este QR
             \qrcode{\imprimeWhatsApp}
         \end{center}
     \end{minipage}
     %
-    \hfill % deste tampouco
-    %
     % Co logo da vicerreitoría
-    \begin{minipage}[c][4cm]{9cm}
+    \begin{minipage}[c][5cm]{11cm}
         \begin{center}
             Co financiamento de: \\[2mm]
-            \begin{picture}(5cm,4cm)%
-                \put(-60,55){\hbox{\includegraphics[width=11cm]{logos/vicerreitoria-branco-negro.pdf}}}
-                \put(-17,05){\hbox{\includegraphics[scale=0.6]{logos/IGFAE_denominador_escuro.pdf}}}
+            \begin{picture}(5cm,3cm)%
+                \put(-90,37){\hbox{\includegraphics[width=9cm]{logos/vicerreitoria-branco-negro.pdf}}}
+                \put(114,47){\hbox{\includegraphics[scale=0.45]{logos/IGFAE_denominador_escuro.pdf}}}
+                \put(-88,04){\hbox{\includegraphics[scale=0.57]{logos/cigus.png}}}
             \end{picture}
         \end{center}
     \end{minipage}
