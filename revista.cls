@@ -991,10 +991,10 @@
 \renewcommand{\max}{\mathop{\mathrm{máx}}}
 \renewcommand{\min}{\mathop{\mathrm{mín}}}
 \renewcommand{\inf}{\mathop{\mathrm{ínf}}} % Elemento ínfimo
-\renewcommand{\mod}{\mathop{\mathrm{mód}}} % Módulo
-\renewcommand{\sin}{\mathop{\mathrm{sen}}}
-\renewcommand{\arcsin}{\mathop{\mathrm{arcsen}}}
-\renewcommand{\sinh}{\mathop{\mathrm{senh}}}
+\renewcommand{\mod}{\mathop{\mathrm{mód}}\nolimits} % Módulo
+\renewcommand{\sin}{\mathop{\mathrm{sen}}\nolimits}
+\renewcommand{\arcsin}{\mathop{\mathrm{arcsen}}\nolimits}
+\renewcommand{\sinh}{\mathop{\mathrm{senh}}\nolimits}
 
 % Diferenciais inexactos
 \newcommand*{\dbar}{\ensuremath{\text{\dj}}}

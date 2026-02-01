@@ -35,6 +35,11 @@ ifeq ($(cor),)
 cor := FF0000
 endif
 
+# O mesmo pero ca cor do texto en resalte
+ifeq ($(cortexto),)
+cortexto := FFFFFF
+endif
+
 # Extrae a portada da revista
 # https://www.ghostscript.com/documentation/index.html
 .pdf/portada_$(numero).pdf: .pdf/revista_$(numero).pdf
@@ -50,8 +55,8 @@ endif
 		-f .pdf/revista_$(numero).pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
-# Usase como 'make propaganda numero=004 cor=89fa3c'
-propaganda: .pdf/portada_$(numero).pdf
+# Usase como 'make propaganda numero=004 cor=89fa3c cortexto=ffffff'
+.pdf/propaganda_$(numero).pdf: .pdf/portada_$(numero).pdf
 	typst compile \
 		--diagnostic-format=short \
 		--root=. \
@@ -60,6 +65,18 @@ propaganda: .pdf/portada_$(numero).pdf
 		--font-path=fontes \
 		--input numero=$(numero) \
 		--input cor=$(cor) \
+		--input cortexto=$(cortexto) \
 		trebellos/propaganda.typ .pdf/propaganda_$(numero).pdf
+
+propaganda: .pdf/propaganda_$(numero).pdf
+	gs \
+		-q \
+		-dBATCH \
+		-dNOPAUSE \
+		-dSAFER \
+		-sPageList=1,2 \
+		-sOutputFile=.pdf/propaganda_$(numero)_%d.pdf \
+		-sDEVICE=pdfwrite \
+		-f .pdf/propaganda_$(numero).pdf
 
 .PHONY: limpa modelo propaganda
