@@ -78,5 +78,6 @@ propaganda: .pdf/propaganda_$(numero).pdf
 		-sOutputFile=.pdf/propaganda_$(numero)_%d.pdf \
 		-sDEVICE=pdfwrite \
 		-f .pdf/propaganda_$(numero).pdf
+	rm .pdf/propaganda_$(numero).pdf
 
 .PHONY: limpa modelo propaganda
