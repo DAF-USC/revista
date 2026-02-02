@@ -636,19 +636,22 @@
 %
 % Citas que quedan como un bloque no medio do texto
 %
-% #1: Contido da cita
-% #2: Autoría
-\NewDocumentCommand\Cita{ m m }{%
+% #1: Autoría, entre [...], opcional
+% #2: Contido da cita
+\NewDocumentCommand\Cita{ o m }{%
     \begin{minipage}[t]{\hsize}
         \vspace*{0.5em}
         \begin{quotation}
-            {\noindent \itshape #1}\\
+            {\noindent \itshape #2}\\
             \vspace{-4ex}
-            % \hfill — #2 % Como estaba antes <-
-            \hfill
-            \begin{flushright}
-            — #2
-            \end{flushright}
+            \IfNoValueTF{#1}%
+                {}%
+                {%
+                    \hfill%
+                    \begin{flushright}
+                    — #1
+                    \end{flushright}
+                }%
         \end{quotation}
         \vspace*{0.5em}
     \end{minipage}
