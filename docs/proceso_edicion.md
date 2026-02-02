@@ -81,9 +81,12 @@ escrita en LaTeX e fai falla engadir o que mandan os redactores ao proxecto.
   `\Titular` na clase da revista.
 
 - **IMAXES**: As distintas imaxes que envían deben copiarse ao proxecto da
-  revista. Se estamos a editar a número `006` entón deberán gardarse en
-  `revistas/006/imaxes/`. É moi importante revisar o arquivo de texto principal e
-  asegurarse de que as rutas das imaxes son correctas.
+  revista e cambiarlle os nomes ao formato `iniciaisnome_nomeimaxe.jpg` (ou a
+  extensión que sexa), por exemplo as imaxes de Víctor Díaz deberían nomearse
+  como `VD_soliton1.jpg`, `VD_nos.png`, etc. Se estamos a editar a número `006`
+  entón as imaxes deberán gardarse en `revistas/006/imaxes/`. É moi importante
+  revisar o arquivo de texto principal e asegurarse de que as rutas das imaxes
+  son correctas.
 
 - **BIBLIOGRAFÍA**: En xeral deberían mandar información bibliográfica nun
   ficheiro con extensión `.bib` que debería conter texto co seguinte formato
