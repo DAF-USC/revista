@@ -11,9 +11,10 @@ DESPRAZAMENTO_MARXES = 15 # Desprazamento lateral para a encadernación en px
 
 def version_impresa(pdf_entrada, pdf_saida):
     """
-    Reduce o contido dun ficheiro PDF mantendo o tamaño da páxina. Engade unha
-    páxina en branco despois da portada e, se o número de páxinas non é
-    múltiplo de catro, engade outra páxina en branco antes da contraportada.
+    Reduce o contido dun ficheiro PDF mantendo o tamaño da páxina consonte un
+    factor de escala. Engade páxinas en branco ata que o ficheiro resultante
+    teña un número de páxinas múltiplo de catro. Orde de inserción: despois da
+    portada, antes da contraportada e despois do índice.
 
     Args:
         pdf_entrada (str): Ruta ao ficheiro PDF de entrada.
@@ -31,7 +32,7 @@ def version_impresa(pdf_entrada, pdf_saida):
     faltan = (4 - (doc_orixinal.page_count % 4)) % 4
 
     # Engadimos páxinas na seguinte orde: despois da portada, antes da
-    # contraportada, e despois do índice
+    # contraportada e despois do índice
 
     # Nota: o valor doc_novo.page_count calcúlase antes de inserir unha páxina
     # na posición 1, tras isto o tamaño total do PDF é page_count + 1. Polo que
