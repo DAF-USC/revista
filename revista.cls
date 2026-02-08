@@ -618,7 +618,7 @@
 \newcommand{\imprimeEdicionsAnteriores}{\@EdicionsAnteriores}
 \EdicionsAnteriores{https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum}
 
-% Ligazón para o grupo de WHATSAPP \def\WhatsApp#1{\def\@WhatsApp{#1}}
+% Ligazón para o grupo de WHATSAPP
 \def\WhatsApp#1{\def\@WhatsApp{#1}}
 \newcommand{\imprimeWhatsApp}{\@WhatsApp}
 \WhatsApp{https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk}
@@ -888,7 +888,7 @@
         \begin{center}
             \textcolor{TextoEnResalte}{\Large
                 \textbf{\imprimeData} \\[3mm] % :FACER: por que \today non funciona?? Non o pon en galego...
-                \textbf{\imprimeNumero} \\[0.9cm] % :FACER: estes putos espazos verticais vólvenme louco, tocar CALQUEIRA cousa dos participantes fai que se cree unha páxina en branco antes do índice... ????????'
+                \textbf{\imprimeNumero} \\[0.9cm] % :FACER: estes putos espazos verticais vólvenme louco, tocar CALQUERA cousa dos participantes fai que se cree unha páxina en branco antes do índice... ????????'
             }
         \end{center}
         % Aquí mostramos as persoas que participaron no proxecto.
