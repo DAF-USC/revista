@@ -1,4 +1,7 @@
-import fitz # Instalar o paquete 'pymupdf'
+# Ollo! Aseguramos que o script funciona con Python 3.11.9 e 'pymupdf==1.26.7',
+# mais pode que non funcione con outras versións do paquete.
+
+import fitz
 import sys
 import os
 
