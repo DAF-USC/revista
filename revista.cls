@@ -74,13 +74,13 @@
 % 'unicode-math' máis abaixo.
 
 % :FACER: MONO e variantes
-% Tipografía monoespaciada. Usase con \texttt{ aaa }
+% Tipografía monoespaciada. Úsase con \texttt{ aaa }
 \setmonofont[
     Path      = ./fontes/LatinModern/,
     Extension = .otf,
 ]{lmmono10-regular}
 
-% Tipografía Sans Serif. Usase con \textsf{ aaa }
+% Tipografía Sans Serif. Úsase con \textsf{ aaa }
 \setsansfont[
     Path        = ./fontes/LatinModern/,
     Extension   = .otf,
@@ -127,12 +127,12 @@
 \addbibresource{#1}%
 }
 
-% Cores. En cada artigo usamos \definecolor{}{} pa coller o que queremos
+% Cores. En cada artigo usamos \definecolor{}{} para coller o que queremos
 \RequirePackage[table]{xcolor}
 
 % Gráficos e tal. Se podes soñalo, podes facelo con TikZ.
 \RequirePackage{tikz}
-% para facer cálculos cas posicións dos nodos, sumándolle cousas. Por exemplo,
+% para facer cálculos coas posicións dos nodos, sumándolle cousas. Por exemplo,
 % fixádevos que ás coordenadas (current page.west) 'súmaselle' (2.5,-5)
 % \node[
 %     red!90,
@@ -143,10 +143,10 @@
 % Outros paquetes útiles (pero agora non necesarios) para tikz:
 % 'tikzpagenodes'
 
-% Pa ter fondos con \AddToShipoutPictureBG, usase na contraportada
+% Para ter fondos con \AddToShipoutPictureBG, úsase na contraportada
 \RequirePackage{eso-pic}
 
-% Pa ter alphas (transparencia), por exemplo no fondo do botafumeiro. Úsase o
+% Para ter alphas (transparencia), por exemplo no fondo do botafumeiro. Úsase o
 % switch e.g. \transparent{0.3}
 \RequirePackage{transparent}
 
@@ -170,23 +170,23 @@
     % showframe,            % mostra estrutura, moi útil
 }
 
-% Esto é pa mostrar as box, hyphenation points, glues, etc. Útil para depurar
+% Esto é para mostrar as box, hyphenation points, glues, etc. Útil para depurar
 % \RequirePackage{lua-visual-debug}
 
-% E xa que falamos de depuración, está o comando este pa mostrar todos os
+% E xa que falamos de depuración, está o comando este para mostrar todos os
 % paquetes que se usan (implícita e explicitamente) e súas versións. Toda esa
 % info gárdase no *.log, de cara ao final logo dunha liña que pon *File List*
 \listfiles
 
 % Para colocar cousas en 2 (ou 3 ou 4...) columnas. É preferible á opción da
-% clase 'twocols' porque esa da moitísimos problemas no caso de que queiramos
-% ter partes que non teñan 2 columnas. Aparte de que se pode configurar menos
+% clase 'twocols' porque esa dá moitísimos problemas no caso de que queiramos
+% ter partes que non teñan 2 columnas. Á parte de que se pode configurar menos
 \RequirePackage{multicol}
 
 % E aumentamos a separación entre as columnas
 \setlength{\columnsep}{5mm}
 
-% Pa cambiar interliñados no momento usando \setstrech{}
+% Para cambiar interliñados no momento usando \setstrech{}
 \usepackage{setspace}
 \setlength\parindent{5mm} % tamaño da indentación
 
@@ -197,12 +197,12 @@
 % Mates e todo eso. Hai variedade, de feito, máis dos que se usan. Miña
 % intención é que a xente saiba que existen
 \RequirePackage{mathtools}  % mates xerais
-\RequirePackage{amssymb}    % simbolos adicionais
+\RequirePackage{amssymb}    % símbolos adicionais
 \RequirePackage{amsthm}     % definir teoremas
 \RequirePackage{diffcoeff}  % derivadas
 \RequirePackage{esint}      % integrais diferentes
 \RequirePackage{polynomial} % polinomios simples
-\RequirePackage{tensor}     % indices e eso
+\RequirePackage{tensor}     % índices e eso
 \RequirePackage{braket}     % notación bra-ket
 \RequirePackage{mathrsfs}   % letras reviradas \mathcal
 
@@ -220,7 +220,7 @@
 % IMPORTANTE: PRIMEIRO hai que cargar os paquetes de matemáticas e DESPOIS,
 % unicode-math.
 \RequirePackage[
-    warnings-off={            % Esto só é pa desactivar uns avisos inútiles
+    warnings-off={            % Esto só é para desactivar uns avisos inútiles
         mathtools-colon,      %
         mathtools-overbracket %
     }                         %
@@ -232,7 +232,7 @@
     Extension = .otf,
 ]{latinmodern-math}
 
-% Esto pa cambiar facilmente o estilo das 'captions' das cousas. Queremos que
+% Esto para cambiar facilmente o estilo das 'captions' das cousas. Queremos que
 % este xustificada. singlelinecheck=false: evita que LaTeX centre pés dunha
 % soa liña (por defecto, o que fai aínda que se pida xustificación).
 \RequirePackage{caption}
@@ -255,11 +255,11 @@
 \RequirePackage[small, unboxed]{cwpuzzle}
 \RequirePackage{soul}
 
-% Encabezados e pé de páxina, pa facilitar a creación cun par de comandos
+% Encabezados e pé de páxina, para facilitar a creación cun par de comandos
 \RequirePackage{fancyhdr}
 \setlength\headheight{20pt}
 
-% O comando pa xerar o logo onde sexa, pode usarse con \fontsize
+% O comando para xerar o logo onde sexa, pode usarse con \fontsize
 \newcommand{\LogoM}{
     \begin{tikzpicture}
         \node[
@@ -276,7 +276,7 @@
     \end{tikzpicture}
 }
 
-% Esto e pa poñer o logo do momento no encabezado
+% Esto é para poñer o logo do momento no encabezado
 \renewcommand\headrule{
     \vspace{-6pt}
     \hrulefill
@@ -284,6 +284,9 @@
     {\huge\quad\LogoM\quad}
     \hrulefill
 }
+
+\RequirePackage{lastpage} % Acceder a LastPage
+\RequirePackage{refcount} % Obter o número asociado a LastPage
 
 % ESTILOS DE PÁXINA E ÍNDICES.
 % Estes estilos cambian os encabezados das páxinas e engaden
@@ -294,8 +297,59 @@
         \fancyhf{} % Limpa as cabeceiras e pés de páxina
         \renewcommand{\headrulewidth}{0.4pt} % Engade liña no cabeceiro
         \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
-        \fancyfoot[LE,RO]{\thepage} % Páxina
-        \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}} % Título
+
+        % Calculamos a posición do número da páxina dinamicamente
+        % Síntoo por quen teña que manter isto...
+
+        % O número da páxina número 1 vai á dereita se faltan 0 ou 1 páxina
+        % para que o número de páxinas totais sexa múltiplo de 4, e á esquerda
+        % se faltan 2 ou 3 páxinas. Isto faise así considerando unha orde de
+        % inserción de páxinas en branco de (1) antes do índice, (2) antes da
+        % contraportada e (3) despois do índice.
+
+        % Número total de páxinas (antes de engadir portada + contraportada):
+        % Algunhas observacións que poder axudar a manter o código:
+        % - Úsase \edef no canto de \let para gardar directamente o valor
+        %   expandido e non a expresión. Isto evita facer o mesmo cálculo
+        %   varias veces e fai o código máis robusto. Ver:
+        %   https://tex.stackexchange.com/questions/8163/what-is-the-difference-between-let-and-edef
+        % - O paquete 'lastpage' define unha etiqueta con información sobre a
+        %   última páxina, usando \getrefbydefault extraemos o número asociado.
+        %   Ver:
+        %   https://tex.stackexchange.com/questions/250394/how-to-get-second-last-page-as-a-number-without-hyperref
+        % - O comando \numexpr rematado en \relax é o que nos permite facer
+        %   operacións aritméticas con enteiros.
+
+        \edef\totalPaxinas{\getrefbykeydefault{LastPage}{page}{0}}
+        % Para o obter o número de páxinas reais sumamos 2
+        \edef\totalPaxinasReal{\the\numexpr\totalPaxinas + 2\relax}
+
+        % A seguinte operación obtén a distancia ao múltiplo de 4 máis próximo.
+        % Os posíbeis resultados son -2, -1, 0 e 1. Se tedes tempo que queimar
+        % ou por razóns de forza maior, podedes ver que, tras dividir entre 4,
+        % troca o número ao enteiro máis próximo e logo multiplícao por catro.
+        % Este valor pódese comprobar imprimindo \the\numexpr\distanciaMultiplo
+        % Deste xeito, se
+        %        parte_enteira(x) - x >= 0.5 -> x+1,
+        %                             < 0.5  -> x.
+        % Uns exempliños:
+        %   31 páxinas totais: 31 - 31/4*4 = 31 - 8*4 = -1
+        %   32 páxinas       : 32 - 32/4*4 = 0
+        %   33 páxinas       : 33 - 33/4*4 = 33 - 8*4 = 1
+        %   34 páxinas       : 33 - 34/4*4 = 33 - 9*4 = -2
+        \edef\distanciaMultiplo{\numexpr\totalPaxinasReal - (\totalPaxinasReal / 4 * 4)\relax}
+
+        \ifnum\distanciaMultiplo=0 % Faltan 0 páxinas para o múltiplo de 4
+            \fancyfoot[LE,RO]{\thepage}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
+            \fancyfoot[LE,RO]{\thepage}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else % distanciaMultiplo pode ser 1 (falta +3 páxinas ou -1 páxina), -2 (faltan +2 páxinas)
+            \fancyfoot[LO,RE]{\thepage}
+            \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \fi\fi
+
         \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
         \headsep = 1cm % Espazo no cabeceiro
     }
@@ -331,7 +385,7 @@
 
 % :FACER: á larga debería simplificar toda esta funcionalidade, máis a de \Titular
 % Este macro pode invocarse con ou sen asterisco, ou sexa \EngadeAoTOC*.
-% Co asterisco, aparte do título, tamén engade unha seccion ao TOC.
+% Co asterisco, á parte do título, tamén engade unha sección ao TOC.
 %
 % Argumentos:
 %
@@ -459,7 +513,7 @@
         }
     % Aplicamos o estilo de páxina
     \pagestyle{#2}%
-    % Aproveito pa meter esto aquí. Reinicia números nas figuras
+    % Aproveito para meter esto aquí. Reinicia números nas figuras
     \setcounter{figure}{0}
     \stepcounter{section}
     \counterwithin*{equation}{section}
@@ -472,14 +526,14 @@
 % Tipografía preciosa. Xoga cos espazados moi ben para xustificar o texto.
 \RequirePackage{microtype}
 
-% Paquete para links
+% Paquete para ligazóns
 \RequirePackage{hyperref}
 \hypersetup{
     hidelinks,
-    colorlinks,  % Colorear os links
-    linkcolor = {Resalte!55!black}, % links internos
+    colorlinks,  % Colorear as ligazóns
+    linkcolor = {Resalte!55!black}, % ligazóns internas
     citecolor = {green!45!black},   % citas bibliográficas
-    urlcolor  = {blue!80!black}     % URLs e links externos
+    urlcolor  = {blue!80!black}     % URLs e ligazóns externas
 }
 
 % :FACER: refacer esto con \NewDocumentCommand. Como debería cambiar os \def?
@@ -518,12 +572,12 @@
 \def\ImaxePortada#1{\def\@ImaxePortada{#1}}
 \newcommand{\imprimeImaxePortada}{\@ImaxePortada}
 
-% PARTICIPANTES DO PROXECTO. Usase no índice, no lado dereito ca cor de resalte
+% PARTICIPANTES DO PROXECTO. Úsase no índice, no lado dereito coa cor de resalte
 \def\Participantes#1{\def\@Participantes{#1}}
 \newcommand{\imprimeParticipantes}{\textcolor{TextoEnResalte}{\@Participantes}}
 \Participantes{}
 
-% LINK para o REPOSITORIO
+% LIGAZÓN para o REPOSITORIO
 \def\LinkRepositorio#1{\def\@LinkRepositorio{#1}}
 \newcommand{\imprimeLinkRepositorio}{\@LinkRepositorio}
 \LinkRepositorio{fisicaUSC/revista}
@@ -559,12 +613,12 @@
 }
 \Agradecementos{}
 
-% Link para o DRIVE
+% Ligazón para o DRIVE
 \def\EdicionsAnteriores#1{\def\@EdicionsAnteriores{#1}}
 \newcommand{\imprimeEdicionsAnteriores}{\@EdicionsAnteriores}
 \EdicionsAnteriores{https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum}
 
-% Link para o grupo de WHATSAPP
+% Ligazón para o grupo de WHATSAPP
 \def\WhatsApp#1{\def\@WhatsApp{#1}}
 \newcommand{\imprimeWhatsApp}{\@WhatsApp}
 \WhatsApp{https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk}
@@ -575,12 +629,12 @@
 %
 % As cores defínense usando formato HTML, e.g. algo como ff0000 (vermello puro)
 %
-% Tecnicamente, non fai falta definir estos comandos, pero así podemos escribir
+% Tecnicamente, non fai falta definir estes comandos, pero así podemos escribir
 % '\CorResalte{ff0000}' en vez de '\definecolor{Resalte}{HTML}{ff0000}', o cal
 % é algo máis limpo. OLLO, hai que meter o de \hypersetup aquí para que as
-% cores dos links cambien en cada revista: na clase, definimos as cores (nunhas
+% cores das ligazóns cambien en cada revista: na clase, definimos as cores (nunhas
 % liñas máis adiante), e se non metésemos o hypersetup no macro este, na
-% revista non poderíamos cambiar as cores dos links.
+% revista non poderíamos cambiar as cores das ligazóns.
 \NewDocumentCommand\CorResalte{ m }{%
     \definecolor{Resalte}{HTML}{#1}%
     \hypersetup{linkcolor = {Resalte!55!black}}%
@@ -597,15 +651,15 @@
 % Un macro para os pasatempos, para facilitarnos algo a vida
 %
 % #1 (entre corchetes [...]) texto opcional á dereita
-% #2 TITULO. Primeiro argumento entre parénteses recurvos {...}
-% #3 AUTORÍA. Segundo argumento entre parénteses recurvos {...}
+% #2 TITULO. Primeiro argumento entre chaves {...}
+% #3 AUTORÍA. Segundo argumento entre chaves {...}
 %
 % Exemplos:
 % \Pasatempo[fontes: wikipedia]{Encrucillado}{Manolito}
 % \Pasatempo{Integral dificil}{Alvaro}
 %
-% :FACER: non me convence meter todo dentro do argumendo de \section, pero
-% funciona... asique todo ben
+% :FACER: non me convence meter todo dentro do argumento de \section, pero
+% funciona... así que todo ben
 \NewDocumentCommand\Pasatempo{ o m m }{%
     \section*{%
         \textcolor{Resalte}{#2 }% AUTORÍA
@@ -616,10 +670,10 @@
     }%
 }
 
-% Macro para as seccións de opinion
+% Macro para as seccións de opinión
 %
-% #1 TITULO
-% #2 AUTORIA
+% #1 TÍTULO
+% #2 AUTORÍA
 \NewDocumentCommand\Opinion{ m m }{%
     \section*{%
         \textcolor{Resalte}{#1 \\}%
@@ -702,7 +756,7 @@
     }%
     \vspace*{7mm}
 
-    % NUMERO DA REVISTA E DATA
+    % NÚMERO DA REVISTA E DATA
     {
         \setstretch{0}
         \begin{tcolorbox}[
@@ -720,10 +774,10 @@
     }
 
     % IMAXE DE CADA REVISTA
-    % A imaxe da portada debe ser CADRADA EXACTAMENTE
+    % A imaxe da portada debe ser EXACTAMENTE CADRADA
     {
-        \vspace*{-4pt} % este espazo negativo e pa que encaixe o da
-        % data ca imaxe da portada
+        \vspace*{-4pt} % este espazo negativo é para que encaixe o da
+        % data coa imaxe da portada
         \nointerlineskip
         \begin{picture}(\textwidth,\textwidth)%
             \put(0,0){%
@@ -748,7 +802,7 @@
             xshift       = 0.9cm,
             yshift       = 3.7cm,
             fill         = gray,
-            fill opacity = 0.8, % transparencia do fondo
+            fill opacity = 0.8,  % transparencia do fondo
             text opacity = 1,    % o texto sigue opaco
             inner sep    = 5pt   % separación interna do texto ao borde
         ]  at (current page.south west)
@@ -814,7 +868,7 @@
                     {
                         \section*{\Huge \textbf{Índice}}
                         \begingroup%
-                            % Esto e para que non salte o Indice default, e o
+                            % Esto é para que non salte o Indice default, e o
                             % poidamos poñer nós
                             \let\contentsname\relax%
                             \tableofcontents% <--- o 'TOC' CÁRGASE AQUí
@@ -827,19 +881,19 @@
     \end{minipage}
     \hfill
     % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % LADO DEREITO COS PARTICIPANTES, VARIOS LINKS, DATA, etc, resaltado cunha cor
+    % LADO DEREITO COS PARTICIPANTES, VARIAS LIGAZÓNS, DATA, etc, resaltado cunha cor
     \begin{minipage}[t]{0.28\textwidth}
         \sffamily % texto na dereita en SansSerif, vese mellor
         % Data e Número da revista
         \begin{center}
             \textcolor{TextoEnResalte}{\Large
-                \textbf{\imprimeData} \\[3mm] % :FACER: por qué \today non funciona?? Non o pon en galego...
-                \textbf{\imprimeNumero} \\[0.9cm] % :FACER: estos putos espazos verticais volvenme loco, tocar CALQUEIRA cousa dos participantes fai que se cree unha páxina en branco antes do indice... ????????'
+                \textbf{\imprimeData} \\[3mm] % :FACER: por que \today non funciona?? Non o pon en galego...
+                \textbf{\imprimeNumero} \\[0.9cm] % :FACER: estes putos espazos verticais vólvenme louco, tocar CALQUERA cousa dos participantes fai que se cree unha páxina en branco antes do índice... ????????'
             }
         \end{center}
         % Aquí mostramos as persoas que participaron no proxecto.
         \imprimeParticipantes \\[1.1cm]
-        % Links varios
+        % Ligazóns varias
         \begin{tikzpicture}[scale=1.5, anchor=west]
             \begingroup
                 \hypersetup{urlcolor = TextoEnResalte}
