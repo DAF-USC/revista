@@ -1,32 +1,36 @@
 # Esto é un arquivo con 'instrucions' para compilar unha revista. 'make' é un
 # programa que permite rular _outros_ programas en certa orde, baixo certas
-# regras. Úsase principalmente con programas compilados (e non iterpretados)
+# regras. Úsase principalmente con programas compilados (e non interpretados)
 # porque pode ser tedioso escribir de cada vez comandos máis e máis longos.
 # Tamén se pode usar neste caso máis simple.
 #
-# Para compilar unha revista, escribir 'make numero=001', ou poñer o numero que
+# Para compilar unha revista, escribir 'make numero=001', ou poñer o número que
 # proceda.
 #
-# Para limpiar os arquivos auxiliares, escribir 'make limpa'
+# Para limpar os arquivos auxiliares, escribir 'make limpa'
 
 # shell por defecto
 SHELL := bash
 
-# qué accion se vai executar por defecto
+# que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
-# esta accion mira se existe o arquivo revista/001/revista_001.tex e en caso
+# esta acción mira se existe o arquivo revista/001/revista_001.tex e en caso
 # afirmativo, executa 'latexmk' con dito arquivo
 .pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
 	latexmk revistas/$(numero)/revista_$(numero).tex
 
-# accion para limpar os arquivos auxiliares
+# acción para limpar os arquivos auxiliares
 limpa:
-	rm -rf .pdf/* .aux/* # pra limpar os diretorios
+	rm -rf .pdf/* .aux/* # pra limpar os directorios
 
-# accion para empaquetar os arquivos necesarios para o artigo simplificado
+# acción para empaquetar os arquivos necesarios para o artigo simplificado
 modelo:
 	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
+
+# acción para xerar a versión impresa da revista
+impresa: .pdf/revista_$(numero).pdf
+	python3 trebellos/crear_version_impresa.py .pdf/revista_$(numero).pdf .pdf/revista_$(numero)_impresa.pdf
 
 # Para facer os carteis propagandísticos
 
@@ -55,7 +59,7 @@ endif
 		-f .pdf/revista_$(numero).pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
-# Usase como 'make propaganda numero=004 cor=89fa3c cortexto=ffffff'
+# Úsase como 'make propaganda numero=004 cor=89fa3c cortexto=ffffff'
 .pdf/propaganda_$(numero).pdf: .pdf/portada_$(numero).pdf
 	typst compile \
 		--diagnostic-format=short \
@@ -80,4 +84,4 @@ propaganda: .pdf/propaganda_$(numero).pdf
 		-f .pdf/propaganda_$(numero).pdf
 	rm .pdf/propaganda_$(numero).pdf
 
-.PHONY: limpa modelo propaganda
+.PHONY: limpa modelo propaganda impresa
