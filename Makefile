@@ -48,6 +48,10 @@ impresa: .pdf/revista_$(numero).pdf
 # cortexto              -> Cor para o texto que ten o fondo resaltado. Por defecto branco puro ffffff
 # paxina_central_numero -> número da paxina que aparece no medio. Por defecto 2 (índice)
 # paxina_dereita_numero -> número da paxina que aparece na dereita. Por defecto 3
+#
+# Esta regra depende de que existan
+# .pdf/propaganda_xxx_cor.pdf
+# .pdf/propaganda_xxx_branca.pdf
 propaganda: .pdf/propaganda_$(numero)_cor.pdf .pdf/propaganda_$(numero)_branca.pdf
 
 # Antes de  nada, establecemos os valores das variables por defecto
@@ -68,6 +72,35 @@ paxina_dereita_numero := 3
 endif
 # ollo, por defecto non poden ser todas 1 porque GS non deixaría facer -sPageList=1,1,1
 
+# Opcións para Typst https://typst.app/
+opcions_typst := \
+	--diagnostic-format=short \
+	--root=. \
+	--ignore-embedded-fonts \
+	--ignore-system-fonts \
+	--font-path=fontes \
+	--no-pdf-tags \
+	--input numero=$(numero) \
+	--input cor=$(cor) \
+	--input cortexto=$(cortexto) \
+
+# Agora xeramos ambas propagandas, a que ten moita cor e a branca. Dependen de
+# que teñamos as páxinas extraídas da revista
+
+# Xera a propaganda de COR
+.pdf/propaganda_$(numero)_cor.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+	typst compile \
+		$(opcions_typst) \
+		--input version=cor \
+		trebellos/propaganda.typ .pdf/propaganda_$(numero)_cor.pdf
+
+# Xera a propaganda BRANCA
+.pdf/propaganda_$(numero)_branca.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+	typst compile \
+		$(opcions_typst) \
+		--input version=branca \
+		trebellos/propaganda.typ .pdf/propaganda_$(numero)_branca.pdf
+
 # Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
 # Gardo os nomes aquí por comodidade
 # 1 (portada)
@@ -86,29 +119,3 @@ $(paxinas_propaganda): .pdf/revista_$(numero).pdf
 		-sOutputFile=.pdf/paxinas_propaganda_$(numero)_%d.pdf \
 		-sPageList=1,$(paxina_central_numero),$(paxina_dereita_numero) \
 		-f .pdf/revista_$(numero).pdf
-
-# Opcións para Typst https://typst.app/
-opcions_typst := \
-	--diagnostic-format=short \
-	--root=. \
-	--ignore-embedded-fonts \
-	--ignore-system-fonts \
-	--font-path=fontes \
-	--no-pdf-tags \
-	--input numero=$(numero) \
-	--input cor=$(cor) \
-	--input cortexto=$(cortexto) \
-
-# Xera a propaganda de COR
-.pdf/propaganda_$(numero)_cor.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
-	typst compile \
-		$(opcions_typst) \
-		--input version=cor \
-		trebellos/propaganda.typ .pdf/propaganda_$(numero)_cor.pdf
-
-# Xera a propaganda BRANCA
-.pdf/propaganda_$(numero)_branca.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
-	typst compile \
-		$(opcions_typst) \
-		--input version=branca \
-		trebellos/propaganda.typ .pdf/propaganda_$(numero)_branca.pdf
