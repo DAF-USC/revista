@@ -1,10 +1,13 @@
 #import "@preview/tiaoma:0.3.0"
 
-#let ruta_portada = "/.pdf/portada_" + sys.inputs.at("numero") + ".pdf"
-#let correo       = "revistafisicaUSC@gmail.com"
-#let edicions     = "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum"
-#let cor          = rgb(sys.inputs.at("cor"))
-#let cortexto     = rgb(sys.inputs.at("cortexto"))
+#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_1.pdf"
+#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_2.pdf"
+#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_3.pdf"
+#let correo        = "revistafisicaUSC@gmail.com"
+#let edicions      = "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum"
+#let cor           = rgb(sys.inputs.at("cor"))
+#let cortexto      = rgb(sys.inputs.at("cortexto"))
+#let version       = sys.inputs.at("version")
 
 #set text(
     font     : "Latin Modern Sans",
@@ -34,7 +37,7 @@
 #let propaganda(
     estilo : none,
 ) = {
-    if (estilo != "claro") and (estilo != "cor" ) { panic("As opcións para a propaganda son 'claro' ou 'cor'") }
+    if (estilo != "branca") and (estilo != "cor" ) { panic("As opcións para a propaganda son 'branca' ou 'cor'") }
     set align(center)
 
     // Cor do fondo da propaganda
@@ -80,16 +83,50 @@
     v(0.5em)
 
     // O tamaño da primeira páxina da revista
-    let alto  = 16cm
+    let alto  = 10cm
     let ancho = alto*(1/calc.sqrt(2)) // proporción A4
     block(
-        width  : ancho,
-        height : alto,
-        rect(
-            stroke : 3pt,
-            fill   : white,
-            image(width: ancho, ruta_portada),
-        ),
+        width  : 100%,
+        height : 16cm,
+        // stroke : 1pt,
+        {
+            // Imaxe na dereita
+            place(
+                center + horizon,
+                dx: 4cm,
+                rotate(
+                    20deg,
+                    rect(
+                        stroke : 3pt,
+                        fill   : white,
+                        image(width: ancho, ruta_paxina_3),
+                    )
+                )
+            )
+            // Imaxe no centro
+            place(
+                center + horizon,
+                dy: -0.5cm,
+                rect(
+                    stroke : 3pt,
+                    fill   : white,
+                    image(width: ancho, ruta_paxina_2),
+                )
+            )
+            // Imaxe na esquerda
+            place(
+                center + horizon,
+                dx: -4cm,
+                rotate(
+                    -20deg,
+                    rect(
+                        stroke : 3pt,
+                        fill   : white,
+                        image(width: ancho, ruta_paxina_1),
+                    )
+                )
+            )
+        }
     )
 
     v(0.5em)
@@ -135,5 +172,10 @@
 
 }
 
-#propaganda( estilo : "cor" )
-#propaganda( estilo : "claro" )
+#if version == "cor" {
+    propaganda( estilo : "cor" )
+} else if version == "branca" {
+    propaganda( estilo : "branca" )
+} else {
+    panic("A propaganda ou é 'cor' ou 'branca'")
+}
