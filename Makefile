@@ -44,44 +44,64 @@ ifeq ($(cortexto),)
 cortexto := FFFFFF
 endif
 
-# Extrae a portada da revista
-# https://www.ghostscript.com/documentation/index.html
-.pdf/portada_$(numero).pdf: .pdf/revista_$(numero).pdf
+# Número da páxina central, por defecto poñemos a segunda páxina
+ifeq ($(paxina_central_numero),)
+paxina_central_numero := 2
+endif
+
+# Número da páxina dereita, por defecto poñemos a terceira páxina
+ifeq ($(paxina_dereita_numero),)
+paxina_dereita_numero := 3
+endif
+# ollo, por defecto non poden ser todas 1 porque GS non deixaría facer -sPageList=1,1,1
+
+# Os PDFs cas páxinas que imos poñer na propaganda
+# 1 (portada)
+# 2 (central)
+# 3 (dereita)
+paxinas_propaganda := \
+	.pdf/paxinas_propaganda_$(numero)_1.pdf \
+	.pdf/paxinas_propaganda_$(numero)_2.pdf \
+	.pdf/paxinas_propaganda_$(numero)_3.pdf
+
+# Extrae a portada da revista e outras páxinas
+$(paxinas_propaganda): .pdf/revista_$(numero).pdf
+	@# https://www.ghostscript.com/documentation/index.html
 	gs \
-		-q \
-		-dBATCH \
-		-dNOPAUSE \
-		-dSAFER \
-		-sOutputFile=.pdf/portada_$(numero).pdf \
-		-sDEVICE=pdfwrite \
-		-dFirstPage=1 \
-		-dLastPage=1 \
+		-q -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite \
+		-sOutputFile=.pdf/paxinas_propaganda_$(numero)_%d.pdf \
+		-sPageList=1,$(paxina_central_numero),$(paxina_dereita_numero) \
 		-f .pdf/revista_$(numero).pdf
 
 # Xerar a propaganda. Esto usa Typst https://typst.app/ en lugar de LaTeX
 # Úsase como 'make propaganda numero=004 cor=89fa3c cortexto=ffffff'
-.pdf/propaganda_$(numero).pdf: .pdf/portada_$(numero).pdf
-	typst compile \
-		--diagnostic-format=short \
-		--root=. \
-		--ignore-embedded-fonts \
-		--ignore-system-fonts \
-		--font-path=fontes \
-		--input numero=$(numero) \
-		--input cor=$(cor) \
-		--input cortexto=$(cortexto) \
-		trebellos/propaganda.typ .pdf/propaganda_$(numero).pdf
+# Esto xera un PDF con dúas páxinas, cos dous estilos distintos
 
-propaganda: .pdf/propaganda_$(numero).pdf
-	gs \
-		-q \
-		-dBATCH \
-		-dNOPAUSE \
-		-dSAFER \
-		-sPageList=1,2 \
-		-sOutputFile=.pdf/propaganda_$(numero)_%d.pdf \
-		-sDEVICE=pdfwrite \
-		-f .pdf/propaganda_$(numero).pdf
-	rm .pdf/propaganda_$(numero).pdf
+opcions_typst := \
+	--diagnostic-format=short \
+	--root=. \
+	--ignore-embedded-fonts \
+	--ignore-system-fonts \
+	--font-path=fontes \
+	--no-pdf-tags \
+	--input numero=$(numero) \
+	--input cor=$(cor) \
+	--input cortexto=$(cortexto) \
+
+# Xera a propaganda de COR
+.pdf/propaganda_$(numero)_cor.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+	typst compile \
+		$(opcions_typst) \
+		--input version=cor \
+		trebellos/propaganda.typ .pdf/propaganda_$(numero)_cor.pdf
+
+# Xera a propaganda BRANCA
+.pdf/propaganda_$(numero)_branca.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+	typst compile \
+		$(opcions_typst) \
+		--input version=branca \
+		trebellos/propaganda.typ .pdf/propaganda_$(numero)_branca.pdf
+
+propaganda: .pdf/propaganda_$(numero)_cor.pdf .pdf/propaganda_$(numero)_branca.pdf
 
 .PHONY: limpa modelo propaganda impresa
