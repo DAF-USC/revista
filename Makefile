@@ -87,6 +87,16 @@ opcions_typst := \
 # Agora xeramos ambas propagandas, a que ten moita cor e a branca. Dependen de
 # que teñamos as páxinas extraídas da revista
 
+# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
+# Gardo os nomes aquí por comodidade
+# 1 (portada)
+# 2 (central)
+# 3 (dereita)
+paxinas_propaganda := \
+	.pdf/paxinas_propaganda_$(numero)_1.pdf \
+	.pdf/paxinas_propaganda_$(numero)_2.pdf \
+	.pdf/paxinas_propaganda_$(numero)_3.pdf
+
 # Xera a propaganda de COR
 .pdf/propaganda_$(numero)_cor.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
 	typst compile \
@@ -100,16 +110,6 @@ opcions_typst := \
 		$(opcions_typst) \
 		--input version=branca \
 		trebellos/propaganda.typ .pdf/propaganda_$(numero)_branca.pdf
-
-# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
-# Gardo os nomes aquí por comodidade
-# 1 (portada)
-# 2 (central)
-# 3 (dereita)
-paxinas_propaganda := \
-	.pdf/paxinas_propaganda_$(numero)_1.pdf \
-	.pdf/paxinas_propaganda_$(numero)_2.pdf \
-	.pdf/paxinas_propaganda_$(numero)_3.pdf
 
 # Extrae a portada da revista e outras páxinas
 $(paxinas_propaganda): .pdf/revista_$(numero).pdf
