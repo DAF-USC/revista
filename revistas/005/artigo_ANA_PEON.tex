@@ -22,7 +22,7 @@ coa motivación de unificar a gravidade e a mecánica cuántica; a lóxica
 matemática, e máis precisamente a subdisciplina chamada teoría de modelos,
 inquírese sobre a base das teorías: cal é a linguaxe adecuada? Cales son os
 axiomas (léase postulados) que garanten o sustento da teoría? A moitos soará o
-teorema de incompletitude de Gödel, segundo o cal, en ``matemáticas", entendida
+teorema de incompletitude de Gödel, segundo o cal, en «matemáticas», entendida
 coma a ciencia na que os números enteiros son base, sempre haberá enunciados
 indecidibles (é dicir, cuxa veracidade ou falsidade non se poida demostrar).
 
@@ -34,10 +34,10 @@ os cuantificadores $\forall,\, \exists$, e un signo especial para o cero. Con
 isto podemos establecer os axiomas ou normas básicas:
 %
 \begin{align*}
-    &\forall x,y\,\, x+y=y+x\\
-    &\forall y\ 0+y=y+0=y\\
-    &\forall x\exists y\,\, x+y=y+x=0\\
-    &\forall x,y,z\,\, (x+y)+z=x+(y+z).
+    &\forall x,y          & & x+y=y+x,\\
+    &\forall y            & & 0+y=y+0=y,\\
+    &\forall x\ \exists y & & x+y=y+x=0,\\
+    &\forall x,y,z        & & (x+y)+z=x+(y+z).
 \end{align*}
 %
 Dende o punto de vista da teoría de modelos, un grupo abeliano é calquera
@@ -49,7 +49,7 @@ mesmo tempo. E o mesmo aplica a calquera teoría das matemáticas: para o lóxic
 non é cuestión deste ou dese espazo, senón de todos á vez. Isto, que pode
 parecer pouco práctico, dá lugar a aplicacións impresionantes en análise, por
 exemplo, ou xeometría. E ademais poderedes contestar aos profesores de Métodos
-cando vos critiquen por riscardes o diferencial $dx$. En efecto, na teoría dos
+cando vos critiquen por riscardes o diferencial $\text{d}x$. En efecto, na teoría dos
 corpos ordenados, coma os números reais, existe un universo no que o
 diferencial é un número coma outro calquera, máis grande ca $0$, pero máis
 pequeno que tódolos reais positivos. Así que a riscar diferenciais sen
@@ -113,7 +113,7 @@ Hamilton (que son as mesmas que antes, pero son válidas nun contexto máis
 amplo, para tódolos sistemas hamiltonianos)
 %
 \begin{equation}
-    \dot{p}=\{H,p\}=-\frac{\partial H}{\partial q}
+    \dot{p}=\{H,p\}=-\frac{\partial H}{\partial q},
     \qquad
     \dot{q}=\{H,q\}=\frac{\partial H}{\partial p}
 \end{equation}
@@ -179,8 +179,8 @@ $e^{\frac{2k\pi i}{2}}$ para $k=0,1$. Para $N$ xeral, obteremos $e^{\frac{2k\pi
 i}{N}}$ para $k=0,\dots, N-1$. Este grupo $\mathbb{Z}_N$ (é un grupo
 esencialmente porque se poden multiplicar elementos e seguimos dentro, o $1$
 pertence a $\mathbb{Z}_N$, e ademais tódolos elementos teñen inverso)
-representa os posibles estadíos do sistema no punto $x$ sobre o que vive, ata
-enerxía $N$. Para conseguir tódolos estadíos enerexéticos haberá que
+representa os posibles estadios do sistema no punto $x$ sobre o que vive, ata
+enerxía $N$. Para conseguir tódolos estadios enerxéticos haberá que
 considerar tódolos $N$'s xuntos; isto non é problemático, pois as construcións
 son compatibles coa relación $N<N+1$, no sentido de que $L_N\subset L_{N+1}$, e
 as operacións de creación e aniquilación de $L_{N+1}$ inducen as de $L_N$.
@@ -220,7 +220,7 @@ reais da) a recta en cachiños $[x,x+1]$, seguimos tendo unha recta dentro. Por
 exemplo:
 %
 \begin{equation}
-    \mathbb{R}\longrightarrow [x,x+1] \qquad y\mapsto x+1-1/|y-x-1|.
+    \mathbb{R}\longrightarrow [x,x+1], \qquad y\mapsto x+1- \frac{1}{|y-x-1|}.
 \end{equation}
 %
 Certo, non está definida en $x+1$, por iso engadimos os infinitos en ámbolos
@@ -238,16 +238,17 @@ $[(\ell,y)]=\{(\ell\gamma,\gamma^{-1}y)\colon\gamma\in\mathbb{Z}\}$ como un
 un espazo vectorial para o produto por escalares $t\cdot [\ell,y]=[\ell,ty]$ e
 suma
 %
-\begin{equation}
-    [\ell_1,y_1]+[\ell_2,y_2]\stackrel{\tiny\exists
-    [\ell_1,y_2']=[\ell_2,y_2]}{=}[\ell_1,y_1]+[\ell_1,y_2']=[\ell_1,y_1+y_2]
+\begin{align}
+    [\ell_1,y_1]+[\ell_2,y_2]\stackrel{\tiny\exists[\ell_1,y_2']=[\ell_2,y_2]}{=}
+    &[\ell_1,y_1]+[\ell_1,y_2']\\
+    =&[\ell_1,y_1+y_2],
     \footnote{Exercicio: comproba que está ben definido!}
-\end{equation}
+\end{align}
 %
 sobre o que se poden definir os operadores
 %
 \begin{equation}
-0    a^\dagger[(e,y)]=[(e',yz)]\qquad a[(e',y)]=[(e,yz)]
+0    a^\dagger[(e,y)]=[(e',yz)],\qquad a[(e',y)]=[(e,yz)]
 \end{equation}
 %
 onde $(e,e',z)\in A^\dagger$, ou $(e',e,y)\in A$. Ben, a cuestión é que
