@@ -254,6 +254,8 @@
 \RequirePackage{float}
 \RequirePackage[small, unboxed]{cwpuzzle}
 \RequirePackage{soul}
+\RequirePackage{changepage} % para engadir o entorno adjustwidth
+
 
 % Encabezados e pé de páxina, para facilitar a creación cun par de comandos
 \RequirePackage{fancyhdr}
