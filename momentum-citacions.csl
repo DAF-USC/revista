@@ -9,18 +9,23 @@
       <name>David Cotelo Varela</name>
     </author>
     <summary>Estilo que fixen porque me gusta</summary>
-    <updated>2025-10-28T16:20:47+00:00</updated>
+    <updated>2026-02-05T16:47:17+00:00</updated>
   </info>
   <citation>
-    <layout font-variant="small-caps" font-weight="normal" delimiter=" ; " prefix="[" suffix="]">
-      <text variable="citation-number" strip-periods="false" quotes="false" font-style="normal" font-variant="small-caps" font-weight="normal" vertical-align="baseline"/>
+    <layout font-variant="normal" font-weight="normal" delimiter=" ; " prefix="[" suffix="]">
+      <text variable="citation-number" strip-periods="false" quotes="false" font-style="normal" font-variant="normal" font-weight="normal" vertical-align="baseline"/>
     </layout>
   </citation>
   <bibliography et-al-min="3" et-al-use-first="3" second-field-align="flush" entry-spacing="0">
     <layout>
-      <text variable="citation-number" font-variant="small-caps" prefix="[" suffix="]"/>
+      <text variable="citation-number" font-variant="normal" prefix="[" suffix="]"/>
       <group font-weight="normal" delimiter="; ">
         <group>
+          <choose>
+            <if type="webpage" match="all">
+              <text term="online" text-case="capitalize-first" font-weight="bold" prefix="(" suffix=") "/>
+            </if>
+          </choose>
           <text variable="title" strip-periods="false" quotes="false" font-style="italic" font-variant="normal" font-weight="normal"/>
           <choose>
             <if match="any" variable="edition">
@@ -54,6 +59,13 @@
                   <date date-parts="year-month" form="text" variable="issued" font-weight="normal" vertical-align="baseline"/>
                 </if>
               </choose>
+            </if>
+          </choose>
+        </group>
+        <group>
+          <choose>
+            <if type="webpage" match="any">
+              <text variable="URL" prefix="URL: "/>
             </if>
           </choose>
         </group>
