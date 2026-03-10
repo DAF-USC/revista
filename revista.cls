@@ -340,15 +340,15 @@
         \edef\distanciaMultiplo{\numexpr\totalPaxinasReal - (\totalPaxinasReal / 4 * 4)\relax}
 
         \ifnum\distanciaMultiplo=0 % Faltan 0 páxinas para o múltiplo de 4
-            \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LO,RE]{\thepage}
             \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
         \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
-            \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LO,RE]{\thepage}
             \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
         \else % distanciaMultiplo pode ser 1 (falta +3 páxinas ou -1 páxina), -2 (faltan +2 páxinas)
-            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LE,RO]{\thepage}
             \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
         \fi\fi
