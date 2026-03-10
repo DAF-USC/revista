@@ -301,7 +301,7 @@
         % Síntoo por quen teña que manter isto...
 
         % O número da páxina número 1 vai á esquerda se faltan 0 ou 1 páxina
-        % para que o número de páxinas totais sexa múltiplo de 4, e á esquerda
+        % para que o número de páxinas totais sexa múltiplo de 4, e á dereita
         % se faltan 2 ou 3 páxinas (marxes externas maiores que as internas).
         % Isto faise así considerando unha orde de inserción de páxinas en
         % branco de (1) antes do índice, (2) antes da contraportada e (3)
