@@ -22,7 +22,7 @@ coa motivación de unificar a gravidade e a mecánica cuántica; a lóxica
 matemática, e máis precisamente a subdisciplina chamada teoría de modelos,
 inquírese sobre a base das teorías: cal é a linguaxe adecuada? Cales son os
 axiomas (léase postulados) que garanten o sustento da teoría? A moitos soará o
-teorema de incompletitude de Gödel, segundo o cal, en ``matemáticas", entendida
+teorema de incompletitude de Gödel, segundo o cal, en «matemáticas», entendida
 coma a ciencia na que os números enteiros son base, sempre haberá enunciados
 indecidibles (é dicir, cuxa veracidade ou falsidade non se poida demostrar).
 
@@ -34,10 +34,10 @@ os cuantificadores $\forall,\, \exists$, e un signo especial para o cero. Con
 isto podemos establecer os axiomas ou normas básicas:
 %
 \begin{align*}
-    &\forall x,y\,\, x+y=y+x\\
-    &\forall y\ 0+y=y+0=y\\
-    &\forall x\exists y\,\, x+y=y+x=0\\
-    &\forall x,y,z\,\, (x+y)+z=x+(y+z).
+    &\forall x,y          & & x+y=y+x,\\
+    &\forall y            & & 0+y=y+0=y,\\
+    &\forall x\ \exists y & & x+y=y+x=0,\\
+    &\forall x,y,z        & & (x+y)+z=x+(y+z).
 \end{align*}
 %
 Dende o punto de vista da teoría de modelos, un grupo abeliano é calquera
@@ -49,7 +49,7 @@ mesmo tempo. E o mesmo aplica a calquera teoría das matemáticas: para o lóxic
 non é cuestión deste ou dese espazo, senón de todos á vez. Isto, que pode
 parecer pouco práctico, dá lugar a aplicacións impresionantes en análise, por
 exemplo, ou xeometría. E ademais poderedes contestar aos profesores de Métodos
-cando vos critiquen por riscardes o diferencial $dx$. En efecto, na teoría dos
+cando vos critiquen por riscardes o diferencial $\text{d}x$. En efecto, na teoría dos
 corpos ordenados, coma os números reais, existe un universo no que o
 diferencial é un número coma outro calquera, máis grande ca $0$, pero máis
 pequeno que tódolos reais positivos. Así que a riscar diferenciais sen
@@ -86,15 +86,14 @@ resorte cun extremo ligado a un punto, o marco, e outro que se move libremente).
 A enerxía total do sistema é
 %
 \begin{equation}
-    E=\frac{m}{2}\dot{x}^2+\frac{k}{2}x^2,
+    E=\frac{m}{2}\dot{x}^2+\frac{k}{2}x^2,
 \end{equation}
 %
-onde $V(x)=\frac{k}{2}x^2$ é a enerxía potencial, con $k$ a constante de
-resistencia. Polo principio de conservación da enerxía, empregando algún
+onde $V(x)=\frac{k}{2}x^2$ é a enerxía potencial, con $k$ a constante elástica. Polo principio de conservación da enerxía, empregando algún
 truquiño de integración, obtense a ecuación
 %
 \begin{equation}
-    m\ddot{x}-kx=0,
+    m\ddot{x}+kx=0,
 \end{equation}
 %
 cuxa solución xeral é $x(t)=\cos(\omega t+\alpha)$, con
@@ -103,7 +102,7 @@ $(x(t),\dot{x}(t))$. Se chamamos $p(t)=m\dot{x}(t)$ (é dicir, o momento
 lineal), entón temos
 %
 \begin{equation}
-    \dot{x}(t)=\frac{p(t)}{m},\qquad\dot{p}(t)=\frac{k}{m}.
+    \dot{x}(t)=\frac{p(t)}{m},\qquad\dot{p}(t)=\frac{k}{m}.
 \end{equation}
 %
 Para cuantizar, imos poñer todo en notación hamiltoniana. Temos as coordenadas
@@ -113,28 +112,17 @@ Hamilton (que son as mesmas que antes, pero son válidas nun contexto máis
 amplo, para tódolos sistemas hamiltonianos)
 %
 \begin{equation}
-    \dot{p}=\{H,p\}=-\frac{\partial H}{\partial q}
-    \qquad
-    \dot{q}=\{H,q\}=\frac{\partial H}{\partial p}
+    \dot{p}=\{H,p\}=-\frac{\partial H}{\partial q},
+    \qquad
+    \dot{q}=\{H,q\}=\frac{\partial H}{\partial p}
 \end{equation}
 %
 onde $H(p,q)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2}$ é o Hamiltoniano, neste
 caso, a enerxía total do sistema, e a diferenza de signos nas ecuacións
 débese a xeometría simpléctica subxacente. Os corchetes $\{\cdot \}$ chámanse
 corchetes de Poisson, e teñen sentido para tódalas funcións
-$\{f(p,q),g(p,q)\}$. Por exemplo, se $f=p$ e $g=q$, temos
-%
-\begin{equation}\label{eq_corchetes}
-    \{p,q\}=\frac{\partial p}{\partial q}-\frac{\partial q}{\partial p}.
-\end{equation}
-%
-Isto é cero, sen dúbida, pero parémonos a mirar un pouco a expresión de
-\eqref{eq_corchetes}: primeiro medimos a variación de $p$ na dirección da
-posición $q$, e restámoslle a variación de $q$ na dirección do momento lineal
-$p$, e isto dá cero; é dicir, medir $q$ e inmediatamente despois $p$, ou medir
-$p$ e inmediatamente despois $q$ é o mesmo. Así, no mundo hamiltoniano clásico,
-medir a posición primeiro e o momento despois é indiferente, son operacións que
-conmutan.
+$\{f(p,q),g(p,q)\}$; o que mide é a diferenza das variacións de $f$ e $g$ en 
+certas direccións relacionadas co momento e posición.
 
 Á hora de cuantizar, os observables, neste caso $p$ e $q$, pasan a
 interpretarse como operadores actuando no espazo de Hilbert dos estados do
@@ -148,7 +136,7 @@ sistema, máis explicitamente, $[P,Q]=-i\hbar$ onde $\hbar$ é a constante de
 Planck. Temos o Hamiltoniano cuántico
 %
 \begin{equation}
-    H=-\frac{\hbar P^2}{2m}+\frac{m\omega^2Q^2}{2}
+    H=\frac{P^2}{2m}+\frac{m\omega^2Q^2}{2}
 \end{equation}
 %
 que pertence á «álxebra» de observables (unha forma curta de dicir que
@@ -156,7 +144,7 @@ combinamos observacións mediante consecución e suma). Entón, as solucións
 $\psi(x)$ da ecuación diferencial
 %
 \begin{equation}
-    H\psi(x)=\hbar \omega\left(n+\frac{1}{2}\right) \psi(x)
+    H\psi(x)=\hbar \omega\left(n+\frac{1}{2}\right) \psi(x)
 \end{equation}
 %
 para $n\in\mathbb{N}$ comprenden tódolos posibles estados enerxéticos do
@@ -166,28 +154,29 @@ $a^\dagger=\sqrt{\frac{m\omega}{2k}}Q-\frac{i}{\sqrt{2\hbar\omega}}P$ e
 aniquiliación $a=\sqrt{\frac{m\omega}{2k}}Q+\frac{i}{\sqrt{2\hbar\omega}}P$,
 respectivamente.
 
-Tras este recordatorio, volvemos á lóxica, aínda que de maneira un tanto
+Tras este recordatorio, volvamos ao noso, aínda que de maneira un tanto
 camuflada. A idea dos tres lóxicos é lóxica: para cada $N\in\mathbb{N}$,
 consideran un espazo $L_N$ consistente nunha recta $\mathbb{A}$ (quizais co
 infinito $\mathbb{P}^1=\mathbb{A}\cup\{\infty\}$, pensade nos reais co
 infinito, ou os complexos co infinito; en realidade, pensade en todos á vez,
-porque uns son os puntos reais da recta, e outros os complexos) e, sobre cada
+porque uns son os puntos reais da recta, e os outros, os puntos complexos) e, sobre cada
 punto $x\in\mathbb{A}$, o grupo de raíces $N$-ésimas da unidade (ou
-$\mathbb{Z}_N$ se o preferides). Estes son os puntos $z$ tal que $z^N=1$. Por
+$\mathbb{Z}_N$ se o preferides). Estes son os números $z$ tal que $z^N=1$. Por
 exemplo, se $N=2$, $z=\pm1$, que observamos que corresponden aos valores
 $e^{\frac{2k\pi i}{2}}$ para $k=0,1$. Para $N$ xeral, obteremos $e^{\frac{2k\pi
 i}{N}}$ para $k=0,\dots, N-1$. Este grupo $\mathbb{Z}_N$ (é un grupo
 esencialmente porque se poden multiplicar elementos e seguimos dentro, o $1$
 pertence a $\mathbb{Z}_N$, e ademais tódolos elementos teñen inverso)
 representa os posibles estadíos do sistema no punto $x$ sobre o que vive, ata
-enerxía $N$. Para conseguir tódolos estadíos enerexéticos haberá que
-considerar tódolos $N$'s xuntos; isto non é problemático, pois as construcións
-son compatibles coa relación $N<N+1$, no sentido de que $L_N\subset L_{N+1}$, e
-as operacións de creación e aniquilación de $L_{N+1}$ inducen as de $L_N$.
+enerxía $N$. Para conseguir tódolos estadíos enerxéticos haberá que
+considerar tódolos $N$'s xuntos\footnote{
+Isto non é problemático, pois coma veredes unha vez acabemos, as construcións
+son compatibles coa relación $N<N+1$, no sentido de que $L_N \subset L_{N+1}$,
+e as operacións de creación e aniquilación de $L_{N+1}$ inducen as de $L_N$.}.
 Obsérvese que temos
 %
 \begin{equation}
-    \pi:L_N=\mathbb{P}^1\times\mathbb{Z}_N\longrightarrow \mathbb{P}^1
+    \pi:L_N=\mathbb{P}^1\times\mathbb{Z}_N\longrightarrow \mathbb{P}^1
 \end{equation}
 %
 que a cada punto $\ell=(x,\gamma)\in L_N$ asígnalle o $x\in \mathbb{P}^1$ sobre
@@ -201,36 +190,28 @@ $(\gamma\ell',\gamma\ell,b_\gamma)\in A^\dagger$ para todo
 $\gamma\in\mathbb{Z}_N$ e algún $b_\gamma\in\mathbb{A}$)  (resp.
 $(\gamma\ell',\gamma\ell,b_\gamma)\in A\subset L_N\times L_N\times \mathbb{A}$
 con $\ell'\in\pi^{-1}(x+1)$, $\ell\in\pi^{-1}(x)$, $b_\gamma^2=x$). Se o
-triplete $(\gamma\ell,\gamma\ell',b_\gamma)\in A^\dagger$, interpretamos que
+triplete $(\ell,\ell',b)\in A^\dagger$, interpretamos que
 pasamos do estado $\ell$ (que identificamos con algún $|M\rangle$) no punto $x$
-ao estado $\ell'\sim|M+1\rangle$ (Olliño! Tamén no punto $x$). O grupo vén a
-conto como segue: en $\log(\gamma)$ pasos, pasaremos do estado $|M\rangle$ ao
-estado $\left|\frac{N}{2\pi i}\log \exp\left(\frac{2\pi
-iM}{N}+{\log(\gamma)}\right)\right\rangle$. A vantaxe desta linguaxe é que non
-necesitamos identificar $M$, bástanos con saber que subimos de estado
-enerxético en certo número de pasos.
+ao estado $\ell'\sim|M+1\rangle$.
+Coma en principio os estados represéntanse mediante puntos da recta, podemos
+identificar o estado $x$ con $|M\rangle$, e $x+1$ con $|M+1\rangle$. O grupo vén
+a conto porque en principio, o oscilador podería encontrarse noutro estado
+enerxético no punto $x$, polo que $\gamma\ell$ representaría un sistema no
+que $x$ é $|M+\frac{2\pi i}{N}\log\gamma\rangle$. A vantaxe desta linguaxe é
+que non necesitamos identificar $M$ exactamente, só saber que o sistema está
+nalgún estado, en consonancia coa cuántica\footnote{
+A raíz $b^2=x$ ten que ver con como actúan os operadores cuánticos, é 
+importante, e de feito é o \textit{quid} desta construción tamén.}.
 
 Hai unha certa duplicidade na definición, xa que o feito de crear está na
 aparición de $\ell$ e $\ell'$ no mesmo triplete (sobre puntos diferentes), pero
 usamos o punto da base para levar a conta de cantos estados enerxéticos
 modificamos. Como basta saber que estados se modifican nun paso, e despois
-noutro, etc, basta considerar os triplos nas fibras $\pi^{-1}(x)\subset L_N$ e
-$\pi^{-1}(x+1)\subset L_N$. Outra forma de velo é que se cortamos (os puntos
-reais da) a recta en cachiños $[x,x+1]$, seguimos tendo unha recta dentro. Por
-exemplo:
-%
-\begin{equation}
-    \mathbb{R}\longrightarrow [x,x+1] \qquad y\mapsto x+1-1/|y-x-1|.
-\end{equation}
-%
-Certo, non está definida en $x+1$, por iso engadimos os infinitos en ámbolos
-lados: $x$ identifícase co $0$; e $x+1$, co infinito. Obsérvese que isto fai
-perder a referencia de se subimos ou baixamos enerxía, pois $[x,x+1]$ e
-$[x-1,x]$ pasan a ser o mesmo. Para iso está o uso de $b=\sqrt{x}$. Se collemos
-a raíz positiva, subimos, se collemos a negativa, baixamos.
+noutro, etc, basta considerar o estado inicial e o punto final. De feito, os 
+autores dan outra construción posible (e equivalente nun sentido adecuado
+\cite{Solanki_2013}).
 
-Hai outra construción posible (e equivalente nun sentido adecuado
-\cite{Solanki_2013}).  Identificamos, dentro de  $L_N\times\mathbb{A}$, os
+Identificamos, dentro de $L_N\times\mathbb{A}$, os
 puntos $(\ell\gamma,\gamma^{-1}y)$ para todo $\gamma\in\mathbb{Z}$; é dicir,
 consideramos o conxunto
 $[(\ell,y)]=\{(\ell\gamma,\gamma^{-1}y)\colon\gamma\in\mathbb{Z}\}$ como un
@@ -238,16 +219,17 @@ $[(\ell,y)]=\{(\ell\gamma,\gamma^{-1}y)\colon\gamma\in\mathbb{Z}\}$ como un
 un espazo vectorial para o produto por escalares $t\cdot [\ell,y]=[\ell,ty]$ e
 suma
 %
-\begin{equation}
-    [\ell_1,y_1]+[\ell_2,y_2]\stackrel{\tiny\exists
-    [\ell_1,y_2']=[\ell_2,y_2]}{=}[\ell_1,y_1]+[\ell_1,y_2']=[\ell_1,y_1+y_2]
-    \footnote{Exercicio: comproba que está ben definido!}
-\end{equation}
+\begin{align}
+    [\ell_1,y_1]+[\ell_2,y_2]\stackrel{\tiny\exists[\ell_1,y_2']=[\ell_2,y_2]}{=}
+    &[\ell_1,y_1]+[\ell_1,y_2']\\
+    =&[\ell_1,y_1+y_2],
+    \footnote{Exercicio: comproba que está ben definido!}
+\end{align}
 %
 sobre o que se poden definir os operadores
 %
 \begin{equation}
-0    a^\dagger[(e,y)]=[(e',yz)]\qquad a[(e',y)]=[(e,yz)]
+0    a^\dagger[(e,y)]=[(e',yz)],\qquad a[(e',y)]=[(e,yz)]
 \end{equation}
 %
 onde $(e,e',z)\in A^\dagger$, ou $(e',e,y)\in A$. Ben, a cuestión é que
@@ -267,9 +249,9 @@ que é máis interesante é que $L_N$ vive sobre a recta, que \textbf{SI} que é
 complexa, no sentido de que podemos coller puntos reais ou complexos sen
 cambiarmos nada. Un recubrimento finito dunha recta que non é complexo (coma o
 $L_N$ aquí presente) é \textbf{MOI} insólito. A súa existencia débese á
-subxacencia de xeometría non conmutativa. O oscilador harmónico é un tanto
-tramposo, porque cos operadores de creación e aniquilación (que conmutan)
-podemos esconder a non conmutatividade da posición e momento cuánticos. Pero se
+subxacencia de xeometría non conmutativa, que se percibe no feito de que os 
+operadores de creación e aniquilación non conmutan, do mesmo modo que a posición 
+e o momento cuánticos non conmutan. De feito, se
 miramos a obxectos máis refinados, coma os automorfismos do recubrimento
 $L_N\longrightarrow \mathbb{A}$, veremos que o comportamento é estraño, e
 codifica a relación $[P,Q]=-i\hbar$. Para construírmos espazos desta índole,
