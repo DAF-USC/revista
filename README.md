@@ -78,16 +78,20 @@ Cartafoles principais:
 - `revistas/` - Contén as edicións da revista, cada unha nun subcartafol numerado
 (`001`, `002`, ...). Cada edición inclúe o ficheiro principal `.tex`, os artigos
 correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
+  - A convención para nomear ficheiros é a seguinte: se o noso produtor de
+    contido chámase _Velni Diz Diz_, o artigo será `artigo_VELNI_DD.tex`, as
+    imaxes asociadas ao artigo comezaran por `VDD_*` e a bibliografía propia,
+    no caso de tela, será `VDD_bibliografia.bib`.
 ```
 .
 └── revistas/
    ├── 001/
    │  ├── revista_001.tex
-   │  ├── bibliografia_001.bib
-   │  ├── artigo_TITULO.tex
+   │  ├── VDD_bibliografia.bib
+   │  ├── artigo_VELNI_DD.tex
    │  └── imaxes/
    │     ├── portada_001.png
-   │     └── unha_imaxe.jpg
+   │     └── VDD_tipos_nos.jpg
    ├── 002
    │  └── ...
    └── ...
@@ -103,17 +107,17 @@ correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `ima
 ## :newspaper: Estrutura das revistas
 ### Revistas
 
-Os **arquivos comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
+Os **ficheiros comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
 e o estilo bibliográfico, `momentum-citacions.csl`,
 deben estar na raíz do proxecto.
 
 Cada **número da revista** ten o seu propio cartafol en [`revistas/`](./revistas),
-e dentro destes é onde se gardan os arquivos específicos de cada revista, como
+e dentro destes é onde se gardan os ficheiros específicos de cada revista, como
 os artigos e as imaxes.
 
-O **arquivo principal** de cada revista noméase como, se é a revista número 001,
-`revistas/001/revista_001.tex`. Este é o arquivo principal a compilar, e ten a
-forma seguinte (aproximada):
+O **ficheiro principal** de cada revista noméase como, se é a revista número 001,
+`revistas/001/revista_001.tex`. Este é o ficheiro principal a compilar, e ten a
+forma seguinte (aproximadamente):
 
 ```latex
 % Opcións: simple (só artigos) ou completa (portada, índice e contraportada)
@@ -129,11 +133,11 @@ forma seguinte (aproximada):
 \CorTextoEnResalte{000000} % Cor do texto na portada e índice
 \Participantes{
     {\Large \textbf{Dirección:}}     \\[0.5cm]
-        Carl Sagan                   \\[0.2cm]
+        Lise Meitner                 \\[0.2cm]
     {\Large \textbf{Edición}}        \\[0.5cm]
-        Albert Einstein              \\[0.2cm]
+        Emmy Noether                 \\[0.2cm]
     {\Large \textbf{Deseño de Logo}} \\[0.5cm]
-        Dirac                        \\[0.2cm]
+        Carl Sagan                   \\[0.2cm]
 }
 \Despedida{Adeus!}
 \Agradecementos{Grazas a Todos!}
@@ -166,7 +170,7 @@ Máis información sobre a implementación e particularidades na [clase da revis
 ### Artigos
 
 Os artigos gárdanse no mesmo directorio que o `revista_001.tex` correspondente
-e inclúense no arquivo principal usando `\input{artigo.tex}`. Teñen a seguinte
+e inclúense no ficheiro principal usando `\input{artigo.tex}`. Teñen a seguinte
 forma:
 
 ```LaTeX
@@ -176,7 +180,7 @@ forma:
 {divulgacion}      % (Obrigatorio) Estilo  Máis abaixo pódense atopar os estilos
                    %                       dispoñíbeis.
 {Título do artigo} % (Obrigatorio) Título
-{Axl Rose}         % (Opcional)    Autoría
+{Axl Gato}         % (Opcional)    Autoría
 {Subtítulo}        % (opcional)    Preferíbelmente non moi longo para que colla ben ^_^
 
 \begin{multicols}{2} % Para ter varias columnas
@@ -189,7 +193,7 @@ cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
 ...
 
 \subsection*{Agradecementos}
-No primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
+En primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
 tódolos marabillosos profesores que tiven ata o momento. Por suposto, agradecer
 tamén a [REDACTADO] por axudarme a sacar a fonte do laboratorio de nuclear.
 Vémonos na próxima!!
@@ -298,9 +302,11 @@ Tamén deixamos un `Makefile` moi conveniente para os que usen sistemas baseados
 en Linux, co que é posíbel facer:
 
 ```bash
-make numero=001 # Compilar a revista número 001
-make limpa      # Limpar os arquivos auxiliares
-make modelo     # Obter un ZIP cos arquivos para o artigo simplificado
+make numero=001         # Compilar a revista número 001
+make numero=001 impresa # Xerar a versión impresa da revista
+make numero=001 propaganda cor=E66F00 # Xerar a propaganda dunha cor en HEX
+make limpa              # Limpar os ficheiros auxiliares
+make modelo             # Obter un ZIP cos ficheiros para o artigo simplificado
 ```
 
 Por defecto, coa configuración de `latexmk` adxunta, ao compilar unha revista
@@ -318,6 +324,10 @@ relevante da revista e sobre o proceso de edición.
 
 ## :scroll: Licenzas
 
-Tipos de letra:
-- [Latin Modern](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) Licenza GUST (baseada en LPPL)
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) Licenza MIT
+Este proxecto utiliza recursos de terceiros suxeitos ás seguintes condicións de
+licenza:
+
+| Recurso | Función | Licenza |
+| :--- | :--- | :--- |
+| [**Latin Modern**](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) | Tipografía de texto | GUST Font License (baseada en LPPL) |
+| [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) | Iconografía | MIT License |
