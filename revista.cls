@@ -296,16 +296,16 @@
     \fancypagestyle{#1}{%
         \fancyhf{} % Limpa as cabeceiras e pés de páxina
         \renewcommand{\headrulewidth}{0.4pt} % Engade liña no cabeceiro
-        \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
 
         % Calculamos a posición do número da páxina dinamicamente
         % Síntoo por quen teña que manter isto...
 
-        % O número da páxina número 1 vai á dereita se faltan 0 ou 1 páxina
-        % para que o número de páxinas totais sexa múltiplo de 4, e á esquerda
-        % se faltan 2 ou 3 páxinas. Isto faise así considerando unha orde de
-        % inserción de páxinas en branco de (1) antes do índice, (2) antes da
-        % contraportada e (3) despois do índice.
+        % O número da páxina número 1 vai á esquerda se faltan 0 ou 1 páxina
+        % para que o número de páxinas totais sexa múltiplo de 4, e á dereita
+        % se faltan 2 ou 3 páxinas (marxes externas maiores que as internas).
+        % Isto faise así considerando unha orde de inserción de páxinas en
+        % branco de (1) antes do índice, (2) antes da contraportada e (3)
+        % despois do índice.
 
         % Número total de páxinas (antes de engadir portada + contraportada):
         % Algunhas observacións que poder axudar a manter o código:
@@ -340,14 +340,17 @@
         \edef\distanciaMultiplo{\numexpr\totalPaxinasReal - (\totalPaxinasReal / 4 * 4)\relax}
 
         \ifnum\distanciaMultiplo=0 % Faltan 0 páxinas para o múltiplo de 4
-            \fancyfoot[LE,RO]{\thepage}
-            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
-        \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
-            \fancyfoot[LE,RO]{\thepage}
-            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
-        \else % distanciaMultiplo pode ser 1 (falta +3 páxinas ou -1 páxina), -2 (faltan +2 páxinas)
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LO,RE]{\thepage}
             \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyfoot[LO,RE]{\thepage}
+            \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+        \else % distanciaMultiplo pode ser 1 (falta +3 páxinas ou -1 páxina), -2 (faltan +2 páxinas)
+            \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyfoot[LE,RO]{\thepage}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
         \fi\fi
 
         \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
@@ -435,11 +438,11 @@
             \protect\vfill%
             % Ajuste fino para espaçamento entre figura e resumo e próximo
             % artigo do sumário
-            \protect\vspace{1cm}%
+            \protect\vspace{1.5em}%
             \protect%
         \end{minipage}
         \vfill}
-        \addtocontents{toc}{\vspace{2em}}
+        \addtocontents{toc}{\vspace{1.5em}}
     }%
 
 }
