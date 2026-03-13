@@ -79,7 +79,7 @@ Cartafoles principais:
 (`001`, `002`, ...). Cada edición inclúe o ficheiro principal `.tex`, os artigos
 correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
   - A convención para nomear ficheiros é a seguinte: se o noso produtor de
-    contido chámase _Velni Diz Diz_, o artigo será `artigo_VELNI_DD.tex`, as
+    contido se chama _Velni Diz Diz_, o artigo será `artigo_VELNI_DD.tex`, as
     imaxes asociadas ao artigo comezaran por `VDD_*` e a bibliografía propia,
     no caso de tela, será `VDD_bibliografia.bib`.
 ```
