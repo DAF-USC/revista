@@ -302,11 +302,11 @@ Tamén deixamos un `Makefile` moi conveniente para os que usen sistemas baseados
 en Linux, co que é posíbel facer:
 
 ```bash
-make numero=001         # Compilar a revista número 001
-make numero=001 impresa # Xerar a versión impresa da revista
+make numero=001                       # Compilar a revista número 001
+make numero=001 impresa               # Xerar a versión impresa da revista (require o paquete pymupdf==1.26.7)
 make numero=001 propaganda cor=E66F00 # Xerar a propaganda dunha cor en HEX
-make limpa              # Limpar os ficheiros auxiliares
-make modelo             # Obter un ZIP cos ficheiros para o artigo simplificado
+make limpa                            # Limpar os ficheiros auxiliares
+make modelo                           # Obter un ZIP cos ficheiros para o artigo simplificado
 ```
 
 Por defecto, coa configuración de `latexmk` adxunta, ao compilar unha revista
