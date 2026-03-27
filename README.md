@@ -70,7 +70,7 @@ O repositorio contén:
 
 - `revista.cls` - Clase de LaTeX para a revista.
 - `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language.
-- `funcions.lua` - Códigos feitos en lua relacionados coa compilación e o control de versións.
+- `funcions.lua` - Códigos feitos en Lua relacionados coa compilación e o control de versións.
 - `latexmkrc` e `Makefile` - Axudas para compilar a revista.
 
 Cartafoles principais:
@@ -80,18 +80,18 @@ Cartafoles principais:
 correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
   - A convención para nomear ficheiros é a seguinte: se o noso produtor de
     contido se chama _Velni Diz Diz_, o artigo será `artigo_VELNI_DD.tex`, as
-    imaxes asociadas ao artigo comezaran por `VDD_*` e a bibliografía propia,
-    no caso de tela, será `VDD_bibliografia.bib`.
+    imaxes asociadas ao artigo comezaran por `VELNI_DD_*` e a bibliografía propia,
+    no caso de tela, será `bibliografia_VELNI_DD.bib`.
 ```
 .
 └── revistas/
    ├── 001/
    │  ├── revista_001.tex
-   │  ├── VDD_bibliografia.bib
+   │  ├── bibliografia_VELNI_DD.bib
    │  ├── artigo_VELNI_DD.tex
    │  └── imaxes/
    │     ├── portada_001.png
-   │     └── VDD_tipos_nos.jpg
+   │     └── VELNI_DD_tipos_nos.jpg
    ├── 002
    │  └── ...
    └── ...
@@ -303,10 +303,10 @@ en Linux, co que é posíbel facer:
 
 ```bash
 make numero=001                       # Compilar a revista número 001
-make numero=001 impresa               # Xerar a versión impresa da revista (require o paquete pymupdf==1.26.7)
-make numero=001 propaganda cor=E66F00 # Xerar a propaganda dunha cor en HEX
+make numero=001 impresa               # Xerar a versión impresa (require pymupdf>=1.26.7)
+make numero=001 propaganda cor=E66F00 # Xerar a propaganda dunha cor determinada (en HEX)
 make limpa                            # Limpar os ficheiros auxiliares
-make modelo                           # Obter un ZIP cos ficheiros para o artigo simplificado
+make modelo                           # Obter un ZIP cos ficheiros do artigo simplificado
 ```
 
 Por defecto, coa configuración de `latexmk` adxunta, ao compilar unha revista
