@@ -132,12 +132,12 @@ forma seguinte (aproximadamente):
 \CorResalte{ff0000} % Cor específico da revista, en HTML HEX
 \CorTextoEnResalte{000000} % Cor do texto na portada e índice
 \Participantes{
-    {\Large \textbf{Dirección}}     \\[0.5cm]
-        Lise Meitner                 \\[0.2cm]
-    {\Large \textbf{Edición}}        \\[0.5cm]
-        Emmy Noether                 \\[0.2cm]
-    {\Large \textbf{Corrección}} \\[0.5cm]
-        Carl Sagan                   \\[0.2cm]
+    {\Large \textbf{Dirección}}   \\[0.5cm]
+        Lise Meitner              \\[0.2cm]
+    {\Large \textbf{Edición}}     \\[0.5cm]
+        Emmy Noether              \\[0.2cm]
+    {\Large \textbf{Corrección}}  \\[0.5cm]
+        Carl Sagan                \\[0.2cm]
 }
 \Despedida{Adeus!}
 \Agradecementos{Grazas a todos!}
