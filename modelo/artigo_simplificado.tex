@@ -69,7 +69,7 @@
 \begin{document}
 %%%:
 %%%: Este macro hai que usalo sempre. Fai bastantes cousas, como engadir o título
-%%%: e autor ao índice, reiniciar os conteos de figuras, e evidentemente imprimir
+%%%: e autor ao índice, reiniciar as contaxes de figuras, e evidentemente imprimir
 %%%: no PDF a propia información de cada artigo.
 %%%:
 %%%: \Titular   -> sen asterisco, non engade a sección ao índice
@@ -78,20 +78,22 @@
 %%%: Ao ser unha versión simplificada da revista, da igual cal usedes. Eso xa se
 %%%: cambiará logo na propia edición
 %%%:
-%%%: {TEMA}      A escoller entre:
-%%%:                divulgacion,historia,actualidadeFacultade,
-%%%:                actualidadeCientifica,filosofia,entrevistas,
-%%%:                programacion,pasatempos,anuncios,profesorado,
-%%%:                opinion,miscelanea,reportaxes.
-%%%: {TITULO}    Evidente, o titulo do artigo. Non debería ser moi longo.
-%%%: {AUTORÍA}   Autoría do artigo
-%%%: {SUBTITULO} Un pequeno texto algo máis explicativo (e posiblemente longo) co
-%%%:             titulo. E o único argumento do titular que pode quedar en branco
+%%%: {TEMA}       A escoller entre:
+%%%:                 divulgacion,historia,actualidadeFacultade,
+%%%:                 actualidadeCientifica,filosofia,entrevistas,
+%%%:                 programacion,pasatempos,anuncios,profesorado,
+%%%:                 opinion,miscelanea,reportaxes.
+%%%: {TÍTULO}     Evidente, o titulo do artigo. Non debería ser moi longo.
+%%%: {AUTORÍA}    Autoría do artigo
+%%%: {SUBTÍTULO}  un pequeno texto algo máis explicativo (e posiblemente longo) co
+%%%:              titulo. e o único argumento do titular que pode quedar en branco
+%%%: {AFILIACIÓN} A afiliación da autoría (se aplica)
 \Titular%
 {divulgacion}%
-{TITULO}%
-{AUTORÍA}%
-{SUBTITULO}%
+{Título}%
+{Autoría}%
+{Subtítulo}%
+{Departamento de Edición, \\ Universidade de Santiago de Compostela}%
 
 
 %%%: O CORPO DO ARTIGO COMEZA DE AQUÍ EN DIANTE
@@ -115,7 +117,7 @@ Texto texto texto texto texto texto texto texto texto texto texto texto texto
 texto texto texto texto texto texto texto texto
 
 Isto é unha referencia \cite{clave_1919}.
-\subsection*{Introdución}
+\subsection*{Segunda sección}
 
 Texto texto texto texto texto texto texto texto texto texto texto texto texto
 texto texto texto texto texto texto texto texto
@@ -127,7 +129,7 @@ texto texto texto texto texto texto texto texto
     \centering
 %%%: Metese a figura como sempre. Pódese xogar co ancho pa axustala.
     \includegraphics[width=0.65\linewidth]{exemplo_imaxe.jpeg}
-    \caption{Texto a pe de paxina, interesante...}
+    \caption{Texto a pé de páxina, interesante...}
     \label{im:exemplo}
 \end{figure}
 
@@ -136,7 +138,7 @@ texto texto texto texto texto texto texto texto
 %%%: itálica, cun nome ao final. Creamos un macro porque todo o mundo as facía
 %%%: diferentes, e ás veces funcionaban e ás veces non. Poden usarse como:
 \Cita[D'Alembert]{
-A álxebra é xenerosa, frecuentemente da máis do que se lle pide
+A álxebra é xenerosa, frecuentemente da máis do que se lle pide.
 }
 
 

@@ -467,45 +467,48 @@
 % #2: ESTILO DA PÁXINA cambia os encabezados: A escoller entre:
 %         divulgacion,historia,actualidadeFacultade,actualidadeCientifica,
 %         filosofia,entrevistas,programacion,pasatempos,anuncios,profesorado
-% #3: TITULO do artigo
-% #4: AUTORIA
-% #5: SUBTITULO
+% #3: TÍTULO do artigo
+% #4: AUTORÍA
+% #5: SUBTÍTULO
+% #6: AFILIACIÓN
 %
 % Exemplo:
 %
 % \Titular*       -> asterisco, polo que no índice aparece sección
 % {divulgacion}   -> OBRIGATORIO especificar o ESTILO
-% {titulo}        -> OBRIGATORIO especificar o TÍTULO
+% {título}        -> OBRIGATORIO especificar o TÍTULO
 % {noether}       -> OPCIONAL especificar a AUTORÍA
-% {subtitulo}     -> OPCIONAL especificar o SUBTITULO
+% {subtítulo}     -> OPCIONAL especificar o SUBTITULO
+% {afiliación}    -> OPCIONAL especificar a AFILIACIÓN
 %
-% IMPORTANTE: Se non se quere especificar algo (autoría ou subtitulo), hai que
-% poñerlle os parénteses igualmente, pero baleiros, é dicir:
+% IMPORTANTE: Se non se quere especificar algo, hai que poñerlle os parénteses
+% igualmente, pero baleiros, é dicir:
 %
 % \Titular*
 % {divulgacion}
 % {titulo}
 % {}              -> sen autoría, debe ir cos parénteses baleiros
-% {}              -> sen subtitulo, debe ir cos parénteses baleiros
+% {}              -> sen subtítulo, debe ir cos parénteses baleiros
+% {}              -> sen afiliación, debe ir cos parénteses baleiros
 %
-\NewDocumentCommand\Titular{ s m m m m }{%
+\NewDocumentCommand\Titular{ s m m m m m }{%
     % Mostramos o propio titular, como sempre. Todo dentro dun `center`
     \begin{center}
-        % Isto é para que cando o texto ocupe máis de dúas liñas, se amplíe
-        \vspace*{-2.5em}
         % TÍTULO
         \section*{\textcolor{Resalte}{\Huge \textbf{#3}}}
         % AUTORÍA
-        \EstaBaleiro{#4}% comprobamos se a autoría está baleira
-            {\vspace*{3mm}}%                                           --> se NON hai autor
-            {\vspace*{3mm}{\vspace*{-1em}\Large #4} \\ \vspace*{3mm}}% --> se SI hai autor
+        \EstaBaleiro{#4}% Comprobamos se a autoría está baleira
+            {}%                             --> se NON hai autor
+            {\vspace*{-1mm}{\Large #4} \\}% --> se SI hai autor
+        % AFILIACIÓN
+        \EstaBaleiro{#6}% Comprobamos se a afiliación está baleira
+            {}%                            --> se NON hai afiliación
+            {\vspace*{2mm}{\small #6} \\}% --> se SI hai afiliación
         % SUBTÍTULO
-        \EstaBaleiro{#5}% comprobamos se o subtítulo está baleiro
-            {\vspace*{-3mm}}%               --> se NON hai subtítulo
-            {\textit{#5} \vspace*{-3mm}}%   --> se SI hai subtítulo
-        %
+        \EstaBaleiro{#5}% Comprobamos se o subtítulo está baleiro
+            {\vspace*{-2.5mm}}%                          --> se NON hai subtítulo
+            {\vspace*{3mm}\textit{#5}\vspace*{-2.5mm}}%  --> se SI hai subtítulo
     \end{center}
-
     % Comprobamos se o comando \Titular se usou con un asterisco ou no
     \IfBooleanTF{#1}% recordade que #1 é o asterisco do comando
         {% no caso de ter o asterisco, engadimos unha sección ao TOC.
