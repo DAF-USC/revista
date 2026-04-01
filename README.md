@@ -128,7 +128,6 @@ forma seguinte (aproximadamente):
 \Data{Xaneiro do 1900}
 \ImaxePortada{./revistas/001/imaxes/pedra.jpg} % Imaxe que aparecerá na portada
 \ComentarioImaxePortada{Comentario que acompaña a imaxe.}
-\Bibliografia{revistas/001/bibliografia_001.bib}
 \CorResalte{ff0000} % Cor específico da revista, en HTML HEX
 \CorTextoEnResalte{000000} % Cor do texto na portada e índice
 \Participantes{
@@ -182,6 +181,8 @@ forma:
 {Título do artigo} % (Obrigatorio) Título
 {Axl Gato}         % (Opcional)    Autoría
 {Subtítulo}        % (opcional)    Preferíbelmente non moi longo para que colla ben ^_^
+
+\Bibliografia{revistas/001/bibliografia_AXL_G.bib} # Bibliografía para este artigo
 
 \begin{multicols}{2} % Para ter varias columnas
 
@@ -264,19 +265,6 @@ funcionar.
   - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
   posíbel que non poidades compilar o proxecto enteiro, só artigos individuais
   ou, en ocasións, nin iso.
-
-Solución de erros:
-
-- (Só TeX Live) Usamos o paquete `citation-style-language` para a bibliografía.
-Recentemente, actualizouse para solucionar un erro relacionado coa bibliografía
-dependente da sección (cortesía do noso [@deivisCode](https://github.com/deivisCode)),
-e esta versión aínda non está en TeX Live. Polo que, para que funcione
-correctamente, teredes que instalar o paquete manualmente no voso *texmf tree*.
-Para iso, descargade o [paquete do CTAN](https://ctan.org/pkg/citation-style-language)
-e descomprimídeo no seguinte directorio (previamente creado):
-    - Linux: `$HOME/texmf/tex/latex/csl`
-    - Windows: `C:\Users\<o-voso-usuario>\texmf\tex\latex\csl`
-    - macOS: `~/Library/texmf/tex/latex/csl`
 
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
