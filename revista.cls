@@ -481,15 +481,15 @@
 % {subtítulo}     -> OPCIONAL especificar o SUBTITULO
 % {afiliación}    -> OPCIONAL especificar a AFILIACIÓN
 %
-% IMPORTANTE: Se non se quere especificar algo, hai que poñerlle os parénteses
-% igualmente, pero baleiros, é dicir:
+% IMPORTANTE: Se non se quere especificar algo, hai que poñerlle as parénteses
+% igualmente, pero baleiras, é dicir:
 %
 % \Titular*
 % {divulgacion}
 % {titulo}
-% {}              -> sen autoría, debe ir cos parénteses baleiros
-% {}              -> sen subtítulo, debe ir cos parénteses baleiros
-% {}              -> sen afiliación, debe ir cos parénteses baleiros
+% {}              -> sen autoría, debe ir cas parénteses baleiras
+% {}              -> sen subtítulo, debe ir cas parénteses baleiras
+% {}              -> sen afiliación, debe ir cas parénteses baleiras
 %
 \NewDocumentCommand\Titular{ s m m m m m }{%
     % Mostramos o propio titular, como sempre. Todo dentro dun `center`
