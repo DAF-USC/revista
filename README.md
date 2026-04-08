@@ -317,6 +317,6 @@ licenza:
 
 | Recurso | Función | Licenza |
 | :--- | :--- | :--- |
-| [**Latin Modern**](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) | Tipografía de texto | GUST Font License (baseada en LPPL) |
+| [**New Computer Modern**](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) | Tipografía de texto | GUST Font License (baseada en LPPL) |
 | [**Roboto**](https://openfontlicense.org/open-font-license-official-text/) | Tipografía de texto | SIL OPEN FONT LICENSE Version 1.1 |
 | [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) | Iconografía | MIT License |

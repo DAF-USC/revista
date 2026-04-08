@@ -57,38 +57,40 @@
     \directlua{dofile('funcions.lua')}
 \fi
 
-% :FACER: buscar mellores tipografías
 % Tipo de letra. Cortesía de LuaLaTeX. É extremadamente fácil:
 \RequirePackage{fontspec}
 
 % Tipografía xeral
 \setmainfont[
-    Path           = ./fontes/LatinModern/,
+    Path           = ./fontes/NewComputerModern/,
     Extension      = .otf,
-    UprightFont    = *-regular,
-    ItalicFont     = *-italic,
-    BoldFont       = *-bold,
-    BoldItalicFont = *-bolditalic,
-]{lmroman10}
+    UprightFont    = *-Regular,
+    ItalicFont     = *-Italic,
+    BoldFont       = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+]{NewCM10}
 % A tipografía para as matemáticas seleccionámola logo de cargar o paquete
 % 'unicode-math' máis abaixo.
 
-% :FACER: MONO e variantes
 % Tipografía monoespaciada. Úsase con \texttt{ aaa }
 \setmonofont[
-    Path      = ./fontes/LatinModern/,
-    Extension = .otf,
-]{lmmono10-regular}
+    Path           = ./fontes/NewComputerModern/,
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    ItalicFont     = *-Italic,
+    BoldFont       = *-Bold,
+    BoldItalicFont = *-BoldOblique,
+]{NewCMMono10}
 
 % Tipografía Sans Serif. Úsase con \textsf{ aaa }
 \setsansfont[
-    Path        = ./fontes/LatinModern/,
-    Extension   = .otf,
-    UprightFont = *-regular,
-    ItalicFont  = *-oblique,
-    BoldFont    = *-bold,
-    BoldItalicFont = *-boldoblique,
-]{lmsans10}
+    Path           = ./fontes/NewComputerModern/,
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    ItalicFont     = *-Oblique,
+    BoldFont       = *-Bold,
+    BoldItalicFont = *-BoldOblique,
+]{NewCMSans10}
 
 % Fonte condensada para títulos, seccións e así
 \newfontfamily{\FonteCondensada}[
@@ -249,9 +251,9 @@
 
 % Seleccionamos a propia tipografía
 \setmathfont[
-    Path      = ./fontes/LatinModern/,
-    Extension = .otf,
-]{latinmodern-math}
+    Path        = ./fontes/NewComputerModern/,
+    Extension   = .otf,
+]{NewCMMath-Regular}
 
 % Esto para cambiar facilmente o estilo das 'captions' das cousas. Queremos que
 % este xustificada. singlelinecheck=false: evita que LaTeX centre pés dunha
