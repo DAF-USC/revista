@@ -90,24 +90,45 @@
     BoldItalicFont = *-boldoblique,
 ]{lmsans10}
 
+% Fonte condensada para títulos, seccións e así
+\newfontfamily{\FonteCondensada}[
+    Extension      = .ttf,
+    UprightFont    = *-Regular,
+    ItalicFont     = *-Italic,
+    BoldFont       = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    Path           = ./fontes/Roboto/,
+]{Roboto_Condensed}
 
-% Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
-% { \FonteSimbolos bla bla bla ... }
-% A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
-% para substituír as imaxes .PNG de cousas como mails,twitter,instagram, etc.
-% Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
-% esta tipografía. Para buscar as iconas: https://www.nerdfonts.com/cheat-sheet
-% É bastante posible que o editor que esteades usando non vos mostre a icona na
-% pantalla correctamente. Non é problema, mentres sexa a icona correcta no PDF
-% verase ben. Tamén é posible especificar a icona co seu código hexadecimal
-% explicitamente, escribindo ^^^^eb2a Si, os catro ^ son necesarios, 'eb2a' é o
-% codigo hex. Ollo, só cargamos estas tipografías na versión completa
+
+% Fontes que so se cargan na versión completa
 \ifCompleta
+    % Esta é unha familia de fontes. Podemos activala facendo, dentro de parénteses
+    % { \FonteSimbolos\selectfont bla bla bla ... }
+    % A peculiaridade é que esta fonte non ten letras, só símbolos. A idea é usala
+    % para substituír as imaxes .PNG de cousas como mails,twitter,instagram, etc.
+    % Pra usar un símbolo so hai que copialo e pegalo nun entorno onde activásemos
+    % esta tipografía. Para buscar as iconas: https://www.nerdfonts.com/cheat-sheet
+    % É bastante posible que o editor que esteades usando non vos mostre a icona na
+    % pantalla correctamente. Non é problema, mentres sexa a icona correcta no PDF
+    % verase ben. Tamén é posible especificar a icona co seu código hexadecimal
+    % explicitamente, escribindo ^^^^eb2a Si, os catro ^ son necesarios, 'eb2a' é o
+    % codigo hex. Ollo, só cargamos estas tipografías na versión completa
     \newfontfamily{\FonteSimbolos}[
         Extension   = .ttf,
         UprightFont = *-Regular,
         Path        = ./fontes/NerdFonts/,
     ]{SymbolsNerdFontMono}
+
+    % Semi Condensada e SemiBold, algo máis sutil. Po índice
+    \newfontfamily{\FonteSemiCondensada}[
+        Extension      = .ttf,
+        UprightFont    = *-Regular,
+        ItalicFont     = *-Italic,
+        BoldFont       = *-SemiBold,
+        BoldItalicFont = *-SemiBoldItalic,
+        Path           = ./fontes/Roboto/,
+    ]{Roboto_SemiCondensed}
 \fi
 
 % Usar galego (como debe ser)
@@ -254,6 +275,9 @@
 \RequirePackage{float}
 \RequirePackage[small, unboxed]{cwpuzzle}
 \RequirePackage{soul}
+\usepackage{sectsty}
+\allsectionsfont{\FonteCondensada}
+
 
 % Encabezados e pé de páxina, para facilitar a creación cun par de comandos
 \RequirePackage{fancyhdr}
@@ -340,17 +364,17 @@
         \edef\distanciaMultiplo{\numexpr\totalPaxinasReal - (\totalPaxinasReal / 4 * 4)\relax}
 
         \ifnum\distanciaMultiplo=0 % Faltan 0 páxinas para o múltiplo de 4
-            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LO,RE]{\thepage}
-            \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+            \fancyfoot[LE,RO]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\imprimeTitulo}}}
         \else\ifnum\distanciaMultiplo=-1 % Falta +1 páxina
-            \fancyhead[LO,RE]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LO,RE]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LO,RE]{\thepage}
-            \fancyfoot[LE,RO]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+            \fancyfoot[LE,RO]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\imprimeTitulo}}}
         \else % distanciaMultiplo pode ser 1 (falta +3 páxinas ou -1 páxina), -2 (faltan +2 páxinas)
-            \fancyhead[LE,RO]{\textcolor{Resalte}{\textbf{\MakeUppercase{#2}}}} % Nome da sección
+            \fancyhead[LE,RO]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\MakeUppercase{#2}}}} % Nome da sección
             \fancyfoot[LE,RO]{\thepage}
-            \fancyfoot[LO,RE]{\textcolor{Resalte}{\textbf{\imprimeTitulo}}}
+            \fancyfoot[LO,RE]{\textcolor{Resalte}{\FonteCondensada\selectfont\textbf{\imprimeTitulo}}}
         \fi\fi
 
         \renewcommand{\footrulewidth}{0pt} % Sen liña no pé de páxina
@@ -418,7 +442,7 @@
     }
 
     % Engadimos o nome do artigo
-    \addcontentsline{toc}{section}{\protect{#2}}
+    \addcontentsline{toc}{section}{\FonteSemiCondensada\selectfont\protect{#2}}
 
     % Engadimos o nome da autoría:
     % :FACER: esto funciona ben?

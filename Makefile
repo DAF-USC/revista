@@ -21,7 +21,7 @@ SHELL := bash
 
 # esta acción mira se existe o arquivo revista/001/revista_001.tex e en caso
 # afirmativo, executa 'latexmk' con dito arquivo
-.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
+.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* fontes/Roboto/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
 	latexmk revistas/$(numero)/revista_$(numero).tex
 
 # acción para limpar os arquivos auxiliares
