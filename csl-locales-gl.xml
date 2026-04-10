@@ -1,3 +1,4 @@
+<!-- :FACER:MIGRACION: Comprobar se typst usa a versión correcta de csl-locales (pa eliminar isto) -->
 <?xml version="1.0" encoding="utf-8"?>
 <locale xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="gl-ES">
   <!-- Several sources

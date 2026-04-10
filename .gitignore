@@ -1,19 +1,5 @@
 # diretorios auxiliares
 .pdf/
-.aux/
-
-# latex
-*.aux
-*.bcf*
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.run.xml
-*.toc
-*.idx
-*.ilg
-*.ind
 
 # arquivos comprimidos
 *.zip
@@ -32,8 +18,6 @@ Thumbs.db
 .vscode/
 
 # varios
-tex.err
-tex.err.bak
 tags
 *.patch
 *.diff
