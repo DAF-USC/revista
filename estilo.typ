@@ -77,6 +77,7 @@
         region    : "ES",
         script    : "latn",
         dir       : ltr,
+        // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
         hyphenate : true,
         costs     :  ( hyphenation: 10% )
     )
@@ -89,18 +90,11 @@
 #let estilo_portada(
     doc,
 ) = {
-    set page(
-        margin: (
-            top    : 5mm,
-            left   : 5mm,
-            right  : 5mm,
-            bottom : 5mm,
-        ),
-    )
+    set page( margin: (top: 5mm, left: 5mm, right: 5mm, bottom: 5mm),)
     doc
 }
 
-// :FACER: esto cun grid
+// :FACER: tamaños correctos na portada
 // Función para crear a portada
 #let crear_portada(
     numero       : none,
@@ -108,75 +102,71 @@
     comentario   : none,
     data         : none,
     mostrar_rede : false,
-) = {
+) = grid(
 
-    grid(
-        columns : 1fr,
-        rows    : 4,
-        align   : center,
-        stroke  : if mostrar_rede { 0.5pt } else { none },
+    columns : 1fr,
+    rows    : 4,
+    align   : center,
+    stroke  : if mostrar_rede { 0.5pt } else { none },
 
-        // O titulo
-        grid.cell(
-            x:0,y:0,
+    // O titulo
+    grid.cell(
+        x:0,y:0,
+        block(
+            inset: 0.5cm,
+            {
+                context { text( fill: _cor_resalte.get(), size: 70pt)[*$arrow("M")$*] }
+                text(size: 70pt)[*OMENTUM*]
+            }
+        )
+    ),
+
+    // Número e data
+    grid.cell(
+        x:0, y:1,
+        context {
             block(
-                inset: 0.5cm,
-                {
-                    context { text( fill: _cor_resalte.get(), size: 70pt)[*$arrow("M")$*] }
-                    text(size: 70pt)[*OMENTUM*]
-                }
+                inset  : 11pt,
+                stroke : 1pt,
+                fill   : _cor_resalte.get(),
+                    text(
+                        fill : _cor_texto_resalte.get(),
+                        size : 15pt,
+                        // :FACER:MIGRACION: como facemos ca l10n ?
+                        sans[Número #numero #h(1fr) #data]
+                    )
             )
-        ),
+        }
+    ),
 
-        // Número e data
-        grid.cell(
-            x:0, y:1,
-            context {
-                block(
-                    inset  : 11pt,
-                    stroke : 1pt,
-                    fill   : _cor_resalte.get(),
-                        text(
-                            fill : _cor_texto_resalte.get(),
-                            size : 15pt,
-                            sans[Número #numero #h(1fr) #data]
-                        )
+    // Imaxe portada
+    grid.cell(
+        x:0, y:2,
+        block(
+            inset : 0.5pt,
+            stroke : 1pt,
+            {
+                // :FACER: cando https://github.com/typst/typst/pull/7556
+                // se xunte pode poñerse unha imaxe plana de exemplo cando
+                // `portada.png` non exista
+                image(width: 100%, imaxe)
+                place(
+                    left + bottom, dy: -0.4cm, dx:  0.4cm,
+                    rect(
+                        fill: rgb("#44444499"),
+                        stroke : 0.6pt + white.transparentize(70%),
+                        text(fill : white, size : 11pt, sans(comentario))
+                    )
                 )
             }
-        ),
-
-        // Imaxe portada
-        grid.cell(
-            x:0, y:2,
-            block(
-                inset : 0.5pt,
-                stroke : 1pt,
-                {
-                    // :FACER: cando https://github.com/typst/typst/pull/7556
-                    // se xunte pode poñerse unha imaxe plana de exemplo cando
-                    // `portada.png` non exista
-                    image(width: 100%, imaxe)
-                    place(
-                        left + bottom, dy: -0.4cm, dx:  0.4cm,
-                        rect(
-                            fill: rgb("#44444499"),
-                            stroke : 0.6pt + white.transparentize(70%),
-                            text(fill : white, size : 11pt, sans(comentario))
-                        )
-                    )
-                }
-            )
-        ),
-
-        // Logos
-        grid.cell(
-            x:0, y:3,
-            v(1fr)
         )
+    ),
 
-    )
+    // Logos
+    // :FACER: meter os logos
+    grid.cell( x:0, y:3, v(1fr))
 
-}
+)
 
 // Estilo para o índice de contidos
 #let estilo_indice(
@@ -216,6 +206,8 @@
 }
 
 // Función para crear o propio índice de contidos
+// :FACER: simplificar na medida do posible todo o índice
+// :FACER:MIGRACION: rematar o índice, Titulo + Autoría como ligazóns
 #let crear_indice(
     numero        : none,
     participantes : none,
@@ -227,13 +219,14 @@
 ) = {
     grid(
 
+        // Grid tamaño 4x3
         columns : (1fr, 1.5cm, 6.2cm),
-        rows    : (2cm,   1fr,  5.1cm, 3.5cm),
+        rows    : (2cm, 1fr, 5.1cm, 3.5cm),
         stroke  : if mostrar_rede { 0.5pt } else { none },
 
         grid.cell(
             x:0, y:0,
-            rowspan: 4,
+            rowspan: 4, // A primeira columna completa
             {
                 // Refacer o outline case de cero
                 show outline.entry: eso => context {
@@ -372,7 +365,10 @@
 }
 
 // Estilo para os artigos
-#let estilo_corpo(mostrar_rede: false, doc) = {
+#let estilo_corpo(
+    mostrar_rede: false,
+    doc,
+) = {
     counter(page).update(1)
     set page(
         margin: (
@@ -428,10 +424,12 @@
         { context strong[#it.supplement~#it.counter.display() #it.separator] }
         it.body
     }
+    // :FACER: referencias a ecuacións, figuras, etc
     doc
 }
 
 // Estilo para a contraportada
+// :FACER:MIGRACION: estilo da contraportada
 #let estilo_contraportada(doc) = {
     doc
 }
@@ -456,6 +454,7 @@
             center,
             dy : 10em,
             circle(radius:7cm, stroke: luma(90%) + 9pt,[  ])
+            // :FACER:MIGRACION: meter o péndulo da contraportada contransparencia
             // image("imaxes/fondo_contraportada.png")
         )
     )
@@ -533,6 +532,7 @@
             grid.cell(x:0, y:0, [Edicións anteriores]),
             grid.cell(
                 x: 0, y:1,
+                // En caso de dúbidas, mirar o manual en https://zint.org.uk/
                 tiaoma.barcode(
                     anteriores,
                     "QRCode",
@@ -547,22 +547,12 @@
             grid.cell(x:1, y:0, [Participa! (WhatsApp)]),
             grid.cell(
                 x: 1, y:1,
-                tiaoma.barcode(
-                    whatsapp,
-                    "QRCode",
-                    options: (
-                        option-1: 4,
-                        option-2: 8,
-                        scale: 1.5,
-                    ),
-                )
+                tiaoma.barcode(whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
             ),
 
+            // :FACER:MIGRACION: meter financiamento
             grid.cell(x:2, y:0, [Co financiamento de]),
-            grid.cell(
-                x:2, y:1,
-                [Alguén]
-            )
+            grid.cell( x:2, y:1, [Alguén])
 
         )
 
@@ -783,4 +773,3 @@
     columns(2, gutter:5mm, artigo)
 
 }
-
