@@ -1,5 +1,8 @@
 # :recycle: Migración en proceso...
 
+## Discusión sobre os cambios
+https://github.com/fisicaUSC/revista/issues/110
+
 ## Notas:
 - Comentarios no propio código sobre a migración con `:FACER:MIGRACION:`
 - Pode eliminarse a imaxe da portada de exemplo con algunha comprobación
