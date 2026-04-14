@@ -25,7 +25,6 @@
 }
 
 #crear_revista(
-    numero            : "001",
     comentario        : "1981: Primeira pedra da facultade de física",
     cor_resalte       : rgb("#ff0000"),
     cor_texto_resalte : rgb("#ffffff"),

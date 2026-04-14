@@ -97,7 +97,6 @@
 // :FACER: tamaños correctos na portada
 // Función para crear a portada
 #let crear_portada(
-    numero       : none,
     imaxe        : none,
     comentario   : none,
     data         : none,
@@ -133,7 +132,7 @@
                         fill : _cor_texto_resalte.get(),
                         size : 15pt,
                         // :FACER:MIGRACION: como facemos ca l10n ?
-                        sans[Número #numero #h(1fr) #data]
+                        sans[Número #sys.inputs.at("numero") #h(1fr) #data]
                     )
             )
         }
@@ -209,7 +208,6 @@
 // :FACER: simplificar na medida do posible todo o índice
 // :FACER:MIGRACION: rematar o índice, Titulo + Autoría como ligazóns
 #let crear_indice(
-    numero        : none,
     participantes : none,
     correo        : none,
     instagram     : none,
@@ -266,7 +264,7 @@
                     set text( size : 1.5em )
                     data.display("[day padding:none] de [month repr:long] do [year]")
                     linebreak()
-                    [Número #numero]
+                    [Número #sys.inputs.at("numero")]
                 }
             )
         ),
@@ -561,7 +559,6 @@
 }
 
 #let crear_revista(
-    numero            : "-- SEN NÚMERO --",
     data              : datetime.today(),
     cor_resalte       : rgb("ff0000"),
     cor_texto_resalte : rgb("ffffff"),
@@ -601,7 +598,6 @@
         {
             show: estilo_portada
             crear_portada(
-                numero     : numero,
                 imaxe      : imaxe,
                 comentario : comentario,
                 data       : data.display("[month repr:long] [year]"),
@@ -614,7 +610,6 @@
             show: estilo_indice
             crear_indice(
                 participantes : participantes,
-                numero        : numero,
                 correo        : correo,
                 instagram     : instagram,
                 repositorio   : repositorio,
@@ -647,7 +642,6 @@
         {
             show: estilo_portada
             crear_portada(
-                numero     : numero,
                 imaxe      : imaxe,
                 comentario : comentario,
                 data       : data.display("[month repr:long] [year]")
@@ -657,7 +651,6 @@
             show: estilo_indice
             crear_indice(
                 participantes : participantes,
-                numero        : numero,
                 correo        : correo,
                 instagram     : instagram,
                 repositorio   : repositorio,
