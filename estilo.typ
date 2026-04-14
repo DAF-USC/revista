@@ -34,7 +34,7 @@
 
 #let _norm = ( familia: "New Computer Modern"      , peso: 450 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"          , peso: 400 , estilo: "normal" , estiramento: 100% )
-#let _sans = ( familia: "Roboto"                   , peso: 400 , estilo: "normal" , estiramento: 100% )
+#let _sans = ( familia: "New Computer Modern Sans" , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _cond = ( familia: "Roboto"                   , peso: 400 , estilo: "normal" , estiramento: 75%  )
 #let _mono = ( familia: "New Computer Modern Mono" , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _simb = ( familia: "Symbols Nerd Font Mono"   , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -288,7 +288,8 @@
                 stroke     : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
 
                 {
-                    text(size: 1.2em, font: _sans.familia)[Dirección]
+                    show text: sans
+                    text(size: 1.2em)[*Dirección*]
                     v(1em)
                     participantes // Array de dicionarios ( (nome:"aa", posto:"bb"), (nome:"cc", posto:"dd") )
                         .filter(p => p.posto == "Dirección") // array so con participantes no posto 'Dirección'
@@ -296,7 +297,8 @@
                         .join("\n")
                 },
                 {
-                    text(size: 1.2em, font: _sans.familia)[Edición]
+                    show text: sans
+                    text(size: 1.2em)[*Edición*]
                     v(1em)
                     participantes
                         .filter(p => p.posto == "Edición")
@@ -304,7 +306,9 @@
                         .join("\n")
                 },
                 {
-                    text(size: 1.2em, font: _sans.familia)[Deseño de Logo]
+                    // :FACER: aclarar postos
+                    show text: sans
+                    text(size: 1.2em)[*Deseño de Logo*]
                     v(1em)
                     participantes
                         .filter(p => p.posto == "Deseño de Logo")
