@@ -242,10 +242,8 @@
                                 fill: _cor_resalte.get().darken(20%),
                                 font: _cond.familia,
                                 stretch: _cond.estiramento,
-                                [*#eso.element.supplement*],
+                                [*#eso.element.supplement* #h(1fr)],
                             )
-                            set text(size: 0.5em)
-                            mono[\ #repr(eso)]
                             h(1fr)
                             [*#eso.page()*]
                         })
