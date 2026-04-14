@@ -32,5 +32,5 @@
     data              : datetime(day: 1, month: 12, year: 2025),
     participantes     : participantes,
     artigos           : artigos,
-    // mostrar_rede      : true
+    mostrar_rede      : true
 )

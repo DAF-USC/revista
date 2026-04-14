@@ -27,8 +27,10 @@
 //     crear_revista()
 
 // Unhas variables globais
+// :FACER: hai alternativas a esto sen estados?
 #let _cor_resalte = state("cor_resalte", "#FF0000")
 #let _cor_texto_resalte = state("cor_texto_resalte", "#FF0000")
+#let _mostrar_rede = state("mostrar_rede", false)
 
 #let _norm = ( familia: "New Computer Modern"      , peso: 450 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"          , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -101,10 +103,10 @@
 // :FACER: esto cun grid
 // Función para crear a portada
 #let crear_portada(
-    numero     : none,
-    imaxe      : none,
-    comentario : none,
-    data       : none,
+    numero       : none,
+    imaxe        : none,
+    comentario   : none,
+    data         : none,
     mostrar_rede : false,
 ) = {
 
@@ -564,6 +566,10 @@
     _cor_resalte.update(c => cor_resalte)
     _cor_texto_resalte.update(c => cor_texto_resalte)
 
+    // Pa mostrar ou no a estrutura das cousas
+    _mostrar_rede.update(m => mostrar_rede)
+
+
     // Activamos o estilo xeral, que vai afectar a toda a revista
     show: estilo_xeral.with(
         participantes : participantes,
@@ -674,58 +680,62 @@
     subtitulo : "-- SEN SUBTITULO --",
     autoria   : "-- SEN AUTORÍA --",
     estilo    : "-- SEN ESTILO --",
-    mostrar_rede : false,
+    mostrar_rede : true,
     artigo
 ) = {
     set page(
-        header: grid(
-            columns    : (1fr, 2.3cm, 1fr),
-            rows       : (1em,1em,1em),
-            row-gutter : 0pt,
-            align      : (left+horizon, center+horizon, right+horizon ),
-            stroke  : if mostrar_rede { 0.5pt } else { none },
-            grid.cell(
-                x:0, y:0,
-                context {
-                    set text(
-                        fill   : _cor_resalte.get(),
-                        font   : _cond.familia,
-                        stretch: _cond.estiramento,
-                        weight : "bold",
-                    )
-                    estilo
-                }
-            ),
-            grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
-            grid.cell(x:2, y:1, line(length:100%, stroke:0.2pt)),
-            grid.cell(
-                x:1,
-                rowspan:3,
-                context {
-                    circle(
-                        fill   : _cor_resalte.get(),
-                        radius : 1.4em,
-                        text(
-                            fill : _cor_texto_resalte.get(),
-                            size : 22pt,
-                            [$accent(m,arrow)$]
+        header: context {
+            grid(
+                columns    : (1fr, 2.3cm, 1fr),
+                rows       : (1em,1em,1em),
+                row-gutter : 0pt,
+                align      : (left+horizon, center+horizon, right+horizon ),
+                stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
+                grid.cell(
+                    x:0, y:0,
+                    {
+                        set text(
+                            fill   : _cor_resalte.get(),
+                            font   : _cond.familia,
+                            stretch: _cond.estiramento,
+                            weight : "bold",
                         )
-                    )
-                }
+                        estilo
+                    }
+                ),
+                grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
+                grid.cell(x:2, y:1, line(length:100%, stroke:0.2pt)),
+                grid.cell(
+                    x:1,
+                    rowspan:3,
+                    {
+                        circle(
+                            fill   : _cor_resalte.get(),
+                            radius : 1.4em,
+                            text(
+                                fill : _cor_texto_resalte.get(),
+                                size : 22pt,
+                                [$accent(m,arrow)$]
+                            )
+                        )
+                    }
+                )
             )
-        )
+        }
+
     )
 
     // :FACER:MIGRACION: delicado, como metemos a info do titular no índice?
     // _artigos.update( eu => eu + ( str(titulo) : autoria ) )
 
-    grid(
-        columns : 1fr, rows:3, row-gutter: 1em,
-        stroke  : if mostrar_rede { 0.5pt } else { none },
-        align   : center,
+    context {
 
-        // TITULO
-        context {
+        grid(
+            columns : 1fr, rows:3, row-gutter: 1em,
+            stroke  : if _mostrar_rede.get() { 0.5pt } else { none },
+            align   : center,
+
+            // TITULO
             figure(
                 kind: "Titular",
                 supplement : titulo,
@@ -739,17 +749,18 @@
                             condensada([ #heading(titulo) ])
                         )
                 )
-            )
-        },
+            ),
 
 
-        // AUTORÍA
-        text(size: 14pt, [#autoria]),
+            // AUTORÍA
+            text(size: 14pt, [#autoria]),
 
-        // SUBTITULO
-        emph(subtitulo)
+            // SUBTITULO
+            emph(subtitulo)
 
-    )
+        )
+
+    }
 
     columns(2, gutter:5mm, artigo)
 

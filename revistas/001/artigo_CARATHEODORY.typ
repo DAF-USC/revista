@@ -6,7 +6,6 @@
     subtitulo : "Sobre a pretensión de transformar un coñecemento puramente fenomenolóxico en puramente matemático.",
     autoria   : "O sebas",
     estilo    : "DIVULGACION",
-    mostrar_rede : true,
 )
 
 === Introdución
