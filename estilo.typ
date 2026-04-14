@@ -718,7 +718,7 @@
         )
     )
 
-    // :FACER: delicado
+    // :FACER:MIGRACION: delicado, como metemos a info do titular no índice?
     // _artigos.update( eu => eu + ( str(titulo) : autoria ) )
 
     grid(
@@ -726,34 +726,17 @@
         stroke  : if mostrar_rede { 0.5pt } else { none },
         align   : center,
 
-        // // TITULO
-        // context {
-        //     block(
-        //         width : 100%,
-        //         inset : (y:2em, x:2em ),
-        //         radius: (top-left: 3em, bottom-right: 3em),
-        //         fill : rgb(_cor_resalte.get()).lighten(50%),
-        //             text(
-        //                 size   : 20pt,
-        //                 fill   : rgb(_cor_texto_resalte.get()),
-        //                 weight : "bold",
-        //                 condensada([ #heading(titulo) ])
-        //             )
-        //     )
-        // },
-
+        // TITULO
         context {
             figure(
                 kind: "Titular",
                 supplement : titulo,
                 block(
                     width : 100%,
-                    inset : (y:2em, x:2em ),
                     radius: (top-left: 3em, bottom-right: 3em),
-                    fill : rgb(_cor_resalte.get()).lighten(50%),
                         text(
-                            size   : 20pt,
-                            fill   : rgb(_cor_texto_resalte.get()),
+                            size   : 25pt,
+                            fill   : rgb(_cor_resalte.get()),
                             weight : "bold",
                             condensada([ #heading(titulo) ])
                         )
