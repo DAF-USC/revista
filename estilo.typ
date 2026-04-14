@@ -447,6 +447,7 @@
             stroke : if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
             {
                 text(size: 2em, [Un Momentum...])
+                // :FACER: isto nunha variable externa
                 text(size: 1.5em)[
                     #set par(justify: true, leading:0.3em)
                     Aquí está a revista por e para estudantes da Facultade de
@@ -462,6 +463,7 @@
                     recuncho físico, onde hai física máis aló das aulas
                 ]
                 text(size: 2em, [Agradecementos])
+                // :FACER: isto nunha variable externa funcións
                 text(size: 1.2em)[
                     #set par(justify: true, leading:0.3em)
                     Dende a dirección da revista, queriamos agradecervos a
@@ -623,18 +625,8 @@
 
     }
 
-    // Para a versión simple mostramos so os artigos
-    else if formato == "simple" {
-
-        // Activamos o estilo para os artigos (corpo) e mostrámolos
-        {
-            show: estilo_corpo
-            artigos
-        }
-
-    }
-
     // Para a impresa mostramos todo, con algúns cambios
+    // :FACER:MIGRACION: versión impresa
     else if formato == "impresa" {
         {
             show: estilo_portada
@@ -663,8 +655,8 @@
         {
             show: estilo_contraportada
             crear_contraportada(
-                correo   : correo,
-                whatsapp : whatsapp,
+                anteriores : anteriores,
+                whatsapp   : whatsapp,
                 mostrar_rede : mostrar_rede
             )
         }

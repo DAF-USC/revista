@@ -19,8 +19,13 @@ SHELL := bash
 # que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
+# Formato por defecto
+ifeq ($(formato),)
+	formato := completa
+endif
+
 # :FACER:MIGRACION: PDF UA
-# :FACER:MIGRACION: separar as que son comúns a propagandas, por exemplo
+# :FACER:MIGRACION: separar as opcións que son comúns a propagandas, por exemplo
 #
 OPCIONS_TYPST := \
 	--format pdf              \
