@@ -150,6 +150,9 @@
                 inset : 0.5pt,
                 stroke : 1pt,
                 {
+                    // :FACER: cando https://github.com/typst/typst/pull/7556
+                    // se xunte pode poñerse unha imaxe plana de exemplo cando
+                    // `portada.png` non exista
                     image(width: 100%, imaxe)
                     place(
                         left + bottom, dy: -0.4cm, dx:  0.4cm,
@@ -544,7 +547,7 @@
     data              : datetime.today(),
     cor_resalte       : rgb("ff0000"),
     cor_texto_resalte : rgb("ffffff"),
-    imaxe             : "negro.png",
+    imaxe             : "/revistas/" + sys.inputs.at("numero") + "/imaxes/portada.png" ,
     comentario        : "-- SEN COMENTARIO --",
     repositorio       : "fisicaUSC/revista",
     whatsapp          : "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",

@@ -30,6 +30,7 @@ OPCIONS_TYPST := \
 	--ignore-system-fonts     \
 	--ignore-embedded-fonts   \
 	--font-path=fontes        \
+	--input numero=$(numero)  \
 	--input formato=$(formato)\
 
 DEPENDENCIAS := \
