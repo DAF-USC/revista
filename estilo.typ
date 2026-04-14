@@ -372,7 +372,7 @@
 }
 
 // Estilo para os artigos
-#let estilo_corpo(doc) = {
+#let estilo_corpo(mostrar_rede: false, doc) = {
     counter(page).update(1)
     set page(
         margin: (
@@ -383,7 +383,29 @@
         ),
         footer : context {
             let p = counter(page).get().first()
-            [*#numbering("1",p)*]
+            if calc.even(p) {
+                grid(
+                    stroke  : if mostrar_rede { 0.5pt } else { none },
+                    columns : 1fr,
+                    rows    : 1fr,
+                    align   : (left + top),
+                    {
+                        let p = counter(page).get().first()
+                        [*#numbering("1",p)*]
+                    }
+                )
+            } else {
+                grid(
+                    stroke: if mostrar_rede { 0.5pt } else { none },
+                    columns : 1fr,
+                    rows    : 1fr,
+                    align   : (right + top),
+                    {
+                        let p = counter(page).get().first()
+                        [*#numbering("1",p)*]
+                    }
+                )
+            }
         }
     )
     set par(
@@ -613,7 +635,7 @@
 
         // Activamos o estilo para os artigos (corpo) e mostrámolos
         {
-            show: estilo_corpo
+            show: estilo_corpo.with( mostrar_rede: mostrar_rede )
             artigos
         }
 
@@ -653,7 +675,7 @@
             )
         }
         {
-            show: estilo_corpo
+            show: estilo_corpo.with( mostrar_rede: mostrar_rede )
             artigos
         }
         {
