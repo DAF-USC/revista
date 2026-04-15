@@ -676,6 +676,9 @@
 }
 
 
+// :FACER: argumentos: titulo, titulo_indice, para diferenciar o título no
+// artigo (pode que con moito formato, novas liñas, etc) do que se mete no
+// índice
 #let Titular(
     titulo     : "-- SEN TÍTULO --",
     autoria    : "-- SEN AUTORÍA --",

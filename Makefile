@@ -35,6 +35,7 @@ OPCIONS_TYPST := \
 	--ignore-system-fonts     \
 	--ignore-embedded-fonts   \
 	--font-path=fontes        \
+	--timings=.aux/perf.json  \
 	--input numero=$(numero)  \
 	--input formato=$(formato)\
 
@@ -60,8 +61,9 @@ INFO_GIT := \
 # :FACER:MIGRACION: co 'bundle export' debería poder separarse en revista normal, impresa, portada..?
 .pdf/revista_$(numero).pdf: $(DEPENDENCIAS)
 
-	# Hai que asegurarse de que existe o directorio .pdf
+	# Hai que asegurarse de que existen o directorios .pdf e .aux
 	$(shell if [ ! -d ".pdf" ]; then mkdir .pdf; fi)
+	$(shell if [ ! -d ".aux" ]; then mkdir .aux; fi)
 
 	# :FACER:MIGRACION: posibilidade de usar 'typst watch' ..?
 	typst compile \
