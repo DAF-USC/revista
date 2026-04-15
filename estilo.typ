@@ -677,10 +677,11 @@
 
 
 #let Titular(
-    titulo    : "-- SEN TÍTULO --",
-    subtitulo : "-- SEN SUBTITULO --",
-    autoria   : "-- SEN AUTORÍA --",
-    estilo    : "-- SEN ESTILO --",
+    titulo     : "-- SEN TÍTULO --",
+    autoria    : "-- SEN AUTORÍA --",
+    subtitulo  : none,
+    afiliacion : none,
+    estilo     : "-- SEN ESTILO --",
     mostrar_rede : true,
     artigo
 ) = {
@@ -729,40 +730,46 @@
     // :FACER:MIGRACION: delicado, como metemos a info do titular no índice?
     // _artigos.update( eu => eu + ( str(titulo) : autoria ) )
 
+    // Contidos do Titular. Un array cos elementos. Ao final filtramos este
+    // array pa quedarnos so cos cotidos distintos de 'none'. Se non hai
+    // afiliación ou o subtítulo o grid do Titular vaise adaptar acorde.
+    let filas_titular = (
+        figure(
+            kind: "Titular",
+            supplement : titulo,
+            block(
+                width : 100%,
+                radius: (top-left: 3em, bottom-right: 3em),
+                context {
+                    set par(leading: 0.4em)
+                    text(
+                        size   : 25pt,
+                        fill   : rgb(_cor_resalte.get()),
+                        weight : "bold",
+                        condensada(heading(titulo))
+                    )
+                }
+            )
+        ),
+        text(size: 14pt, autoria),
+        if (afiliacion != none) { text(size:1.1em, afiliacion) } else { none },
+        if (subtitulo  != none) { emph(subtitulo) } else { none },
+    ).filter(x => x != none)
+
+    let numero_filas_titular = filas_titular.len()
+
     context {
-
         grid(
-            columns : 1fr, rows:3, row-gutter: 1em,
-            stroke  : if _mostrar_rede.get() { 0.5pt } else { none },
-            align   : center,
-
-            // TITULO
-            figure(
-                kind: "Titular",
-                supplement : titulo,
-                block(
-                    width : 100%,
-                    radius: (top-left: 3em, bottom-right: 3em),
-                        text(
-                            size   : 25pt,
-                            fill   : rgb(_cor_resalte.get()),
-                            weight : "bold",
-                            condensada([ #heading(titulo) ])
-                        )
-                )
-            ),
-
-
-            // AUTORÍA
-            text(size: 14pt, [#autoria]),
-
-            // SUBTITULO
-            emph(subtitulo)
-
+            columns    : 1fr,
+            rows       : numero_filas_titular,
+            row-gutter : 1em,
+            stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
+            align      : center,
+            ..filas_titular
         )
-
     }
 
+    // :FACER: dúas columnas sempre?
     columns(2, gutter:5mm, artigo)
 
 }
