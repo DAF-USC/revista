@@ -100,7 +100,7 @@
         dir       : ltr,
         // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
         hyphenate : true,
-        costs     :  ( hyphenation: 10% )
+        costs     : ( hyphenation: 10% )
     )
     show math.equation: set text(font: "New Computer Modern Math")
     show heading.where(level: 3): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
@@ -111,7 +111,7 @@
 #let estilo_portada(
     doc,
 ) = {
-    set page( margin: (top: 5mm, left: 5mm, right: 5mm, bottom: 5mm),)
+    set page( margin: (top: 5mm, left: 5mm, right: 5mm, bottom: 5mm) )
     doc
 }
 
@@ -135,7 +135,7 @@
         block(
             inset: 0.5cm,
             {
-                context { text( fill: _cor_resalte.get(), size: 70pt)[*$arrow("M")$*] }
+                context text( fill: _cor_resalte.get(), size: 70pt)[*$arrow("M")$*]
                 text(size: 70pt)[*OMENTUM*]
             }
         )
@@ -144,19 +144,17 @@
     // Número e data
     grid.cell(
         x:0, y:1,
-        context {
-            block(
-                inset  : 11pt,
-                stroke : 1pt,
-                fill   : _cor_resalte.get(),
-                    text(
-                        fill : _cor_texto_resalte.get(),
-                        size : 15pt,
-                        // :FACER:MIGRACION: como facemos ca l10n ?
-                        sans[Número #sys.inputs.at("numero") #h(1fr) #data]
-                    )
+        context block(
+            inset  : 11pt,
+            stroke : 1pt,
+            fill   : _cor_resalte.get(),
+            text(
+                fill : _cor_texto_resalte.get(),
+                size : 15pt,
+                // :FACER:MIGRACION: como facemos ca l10n ?
+                sans[Número #sys.inputs.at("numero") #h(1fr) #data]
             )
-        }
+        )
     ),
 
     // Imaxe portada
@@ -166,14 +164,15 @@
             inset : 0.5pt,
             stroke : 1pt,
             {
-                // :FACER: cando https://github.com/typst/typst/pull/7556
-                // se xunte pode poñerse unha imaxe plana de exemplo cando
+                // :FACER: cando https://github.com/typst/typst/pull/7556 se
+                // xunte pode poñerse unha imaxe plana de exemplo cando
                 // `portada.png` non exista
                 image(width: 100%, imaxe)
                 place(
                     left + bottom, dy: -0.4cm, dx:  0.4cm,
                     rect(
                         fill: rgb("#44444499"),
+                        // :FACER:MIGRACION: imaxe de fondo transparente
                         stroke : 0.6pt + white.transparentize(70%),
                         text(fill : white, size : 11pt, sans(comentario))
                     )
@@ -194,22 +193,11 @@
 ) = {
     set par(first-line-indent: 0pt)
     set page(
-        background : context {
-            place(
-                right + top,
-                rect(
-                    fill: _cor_resalte.get().lighten(35%),
-                    height: 100%,
-                    width: 8cm,
-                ),
-            )
-        },
-        margin: (
-            top    : 20mm,
-            left   : 10mm,
-            right  : 10mm,
-            bottom : 25mm
+        background : context place(
+            right + top,
+            rect(fill: _cor_resalte.get().lighten(35%), height: 100%, width: 8cm),
         ),
+        margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
     )
     show grid.cell: eso => {
         if eso.x == 2 {
@@ -218,9 +206,7 @@
                 set par(spacing: 0pt)
                 eso
             }
-        } else {
-            eso
-        }
+        } else { eso }
     }
     doc
 }
@@ -245,41 +231,38 @@
 
         // Índice de artigos
         grid.cell(
-            x:0, y:0,
-            rowspan: 4, // A primeira columna completa
+            x:0, y:0, rowspan: 4, // 4: A primeira columna completa
             {
                 heading( level: 1, numbering: none, condensada[*Índice*])
-                context {
-                    // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado
-                    for artigo in _artigos.final(){
-                        link(
-                            artigo.localizacion,
-                            {
-                                text(
-                                    fill    : _cor_resalte.get().darken(20%),
-                                    font    : _cond.familia,
-                                    stretch : _cond.estiramento,
-                                    [
-                                        #show "\n": " " // para eliminar as novas liñas dos títulos
-                                        *#artigo.titulo*
-                                    ],
-                                )
-                                h(1fr)
-                                [*#artigo.localizacion.page*]
-                                linebreak()
-                                artigo.autoria
-                                v(1em)
-                            }
-                        )
-                    }
+                // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado
+                context for artigo in _artigos.final(){
+                    // Mostramos os artigos como ligazóns
+                    link(
+                        artigo.localizacion,
+                        {
+                            text(
+                                fill    : _cor_resalte.get().darken(20%),
+                                font    : _cond.familia,
+                                stretch : _cond.estiramento,
+                                [
+                                    #show "\n": " " // para eliminar as novas liñas dos títulos
+                                    *#artigo.titulo*
+                                ],
+                            )
+                            h(1fr)
+                            [*#artigo.localizacion.page*]
+                            linebreak()
+                            artigo.autoria
+                            v(1em)
+                        }
+                    )
                 }
             }
         ),
 
         // Data e número
         grid.cell(
-            x:2,y:0,
-            align: center,
+            x:2,y:0, align: center,
             sans(
                 {
                     set text( size : 1.5em )
@@ -443,7 +426,7 @@
     show figure.caption: it => {
         set align(left)
         set text(font:_sans.familia)
-        { context strong[#it.supplement~#it.counter.display() #it.separator] }
+        context strong[#it.supplement~#it.counter.display() #it.separator]
         it.body
     }
     // :FACER: referencias a ecuacións, figuras, etc
@@ -719,32 +702,28 @@
                 stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
                 grid.cell(
                     x:0, y:0,
-                    {
-                        set text(
-                            fill   : _cor_resalte.get(),
-                            font   : _cond.familia,
-                            stretch: _cond.estiramento,
-                            weight : "bold",
-                        )
+                    text(
+                        fill   : _cor_resalte.get(),
+                        font   : _cond.familia,
+                        stretch: _cond.estiramento,
+                        weight : "bold",
                         estilo
-                    }
+                    )
                 ),
                 grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
                 grid.cell(x:2, y:1, line(length:100%, stroke:0.2pt)),
                 grid.cell(
                     x:1,
                     rowspan:3,
-                    {
-                        circle(
-                            fill   : _cor_resalte.get(),
-                            radius : 1.4em,
-                            text(
-                                fill : _cor_texto_resalte.get(),
-                                size : 22pt,
-                                [$accent(m,arrow)$]
-                            )
+                    circle(
+                        fill   : _cor_resalte.get(),
+                        radius : 1.4em,
+                        text(
+                            fill : _cor_texto_resalte.get(),
+                            size : 22pt,
+                            [$accent(m,arrow)$]
                         )
-                    }
+                    )
                 )
             )
         }
