@@ -259,7 +259,10 @@
                                     fill    : _cor_resalte.get().darken(20%),
                                     font    : _cond.familia,
                                     stretch : _cond.estiramento,
-                                    [*#artigo.titulo*],
+                                    [
+                                        #show "\n": " " // para eliminar as novas liñas dos títulos
+                                        *#artigo.titulo*
+                                    ],
                                 )
                                 h(1fr)
                                 [*#artigo.localizacion.page*]
@@ -696,19 +699,16 @@
 
 }
 
-
-// :FACER: argumentos: titulo, titulo_indice, para diferenciar o título no
-// artigo (pode que con moito formato, novas liñas, etc) do que se mete no
-// índice
-#let Titular(
-    titulo     : "-- SEN TÍTULO --",
-    autoria    : "-- SEN AUTORÍA --",
-    subtitulo  : none,
-    afiliacion : none,
-    estilo     : "-- SEN ESTILO --",
-    mostrar_rede : true,
+#let Titular(                            /* TIPO      explicacion */
+    titulo        : [-- SEN TÍTULO --],  // CONTENT Título do artigo
+    autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
+    subtitulo     : none,                // CONTENT Subtítulo do artigo
+    afiliacion    : none,                // STRING  Afiliación dos autores
+    estilo        : "-- SEN ESTILO --",  // STRING  Estilo do artigo (divulgación, historia, etc.)
+    mostrar_rede  : true,                // BOOL    Mostrar estrutura visual ou no
     artigo
 ) = {
+    // :FACER: engadir comprobacións, p.e. assert(type(titulo) == "content")
     set page(
         header: context {
             grid(
@@ -776,8 +776,12 @@
                             // 'x' é o array actual. Engadímoslle un array (ousexa,
                             // concatenamoslle) outro array que contén un
                             // dicionario cas claves 'titulo','autoria' e
-                            // 'localizacion'. A coma á dereita de todo é crítica
-                            x => x + ( (titulo : titulo, autoria : autoria, localizacion : posicion),)
+                            // 'localizacion'.
+                            x => x + (
+                                (
+                                    titulo : titulo, autoria : autoria, localizacion : posicion,
+                                ), // Esta coma fai que estemos concatenando un array
+                            )
                         )
                     }
                 )

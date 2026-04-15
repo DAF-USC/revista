@@ -1,10 +1,9 @@
 #import("/estilo.typ"): *
 
 #show: Titular.with(
-    titulo    : "Benvida a Momentum",
-    subtitulo : none,
-    autoria   : "Equipo Decanal",
-    estilo    : "PROFESORADO",
+    titulo  : [Benvida a Momentum],
+    autoria : "Equipo Decanal",
+    estilo  : "PROFESORADO",
 )
 
 Dende o Decanato da Facultade saudamos con entusiasmo a iniciativa de abrir un

@@ -2,8 +2,8 @@
 #import("/estilo.typ"): *
 
 #show: Titular.with(
-    titulo    : "Carathéodory e a axiomatización da termodinámica",
-    subtitulo : "Sobre a pretensión de transformar un coñecemento puramente fenomenolóxico en puramente matemático.",
+    titulo    : [Carathéodory e a axiomatización\ da termodinámica],
+    subtitulo : [Sobre a pretensión de transformar un coñecemento puramente fenomenolóxico en puramente matemático.],
     autoria   : "Sebastián Táboas Pazo",
     estilo    : "DIVULGACION",
 )

@@ -1,8 +1,11 @@
 #import("/estilo.typ"): *
 
 #show: Titular.with(
-    titulo    : "A morte do xeocentrismo: dos gregos a Kepler",
-    subtitulo : "Unha pequena historia do modelo xeocentrista, dos seus defensores e detractores, dende os seus inicios gregos ata o seu ocaso na Idade Media.",
+    titulo    : [A morte do xeocentrismo:\ dos gregos a Kepler],
+    subtitulo : [
+        Unha pequena historia do modelo xeocentrista, dos seus defensores e detractores, \
+        dende os seus inicios gregos ata o seu ocaso na Idade Media.
+    ],
     autoria   : "Santiago González Gómez",
     estilo    : "HISTORIA",
 )
