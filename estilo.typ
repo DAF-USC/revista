@@ -27,10 +27,31 @@
 //     crear_revista()
 
 // Unhas variables globais
+//
 // :FACER: hai alternativas a esto sen estados?
 #let _cor_resalte = state("cor_resalte", "#FF0000")
 #let _cor_texto_resalte = state("cor_texto_resalte", "#FF0000")
+
+// Booleano para mostrar unha referencia visual dos 'grid' da revista
 #let _mostrar_rede = state("mostrar_rede", false)
+
+// Array que se encherá de dicionarios con info dos artigos, é dicir
+//
+// (
+//     (
+//         titulo: "Benvida a Momentum",
+//         autoria: "Equipo Decanal",
+//         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
+//     ),
+//     (
+//         titulo: "Carathéodory e a axiomatización da termodinámica",
+//         autoria: "Sebastián Táboas Pazo",
+//         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
+//     ),
+//     ...
+// )
+// Úsase para xerar o índice
+#let _artigos = state("artigos", ())
 
 #let _norm = ( familia: "New Computer Modern"      , peso: 450 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"          , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -222,40 +243,37 @@
         rows    : (2cm, 1fr, 5.1cm, 3.5cm),
         stroke  : if mostrar_rede { 0.5pt } else { none },
 
+        // Índice de artigos
         grid.cell(
             x:0, y:0,
             rowspan: 4, // A primeira columna completa
             {
-                // Refacer o outline case de cero
-                show outline.entry: eso => context {
-                    link(
-                        eso.element.location(),
-                        box({
-                            text(
-                                fill: _cor_resalte.get().darken(20%),
-                                font: _cond.familia,
-                                stretch: _cond.estiramento,
-                                [*#eso.element.supplement* #h(1fr)],
-                            )
-                            h(1fr)
-                            [*#eso.page()*]
-                        })
-                    )
+                heading( level: 1, numbering: none, condensada[*Índice*])
+                context {
+                    // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado
+                    for artigo in _artigos.final(){
+                        link(
+                            artigo.localizacion,
+                            {
+                                text(
+                                    fill    : _cor_resalte.get().darken(20%),
+                                    font    : _cond.familia,
+                                    stretch : _cond.estiramento,
+                                    [*#artigo.titulo*],
+                                )
+                                h(1fr)
+                                [*#artigo.localizacion.page*]
+                                linebreak()
+                                artigo.autoria
+                                v(1em)
+                            }
+                        )
+                    }
                 }
-                heading(
-                    level: 1,
-                    numbering: none,
-                    condensada[*Índice*],
-                )
-                v(1em)
-                outline(
-                    title: none,
-                    depth: 1,
-                    target: figure.where(kind: "Titular")
-                )
             }
         ),
 
+        // Data e número
         grid.cell(
             x:2,y:0,
             align: center,
@@ -269,6 +287,7 @@
             )
         ),
 
+        // Participantes
         grid.cell(
             x:2, y:1,
             align: left,
@@ -309,6 +328,7 @@
             )
         ),
 
+        // Contactos
         grid.cell(
             x: 2, y:2,
             {
@@ -348,10 +368,10 @@
             }
         ),
 
+        // Logo USC
         grid.cell(
             x: 2, y:3,
             {
-                // v(1fr)
                 rect(
                     stroke : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     inset : 0pt,
@@ -359,6 +379,7 @@
                 )
             }
         )
+
     )
 }
 
@@ -730,47 +751,61 @@
 
     )
 
-    // :FACER:MIGRACION: delicado, como metemos a info do titular no índice?
-    // _artigos.update( eu => eu + ( str(titulo) : autoria ) )
-
     // Contidos do Titular. Un array cos elementos. Ao final filtramos este
-    // array pa quedarnos so cos cotidos distintos de 'none'. Se non hai
+    // array pa quedarnos so cos contidos distintos de 'none'. Se non hai
     // afiliación ou o subtítulo o grid do Titular vaise adaptar acorde.
     let filas_titular = (
-        figure(
-            kind: "Titular",
-            supplement : titulo,
-            block(
-                width : 100%,
-                radius: (top-left: 3em, bottom-right: 3em),
-                context {
-                    set par(leading: 0.4em)
-                    text(
-                        size   : 25pt,
-                        fill   : rgb(_cor_resalte.get()),
-                        weight : "bold",
-                        condensada(heading(titulo))
-                    )
-                }
-            )
+        // TITULO
+        block(
+            width : 100%,
+            radius: (top-left: 3em, bottom-right: 3em),
+            context {
+                set par(leading: 0.4em)
+                text(
+                    size   : 25pt,
+                    fill   : rgb(_cor_resalte.get()),
+                    weight : "bold",
+                    {
+                        condensada(heading(titulo)) /* Mostrar o título */
+                        let posicion = here().position() /* Variable ca posición actual */
+                        // Agora actualizamos a lista de artigos engadindo un
+                        // dicionario con titulo, autoría e posición Este
+                        // dicionario é o que se usa no índice para sacar a
+                        // info dos artigos
+                        _artigos.update(
+                            // 'x' é o array actual. Engadímoslle un array (ousexa,
+                            // concatenamoslle) outro array que contén un
+                            // dicionario cas claves 'titulo','autoria' e
+                            // 'localizacion'. A coma á dereita de todo é crítica
+                            x => x + ( (titulo : titulo, autoria : autoria, localizacion : posicion),)
+                        )
+                    }
+                )
+            }
         ),
-        text(size: 14pt, autoria),
-        if (afiliacion != none) { text(size:1.1em, afiliacion) } else { none },
-        if (subtitulo  != none) { emph(subtitulo) } else { none },
-    ).filter(x => x != none)
 
+        // AUTORIA
+        text(size: 14pt, autoria),
+
+        // AFILIACION
+        if (afiliacion != none) { text(size:1.1em, afiliacion) } else { none },
+
+        // SUBTITULO
+        if (subtitulo  != none) { emph(subtitulo) } else { none },
+
+    ).filter(x => x != none) // Filtramos o array, pode que algún sexan 'none', e eliminámolos
+
+    // O número de filas que ten o titular
     let numero_filas_titular = filas_titular.len()
 
-    context {
-        grid(
-            columns    : 1fr,
-            rows       : numero_filas_titular,
-            row-gutter : 1em,
-            stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
-            align      : center,
-            ..filas_titular
-        )
-    }
+    context grid(
+        columns    : 1fr,
+        rows       : numero_filas_titular,
+        row-gutter : 1em,
+        stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
+        align      : center,
+        ..filas_titular
+    )
 
     // :FACER: dúas columnas sempre?
     columns(2, gutter:5mm, artigo)
