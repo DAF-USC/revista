@@ -172,9 +172,6 @@
         region    : "ES", // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
         script    : "latn", // https://en.wikipedia.org/wiki/ISO_15924
         dir       : ltr,
-        // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
-        hyphenate : true,
-        costs     : ( hyphenation: 10% )
     )
     show math.equation: set text(font: "New Computer Modern Math")
     show heading.where(level: 3): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
@@ -490,11 +487,20 @@
             }
         }
     )
+    set text(
+        // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
+        hyphenate : true,
+        costs     : ( hyphenation: 10% )
+    )
     // :FACER: axustar espazos
     set par(
-        justify           : true,        // Texto xustificado
-        linebreaks        : "optimized", // Xustificación óptima
-        first-line-indent : 0mm,         // Sen sangría
+        justify              : true,        // Texto xustificado
+        linebreaks           : "optimized", // Xustificación óptima
+        first-line-indent    : 0mm,         // Sen sangría
+        justification-limits : (            // Topes character kerning (tracking) e word spacing
+            tracking : (min: -0.04em, max: 0.02em), // Entre caracteres
+            spacing  : (min: 66.67% + 0pt, max: 150% + 0pt) // Entre palabras
+        )
     )
     show raw: set text(
         font: _mono.familia,
@@ -530,7 +536,6 @@
     show image: eso => if mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
     show figure: eso => if mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
     show math.equation.where(block: false): eso => { box(eso) }
-
 
     // :FACER: referencias a ecuacións, figuras, etc
     doc
