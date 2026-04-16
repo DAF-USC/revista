@@ -226,7 +226,7 @@
                 fill : _cor_texto_resalte.get(),
                 size : 15pt,
                 // :FACER:MIGRACION: como facemos ca l10n ?
-                sans[Número #sys.inputs.at("numero") #h(1fr) #data]
+                mono[Número #sys.inputs.at("numero") #h(1fr) #data]
             )
         )
     ),
