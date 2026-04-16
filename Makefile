@@ -75,7 +75,7 @@ INFO_GIT := \
 # acción para limpar os ficheiros xerados
 # USO: make limpa
 limpa:
-	rm -f .pdf/*
+	rm -f .pdf/* .aux/*
 
 propaganda:
 	echo "Inda é moi pronto..."
