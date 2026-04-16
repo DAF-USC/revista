@@ -497,17 +497,40 @@
         font: _mono.familia,
         ligatures: true,
     )
-    show quote: it => {
-        set quote(block: true)
-        set text(style:"italic")
-        it
+    // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
+    // diferentes
+    show quote: set text(style: "italic")
+    show quote.where(block:true): eso => if mostrar_rede {
+        rect(
+            inset: 0pt,
+            stroke: 0.6pt,
+            text(style:"italic", eso)
+        )
+    } else {
+        text(style:"italic", eso)
     }
-    show figure.caption: it => {
+    show figure.caption: eso => if mostrar_rede {
+        rect(
+            inset: 0pt,
+            stroke: 0.6pt,
+            {
+                set align(left)
+                set text(font:_sans.familia)
+                context strong[#eso.supplement~#eso.counter.display() #eso.separator]
+                eso.body
+            }
+        )
+    } else {
         set align(left)
         set text(font:_sans.familia)
-        context strong[#it.supplement~#it.counter.display() #it.separator]
-        it.body
+        context strong[#eso.supplement~#eso.counter.display() #eso.separator]
+        eso.body
     }
+    show image: eso => if mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
+    show figure: eso => if mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
+    show math.equation.where(block: false): eso => { box(eso) }
+
+
     // :FACER: referencias a ecuacións, figuras, etc
     doc
 }
