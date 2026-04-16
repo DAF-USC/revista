@@ -6,27 +6,89 @@
 // |_____|____/ |_| |___|_____\___/ %
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
-// Defínense:
+// Este é o formato da revista. Se buscas por que tal ou cal cousa se ve como
+// se ve, deberías mirar aquí. Intentei que esto estivese comentado na medida do
+// posible, para facilitar o uso e modificación desto no futuro. Todo esto foi
+// escrito de 0 por varios estudantes da facultade de física da universidade de
+// Santiago de Compostela. Se queres saber como contribuír, botádelle un ollo ao
+// arquivo README.md. Este é un proxecto libre, de uso e de responsabilidade. En
+// ningún momento nos imos facer responsables se compilas esto e se che queima a
+// CPU (dudo que pase).
 //
-// Funcións que aceptan contido como argumento e lle aplican un estilo:
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
-//     estilo_xeral()
-//     estilo_portada()
-//     estilo_indice()
-//     estilo_contraportada()
-//     estilo_corpo()
+// Defínense varias funcións xerais na revista
 //
-// Funcións que crean dito contido
+// 1) Funcións que aceptan contido como argumento e lle aplican un estilo:
 //
-//     crear_portada()
-//     crear_indice()
-//     crear_contraportada()
 //
-// Función que xunta todo
+//     estilo_xeral(...)         -> Estilo xeral. Fonte principal, metadatos do
+//                                  documento, tamaño de páxina, e algúns tamaños.
+//     estilo_portada(...)       -> Estilo da portada. Marxes diferentes.
+//     estilo_indice(...)        -> Estilo para a páxina do índice. Este estilo
+//                                  cambia as cores da columna dereita, e pon un
+//                                  rectangulo de cor na páxina.
+//     estilo_contraportada(...) -> Estilo da contraportada
+//     estilo_corpo(...)         -> Estilo do corpo da revista (ousexa, os artigos).
+//                                  Posición dos números da páxina, encabezados, marxes
+//                                  xustificación do texto, e formatos menores
 //
-//     crear_revista()
+// 2) Funcións que crean dito contido
+//
+//     crear_portada(...)       -> Contido da portada. Un grid de 4x1.
+//                                 - Título
+//                                 - Encabezado, con data e número
+//                                 - Imaxe e comentario da imaxe
+//                                 - Logos
+//     crear_indice(...)        -> Contido do índice. Un grid de 4x3. A primeira
+//                                 columna está toda xunta e ten o índice. A
+//                                 segunda columna é estrutural, permite espazar
+//                                 ben as cousas. A 3ªcolumna ten:
+//                                 - Data e número
+//                                 - Participantes
+//                                 - Contactos
+//                                 - Logo USC
+//     crear_contraportada(...) -> Un grid de 3x1.
+//                                 - Un bloque con despedida e agradecementos
+//                                 - Un espazo
+//                                 - Outro grid, para colocar ben os QRs
+//
+// 3) Función para activar o estilo concreto dun artigo
+//
+//     Titular(...) -> Crea o titular dun artigo (título, subtitulo,
+//                     autoría,...), cas cores indicadas. Tamén cambia o estilo
+//                     da páxina (encabezados), e vai gardando nun array a
+//                     información dos artigos (título, autoría e posición) para
+//                     logo poder usala no índice
+//
+// 4) Función que xunta todo
+//
+//     crear_revista(...) -> Xera a revista. Méteselle o contido dos artigos e
+//                           a información específica dun número, como a Data,
+//                           Número, Cor, etc.
+//
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//
+// A revista debe compilarse cas seguintes opcións (úsanse automáticamente ca
+// Makefile).
+//     --format pdf              -> formato
+//     --root .                  -> diretorio 'raíz'
+//     --pdf-standard 2.0        -> versión do PDF
+//     --diagnostic-format short -> erros en versión corta
+//     --ignore-system-fonts     -> non usar fontes do sistema
+//     --ignore-embedded-fonts   -> non usar fontes de typst
+//     --font-path=fontes        -> usar fontes do diretorio 'fontes'
+//     --timings=.aux/perf.json  -> gardar datos da compilación
+//     --input numero=001        -> número da revista
+//     --input formato=completa  -> tipo de revista: completa/impresa
+//     --input rama=principal    -> rama de Git actual    # Estas 3 opcións collen a info
+//     --input hash=9000e53      -> hash de Git actual    # automáticamente usando Git
+//     --input dirt=*            -> estado do WorkingTree # na Makefile
+//
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-// Unhas variables globais
+// Unhas variables globais.
+// https://typst.app/docs/reference/introspection/state/
 //
 // :FACER: hai alternativas a esto sen estados?
 #let _cor_resalte = state("cor_resalte", "#FF0000")
@@ -53,6 +115,17 @@
 // Úsase para xerar o índice
 #let _artigos = state("artigos", ())
 
+// Fontes.
+//
+// As fontes OTF especifícanse por
+// - Familia (nome) -> STRING  nome da fonte
+// - Peso.          -> INT     número que especifica o groso da fonte
+// - Estilo         -> STRING  italic, regular
+// - Estiramento    -> RATIO   versións máis ou menos comprimidas.
+//
+// Ditos 4 valores especifican unha fonte concreta. Valores non especificados
+// volvense 'auto'. Esto son varios dicionario ca información das fontes, así é
+// máis sinxelo cambialas.
 #let _norm = ( familia: "New Computer Modern"      , peso: 450 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"          , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _sans = ( familia: "New Computer Modern Sans" , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -60,7 +133,8 @@
 #let _mono = ( familia: "New Computer Modern Mono" , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _simb = ( familia: "Symbols Nerd Font Mono"   , peso: 400 , estilo: "normal" , estiramento: 100% )
 
-// Varias funcións para activar as distintas fontes directamente
+// Varias funcións para activar as distintas fontes directamente, usando a
+// información do dicionario anterior
 #let normal     = eso => text( fallback: false, font: _norm.familia, weight: _norm.peso, style: _norm.estilo, stretch: _norm.estiramento,)[#eso]
 #let mates      = eso => text( fallback: false, font: _mate.familia, weight: _mate.peso, style: _mate.estilo, stretch: _mate.estiramento,)[#eso]
 #let sans       = eso => text( fallback: false, font: _sans.familia, weight: _sans.peso, style: _sans.estilo, stretch: _sans.estiramento,)[#eso]
@@ -82,21 +156,18 @@
         keywords    : ("física","divulgación","galego"),
         date        : data
     )
-    set page(
-        paper   : "a4",
-        // binding : left,
-    )
+    set page(paper: "a4")
     set text(
         size      : 10pt,
         font      : _norm.familia,
         weight    : _norm.peso,
-        lang      : "gl",
+        lang      : "gl", // https://en.wikipedia.org/wiki/ISO_639
         fallback  : false,
         style     : "normal",
-        features  : ( liga : 1, kern : 1, ),
-        overhang  : true,
-        region    : "ES",
-        script    : "latn",
+        features  : ( liga : 1, kern : 1, ), // https://en.wikipedia.org/wiki/List_of_typographic_features
+        overhang  : true, // Protrusión
+        region    : "ES", // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+        script    : "latn", // https://en.wikipedia.org/wiki/ISO_15924
         dir       : ltr,
         // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
         hyphenate : true,
@@ -115,7 +186,7 @@
     doc
 }
 
-// :FACER: tamaños correctos na portada
+// :FACER:MIGRACION: tamaños correctos na portada
 // Función para crear a portada
 #let crear_portada(
     imaxe        : none,
@@ -182,7 +253,7 @@
     ),
 
     // Logos
-    // :FACER: meter os logos
+    // :FACER:MIGRACION: meter os logos
     grid.cell( x:0, y:3, v(1fr))
 
 )
@@ -191,8 +262,10 @@
 #let estilo_indice(
     doc,
 ) = {
+    // Non usar sangría
     set par(first-line-indent: 0pt)
     set page(
+        // O rectángulo de cor do lado dereito
         background : context place(
             right + top,
             rect(fill: _cor_resalte.get().lighten(35%), height: 100%, width: 8cm),
@@ -213,7 +286,6 @@
 
 // Función para crear o propio índice de contidos
 // :FACER: simplificar na medida do posible todo o índice
-// :FACER:MIGRACION: rematar o índice, Titulo + Autoría como ligazóns
 #let crear_indice(
     participantes : none,
     correo        : none,
@@ -235,10 +307,13 @@
             {
                 heading( level: 1, numbering: none, condensada[*Índice*])
                 // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado
+                // Iteramos polo array ca info dos artigos
                 context for artigo in _artigos.final(){
                     // Mostramos os artigos como ligazóns
                     link(
+                        // A onde nos vai levar a ligazón
                         artigo.localizacion,
+                        // Que mostra a ligazón
                         {
                             text(
                                 fill    : _cor_resalte.get().darken(20%),
@@ -283,14 +358,16 @@
                 row-gutter : 1.4em,
                 stroke     : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
 
+                // :FACER: simplificar esto cunha función?
                 {
+                    // :FACER: aclarar postos. Cales son?
                     show text: sans
                     text(size: 1.2em)[*Dirección*]
                     v(1em)
                     participantes // Array de dicionarios ( (nome:"aa", posto:"bb"), (nome:"cc", posto:"dd") )
-                        .filter(p => p.posto == "Dirección") // array so con participantes no posto 'Dirección'
-                        .map(p => p.nome) // Devolvemos un array só cos nomes
-                        .join("\n")
+                        .filter(p => p.posto == "Dirección") // Array so con participantes no posto 'Dirección'
+                        .map(p => p.nome)                    // Devolvemos un array só cos nomes
+                        .join("\n")                          // Xunstamos os nomes cun '\n'
                 },
                 {
                     show text: sans
@@ -302,7 +379,6 @@
                         .join("\n")
                 },
                 {
-                    // :FACER: aclarar postos
                     show text: sans
                     text(size: 1.2em)[*Deseño de Logo*]
                     v(1em)
@@ -315,6 +391,7 @@
         ),
 
         // Contactos
+        // É un pouco lioso porque é un grid, con outros grids dentro, con máis grid dentro...
         grid.cell(
             x: 2, y:2,
             {
@@ -324,18 +401,21 @@
                     row-gutter: 1em,
                     columns : (100%,),
                     stroke  : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+                    // CORREO
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
                         stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("mailto:" + correo, sans[#correo])
                     ),
+                    // INSTAGRAM
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
                         stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("https://www.instagram.com/" + instagram, sans[@#instagram])
                     ),
+                    // INFO GIT
                     grid(
                         columns:1, rows:3, row-gutter: 7pt,
                         stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
@@ -374,17 +454,14 @@
     mostrar_rede: false,
     doc,
 ) = {
+    // Comezamos a contar páxinas
     counter(page).update(1)
     set page(
-        margin: (
-            top    : 20mm,
-            left   : 10mm,
-            right  : 10mm,
-            bottom : 25mm
-        ),
+        margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
         footer : context {
             let p = counter(page).get().first()
             if calc.even(p) {
+                // Pe de paxinas pares
                 grid(
                     stroke  : if mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
@@ -396,6 +473,7 @@
                     }
                 )
             } else {
+                // Pe de paxinas impares
                 grid(
                     stroke: if mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
@@ -409,10 +487,11 @@
             }
         }
     )
+    // :FACER: axustar espazos
     set par(
-        justify           : true,
-        linebreaks        : "optimized",
-        first-line-indent : 0mm,
+        justify           : true,        // Texto xustificado
+        linebreaks        : "optimized", // Xustificación óptima
+        first-line-indent : 0mm,         // Sen sangría
     )
     show raw: set text(
         font: _mono.familia,
@@ -441,21 +520,17 @@
 
 // Función para crear a contraportada
 #let crear_contraportada(
-    anteriores : none,
-    whatsapp   : none,
+    anteriores   : none,
+    whatsapp     : none,
     mostrar_rede : false,
 ) = {
 
     import "@preview/tiaoma:0.3.0"
 
+    // :FACER: esto debería estar no estilo da contraportada
     set page(
-        margin: (
-            top    : 5mm,
-            left   : 5mm,
-            right  : 5mm,
-            bottom : 5mm,
-        ),
-        background: place(
+        margin     : ( top : 5mm, left : 5mm, right : 5mm, bottom : 5mm, ),
+        background : place(
             center,
             dy : 10em,
             circle(radius:7cm, stroke: luma(90%) + 9pt,[  ])
@@ -477,7 +552,7 @@
             stroke : if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
             {
                 text(size: 2em, [Un Momentum...])
-                // :FACER: isto nunha variable externa
+                // :FACER:MIGRACION: isto nunha variable externa
                 text(size: 1.5em)[
                     #set par(justify: true, leading:0.3em)
                     Aquí está a revista por e para estudantes da Facultade de
@@ -493,7 +568,7 @@
                     recuncho físico, onde hai física máis aló das aulas
                 ]
                 text(size: 2em, [Agradecementos])
-                // :FACER: isto nunha variable externa funcións
+                // :FACER:MIGRACION: isto nunha variable externa
                 text(size: 1.2em)[
                     #set par(justify: true, leading:0.3em)
                     Dende a dirección da revista, queriamos agradecervos a
@@ -534,6 +609,7 @@
             row-gutter    : 1em,
             stroke: if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
 
+            // QR1
             grid.cell(x:0, y:0, [Edicións anteriores]),
             grid.cell(
                 x: 0, y:1,
@@ -542,22 +618,24 @@
                     anteriores,
                     "QRCode",
                     options: (
-                        option-1: 4, // error correction 1-4
-                        option-2: 8, // detalle 1-40
-                        scale: 1.5,
+                        option-1 : 4,   // corrección de erros, 1-4
+                        option-2 : 8,   // detalle, 1-40
+                        scale    : 1.5,
                     ),
                 )
             ),
 
+            // QR2
             grid.cell(x:1, y:0, [Participa! (WhatsApp)]),
             grid.cell(
                 x: 1, y:1,
                 tiaoma.barcode(whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
             ),
 
+            // Financiación
             // :FACER:MIGRACION: meter financiamento
             grid.cell(x:2, y:0, [Co financiamento de]),
-            grid.cell( x:2, y:1, [Alguén])
+            grid.cell(x:2, y:1, [Alguén])
 
         )
 
@@ -565,6 +643,7 @@
 
 }
 
+// Función que xunta todo
 #let crear_revista(
     data              : datetime.today(),
     cor_resalte       : rgb("ff0000"),
@@ -584,13 +663,14 @@
     mostrar_rede      : false
 ) = {
 
+    // :FACER: comprobacións (tipos, lonxitudes..) e casos límite dos argumentos
+
     // Gardamos o novo valor das cores para poder usalo nos artigos
     _cor_resalte.update(c => cor_resalte)
     _cor_texto_resalte.update(c => cor_texto_resalte)
 
     // Pa mostrar ou no a estrutura das cousas
     _mostrar_rede.update(m => mostrar_rede)
-
 
     // Activamos o estilo xeral, que vai afectar a toda a revista
     show: estilo_xeral.with(
