@@ -612,6 +612,7 @@
             row-gutter    : 1em,
             stroke: if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
 
+            // :FACER: QRs clicables, como links
             // QR1
             grid.cell(x:0, y:0, [Edicións anteriores]),
             grid.cell(
@@ -833,6 +834,7 @@
                     fill   : rgb(_cor_resalte.get()),
                     weight : "bold",
                     {
+                        // :FACER: aclarar que niveis usar en artigos, índice, titular, etc.
                         condensada(heading(titulo)) /* Mostrar o título */
                         let posicion = here().position() /* Variable ca posición actual */
                         // Agora actualizamos a lista de artigos engadindo un
