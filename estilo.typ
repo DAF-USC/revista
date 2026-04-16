@@ -513,11 +513,11 @@
         text(style:"italic", eso)
     }
     show figure.caption: eso => if mostrar_rede {
+        set align(left)
         rect(
             inset: 0pt,
             stroke: 0.6pt,
             {
-                set align(left)
                 set text(font:_sans.familia)
                 context strong[#eso.supplement~#eso.counter.display() #eso.separator]
                 eso.body
