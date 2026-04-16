@@ -52,16 +52,16 @@ propón é unha reescritura do primeiro principio da termodinámica:
 
 Até aquí non hai nada novidoso, non obstante, debemos pensar que as expresións
 matemáticas que frecuentemente manexamos en termodinámica son diferenciais de
-Pfaff: $"df"=sum x_i "dX"_i$, os cales no caso adiabático ($overline(d) Q = 0$)
+Pfaff: $"df"=sum x_i "dX"_i$, os cales no caso adiabático ($dbar Q = 0$)
 supoñen un problema de curvas características entre o estado inicial e o final.
 Nesta clase de procesos, estas 1–formas verifican sempre o segundo lema de
 Schwarz, polo que se trata de diferenciais exactos que podemos integrar; agora
 ben, en procesos non adiabáticos isto non é así. O matemático grego é tamén
 autor dun teorema que leva o seu nome: este asegúranos que para toda 1–forma
 non exacta existe un factor integrante que a converte en integrábel. Así,
-afirma, ao retirar a restricción adiabática, que para $macron(d) Q = "dU" –
-macron(d) W$ existe un factor integrante, que é o inverso da temperatura
-absoluta ($1\/T$), que converte a $macron(d) Q$ en exacta, este novo diferencial
+afirma, ao retirar a restricción adiabática, que para $dbar Q = "dU" –
+dbar W$ existe un factor integrante, que é o inverso da temperatura
+absoluta ($1\/T$), que converte a $dbar Q$ en exacta, este novo diferencial
 é a entropía $"dS"$. Desta forma, semella sólido enunciar o seguinte axioma:
 
 #quote(attribution: [Carathéodory, 1909 @c1909])[

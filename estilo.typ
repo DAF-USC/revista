@@ -70,7 +70,8 @@
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
 // A revista debe compilarse cas seguintes opcións (úsanse automáticamente ca
-// Makefile).
+// Makefile):
+// typst compile
 //     --format pdf              -> formato
 //     --root .                  -> diretorio 'raíz'
 //     --pdf-standard 2.0        -> versión do PDF
@@ -81,9 +82,9 @@
 //     --timings=.aux/perf.json  -> gardar datos da compilación
 //     --input numero=001        -> número da revista
 //     --input formato=completa  -> tipo de revista: completa/impresa
-//     --input rama=principal    -> rama de Git actual    # Estas 3 opcións collen a info
-//     --input hash=9000e53      -> hash de Git actual    # automáticamente usando Git
-//     --input dirt=*            -> estado do WorkingTree # na Makefile
+//     --input rama=principal    -> rama de Git actual    | Estas 3 opcións collen a info
+//     --input hash=9000e53      -> hash de Git actual    | automáticamente usando Git
+//     --input dirt=*            -> estado do WorkingTree | na Makefile
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -167,7 +168,7 @@
         fallback  : false,
         style     : "normal",
         features  : ( liga : 1, kern : 1, ), // https://en.wikipedia.org/wiki/List_of_typographic_features
-        overhang  : true, // Protrusión
+        overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
         region    : "ES", // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
         script    : "latn", // https://en.wikipedia.org/wiki/ISO_15924
         dir       : ltr,
@@ -765,6 +766,7 @@
 
 }
 
+// :FACER:MIGRACION: cargar bibliografía _per_ artigo. véxase https://github.com/typst/typst/pull/7277
 #let Titular(                            /* TIPO      explicacion */
     titulo        : [-- SEN TÍTULO --],  // CONTENT Título do artigo
     autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
@@ -835,7 +837,7 @@
                         // dicionario é o que se usa no índice para sacar a
                         // info dos artigos
                         _artigos.update(
-                            // 'x' é o array actual. Engadímoslle un array (ousexa,
+                            // 'x' é o array actual. Engadímoslle (ousexa,
                             // concatenamoslle) outro array que contén un
                             // dicionario cas claves 'titulo','autoria' e
                             // 'localizacion'.
@@ -877,3 +879,7 @@
     columns(2, gutter:5mm, artigo)
 
 }
+
+// Varios símbolos e tal
+
+#let dbar = math.class( "normal", $\u{0111}$)
