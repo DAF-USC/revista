@@ -520,9 +520,11 @@
 
 // Función para crear a contraportada
 #let crear_contraportada(
-    anteriores   : none,
-    whatsapp     : none,
-    mostrar_rede : false,
+    anteriores     : none,
+    whatsapp       : none,
+    agradecementos : none,
+    despedida      : none,
+    mostrar_rede   : false,
 ) = {
 
     import "@preview/tiaoma:0.3.0"
@@ -553,49 +555,21 @@
             {
                 text(size: 2em, [Un Momentum...])
                 // :FACER:MIGRACION: isto nunha variable externa
-                text(size: 1.5em)[
-                    #set par(justify: true, leading:0.3em)
-                    Aquí está a revista por e para estudantes da Facultade de
-                    Física USC! Cansos de que o momento lineal e angular guíen
-                    as nosas traxectorias?, imos escribir unha nova historia;
-                    entrevistas, divulgación, filosofía da ciencia e moitos
-                    artigos dispares cargamos coa inercia de formar unha nova
-                    fiestra para o alumnado. Tes nas túas mans esta
-                    oportunidade, deixa que o magnetismo te leve e participa,
-                    sé parte deste proxecto: escribe, le, comparte, suxire… A
-                    revista é real e as túas ideas poden ser máis que
-                    imaxinación, non dubides en deixar a túa pegada neste
-                    recuncho físico, onde hai física máis aló das aulas
-                ]
+                text(
+                    size: 1.5em,
+                    {
+                        set par(justify: true, leading:0.3em)
+                        despedida
+                    }
+                )
                 text(size: 2em, [Agradecementos])
-                // :FACER:MIGRACION: isto nunha variable externa
-                text(size: 1.2em)[
-                    #set par(justify: true, leading:0.3em)
-                    Dende a dirección da revista, queriamos agradecervos a
-                    todos por achegarvos a este proxecto. Non hai revista
-                    sen lector! Mais, para facela, estivo moita xente
-                    implicada que non podemos pasar por alto. Sentímonos
-                    moi orgullosos de contar cun equipo tan esmerado que
-                    roza a perfección no traballo, grazas aos nosos
-                    editores e correctores unha vez máis. Tamén a todas
-                    aquelas persoas en calidade de redactoras que crearon o
-                    contido para este novo número. Sen eles non sería
-                    posible continuar con este proxecto.
-
-                    Agradecemos a eses docentes constantes que apoian a
-                    revista, a Ana Peón pola súa ilusión de escribir, a
-                    Gabriel Rodríguez que leva a revista até Dresden.
-                    Ademais, grazas a Manuel Rey por abrirnos a porta para
-                    colaborar co IGFAE.
-
-
-                    Finalmente, grazas tanto ao equipo decanal da nosa
-                    facultade como á vicerreitoría de estudantes e cultura.
-
-                    Esperamos que recibades con entusiasmo este novo número
-                    na meseta deste segundo cuadrimestre e sexa un pequeno
-                    alivio no asfixiante día nesta facultade.
-                ]
+                text(
+                    size: 1.2em,
+                    {
+                        set par(justify: true, leading:0.3em)
+                        agradecementos
+                    }
+                )
             }
         ),
 
@@ -657,7 +631,7 @@
     correo            : "revistafisicausc@gmail.com",
     participantes     : ((nome: "-- SEN PARTICIPANTES --"),),
     despedida         : "-- SEN DESPEDIDA --",
-    agradecementos    : "-- SEN AGRADECEMENTO --",
+    agradecementos    : "-- SEN AGRADECEMENTOS --",
     artigos           : "-- SEN ARTIGOS --",
     formato           : sys.inputs.formato,
     mostrar_rede      : false
@@ -715,9 +689,11 @@
         {
             show: estilo_contraportada
             crear_contraportada(
-                anteriores : anteriores,
-                whatsapp   : whatsapp,
-                mostrar_rede : mostrar_rede
+                anteriores     : anteriores,
+                whatsapp       : whatsapp,
+                despedida      : despedida,
+                agradecementos : agradecementos,
+                mostrar_rede   : mostrar_rede
             )
         }
 
@@ -751,9 +727,11 @@
         {
             show: estilo_contraportada
             crear_contraportada(
-                anteriores : anteriores,
-                whatsapp   : whatsapp,
-                mostrar_rede : mostrar_rede
+                anteriores     : anteriores,
+                whatsapp       : whatsapp,
+                despedida      : despedida,
+                agradecementos : agradecementos,
+                mostrar_rede   : mostrar_rede
             )
         }
     }
