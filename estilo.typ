@@ -509,9 +509,7 @@
             stroke: 0.6pt,
             text(style:"italic", eso)
         )
-    } else {
-        text(style:"italic", eso)
-    }
+    } else { eso }
     show figure.caption: eso => if mostrar_rede {
         set align(left)
         rect(
