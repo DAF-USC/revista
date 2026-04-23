@@ -54,8 +54,8 @@
 #let artigos = {
     include{"/revistas/002/artigo_ENTREVISTA_ANA.typ"}
     // include{"/revistas/002/artigo_SCHRODINGER.typ"}
-    // include{"/revistas/002/artigo_LEEUWEN.typ"}
-    // include{"/revistas/002/artigo_MATERIA_ESCURA.typ"}
+    include{"/revistas/002/artigo_LEEUWEN.typ"}
+    include{"/revistas/002/artigo_MATERIA_ESCURA.typ"}
     include{"/revistas/002/artigo_DARKO.typ"}
     include{"/revistas/002/artigo_DZHANIBEKOV.typ"}
     // include{"/revistas/002/artigo_MERINO.typ"}
@@ -74,5 +74,5 @@
     artigos           : artigos,
     despedida         : despedida,
     agradecementos    : agradecementos,
-    // mostrar_rede      : true
+    mostrar_rede      : true
 )

@@ -516,6 +516,7 @@
             text(style:"italic", eso)
         )
     } else { eso }
+    // :FACER: caption con menos interliñado?
     show figure.caption: eso => if mostrar_rede {
         set align(left)
         rect(
@@ -536,6 +537,7 @@
     show image: eso => if mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
     show figure: eso => if mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
     show math.equation.where(block: false): eso => { box(eso) }
+    set math.equation(numbering: "1)")
 
     // :FACER: referencias a ecuacións, figuras, etc
     doc
@@ -777,6 +779,7 @@
     autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
     subtitulo     : none,                // CONTENT Subtítulo do artigo
     afiliacion    : none,                // STRING  Afiliación dos autores
+    // :FACER: realmente fai falla esto? Engadimos combrobacións?
     estilo        : "-- SEN ESTILO --",  // STRING  Estilo do artigo (divulgación, historia, etc.)
     mostrar_rede  : true,                // BOOL    Mostrar estrutura visual ou no
     artigo

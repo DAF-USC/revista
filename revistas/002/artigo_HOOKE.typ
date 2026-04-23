@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Titular.with(
-    estilo    : "historia",
+    estilo    : "HISTORIA",
     titulo    : [Robert Hooke. Nunca vaias contra Newton],
     autoria   : [Pablo Duarte López],
     subtitulo : [Sobre como se pode pasar de ser a gran figura da túa época a ser case esquecido.]

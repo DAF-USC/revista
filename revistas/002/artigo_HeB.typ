@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Titular.with(
-    estilo    : "historia",
+    estilo    : "HISTORIA",
     titulo    : [_Strike_, you're out!\ Bombas, Heisenberg e un catcher],
     autoria   : [Santiago González Gómez],
     subtitulo : [As vidas dun beisbolista e dun dos pais da Física Cuántica, cruzadas por unha historia de espías e o proxecto atómico da Alemaña nazi.],
@@ -83,6 +83,8 @@ determinar como de preto estaba o alemán de desenvolver a temida bomba. A OSS
 chegou a considerar a posibilidade de secuestralo, pero isto nunca chegou a
 suceder.
 
+// :FACER:MIGRACION: ás veces as figuras non enchen o 100% do espazo da
+// columna, o cal dealinea as captions co resto do texto
 #figure(
     image(width: 55%,"/revistas/002/imaxes/bergChicago.jpg"),
     caption : [Cromo de Berg mentres xogaba para os Chicago White Sox. Fonte: Wikipedia.]
@@ -107,6 +109,7 @@ proxeto de bomba atómica alemá, para o 1944 xa sería demasiado tarde.
 Finalmente, decidiu non asasinar a Heisenberg e as súas vidas separáronse para
 non volver a atoparse nunca máis.
 
+#colbreak()
 === Unha granxa en Cambridge
 
 Moito se ten discutido sobre o papel de Heisenberg no _proxecto Uranio_,

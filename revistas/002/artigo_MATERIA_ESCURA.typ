@@ -1,11 +1,11 @@
-\Titular%
-{divulgacion}%
-{O misterio da materia escura}%
-{Pablo Falgueras Casarejos}%
-{O descubrimento da maior parte da materia do universo e o enigma da súa composición.}%
+#import("/estilo.typ"): *
 
-
-\begin{multicols}{2}
+#show: Titular.with(
+    estilo    : "DIVULGACION",
+    titulo    : [O misterio da materia escura],
+    autoria   : [Pablo Falgueras Casarejos],
+    subtitulo : [O descubrimento da maior parte da materia do universo e o enigma da súa composición.],
+)
 
 
 Dende os anos trinta do século XX sabemos que no universo hai algún tipo de
@@ -16,12 +16,12 @@ por unhas mil galaxias na constelación de Coma Berenices, a algo máis de 300
 millóns de anos luz. Zwicky mediu as velocidades das galaxias do cúmulo e
 atopou que eran moito maiores do esperado só tendo en conta a materia visible,
 de feito, chegaban a superar a velocidade de escape estimada para o cúmulo. En
-consecuencia, propuxo que debía existir algún tipo de “materia escura” que non
+consecuencia, propuxo que debía existir algún tipo de _materia escura_ que non
 podiamos observar responsable do movemento anómalo das galaxias. Non obstante,
 este achado caeu no esquecemento ata catro décadas despois. Hoxe en día sábese
 que Zwicky sobreestimou a cantidade de materia escura porque non tivo en conta
 o gas intergaláctico (aínda non descuberto), o cal achega a maior parte da masa
-do cúmulo. 
+do cúmulo.
 
 Xa na década dos 70, a astrónoma Vera Rubin xunto con Kent Ford, analizando a
 velocidade de rotación de estrelas individuais en galaxias espirais, atoparon o
@@ -54,25 +54,27 @@ masa que produce a lente gravitacional. Grazas a isto, obsérvase que unicamente
 a materia bariónica non podería producir as lentes gravitacionais estudadas,
 senón que é necesaria a presenza de máis masa para conseguilo.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\linewidth]{revistas/002/imaxes/materiaescura1.png}
-    \caption{LRG 3-757 ou a “ferradura cósmica”, un exemplo das lentes gravitacionais coñecidas como aneis de Einstein \cite{hubbleNASA}.}
-    \label{fig:escura1}
-\end{figure}
+
+#figure(
+    image(width: 90%, "/revistas/002/imaxes/materiaescura1.png"),
+    caption : [
+        LRG 3-757 ou a _ferradura cósmica_, un exemplo das lentes
+        gravitacionais coñecidas como aneis de Einstein /*@hubbleNASA*/.
+    ]
+) <fig:escura1>
 
 Outra proba provén da radiación do fondo cósmico de microondas (Cosmic
 Microwave Background, CMB, en inglés), radiación emitida durante a chamada
-“recombinación” uns 380 000 anos despois do Big Bang. Analizando as flutuacións
+_recombinación_ uns 380 000 anos despois do Big Bang. Analizando as flutuacións
 de temperatura do CMB estímase que a dendisade de materia (escura e ordinaria)
-do universo atópase en torno ao 32\% da súa densidade crítica, o cal está en
+do universo atópase en torno ao 32% da súa densidade crítica, o cal está en
 perfecto acordo coas observacións, das que se obtén que a materia bariónica
-supón un 5\% da densidade crítica e a materia escura un 27\%. Por certo,
-pénsase que a contribución da “enerxía escura” (non materia!) é igual ao 68\%
+supón un 5% da densidade crítica e a materia escura un 27%. Por certo,
+pénsase que a contribución da _enerxía escura_ (non materia!) é igual ao 68\%
 restante, polo que a densidade do universo sería igual á súa densidade crítica
 e a xeometría deste sería plana.
 
-Sobre as súas características, sábese que a materia escura debe de ser “fría”,
+Sobre as súas características, sábese que a materia escura debe de ser _fría_,
 é dicir, que a velocidade das súas partículas é moito menor que a velocidade da
 luz. Se non fose así, o colapso gravitatorio da materia no universo temperán
 tería sido menos eficiente e non existiría a estrutura a grande escala actual.
@@ -90,14 +92,15 @@ está superposta ao cúmulo (non retardada). Isto quere dicir que cando os
 cúmulos colidiron, a materia escura atravesou as nubes de gas e a si mesma sen
 apenas interaccionar, doutro xeito tamén se atrasaría como o gas.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\linewidth]{revistas/002/imaxes/materiaescura2.png}
-    \caption{O Cúmulo Bala na constelación de Carina. En vermello, a
-emisión en raios X do gas intergaláctico; en azul, a distribución de materia
-escura obtida a través dos efectos de lente gravitacional \cite{hubbleNASA2}.}
-    \label{fig:escura2}
-\end{figure}
+#figure(
+    image(width: 85%, "/revistas/002/imaxes/materiaescura2.png"),
+    caption : [
+        O Cúmulo Bala na constelación de Carina. En vermello, a emisión en
+        raios X do gas intergaláctico; en azul, a distribución de materia
+        escura obtida a través dos efectos de lente gravitacional
+        /*@hubbleNASA2*/.
+    ]
+) <fig:escura2>
 
 Iso si, se ben parece estar bastante claro que a materia escura existe aínda
 que non a vexamos, no que respecta á súa composición a situación é moi
@@ -112,7 +115,7 @@ negros primordiais aínda se está a estudar). Tampouco poden ser nubes de gas
 escuras (como as nebulosas escuras), pois absorberían a luz de estrelas ou
 galaxias distantes, o cal non observamos; a materia escura é transparente á
 luz. Os neutrinos descartámolos igualmente porque debido á súa ínfima masa
-terían velocidades moi altas e serían “quentes”, non fríos.
+terían velocidades moi altas e serían _quentes_, non fríos.
 
 Algúns dos candidatos máis prometedores son os WIMPs (Weakly Interacting
 Massive Particle, ou partículas masivas que interactúan debilmente), dos cales
@@ -136,11 +139,9 @@ xa están descartados algúns candidatos e moitos outros probablemente
 descartaranse no futuro, terase que seguir investigando para resolver este
 enigma
 
-\nocite{alberto2021materiaescura}
-\nocite{krauss5esencia}
-\nocite{hubbleNASA}
-\nocite{hubbleNASA2}
-
-\printbibliography
-
-\end{multicols}
+/*
+    @alberto2021materiaescura
+    @krauss5esencia
+    @hubbleNASA
+    @hubbleNASA2
+*/

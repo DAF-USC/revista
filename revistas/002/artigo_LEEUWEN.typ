@@ -1,14 +1,14 @@
-\Titular%
-{divulgacion}%
-{O Teorema de Bohr-Van Leeuwen: o segredo está na cuántica}%
-{Luis Arcas Morcillo}%
-{Da imposibilidade clásica do magnetismo.}%
+#import("/estilo.typ"): *
+
+#show: Titular.with(
+    estilo    : "DIVULGACION",
+    titulo    : [O Teorema de Bohr-Van Leeuwen:\ o segredo está na cuántica],
+    autoria   : [Luis Arcas Morcillo],
+    subtitulo : [Da imposibilidade clásica do magnetismo.],
+)
 
 
-\begin{multicols}{2}
-
-
-\textit{Classical magnetism is fake}. Estou seguro de que con este artigo a
+_Classical magnetism is fake_. Estou seguro de que con este artigo a
 polémica está servida. Gústame imaxinar que os nosos prezados lectores
 dividiranse en dous bandos. Uns entrarán en pánico e ante a afirmación anterior
 quererán abolir o estudo da magnetostática clásica en tódalas facultades do
@@ -18,7 +18,7 @@ fenómeno a escala atómica debe rexer as leis da mecánica cuántica. Non
 obstante, este feito non era para nada coñecido no comezo do século XX, onde
 comeza a nosa historia. Abrochade os vosos cintos, porque avecíñanse curvas.
 
-\subsection*{O magnetismo previo ao átomo}
+=== O magnetismo previo ao átomo
 
 Supoño que os inicios da teoría do magnetismo son coñecidos pola maioría, pero
 en resumidas contas aconteceu máis ou menos así:
@@ -43,52 +43,55 @@ sentido pensar que estas partículas cargadas en particular, e os átomos en
 xeral, son susceptibles individualmente á actuación de campos
 electromagnéticos. A enerxía adquirida pola presenza dun campo magnético pode
 describirse a partir do momento magnético da partícula cargada:
-\begin{equation}\label{ec.: energia_momento}
-    \vec \mu = \frac{1}{2m}(\vec r\times q\vec v)\Longrightarrow E =
-    -\vec \mu\vec B = -\mu_zB.
-\end{equation}
+
+$
+    arrow(mu) = 1/(2m) (arrow(r) times q arrow(v) )
+    arrow.double
+    E = - arrow(mu) arrow(B) = - mu_z B.
+$ <ec.:energia_momento>
 
 O signo negativo corresponde ao feito de que a enerxía se minimiza cando o
-momento magnético $\vec \mu$ está aliñado co campo: $E=E_\mathrm{mín}
-\Leftrightarrow \vec \mu \parallel \vec B \Leftrightarrow \vec \mu=\mu \hat z$.
+momento magnético $arrow(mu)$ está aliñado co campo: $E=E_"mín"
+arrow.l.r.double arrow(mu) parallel arrow(B) arrow.l.r arrow(mu) = mu
+chevron(z)$.
 
 Sen entrar en moitos detalles, o comportamento dos momentos magnéticos dos
 átomos individuais fronte a campos magnéticos permitiríanos describir o
 material. Se tódolos momentos están aliñados entre eles, falamos de
-\emph{ferromagnetismo}: o material presentaría un comportamento de imán natural
+_ferromagnetismo_: o material presentaría un comportamento de imán natural
 cando se introduce un campo magnético. Se os momentos magnéticos individuais
 están desaliñados, de tal xeito que aparentemente se opoñen ao campo externo,
-falamos de \emph{diamagnetismo}. Non obstante, se a interacción parece favorable
-á dirección do campo, falaremos de \emph{paramagnetismo}.
+falamos de _diamagnetismo_. Non obstante, se a interacción parece favorable
+á dirección do campo, falaremos de _paramagnetismo_.
 
-\subsection*{Langevin e o primeiro modelo atómico do paramagnetismo}
+=== Langevin e o primeiro modelo atómico do paramagnetismo
 
 En 1905, o físico francés Paul Langevin foi o primeiro en presentar un modelo
 que fose capaz de explicar a escala atómica o comportamento dos distintos
-materiais fronte a campos magnéticos. Actualmente estúdase como a \emph{teoría
-semiclásica do paramagnetismo} \cite[Sec. 2.1.4.]{blundell.s_2001}. Langevin
+materiais fronte a campos magnéticos. Actualmente estúdase como a _teoría
+semiclásica do paramagnetismo_/*[Sec. 2.1.4.]@blundell.s_2001*/. Langevin
 propoñía que os átomos tiñan un momento magnético constante apuntando a certa
 rexión do espazo segundo a distribución de Boltzmann:
 
-\begin{equation}\label{ec.: bvl_boltzmann}
-    dP = \frac{1}{Z}e^{\frac{E}{k_B T}}d\Omega,\,\, Z
-    =\int_{0}^{2\pi}\int_{0}^{\pi}e^{\frac{E}{k_B T}}d\Omega,
-\end{equation}
+$
+    d P = 1/Z e^(E/(K_B T)) d Omega,
+    Z = integral_0^(2pi) integral_0^pi e^(E/(K_B T)) d Omega.
+$
+<ec.:bvl_boltzmann>
 
-onde $d\Omega = \sin(\theta)d\theta d\phi$ é a diferencial do ángulo sólido.
+onde $d Omega = sin(theta)d theta d phi$ é a diferencial do ángulo sólido.
 Así, dados $N$ átomos dun material lineal nun volume $V$, a magnetización
 resultante do material é a seguinte:
 
-\begin{equation}\label{ec.: blv_langevin}
-    M = \frac{N}{V} \int\mu_zdP = \frac{N}{V}\cdot
-    L\left(\frac{\mu B}{k_B T}\right),
-\end{equation}
+$
+    M = N/V integral mu_z d P = N / V dot L ((mu B) / (k_B T)),
+$ <ec.:blv_langevin>
 
-onde $L(y) = \coth(y)-y^{-1}$ é a función de Langevin. Dous anos máis tarde, o
+onde $L(y) = coth(y)-y^(-1)$ é a función de Langevin. Dous anos máis tarde, o
 tamén francés Pierre Weiss propuxo outro modelo que corrixía o de Langevin e
 introducía o comportamento ferromagnético de diversos materiais na teoría.
 
-\subsection*{As disertacións de Bohr e Van Leeuwen. Unha nova teoría.}
+=== As disertacións de Bohr e Van Leeuwen. Unha nova teoría.
 
 Os problemas non tardarían en chegar. Xa por 1911, un novo Niels Bohr puxo en
 dúbida a teoría de Langevin, achando unha contradición infranqueable se
@@ -96,64 +99,80 @@ soamente se empregaban técnicas de Mecánica Estadística. Anos máis tarde, un
 estudante da Universidade de Leiden, chamada Hendrika Johanna van Leeuwen
 disertaría sobre o mesmo tema na súa tese doutoral, chegando ás mesmas
 conclusións que Bohr. Vexamos cal foi o seu razoamento e as conclusións finais
-\cite[Sec. 1.2.2.]{blundell.s_2001}.\\
+/*[Sec. 1.2.2.]@blundell.s_2001*/.
 
 Consideremos unha mostra paramagnética de $N$ átomos, todos coa mesma masa, no
 seo dun campo magnético. Consideraremos exclusivamente o momento debido aos
 electróns, sendo o resultado xeral para outras partículas cargadas. Tense entón
 que cada electrón ten un momento magnético:
-$$\vec \mu = \frac{-e}{2m} ({\vec r}\times \dot {\vec r}) \Rightarrow
-\mu_z=\sum_{i=1}^{3N}a_i(q_1,\dots,q_{3N})\dot q_i.$$
 
-É dicir, o momento magnético total nunha dirección (a dirección do campo $\vec
-B$) é unha función explícita das velocidades nas coordenadas xerais.
+$
+    arrow(mu) = (-e)/(2m) (arrow(r) times dot(arrow(r)))
+    arrow.double
+    mu_z = sum_(i=1)^(3 N) a_i (q_1, dots, q_(3n))dot(q)_i
+$
+
+É dicir, o momento magnético total nunha dirección (a dirección do campo
+$arrow(B)$) é unha función explícita das velocidades nas coordenadas xerais.
 
 Consideremos ademais que o noso sistema conserva a súa enerxía, de tal feito
-que o total correspóndese co hamiltoniano, función de coordenadas xerais, $\vec
-q$ e os seus momentos canónicos conxugados, $\vec p$. Para un sistema sometido
-a un campo electromagnético caracterizado polos potenciais $(\phi,\vec A)$,
-dáse o seguinte hamiltoniano :
-\begin{equation}\label{ec.: bvl_hamiltoniano}
-    E=H(\vec q,\vec p) = \frac{1}{2m}\sum_{i=1}^N (\vec p_i - e\vec
-    A_i)^2 + e\phi(q_1,...,q_{3N})
-\end{equation}
+que o total correspóndese co hamiltoniano, función de coordenadas xerais,
+$arrow(q)$ e os seus momentos canónicos conxugados, $arrow(p)$. Para un sistema
+sometido a un campo electromagnético caracterizado polos potenciais
+$(phi.alt,arrow(A))$, dáse o seguinte hamiltoniano:
 
-Podemos realizar a media os seus momentos magnéticos para achar a enerxía media do
-sistema $\braket{E} = -B\braket{\mu_z}$. Segundo a Mecánica Estatística
-\eqref{ec.: bvl_boltzmann} e o modelo de Langevin \eqref{ec.: blv_langevin},
+$
+    E = H(arrow(q), arrow(p))
+    =
+    1/(2m) sum_(i=1)^(N)(arrow(p)_i - e arrow(A)_i)^2 + e phi (q_1, dots, q_(3N))
+$
+
+Podemos realizar a media os seus momentos magnéticos para achar a enerxía media
+do sistema $chevron.l E chevron.r = -B chevron.l mu_z chevron.r$. Segundo a
+Mecánica Estatística
+@ec.:bvl_boltzmann e o modelo de Langevin @ec.:blv_langevin,
 podemos calcular esta media a partir da función de partición $Z$ da mostra:
+
 \begin{equation}\label{ec.: bvl-mec_est}
     \braket{\mu_z} = \int \mu_z\, dP = \frac{1}{Z}\int e^{-\beta
     H(\vec q,\vec p)} \, d^N(\vec q, \vec p),
 \end{equation}
 
-onde $\beta^{-1} = k_B T$. Recordando as relacións de conxugación canónica no
-formalismo hamiltoniano, temos que $\dot q_i = \frac{\partial H}{\partial
-p_i}$, e polo tanto a media cumpre que:
-\begin{equation}
-    \braket{\mu_z} = \frac{1}{Z}\iint\sum_{i=1}^{3N} a_i
-    (q_1,...,q_{3N}) \frac{\partial H}{\partial p_i}e^{-\beta
-    H}d^{3N}(\vec q,\vec p).
-\end{equation}
+$
+    chevron.l mu_z chevron.r = integral mu_z d P
+    =
+    1 / Z integral e^(-beta H(arrow(q), arrow(p))) d^N (arrow(q), arrow(p)),
+$ <ec.:bvl-mec_est>
+
+onde $beta^(-1) = k_B T$. Recordando as relacións de conxugación canónica no
+formalismo hamiltoniano, temos que $dot(q)_i = (partial H)/(partial
+p_i)$, e polo tanto a media cumpre que:
+
+$
+    chevron.l mu_z chevron.r
+    =
+    1/Z integral.double sum_(1=1)^(3N)a_i (q_1, dots, q_(3N))
+        (partial H)/(partial p_i)e^(-beta H)d^(3N)(arrow(q), arrow(p)).
+$
 
 No entanto, se integrarmos na totalidade do espazo de fases, veremos que a
-media é igual a cero\footnote{É un bo exercicio para o lector facer os
+media é igual a cero#footnote[É un bo exercicio para o lector facer os
 cálculos, aquí vai unha pista: separe a integral múltiple no producto das
-integrais na posición $\vec q$ e o seu momento $\vec p$. O integrando
-dependente de $\vec p$ é impar, e polo tanto a integral anúlase.}. Deste modo,
+integrais na posición $arrow(q)$ e o seu momento $arrow(p)$. O integrando
+dependente de $arrow(p)$ é impar, e polo tanto a integral anúlase.]. Deste modo,
 baixo a acción do campo, en media estatística hai tantos momentos aliñados
-coma desaliñados: a mostra é diamagnética.\\
+coma desaliñados: a mostra é diamagnética.
 
 En resumidas contas, de ser pola teoría clásica, non habería magnetismo
 posible, nunha clara contradición coa realidade experimental. Así, era
 necesaria unha nova teoría que fose capaz de explicar a presenza do magnetismo
-na natureza. Segundo \cite{van-vleck.jh_1977}, foi este feito o
+na natureza. Segundo /*@van-vleck.jh_1977*/, foi este feito o
 que motivou a Bohr a introducir a cuantización do momento angular orbital do
 electrón ao redor do núcleo de hidróxeno para formular o seu famoso modelo
 atómico. Así, un pode afirmar que o nacemento da cuántica está moi vinculado ao
 magnetismo atómico.
 
-\subsection*{Conclusións}
+=== Conclusións
 
 En definitiva, aínda que a teoría de Maxwell é moi útil para explicar fenómenos
 electromagnéticos clásicos coma a indución magnética ou mesmo a luz (o que
@@ -163,7 +182,3 @@ teña presente o comportamento propio dos átomos. É dicir, que, unha vez máis
 cuántica está aquí para salvarnos da catástrofe. Un desenvolvemento máis
 completo do rol da cuántica no magnetismo pode cursarse na materia de
 Nanomagnetismo e Nanotecnoloxía desta facultade.
-
-\printbibliography
-
-\end{multicols}
