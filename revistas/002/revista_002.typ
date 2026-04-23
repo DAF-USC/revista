@@ -52,7 +52,7 @@
 ]
 
 #let artigos = {
-    // include{"/revistas/002/artigo_ENTREVISTA_ANA.typ"}
+    include{"/revistas/002/artigo_ENTREVISTA_ANA.typ"}
     // include{"/revistas/002/artigo_SCHRODINGER.typ"}
     // include{"/revistas/002/artigo_LEEUWEN.typ"}
     // include{"/revistas/002/artigo_MATERIA_ESCURA.typ"}
@@ -60,8 +60,8 @@
     include{"/revistas/002/artigo_DZHANIBEKOV.typ"}
     // include{"/revistas/002/artigo_MERINO.typ"}
     // include{"/revistas/002/artigo_VOYAGER.typ"}
-    // include{"/revistas/002/artigo_HOOKE.typ"}
-    // include{"/revistas/002/artigo_HeB.typ"}
+    include{"/revistas/002/artigo_HOOKE.typ"}
+    include{"/revistas/002/artigo_HeB.typ"}
     // include{"/revistas/002/artigo_PASATEMPOS.typ"}
 }
 

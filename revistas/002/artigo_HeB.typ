@@ -1,19 +1,20 @@
-\Titular%
-{historia}%
-{\textit{Strike, you're out!} Bombas, Heisenberg e un catcher}%
-{Santiago González Gómez}%
-{As vidas dun beisbolista e dun dos pais da Física Cuántica, cruzadas por unha historia de espías e o proxecto atómico da Alemaña nazi.}%
+#import("/estilo.typ"): *
 
-\begin{multicols}{2}
+#show: Titular.with(
+    estilo    : "historia",
+    titulo    : [_Strike_, you're out!\ Bombas, Heisenberg e un catcher],
+    autoria   : [Santiago González Gómez],
+    subtitulo : [As vidas dun beisbolista e dun dos pais da Física Cuántica, cruzadas por unha historia de espías e o proxecto atómico da Alemaña nazi.],
+)
 
-\subsection*{Heisenberg e o \textit{proxecto Uranio}}
+=== Heisenberg e o _proxecto Uranio_
 
 Cando en setembro de 1939 estourara a Segunda Guerra Mundial, Werner
 Heisenberg, un dos pais da física cuántica, foi requirido polo goberno nazi
 xunto con outros destacados físicos alemáns. O estudo da fisión nuclear
 atopábase en auxe e Alemaña quería estudar a viabilidade de construír unha
 bomba que empregase este novo campo como elemento destrutivo. Comezaba así o
-\textit{proxecto Uranio}, o análogo alemán ao \textit{proxecto Manhattan}
+_proxecto Uranio_, o análogo alemán ao _proxecto Manhattan_
 estadounidense.
 
 A posición de Heisenberg era delicada. Aínda que se opoñía ao réxime nazi,
@@ -24,19 +25,17 @@ sobre a súa participación no proxecto; non só pola posibilidade de perder o s
 traballo, senón porque a súa relación con científicos xudeus antes da guerra
 facíao sospeitoso a ollos de moitos nazis.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.65\linewidth]{revistas/002/imaxes/bohr.jpg}
-    \caption{Heisenberg e Bohr nun encontro en 1941. Fonte: Niels Bohr Archive.}
-    \label{fig:heis1}
-\end{figure}
+#figure(
+    image(width: 100%, "/revistas/002/imaxes/bohr.jpg"),
+    caption : [Heisenberg e Bohr nun encontro en 1941. Fonte: Niels Bohr Archive.]
+) <fig:heis1>
 
 Sexa como for, Heisenberg pasara dous anos investigando intensamente ata
 concluír, en 1941, que malia ser posible construír a bomba (tanto de uranio
 como de plutonio), esta levaría demasiado tempo e consumiría demasiados
 recursos alemáns. Heisenberg consideraba ademais que os rivais de Alemaña
 chegarían ás mesmas conclusións. Os líderes nazis aceptaron a súa opinión e o
-\textit{proxecto Uranio} pasou a investigar a posibilidade de construír un
+_proxecto Uranio_ pasou a investigar a posibilidade de construír un
 reactor nuclear que producise enerxía eléctrica.
 
 Para Heisenberg, o posible desenvolvemento dunha bomba nuclear supuña un dilema
@@ -47,18 +46,18 @@ deixou caer ao seu vello mentor Niels Bohr as súas dúbidas morais sobre a
 producción de armamento atómico. Bohr creu que Heisenberg lle estaba a tender
 algún tipo de trampa deseñada pola Gestapo e preferiu cambiar de tema.
 
-\subsection*{``O home máis intelixente do béisbol''}
+=== «O home máis intelixente do béisbol»
 
 Para o ano 1942 e, ao outro lado do Atlántico, Os Estados Unidos iniciaban o
-seu propio programa atómico: o \textit{proxecto Manhattan}. Pero remontémonos
+seu propio programa atómico: o _proxecto Manhattan_. Pero remontémonos
 algo máis atrás no tempo...
 
-En 1934, un equipo de \textit{all-stars} do béisbol estadounidense fixo unha
+En 1934, un equipo de _all-stars_ do béisbol estadounidense fixo unha
 xira polo Xapón, onde o béisbol comezaba a ser un deporte cada vez máis popular.
-Xunto a todas as estrelas, viaxou co equipo un \textit{catcher} mediocre, que
+Xunto a todas as estrelas, viaxou co equipo un _catcher_ mediocre, que
 levaba anos saltando de equipo a equipo na liga sen destacar especialmente: Moe
-Berg. Berg, de orixe xudía, ten sido descrito como ``o beisbolista máis estraño
-da historia'' ou ``o home máis intelixente do béisbol''. Aínda que non era un
+Berg. Berg, de orixe xudía, ten sido descrito como #quote[o beisbolista máis estraño
+da historia] ou #quote[o home máis intelixente do béisbol]. Aínda que non era un
 xogador especialmente destacado, si era tremendamente astuto, e tiña unha
 habilidade innata para os idiomas, de aí que estudara a fondo polo menos sete
 diferentes. Precisamente, a razón pola que Berg viaxara ao Xapón en 1934 era
@@ -70,9 +69,9 @@ da actual CIA, onde fora moi valorada a súa capacidade para os idiomas. Berg
 realizou primeiramente varias misións como espía en Iugoslavia, onde
 investigaba grupos partisanos que Os Estados Unidos consideraba apoiar.
 
-Cara a 1943, Berg comezou a traballar no \textit{proxecto Larson}, unha
+Cara a 1943, Berg comezou a traballar no _proxecto Larson_, unha
 operación cuxo obxectivo inicial era reclutar a físicos italianos e levalos aos
-Estados Unidos para que colaborasen no \textit{proxecto Manhattan} e outras
+Estados Unidos para que colaborasen no _proxecto Manhattan_ e outras
 misións armamentísticas. Berg acabou por percorrer varios lugares de Europa
 entrevistando a físicos, non só para tentar convencelos de que se mudasen aos
 Estados Unidos, senón tamén para obter información sobre Heisenberg. Os
@@ -84,12 +83,10 @@ determinar como de preto estaba o alemán de desenvolver a temida bomba. A OSS
 chegou a considerar a posibilidade de secuestralo, pero isto nunca chegou a
 suceder.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.55\linewidth]{revistas/002/imaxes/bergChicago.jpg}
-    \caption{Cromo de Berg mentres xogaba para os Chicago White Sox. Fonte: Wikipedia.}
-    \label{fig:heis2}
-\end{figure}
+#figure(
+    image(width: 55%,"/revistas/002/imaxes/bergChicago.jpg"),
+    caption : [Cromo de Berg mentres xogaba para os Chicago White Sox. Fonte: Wikipedia.]
+) <fig:heis2>
 
 En 1944, a OSS soubo que Heisenberg ía dar unha conferencia en Zürich,
 territorio neutral. A Berg, que por suposto falaba alemán, asignóuselle a
@@ -110,17 +107,17 @@ proxeto de bomba atómica alemá, para o 1944 xa sería demasiado tarde.
 Finalmente, decidiu non asasinar a Heisenberg e as súas vidas separáronse para
 non volver a atoparse nunca máis.
 
-\subsection*{Unha granxa en Cambridge}
+=== Unha granxa en Cambridge
 
-Moito se ten discutido sobre o papel de Heisenberg no \textit{proxecto Uranio},
-considerando que o \textit{proxecto Manhattan} si foi exitoso. De verdade
+Moito se ten discutido sobre o papel de Heisenberg no _proxecto Uranio_,
+considerando que o _proxecto Manhattan_ si foi exitoso. De verdade
 tentou fabricar a bomba e simplemente non o conseguiu por incompetencia? Ou
-sabotou o \textit{proxecto Uranio} por motivos morais, convencendo ao resto
+sabotou o _proxecto Uranio_ por motivos morais, convencendo ao resto
 dos seus integrantes da imposibilidade de construír a bomba?
 
 Esta dúbida tamén asaltou aos estadounidenses cando en 1945 capturaron a
-Heisenberg e o resto de físicos alemáns do \textit{proxecto Uranio}. Todos eles
-foron trasladados á \textit{Farm Hall}, unha mansión campestre inglesa preto de
+Heisenberg e o resto de físicos alemáns do _proxecto Uranio_. Todos eles
+foron trasladados á _Farm Hall_, unha mansión campestre inglesa preto de
 Cambridge que estaba infesta de micrófonos para espiar as súas conversas. O 6
 de agosto, os aliados aseguráronse de que Heisenberg e os demais escoitasen a
 transmisión de radio do bombardeo de Hiroshima. Heisenberg inicialmente negouse
@@ -135,8 +132,8 @@ Que ocorreu? Mentía Heisenberg ao réxime nazi dando un valor falso da masa
 crítica para impedir a fabricación da bomba? Non é tan sinxelo. Días despois,
 fixo os cálculos e expuxo aos seus compañeiros como cría que os estadounidenses
 fabricaran a bomba, estes cálculos resultaron ser moi correctos. Os físicos do
-\textit{proxecto Manhattan} concluíron que o alemán simplemente \textit{nunca
-antes realizara os cálculos} da masa crítica. Heisenberg estaba moito máis
+_proxecto Manhattan_ concluíron que o alemán simplemente _nunca
+antes realizara os cálculos_ da masa crítica. Heisenberg estaba moito máis
 interesado no desenvolvemento dun reactor que no dunha bomba e, imaxinándose un
 valor desorbitado para a masa crítica, simplemente decidiu non facer os
 cálculos. Posiblemente prefería vivir no descoñecemento a afrontar o dilema
@@ -145,9 +142,5 @@ moral da construción da bomba.
 Dende logo, ás veces é abafador pensar como as decisións do individuo menos
 esperado son capaces de cambiar o rumbo da historia.
 
-\nocite{gottstein.k_2016}
-\nocite{dawidoff.n_2011}
-
-\printbibliography
-
-\end{multicols}
+/* gottstein.k_2016 */
+/* dawidoff.n_2011 */

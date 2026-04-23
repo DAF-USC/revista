@@ -771,6 +771,7 @@
 }
 
 // :FACER:MIGRACION: cargar bibliografía _per_ artigo. véxase https://github.com/typst/typst/pull/7277
+// :FACER: cambiar o nome a 'artigo' ou algo así
 #let Titular(                            /* TIPO      explicacion */
     titulo        : [-- SEN TÍTULO --],  // CONTENT Título do artigo
     autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
