@@ -57,7 +57,7 @@
     // include{"/revistas/002/artigo_LEEUWEN.typ"}
     // include{"/revistas/002/artigo_MATERIA_ESCURA.typ"}
     include{"/revistas/002/artigo_DARKO.typ"}
-    // include{"/revistas/002/artigo_DZHANIBEKOV.typ"}
+    include{"/revistas/002/artigo_DZHANIBEKOV.typ"}
     // include{"/revistas/002/artigo_MERINO.typ"}
     // include{"/revistas/002/artigo_VOYAGER.typ"}
     // include{"/revistas/002/artigo_HOOKE.typ"}

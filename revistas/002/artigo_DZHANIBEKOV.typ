@@ -1,19 +1,18 @@
-\Titular%
-{divulgacion}%
-{O efecto Dzhanibekov}%
-{Martín Alberto Häderli Revuelta}%
-{Un fenómeno físico que conecta aos mongois, Euler e... a fin do Mundo?}%
+#import("/estilo.typ"): *
 
-\begin{multicols}{2}
-
+#show: Titular.with(
+    titulo    : [O efecto Dzhanibekov],
+    subtitulo : [Un fenómeno físico que conecta aos mongois, Euler e... a fin do Mundo?],
+    autoria   : [Martín Alberto Häderli Revuelta],
+    estilo    : "DIVULGACIÓN",
+)
 
 É a vez de adentrarse nunha das conexións máis curiosas da física: como
 poderían conectarse o Imperio mongol, a fin da carreira espacial entre a URSS e
 os EUA, a apocalipse e, como non, Euler? Prepárate, porque quizais terminamos
-dando... algunha que outra volta; imos, pois, falar do \textit{\textbf{Efecto
-Dzhanibekov}}.
+dando... algunha que outra volta; imos, pois, falar do _Efecto Dzhanibekov_.
 
-\subsection*{A historia}
+=== A historia
 
 O punto de partida da nosa aventura é o 11 de febreiro de 1985, no medio da que
 é popularmente recoñecida como a etapa máis tensa da Guerra Fría. Os sistemas
@@ -27,14 +26,12 @@ momento de inercia (recordaremos isto máis adiante). Consecuentemente, aínda
 existía unha pequena posibilidade de iniciar unha misión espacial para tentar
 reparar os fallos e recuperar o control sobre a Salyut 7. Porén, era necesario
 recrutar os cosmonautas adecuados e aí é onde entra en escena o noso
-protagonista: \textbf{Vladimir Aleksandrovich Krysin}.
+protagonista: _Vladimir Aleksandrovich Krysin_.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{revistas/002/imaxes/img1.jpg}
-    \caption{Estación espacial Salyut 7.}
-    \label{fig:dzhani1}
-\end{figure}
+#figure(
+    image(width:80%, "/revistas/002/imaxes/img1.jpg"),
+    caption : [Estación espacial Salyut 7.]
+) <fig:dzhani1>
 
 Vladimir naceu no actual Uzbekistán e estudou Física na Universidade de
 Leningrado para posteriormente graduarse como instrutor de voo nas Forzas
@@ -43,8 +40,8 @@ anos casou con Liliya Dzhanibekova, descendente directa de Janibeg, un líder
 medieval dun dos reinos que quedaron logo da disolución do Imperio Mongol. Como
 consecuencia de que o pai de Liliya non tiña fillos varóns, Vladimir decidiu
 adquirir o apelido da súa muller como forma de honrar os seus ancestros e
-continuar coa liña de descendencia, pasando a chamarse \textbf{Vladimir
-Dzhanibekov}. Durante os seguintes anos, Dzhanibekov participou en cinco
+continuar coa liña de descendencia, pasando a chamarse _Vladimir
+Dzhanibekov_. Durante os seguintes anos, Dzhanibekov participou en cinco
 misións espaciais, e foi nesta última onde descubriu o efecto que toma o seu
 apelido, mais non nos adiantemos.
 
@@ -62,15 +59,13 @@ Progress-24, unha porca con dúas ás saíu xirando do seu sitio. O problema veu
 cando logo duns segundos, este elemento cambiou de orientación e púxose a
 xirar noutro sentido como se de maxia negra se tratase. O cambio de orientación
 na rotación dun obxecto que en principio non estaba a xirar nese eixe é o que
-actualmente se denomina como \textbf{efecto Dzhanibekov} ou tamén
-\textbf{teorema da raqueta de tenis}.
+actualmente se denomina como _efecto Dzhanibekov_ ou tamén
+_teorema da raqueta de tenis_.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{revistas/002/imaxes/Tennis_racquet.png}
-    \caption{Eixes principais dunha raqueta de tenis.}
-    \label{fig:dzhani2}
-\end{figure}
+#figure(
+    image(width: 60%, "/revistas/002/imaxes/Tennis_racquet.png"),
+    caption : [Eixes principais dunha raqueta de tenis.],
+) <fig:dzhani2>
 
 No noso día a día podémolo visualizar facilmente, por exemplo, se colles o teu
 tubo de pasta de dentes, o agarras dende o lado oposto á tapa (co logo cara
@@ -80,24 +75,23 @@ nas raquetas de tenis, de aí o seu nome. Un posible efecto secundario é que o
 coñecedor do fenómeno vai pasarse unha semana lanzando obxectos co fin de
 comprobalo, e co fin de evitalo, imos tentar explicar a física do asunto.
 
-
-\subsection*{A física do fenómeno: Por que?}
+=== A física do fenómeno: Por que?
 
 Co obxectivo de explicar o porqué deste fenómeno temos que desempoar os nosos
 apuntamentos de Mecánica Clásica II e recordar que o movemento xiratorio dun
 obxecto (sólido ríxido en termos físicos) depende principalmente da dirección
-en que xiremos o corpo e o ``esforzo'' que supón manter a rotación neste eixe.
+en que xiremos o corpo e o «esforzo» que supón manter a rotación neste eixe.
 É dicir, custa menos enerxeticamente xirar un cilindro sobre o seu eixe axial
 que se o xiramos sobre un eixe perpendicular a este coa mesma velocidade
 angular. As ferramentas matemáticas que nos dan esta información son o vector
-de velocidade angular ($\vec{\omega}$) e o tensor de inercia ($\mathbb{I}$).
+de velocidade angular ($arrow(omega)$) e o tensor de inercia ($II$).
 Pero aínda queda a parte máis importante: obter o movemento do obxecto (as
 ecuacións do movemento), que se conseguen unha vez se resolvan as ecuacións de
 Euler que relacionan as compoñentes da velocidade angular e do tensor de
 inercia (tamén chamados momentos de inercia) nun determinado sistema de
 referencia. Como estamos a traballar nun espazo de 3 dimensións, as compoñentes
 da velocidade angular e momentos de inercia tamén serán 3, por simplicidade:
-$\omega_1, \omega_2, \omega_3$ e $I_1, I_2, I_3$.\\
+$omega_1, omega_2, omega_3$ e $I_1, I_2, I_3$.
 
 En principio, este sistema de ecuacións diferenciais pode ser sinxelo de
 resolver se o obxecto é moi simétrico, pero este non é o caso da porca ou da
@@ -107,12 +101,13 @@ maioritario nun dos eixes principais e xiros minoritarios nos outros eixes,
 chegamos a que as ecuacións de Euler nos din que o movemento naquel eixe
 principal asociado ao momento de inercia intermedio ($I_1>I_2>I_3$, por
 exemplo) é inestable, feito que explica a aparición do efecto Dzhanibekov.
-\textit{Pero entón non temos unha solución analítica para o movemento?} Si
+_Pero entón non temos unha solución analítica para o movemento?_ Si
 existe, o problema é que involucran ferramentas matemáticas máis profundas,
-como as funcións elípticas de Jacobi \cite{RouthDynamics} ou o elipsoide de
-Poinsot \cite{VanDamme2017}, polo que non imos entrar en detalles.
+como as funcións elípticas de Jacobi /*@RouthDynamics*/ ou o elipsoide de
+Poinsot /*VanDamme2017*/, polo que non imos entrar en detalles.
 
-\subsection*{Aplicacións e consecuencias: Apocalipse?}
+#colbreak()
+=== Aplicacións e consecuencias: Apocalipse?
 
 Unha das razóns polas que o goberno soviético ocultou este fenómeno foi
 principalmente polo medo a que a Terra, ao ser un corpo que non é perfectamente
@@ -126,12 +121,8 @@ disco protoplanetario que formou o Sistema Solar. Aínda así, detectáronse unh
 serie de lúas orbitando aos planetas gasosos que si amosan este efecto e, máis
 interesante aínda, publicouse recentemente que unha variedade de púlsar chamado
 magnetar tamén pode sufrir este mesmo efecto por culpa do seu campo magnético
-extremo e provocar ondas gravitacionais \cite{Kantor2023}. Finalmente, tamén se
+extremo e provocar ondas gravitacionais _Kantor2023_. Finalmente, tamén se
 teorizou coa posibilidade de empregar este efecto para a construción de naves
 que aproveiten o fenómeno para cambiar o sentido da viaxe, o que reduciría
 considerablemente o peso e o combustible necesario para estas misións
-\cite{Ono2022}.
-
-\printbibliography
-
-\end{multicols}
+_Ono2022_.

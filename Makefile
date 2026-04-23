@@ -50,6 +50,7 @@ DEPENDENCIAS := \
 	fontes/NewComputerModern/*  \
 	fontes/Roboto/*
 
+# :FACER: autoría, con git log -1 --format="%an <%ae>"
 INFO_GIT := \
 	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
 	--input hash=$(shell git rev-parse --short HEAD) \
