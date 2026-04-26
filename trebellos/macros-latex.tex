@@ -1,0 +1,27 @@
+% Macros 'raros' de LaTeX para pasarlle a Pandoc, así podemos filtrar de Latex
+% a Typst. As pipas son:
+% `cat trebellos/macros-latex.tex - | pandoc -f latex -t typst`
+%
+%     |  \begin{equation}
+%     |      \macroraro{patata}
+%     |  \end{equation}
+%     |
+%     V
+% cat trebellos/macros-latex.tex -
+%     |
+%     |
+%     | \newcommand{\macroraro}[1]{bla bla #1 bla bla}
+%     | \begin{equation}
+%     |     \macroraro{patata}
+%     | \end{equation}
+%     |
+%     V
+% pandoc -f latex -t typst
+%     |
+%     |  $
+%     |      macroraro_typst(patata)
+%     V  $
+%
+% Chequeade `man cat` para ver por que fai falla o `-`
+
+\newcommand{\braket}[1]{\left\langle #1 \right\rangle}

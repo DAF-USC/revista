@@ -6,6 +6,8 @@ Aquí pretendemos gardar pequenos programas, scripts, ferramentas, etc. que nos 
 
 - `commit-msg.sh` é un hook de git que lanza un erro cando se insire un commit que non segue o formato dos [Convetional Commits](https://github.com/iuricode/padroes-de-commits). Para empregalo: renomease o ficheiro para eliminar a extensión `commit-msg.sh -> commit-msg` e movémolo ao cartafol `.git/hooks/` do repositorio no que queiramos utilizalo.
 
+- `macros-latex.tex`. É posible filtrar contido de latex a typst usando pandoc, con `pandoc -f latex -t typst`. Desafortunadamente Pandoc non coñece todos os macros de latex, como os que están definidos nalgúns paquetes, sobre todo de matemáticas. Podemos _engadir_ as definicións de ditos macros con `cat trebellos/macros-latex.tex - | pandoc -f latex -t typst`
+
 ### Patróns de commits
 
 Os *conventional commits* son un conxunto de regras para estandarizar as mensaxes de commit co obxectivo facilitar o seguimento e rastrexabilidade dos cambios. O que pode ser útil para automatizar procesos ou, simplemente, facer o historial máis comprensible.

@@ -8,4 +8,4 @@ https://github.com/fisicaUSC/revista/issues/110
 - Pode eliminarse a imaxe da portada de exemplo con algunha comprobación
 - Hayagriva é máis limitado en canto a tipos de documentos
 - Podería ter sentido engadir unha trebellada con Pandoc para pasar docs de latex a typst
-- Estaría ben algunha app pa traducir ecuacións de latex a typst. O resto pode manexarse ben. Pode filtrarse cousas con pandoc ou mitex
+- Estaría ben algunha app pa traducir ecuacións de latex a typst. O resto pode manexarse ben. Pode filtrarse cousas con pandoc ou mitex, ou https://qwinsi.github.io/tex2typst-webapp/, ou https://github.com/scipenai/tylax
