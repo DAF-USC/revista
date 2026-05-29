@@ -902,6 +902,7 @@
     bibliography(
         bib,
         style: "/momentum-citacions.csl",
+        group: none,
         title: condensada[*Bibliografía*]
     )
 }
