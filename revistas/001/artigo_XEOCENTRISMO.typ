@@ -143,3 +143,8 @@ debían de ser elípticas, salvando o sistema de Copérnico. Newton foi quen de
 explicar as traxectorias de Kepler coa súa teoría da gravitación, dando por fin
 unha explicación ao movemento planetario. Púxose o primeiro cravo do ataúde da
 teoría xeocéntrica.
+
+#SenCita("dreyer.jle_1906")
+#SenCita("boyer.cb.merzbach.uc_2011")
+
+#CrearBibliografia("/revistas/001/bibliografia_XEOCENTRISMO.bib")

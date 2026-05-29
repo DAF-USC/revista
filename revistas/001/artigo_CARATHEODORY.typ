@@ -64,7 +64,7 @@ dbar W$ existe un factor integrante, que é o inverso da temperatura
 absoluta ($1\/T$), que converte a $dbar Q$ en exacta, este novo diferencial
 é a entropía $"dS"$. Desta forma, semella sólido enunciar o seguinte axioma:
 
-#quote(attribution: [Carathéodory, 1909 @c1909])[
+#quote[
     En calquera entorno dun estado inicial arbitrario hai estados que son
     inaccesíbeis mediante cambios de estado adiabáticos
 ]
@@ -138,3 +138,11 @@ unha formulación axiomática puramente matemática equivalente á clásica
 formulación de Gibbs exclusivamente fenomenolóxica, quizais, a termodinámica
 comporte un caso especial dentro do paradigma científico actual no que é
 imposíbel evidenciala dende uns principios matemáticos xerais e primitivos.
+
+#SenCita("berenguer.raa_2014")
+#SenCita("a.lp.berberan-santos.mn_1999")
+#SenCita("caratheodory.c_1909")
+#SenCita("planck.m_1926")
+#SenCita("callen.hb_1960")
+
+#CrearBibliografia("/revistas/001/bibliografia_CARATHEODORY.bib")

@@ -889,6 +889,23 @@
 
 }
 
+// Citas que aparecen na bibliografía pero non no texo, análogo a `\nocite` en
+// LaTeX
+#let SenCita(cita) = {
+    place(hide(cite(label(cita))))
+}
+
+#let CrearBibliografia(bib) = {
+    // :FACER:MIGRACION: customizar o `divider` (cores) e usalo para as entrevistas e noutros sitios
+    // :FACER:MIGRACION: decidir niveis dos headings
+    divider()
+    bibliography(
+        bib,
+        style: "/momentum-citacions.csl",
+        title: condensada[*Bibliografía*]
+    )
+}
+
 // Varios símbolos e tal
 
 #let dbar = math.class( "normal", $\u{0111}$)
