@@ -772,6 +772,7 @@
 
 }
 
+// Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
 // :FACER:MIGRACION: cargar bibliografía _per_ artigo. véxase https://github.com/typst/typst/pull/7277
 // :FACER: cambiar o nome a 'artigo' ou algo así
 #let Titular(                            /* TIPO      explicacion */
