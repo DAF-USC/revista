@@ -99,7 +99,7 @@
 // Unhas variables globais.
 // https://typst.app/docs/reference/introspection/state/
 //
-// :FACER: hai alternativas a esto sen estados?
+// :FACER:MIGRACION: cores usando sys.inputs (pode que con TOML?)
 #let _cor_resalte = state("cor_resalte", "#FF0000")
 #let _cor_texto_resalte = state("cor_texto_resalte", "#FF0000")
 
@@ -428,7 +428,7 @@
                     ),
                     // INFO GIT
                     grid(
-                        columns:1, rows:3, row-gutter: 7pt,
+                        columns:1, rows:4, row-gutter: 7pt,
                         stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("https://github.com/" + repositorio, mono[#repositorio]),
@@ -437,9 +437,9 @@
                             mono(sys.inputs.at("rama"))
                             [:]
                             mono(sys.inputs.at("hash"))
-                            // h(5pt)
                             mono(sys.inputs.at("dirt"))
-                        }
+                        },
+                        mono[Compilado por: #sys.inputs.quen]
                     )
                 )
             }

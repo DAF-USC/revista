@@ -25,7 +25,6 @@ ifeq ($(formato),)
 endif
 
 # :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
-# :FACER:MIGRACION: separar as opcións que son comúns a propagandas, por exemplo
 #
 OPCIONS_TYPST := \
 	--format pdf              \
@@ -50,16 +49,15 @@ DEPENDENCIAS := \
 	fontes/NewComputerModern/*  \
 	fontes/Roboto/*
 
-# :EACER: autoría, con git log -1 --format="%an <%ae>"
 INFO_GIT := \
 	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
 	--input hash=$(shell git rev-parse --short HEAD) \
 	--input dirt=$(shell test -z "$$(git status --porcelain)" && echo "" || echo "*") \
+	--input quen=$(shell git log -1 --format="%an")
 
 # esta acción mira se existe o arquivo revista/001/revista_001.typ e en caso
 # afirmativo, executa 'typst compile' con dito arquivo
 #
-# :FACER:MIGRACION: co 'bundle export' debería poder separarse en revista normal, impresa, portada..?
 .pdf/revista_$(numero).pdf: $(DEPENDENCIAS)
 
 	# Hai que asegurarse de que existen o directorios .pdf e .aux
