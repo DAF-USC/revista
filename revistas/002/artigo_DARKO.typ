@@ -45,7 +45,7 @@ de orixe, morre, e salva os seus amigos da apocalipse. Soa un pouco estúpido de
 primeiras, mais o certo é que, se indagamos un pouco, podemos dar nas bases do
 filme con nomes do mundo da física.
 
-=== _Donnie Darko_ explicado con ciencia!
+== _Donnie Darko_ explicado con ciencia!
 
 Un concepto en que esta obra insiste moito é na de destino e determinismo, que
 se presenta visualmente na forma dunha masa que se extende dende o peito de
@@ -110,7 +110,7 @@ inexplicable, a partir dun buraco no espazo-tempo inexplicable, e cunhas
 consecuencias… dubidosas. É obvio que así vai quedar un final, como mínimo,
 confuso.
 
-=== Cine e... ciencia?
+== Cine e... ciencia?
 
 Por suposto, isto non significa que unha película deba ofrecer unha explicación
 pormenorizada, argumentada e cun sentido científico rigoroso. Ao final, é

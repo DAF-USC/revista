@@ -10,7 +10,7 @@
     estilo    : "DIVULGACION",
 )
 
-=== Introdución
+== Introdución
 
 Hai pouco máis de dous séculos a ciencia comezou a establecerse como unha
 ferramenta moi poderosa á hora de investigar e entender o Universo. Grazas a
@@ -24,7 +24,7 @@ a ciencia está limitada por definición.
 Neste pequeno artigo imos exemplificar isto no caso da física empregando os
 skyrmións.
 
-=== Os skyrmións
+== Os skyrmións
 
 A física de altas enerxías estuda as compoñentes máis fundamentais da Natureza,
 o que na actualidade se corresponde con partículas subatómicas coma os
@@ -79,7 +79,7 @@ empregar o modelo de Skyrme para calcular teoricamente certas magnitudes e
 ignorar por completo a QCD. Pero como pode xustificarse esto? Para que queremos
 traballar con partículas que non existen podendo facelo cas que si?
 
-=== Teorías efectivas
+== Teorías efectivas
 
 Para responder a esta pregunta, imos considerar un problema totalmente
 diferente. Supoñamos que quero describir o movemento de Xúpiter ao redor do
@@ -118,7 +118,7 @@ xerais dun núcleo atómico, podo seguir empregando o modelo de Skyrme porque
 este é moito máis sinxelo que a QCD, e os resultados que se obteñen son
 suficientemente bos.
 
-=== A ciencia fala do #quote(block:false)[como]
+== A ciencia fala do #quote(block:false)[como]
 
 A partir do que xa se mencionou debería ser sinxelo clasificar as teorías
 efectivas coma #quote(block:false)[non reais], #quote(block:false)[útiles, pero

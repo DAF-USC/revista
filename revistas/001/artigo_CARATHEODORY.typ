@@ -7,7 +7,7 @@
     estilo    : "DIVULGACION",
 )
 
-=== Introdución
+== Introdución
 
 Quizais o espírito que une a todos os científicos sexa a pescuda de respostas á
 realidade material que se nos impón, na física algúns acadaran o gozo na idea
@@ -26,7 +26,7 @@ todos eles. Nun primeiro momento, a persoa que aceptou este desafío foi o
 matemático grego Constantin Carathéodory na súa obra _Untersuchungen über die
 Grundlagen der Thermodynamik_
 
-=== A axiomatización de Carathéodory
+== A axiomatización de Carathéodory
 
 No seu traballo de 1909, Carathéodory parte de tan só tres definicións
 primitivas e dous axiomas para fundamentar toda a termodinámica que pioneiros
@@ -78,7 +78,7 @@ primitiva do calor ao longo de todo o seu desenvolvemento, deslindándose da
 realidade física evidencíabel e usándoa só como un comodín para describir
 aquelas curvas que non foran da clase que define o primeiro postulado.
 
-=== Críticas
+== Críticas
 
 Estes axiomas semellan constituír un análogo aos principios clásicos da
 imposibilidade dos móbiles perpetuos, no caso de seren formulados sen ningunha

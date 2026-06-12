@@ -7,7 +7,7 @@
     estilo    : "ENTREVISTAS",
 )
 
-=== Biografía
+== Biografía
 
 Ana Ulla Miguel comezou a licenciatura en Ciencias Físicas na Universidade de
 Santiago de Compostela, para logo especializarse en astrofísica na Universidad
@@ -35,10 +35,10 @@ avanzadas, os exoplanetas ou a astrobioloxía. Forma parte do grupo galego da
 misión Gaia, da ESA, xunto con outros compañeiros da Universidade da Coruña
 (UDC) e a Universidad de Cantabria (UC).
 
-=== Entrevista
+== Entrevista
 
 // :FACER:MIGRACION: como facer as preguntas das entrevistas?
-==== Gemma:
+== Gemma:
 
 En primeiro lugar, Ana, moitas grazas por participar na nosa
 revista e acceder a contestar unhas preguntas para coñecer máis sobre ti e
@@ -46,7 +46,7 @@ sobre o teu traballo. É un grande orgullo poder contar co teu testemuño. Para
 comezar, poderías contarnos como xurdiu o teu interese por estudar Física e
 posteriormente Astrofísica?
 
-==== Ana:
+== Ana:
 Grazas a vós por convidarme para esta entrevista e parabéns pola
 iniciativa da vosa revista.
 
@@ -57,13 +57,13 @@ camiño natural era estudar física primeiro e especializarme en astrofísica
 despois. Ao final, isto pasaba por escoller o bacharelato de ciencias en Vigo,
 física en Santiago e astrofísica en La Laguna. E así fixen.
 
-==== G:
+== G:
 Ademais, formas parte do equipo galego que participa na misión Gaia
 da Axencia Espacial Europea. Non parece fácil, pero cal é o camiño para poder
 traballar e colaborar coa ESA? Hai facilidades para estudantes de todos os
 lugares para poder traballar nun futuro aí?
 
-==== A:
+== A:
 Os meus primeiros contactos coa ESA foron hai moitos anos, como
 observadora cun dos seus históricos satélites, o IUE (_International
 Ultraviolet Explorer_), en Madrid, sendo aínda estudante de doutoramento.
@@ -80,14 +80,14 @@ ESA  #quote[Current opportunities for university students]. Eu animo a todo
 o mundo que o queira intentar a que busque estas oportunidades, porque na ESA hai
 proxectos interesantísimos e con enorme proxección de futuro.
 
-==== G:
+== G:
 A misión Gaia ten como principal obxectivo mapear
 tridimensionalmente a Vía Láctea. No proceso, acádanse novos descubrimentos,
 ata o punto de que a propia ESA a describe como a ``máquina de descubrimento
 definitiva". Cal é para ti a maior satisfacción da misión Gaia? E a maior
 dificultade que presentou ou aínda presenta este proxecto?
 
-==== A:
+== A:
 O noso grupo intégrase no que se coñece como DPAC (_Data
 Processing and Analysis Consortium_), unha colaboración paneuropea con máis de
 catrocentos cincuenta investigadores/as e tecnólogos/as de máis de vinte
@@ -113,14 +113,14 @@ nos queda por abordar.
     ]
 ) <fig:ana2>
 
-==== G:
+== G:
 O ano pasado foi bastante notoria a noticia de que descubrirades un
 buraco negro bastante masivo na Vía Láctea. Ti participaras neste achado, cal é
 o proceso ata obter os resultados? Sodes partícipes durante todo o proceso do
 que se está a descubrir ou analizades os datos ás cegas? Que información achegan
 estes buracos negros para comprender mellor a galaxia?
 
-==== A:
+== A:
 Todos os datos de Gaia procésanse masivamente e de xeito
 sistemático para depurar resultados espurios e logo facer clasificacións por
 categorías, etc. E de cando en vez hai sorpresas ou verdadeiros descubrimentos,
@@ -141,7 +141,7 @@ multimensaxeiro que combina información electromagnética e de ondas
 gravitacionais. Digamos que son obxectos extremos e exóticos de grande
 utilidade e bastante versátiles en investigación.
 
-==== G:
+== G:
 Gustaríame preguntar polas colaboracións internacionais. En
 proxectos de tan grande escala a participación de grupos de traballo de
 diversos países entendo que é imprescindible: é fácil unir a xente de varios
@@ -149,7 +149,7 @@ lugares para traballar en equipo ou é un traballo máis independente? Considera
 que hai unha busca de coñecemento e respostas en todo o mundo ou hai países
 máis proclives e outros que non prestan tanta colaboración?
 
-==== A:
+== A:
 Efectivamente, a colaboración internacional, pero a todas as
 escalas en realidade, é imprescindible para a consecución de obxectivos. A
 astrofísica leva a colaboración científica implícita no ADN, diría eu. Para min
@@ -164,13 +164,13 @@ do mundo unha vez definido o proxecto e os obxectivos que corresponda. Creo
 que só así se pode entender o enorme avance desta disciplina e, paralelamente,
 do noso coñecemento do universo dende hai pouco máis dun século.
 
-==== G:
+== G:
 Unha cuestión que se formula máis dalgunha estudante é se a
 ciencia é un espazo igualitario, se a busca do coñecemento está exenta de
 estereotipos e se en xeral é un espazo afable. Queda camiño por percorrer ou a
 situación é positiva ao respecto?
 
-==== A:
+== A:
 Eu coñezo moitas colegas con recoñecidísimas traxectorias
 profesionais, desenvoltas no espazo científico que hai. Ese espazo é tan
 igualitario coma o espazo social e laboral no que se insira. En España hai
@@ -189,7 +189,7 @@ solución.
     ]
 ) <fig:ana3>
 
-==== G:
+== G:
 Nos últimos meses a situación xeopolítica global está cambiando e
 as alianzas territoriais como a Unión Europea están avanzando a un maior gasto
 tecnolóxico, algo que non todo o mundo comprende ou considera necesario. Que
@@ -198,7 +198,7 @@ exploración espacial? É algo inherente ao ser humano ir en busca de respostas
 sobre o Universo ou os intereses residen na utilidade que poida supoñer para os
 países?
 
-==== A:
+== A:
 O universo é todo e abrangue todas as escalas. O investimento en
 ciencia e tecnoloxía sempre, antes ou despois, reverte no beneficio das
 sociedades que, por este razoamento, son parte do universo. E isto enténdese
@@ -215,12 +215,12 @@ Creo que abondan os exemplos da combinación de perseguir intereses de
 coñecemento _per se_, cos de ciencia e tecnoloxía aplicadas. Non son
 intereses incompatibles, senón que son beneficiosamente complementarios.
 
-==== G:
+== G:
 Que valoración farías de como está a astrofísica en España? Cres
 que coa incorporación de dous españois ao cadro de persoal de astronautas da
 ESA visibilizouse a importancia das misións e investigacións espaciais?
 
-==== A:
+== A:
 O nivel investigador e tecnolóxico da astrofísica española é moi
 alto. Dende que se sentaron as bases dos observatorios de Canarias, Calar Alto
 e Sierra Nevada, xunto coa posta en marcha de institutos de investigación
@@ -235,11 +235,11 @@ equipos, e seguro que iso si contribúe a visibilizar a relevancia das misións 
 investigacións espaciais. E espero que tamén contribúa a fomentar novas
 vocacións científicas e tecnolóxicas.
 
-==== G:
+== G:
 Dende a túa experiencia, tes algún consello que poidas compartir
 cos estudantes de física e especialmente coas mozas que estean comezando?
 
-==== A:
+== A:
 O mesmo consello que me deron a min varias mestras e profesores
 dende a escola primaria e o instituto, logo investigadores e investigadoras
 noutras etapas máis adiante: que o intenten, que non se digan a si mesmos/as

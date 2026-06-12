@@ -21,7 +21,7 @@ fundamentais na nosa Historia é que lugar ocupamos no Universo, e nesa
 discusión cobra especial importancia unha teoría agora xa descartada, pero que
 nos acompañou durante milenios: o xeocentrismo.
 
-=== Os modelos gregos: Platón, Eudoxo e Ptolomeo
+== Os modelos gregos: Platón, Eudoxo e Ptolomeo
 
 Os inicios das teorías cosmolóxicas sobre a forma do universo son case sempre
 de carácter xeocentrista, como é esperable dende un punto de vista lóxico (é a
@@ -97,7 +97,7 @@ radicais propuxeran sistemas nos que Mercurio e Venus xiraban ao redor do Sol
 Terra. Estas teorías supoñían un avance enorme ao admitir que non todo revolvía
 arredor da Humanidade.
 
-=== As dúbidas árabes. Copérnico e Kepler
+== As dúbidas árabes. Copérnico e Kepler
 
 O modelo ptolemaico seguiu sendo empregado durante a Idade Media por astrónomos
 e científicos. En Europa, a Igrexa favoreceu o modelo xeocéntrico por concordar

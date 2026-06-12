@@ -24,7 +24,7 @@ ifeq ($(formato),)
 	formato := completa
 endif
 
-# :FACER:MIGRACION: PDF UA
+# :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
 # :FACER:MIGRACION: separar as opcións que son comúns a propagandas, por exemplo
 #
 OPCIONS_TYPST := \
@@ -50,7 +50,7 @@ DEPENDENCIAS := \
 	fontes/NewComputerModern/*  \
 	fontes/Roboto/*
 
-# :FACER: autoría, con git log -1 --format="%an <%ae>"
+# :EACER: autoría, con git log -1 --format="%an <%ae>"
 INFO_GIT := \
 	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
 	--input hash=$(shell git rev-parse --short HEAD) \

@@ -12,7 +12,7 @@ poderían conectarse o Imperio mongol, a fin da carreira espacial entre a URSS e
 os EUA, a apocalipse e, como non, Euler? Prepárate, porque quizais terminamos
 dando... algunha que outra volta; imos, pois, falar do _Efecto Dzhanibekov_.
 
-=== A historia
+== A historia
 
 O punto de partida da nosa aventura é o 11 de febreiro de 1985, no medio da que
 é popularmente recoñecida como a etapa máis tensa da Guerra Fría. Os sistemas
@@ -75,7 +75,7 @@ nas raquetas de tenis, de aí o seu nome. Un posible efecto secundario é que o
 coñecedor do fenómeno vai pasarse unha semana lanzando obxectos co fin de
 comprobalo, e co fin de evitalo, imos tentar explicar a física do asunto.
 
-=== A física do fenómeno: Por que?
+== A física do fenómeno: Por que?
 
 Co obxectivo de explicar o porqué deste fenómeno temos que desempoar os nosos
 apuntamentos de Mecánica Clásica II e recordar que o movemento xiratorio dun
@@ -107,7 +107,7 @@ como as funcións elípticas de Jacobi /*@RouthDynamics*/ ou o elipsoide de
 Poinsot /*VanDamme2017*/, polo que non imos entrar en detalles.
 
 #colbreak()
-=== Aplicacións e consecuencias: Apocalipse?
+== Aplicacións e consecuencias: Apocalipse?
 
 Unha das razóns polas que o goberno soviético ocultou este fenómeno foi
 principalmente polo medo a que a Terra, ao ser un corpo que non é perfectamente

@@ -21,7 +21,7 @@ moito máis ca estudar resortes.
     caption : [Retrato póstumo de Robert Hooke por Rita Greer. Fonte: Wikimedia Commons]
 ) <fig:hooke1>
 
-=== Quen foi Robert Hooke?
+== Quen foi Robert Hooke?
 
 Seguro que este científico inglés non é ningún descoñecido para vós, despois de
 todo, se estades nesta facultade nalgún momento tivestes que ver a famosa lei
@@ -46,7 +46,7 @@ estar escrita en inglés, na lingua vernácula (algo totalmente inusual para a
 coetáneos facilitando a accesibilidade; converteuse no primeiro _best
 seller_ científico de todos os tempos.
 
-=== _Rivalidade con Newton_
+== _Rivalidade con Newton_
 
 Sereivos franco, se comecei a facer un artigo sobre a vida de Hooke non foi
 polas súas múltiples achegas á ciencia, por moi interesantes e variadas que
@@ -82,7 +82,7 @@ nunca de alguén coma Robert Hooke, quen, fisicamente, era de todo menos
 xigante. Un pensaría que esta historia remataría aquí, cunha desculpa pública
 de ambos e Newton tendo a última palabra, pero non, non será así.
 
-=== Trala súa morte
+== Trala súa morte
 
 No momento en que morre Hooke, suceden dúas cousas: por unha banda, Newton
 convértese en presidente da Royal Society; pola outra, publícase

@@ -847,8 +847,7 @@
                     fill   : rgb(_cor_resalte.get()),
                     weight : "bold",
                     {
-                        // :FACER: aclarar que niveis usar en artigos, índice, titular, etc.
-                        condensada(heading(titulo)) /* Mostrar o título */
+                        condensada(heading(depth: 1, titulo)) /* Mostrar o título */
                         let posicion = here().position() /* Variable ca posición actual */
                         // Agora actualizamos a lista de artigos engadindo un
                         // dicionario con titulo, autoría e posición Este

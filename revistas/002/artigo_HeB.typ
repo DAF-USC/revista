@@ -7,7 +7,7 @@
     subtitulo : [As vidas dun beisbolista e dun dos pais da Física Cuántica, cruzadas por unha historia de espías e o proxecto atómico da Alemaña nazi.],
 )
 
-=== Heisenberg e o _proxecto Uranio_
+== Heisenberg e o _proxecto Uranio_
 
 Cando en setembro de 1939 estourara a Segunda Guerra Mundial, Werner
 Heisenberg, un dos pais da física cuántica, foi requirido polo goberno nazi
@@ -46,7 +46,7 @@ deixou caer ao seu vello mentor Niels Bohr as súas dúbidas morais sobre a
 producción de armamento atómico. Bohr creu que Heisenberg lle estaba a tender
 algún tipo de trampa deseñada pola Gestapo e preferiu cambiar de tema.
 
-=== «O home máis intelixente do béisbol»
+== «O home máis intelixente do béisbol»
 
 Para o ano 1942 e, ao outro lado do Atlántico, Os Estados Unidos iniciaban o
 seu propio programa atómico: o _proxecto Manhattan_. Pero remontémonos
@@ -110,7 +110,7 @@ Finalmente, decidiu non asasinar a Heisenberg e as súas vidas separáronse para
 non volver a atoparse nunca máis.
 
 #colbreak()
-=== Unha granxa en Cambridge
+== Unha granxa en Cambridge
 
 Moito se ten discutido sobre o papel de Heisenberg no _proxecto Uranio_,
 considerando que o _proxecto Manhattan_ si foi exitoso. De verdade

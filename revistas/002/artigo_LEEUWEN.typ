@@ -18,7 +18,7 @@ fenómeno a escala atómica debe rexer as leis da mecánica cuántica. Non
 obstante, este feito non era para nada coñecido no comezo do século XX, onde
 comeza a nosa historia. Abrochade os vosos cintos, porque avecíñanse curvas.
 
-=== O magnetismo previo ao átomo
+== O magnetismo previo ao átomo
 
 Supoño que os inicios da teoría do magnetismo son coñecidos pola maioría, pero
 en resumidas contas aconteceu máis ou menos así:
@@ -64,7 +64,7 @@ están desaliñados, de tal xeito que aparentemente se opoñen ao campo externo,
 falamos de _diamagnetismo_. Non obstante, se a interacción parece favorable
 á dirección do campo, falaremos de _paramagnetismo_.
 
-=== Langevin e o primeiro modelo atómico do paramagnetismo
+== Langevin e o primeiro modelo atómico do paramagnetismo
 
 En 1905, o físico francés Paul Langevin foi o primeiro en presentar un modelo
 que fose capaz de explicar a escala atómica o comportamento dos distintos
@@ -91,7 +91,7 @@ onde $L(y) = coth(y)-y^(-1)$ é a función de Langevin. Dous anos máis tarde, o
 tamén francés Pierre Weiss propuxo outro modelo que corrixía o de Langevin e
 introducía o comportamento ferromagnético de diversos materiais na teoría.
 
-=== As disertacións de Bohr e Van Leeuwen. Unha nova teoría.
+== As disertacións de Bohr e Van Leeuwen. Unha nova teoría.
 
 Os problemas non tardarían en chegar. Xa por 1911, un novo Niels Bohr puxo en
 dúbida a teoría de Langevin, achando unha contradición infranqueable se
@@ -172,7 +172,7 @@ electrón ao redor do núcleo de hidróxeno para formular o seu famoso modelo
 atómico. Así, un pode afirmar que o nacemento da cuántica está moi vinculado ao
 magnetismo atómico.
 
-=== Conclusións
+== Conclusións
 
 En definitiva, aínda que a teoría de Maxwell é moi útil para explicar fenómenos
 electromagnéticos clásicos coma a indución magnética ou mesmo a luz (o que
