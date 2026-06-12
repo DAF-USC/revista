@@ -17,7 +17,15 @@
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
-// Defínense varias funcións xerais na revista
+// Defínense varias funcións xerais na revista. En principio intentei usar a
+// filosofía fundamental (pero inacabada) de Typst, onde unhas funcións
+// devolven contido (texto, cadros, táboas, etc.) e outras funcións que cambian
+// o estilos dese contido. Por desgraza, a día de hoxe non existe unha
+// diferencia clara nos elementos fundamentais que se poden customizar, asique
+// a separación que fago eu non é perfecta. Véxase:
+//
+// https://github.com/typst/typst/issues/147
+// https://laurmaedje.github.io/posts/types-and-context/
 //
 // 1) Funcións que aceptan contido como argumento e lle aplican un estilo:
 //
@@ -28,10 +36,10 @@
 //     estilo_indice(...)        -> Estilo para a páxina do índice. Este estilo
 //                                  cambia as cores da columna dereita, e pon un
 //                                  rectangulo de cor na páxina.
-//     estilo_contraportada(...) -> Estilo da contraportada
 //     estilo_corpo(...)         -> Estilo do corpo da revista (ousexa, os artigos).
 //                                  Posición dos números da páxina, encabezados, marxes
 //                                  xustificación do texto, e formatos menores
+//     estilo_contraportada(...) -> Estilo da contraportada
 //
 // 2) Funcións que crean dito contido
 //
@@ -53,9 +61,9 @@
 //                                 - Un espazo
 //                                 - Outro grid, para colocar ben os QRs
 //
-// 3) Función para activar o estilo concreto dun artigo
+// 3) Función para activar o estilo concreto dun artigo, moi importante.
 //
-//     Titular(...) -> Crea o titular dun artigo (título, subtitulo,
+//     Artigo(...) -> Crea o titular dun artigo (título, subtitulo,
 //                     autoría,...), cas cores indicadas. Tamén cambia o estilo
 //                     da páxina (encabezados), e vai gardando nun array a
 //                     información dos artigos (título, autoría e posición) para
@@ -98,22 +106,8 @@
 // Booleano para mostrar unha referencia visual dos 'grid' da revista
 #let _mostrar_rede = state("mostrar_rede", false)
 
-// Array que se encherá de dicionarios con info dos artigos, é dicir
-//
-// (
-//     (
-//         titulo: "Benvida a Momentum",
-//         autoria: "Equipo Decanal",
-//         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
-//     ),
-//     (
-//         titulo: "Carathéodory e a axiomatización da termodinámica",
-//         autoria: "Sebastián Táboas Pazo",
-//         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
-//     ),
-//     ...
-// )
-// Úsase para xerar o índice
+// Array que se encherá de dicionarios con info dos artigos, co seu título,
+// autoría e localización. Úsase para xerar o índice, por defecto está baleiro.
 #let _artigos = state("artigos", ())
 
 // Fontes.
@@ -125,7 +119,7 @@
 // - Estiramento    -> RATIO   versións máis ou menos comprimidas.
 //
 // Ditos 4 valores especifican unha fonte concreta. Valores non especificados
-// volvense 'auto'. Esto son varios dicionario ca información das fontes, así é
+// volvense 'auto'. Esto son varios dicionarios ca información das fontes, así é
 // máis sinxelo cambialas.
 #let _norm = ( familia: "New Computer Modern"      , peso: 450 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"          , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -137,13 +131,13 @@
 
 // Varias funcións para activar as distintas fontes directamente, usando a
 // información do dicionario anterior
-#let normal     = eso => text( fallback: false, font: _norm.familia, weight: _norm.peso, style: _norm.estilo, stretch: _norm.estiramento,)[#eso]
-#let mates      = eso => text( fallback: false, font: _mate.familia, weight: _mate.peso, style: _mate.estilo, stretch: _mate.estiramento,)[#eso]
-#let sans       = eso => text( fallback: false, font: _sans.familia, weight: _sans.peso, style: _sans.estilo, stretch: _sans.estiramento,)[#eso]
-#let condensada = eso => text( fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
+#let normal         = eso => text( fallback: false, font: _norm.familia, weight: _norm.peso, style: _norm.estilo, stretch: _norm.estiramento,)[#eso]
+#let mates          = eso => text( fallback: false, font: _mate.familia, weight: _mate.peso, style: _mate.estilo, stretch: _mate.estiramento,)[#eso]
+#let sans           = eso => text( fallback: false, font: _sans.familia, weight: _sans.peso, style: _sans.estilo, stretch: _sans.estiramento,)[#eso]
+#let condensada     = eso => text( fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
 #let semiCondensada = eso => text( fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
-#let mono       = eso => text( fallback: false, font: _mono.familia, weight: _mono.peso, style: _mono.estilo, stretch: _mono.estiramento,)[#eso]
-#let simbolos   = eso => text( fallback: false, font: _simb.familia, weight: _simb.peso, style: _simb.estilo, stretch: _simb.estiramento,)[#eso]
+#let mono           = eso => text( fallback: false, font: _mono.familia, weight: _mono.peso, style: _mono.estilo, stretch: _mono.estiramento,)[#eso]
+#let simbolos       = eso => text( fallback: false, font: _simb.familia, weight: _simb.peso, style: _simb.estilo, stretch: _simb.estiramento,)[#eso]
 
 // Estilo xeral que aplica a TODA a revista. Fonte por defecto, algúns
 // metadatos, data, etc.
@@ -168,10 +162,9 @@
         fallback  : false,
         style     : "normal",
         features  : ( liga : 1, kern : 1, ), // https://en.wikipedia.org/wiki/List_of_typographic_features
-        overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
         region    : "ES", // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
         script    : "latn", // https://en.wikipedia.org/wiki/ISO_15924
-        dir       : ltr,
+        dir       : ltr, // dirección do texto, de esquerda a dereita (Left To Right)
     )
     show math.equation: set text(font: "New Computer Modern Math")
     show heading.where(level: 3): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
@@ -182,6 +175,7 @@
 #let estilo_portada(
     doc,
 ) = {
+    // Simplemente cambiamos as marxes un pouco
     set page( margin: (top: 5mm, left: 5mm, right: 5mm, bottom: 5mm) )
     doc
 }
@@ -242,10 +236,9 @@
                 place(
                     left + bottom, dy: -0.4cm, dx:  0.4cm,
                     rect(
-                        fill: rgb("#44444499"),
-                        // :FACER:MIGRACION: imaxe de fondo transparente
+                        fill   : rgb("#44444499"),
                         stroke : 0.6pt + white.transparentize(70%),
-                        text(fill : white, size : 11pt, sans(comentario))
+                        text(fill: white, size : 11pt, sans(comentario))
                     )
                 )
             }
@@ -272,6 +265,8 @@
         ),
         margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
     )
+    // O índice é un grid de 4x3, onde a columna dereita (índice 2) ten
+    // participantes, ligazóns, etc.
     show grid.cell: eso => {
         if eso.x == 2 {
             context {
@@ -297,8 +292,8 @@
     grid(
 
         // Grid tamaño 4x3
-        columns : (1fr, 1.5cm, 6.2cm),
-        rows    : (2cm, 1fr, 5.1cm, 3.5cm),
+        rows    : (2cm, 1fr  , 5.1cm, 3.5cm),
+        columns : (1fr, 1.5cm, 6.2cm       ),
         stroke  : if mostrar_rede { 0.5pt } else { none },
 
         // Índice de artigos
@@ -306,9 +301,25 @@
             x:0, y:0, rowspan: 4, // 4: A primeira columna completa
             {
                 heading( level: 1, numbering: none, condensada[*Índice*])
-                // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado
-                // Iteramos polo array ca info dos artigos
-                context for artigo in _artigos.final(){
+                // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado.
+                //
+                // Iteramos polo array ca info dos artigos. Recordemos que
+                // _artigos é un array da de dicionarios, como
+                //
+                // (
+                //     (
+                //         titulo: "Benvida a Momentum",
+                //         autoria: "Equipo Decanal",
+                //         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
+                //     ),
+                //     (
+                //         titulo: "Carathéodory e a axiomatización da termodinámica",
+                //         autoria: "Sebastián Táboas Pazo",
+                //         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
+                //     ),
+                //     ...
+                // )
+                context for artigo in _artigos.final() {
                     // Mostramos os artigos como ligazóns
                     link(
                         // A onde nos vai levar a ligazón
@@ -320,14 +331,14 @@
                                 font    : _semi.familia,
                                 stretch : _semi.estiramento,
                                 [
-                                    #show "\n": " " // para eliminar as novas liñas dos títulos
-                                    *#artigo.titulo*
+                                    #show "\n": " " // Un truco para eliminar as novas liñas "\n" dos títulos
+                                    *#artigo.titulo* // TITULO
                                 ],
                             )
                             h(1fr)
-                            [*#artigo.localizacion.page*]
+                            [*#artigo.localizacion.page*] // PÁXINA
                             linebreak()
-                            artigo.autoria
+                            artigo.autoria // AUTORIA
                             v(1em)
                         }
                     )
@@ -367,7 +378,7 @@
                     participantes // Array de dicionarios ( (nome:"aa", posto:"bb"), (nome:"cc", posto:"dd") )
                         .filter(p => p.posto == "Dirección") // Array so con participantes no posto 'Dirección'
                         .map(p => p.nome)                    // Devolvemos un array só cos nomes
-                        .join("\n")                          // Xunstamos os nomes cun '\n'
+                        .join("\n")                          // Xuntamos os nomes cun '\n'
                 },
                 {
                     show text: sans
@@ -490,6 +501,7 @@
     set text(
         // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
         hyphenate : true,
+        overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
         costs     : ( hyphenation: 10% )
     )
     // :FACER: axustar espazos
@@ -585,7 +597,6 @@
             stroke : if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
             {
                 text(size: 2em, [Un Momentum...])
-                // :FACER:MIGRACION: isto nunha variable externa
                 text(
                     size: 1.5em,
                     {
@@ -654,7 +665,7 @@
     data              : datetime.today(),
     cor_resalte       : rgb("ff0000"),
     cor_texto_resalte : rgb("ffffff"),
-    imaxe             : "/revistas/" + sys.inputs.at("numero") + "/imaxes/portada.png" ,
+    imaxe             : "/revistas/" + sys.inputs.numero + "/imaxes/portada.png" ,
     comentario        : "-- SEN COMENTARIO --",
     repositorio       : "fisicaUSC/revista",
     whatsapp          : "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
@@ -772,10 +783,7 @@
 
 }
 
-// Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
-// :FACER:MIGRACION: cargar bibliografía _per_ artigo. véxase https://github.com/typst/typst/pull/7277
-// :FACER: cambiar o nome a 'artigo' ou algo así
-#let Titular(                            /* TIPO      explicacion */
+#let Artigo(                             /* TIPO      explicacion */
     titulo        : [-- SEN TÍTULO --],  // CONTENT Título do artigo
     autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
     subtitulo     : none,                // CONTENT Subtítulo do artigo
@@ -898,8 +906,12 @@
 
 #let CrearBibliografia(bib) = {
     // :FACER:MIGRACION: customizar o `divider` (cores) e usalo para as entrevistas e noutros sitios
-    // :FACER:MIGRACION: decidir niveis dos headings
+    // :FACER:MIGRACION: decidir depths dos headings:
+    //     - 1: Portada, Artigos individuais
+    //     - 2: Introducions, biblio, etc.
+    //     - 3: Preguntas/Respostas..?
     divider()
+    // Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
     bibliography(
         bib,
         style: "/momentum-citacions.csl",

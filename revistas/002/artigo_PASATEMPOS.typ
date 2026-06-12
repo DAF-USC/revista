@@ -1,4 +1,4 @@
-\Titular*%
+\Artigo*%
 {pasatempos}%
 {Pasatempos}%
 { Autoría múltiple}%

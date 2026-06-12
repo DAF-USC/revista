@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     estilo    : "DIVULGACION",
     titulo    : [O Teorema de Bohr-Van Leeuwen:\ o segredo está na cuántica],
     autoria   : [Luis Arcas Morcillo],

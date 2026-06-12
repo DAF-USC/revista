@@ -1,4 +1,4 @@
-\Titular*%
+\Artigo*%
 {profesorado}%
 {Memorias de Moscova}%
 {Carlos Merino Gayoso}%

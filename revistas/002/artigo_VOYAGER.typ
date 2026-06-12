@@ -1,4 +1,4 @@
-\Titular*%
+\Artigo*%
 {historia}%
 {Viaxeiros espaciais. Oda á Voyager 1}%
 {Celia Álvarez Álvarez}%

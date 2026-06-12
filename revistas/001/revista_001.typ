@@ -73,5 +73,5 @@
     artigos           : artigos,
     despedida         : despedida,
     agradecementos    : agradecementos,
-    // mostrar_rede      : true
+    mostrar_rede      : true
 )

@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     estilo    : "DIVULGACION",
     titulo    : [O misterio da materia escura],
     autoria   : [Pablo Falgueras Casarejos],

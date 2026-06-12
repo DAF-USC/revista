@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     titulo    : [Física e filosofía: Irmás],
     subtitulo : [Sobre a física, a filosofía e a carreira],
     autoria   : "Mauro Garrido Rodríguez",

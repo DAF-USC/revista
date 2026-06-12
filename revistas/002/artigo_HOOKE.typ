@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     estilo    : "HISTORIA",
     titulo    : [Robert Hooke. Nunca vaias contra Newton],
     autoria   : [Pablo Duarte López],

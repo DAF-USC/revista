@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     titulo    : [A morte do xeocentrismo:\ dos gregos a Kepler],
     subtitulo : [
         Unha pequena historia do modelo xeocentrista, dos seus defensores e detractores, \

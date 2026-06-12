@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     titulo    : [Skyrmións, ou que é a física],
     subtitulo : [
         O que unha teoría errada da interacción forte nos recorda sobre como

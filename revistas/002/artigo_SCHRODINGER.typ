@@ -1,4 +1,4 @@
-\Titular*%
+\Artigo*%
 {divulgacion}%
 {De onde xorde a ecuación de Schrödinger?}%
 {Mauro Garrido Rodríguez}%

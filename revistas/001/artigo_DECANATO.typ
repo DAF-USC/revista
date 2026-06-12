@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     titulo  : [Benvida a Momentum],
     autoria : "Equipo Decanal",
     estilo  : "PROFESORADO",

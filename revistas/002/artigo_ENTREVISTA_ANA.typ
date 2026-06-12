@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     autoria   : [Gemma Ruiz Lavandeira],
     titulo    : [Coñecendo a Ana Ulla Miguel],
     subtitulo : [Camiños na astrofísica, desafíos e horizontes futuros.],

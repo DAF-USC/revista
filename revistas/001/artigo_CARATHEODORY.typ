@@ -1,7 +1,6 @@
-// :FACER:MIGRACION: seguimos ca idea de ter unha función aqui cas cousas do artigo?
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     titulo    : [Carathéodory e a axiomatización\ da termodinámica],
     subtitulo : [Sobre a pretensión de transformar un coñecemento puramente fenomenolóxico en puramente matemático.],
     autoria   : "Sebastián Táboas Pazo",

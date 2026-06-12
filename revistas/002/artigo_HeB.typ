@@ -1,6 +1,6 @@
 #import("/estilo.typ"): *
 
-#show: Titular.with(
+#show: Artigo.with(
     estilo    : "HISTORIA",
     titulo    : [_Strike_, you're out!\ Bombas, Heisenberg e un catcher],
     autoria   : [Santiago González Gómez],
