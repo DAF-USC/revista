@@ -136,7 +136,7 @@
 #let sans           = eso => text( size: 1em   , fallback: false, font: _sans.familia, weight: _sans.peso, style: _sans.estilo, stretch: _sans.estiramento,)[#eso]
 #let condensada     = eso => text( size: 1em   , fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
 #let semiCondensada = eso => text( size: 1em   , fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
-#let mono           = eso => text( size: 1.05em , fallback: false, font: _mono.familia, weight: _mono.peso, style: _mono.estilo, stretch: _mono.estiramento,)[#eso]
+#let mono           = eso => text( size: 1.2em , fallback: false, font: _mono.familia, weight: _mono.peso, style: _mono.estilo, stretch: _mono.estiramento,)[#eso]
 #let simbolos       = eso => text( size: 1em   , fallback: false, font: _simb.familia, weight: _simb.peso, style: _simb.estilo, stretch: _simb.estiramento,)[#eso]
 
 // Estilo xeral que aplica a TODA a revista. Fonte por defecto, algúns
@@ -514,10 +514,7 @@
             spacing  : (min: 66.67% + 0pt, max: 150% + 0pt) // Entre palabras
         )
     )
-    show raw: set text(
-        font: _mono.familia,
-        ligatures: true,
-    )
+    show raw: mono
     // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
     // diferentes
     show quote: set text(style: "italic")
