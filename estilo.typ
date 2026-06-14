@@ -167,7 +167,7 @@
         dir       : ltr, // dirección do texto, de esquerda a dereita (Left To Right)
     )
     show math.equation: set text(font: "New Computer Modern Math")
-    show heading.where(level: 3): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
+    show heading.where(level: 2): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
     doc
 }
 
