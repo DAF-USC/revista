@@ -19,13 +19,18 @@ SHELL := bash
 # que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
+# norma para evitar que se borre o PDF da revista se saímos de Make (p.e. con CTRL-C)
+.PRECIOUS: .pdf/revista_$(numero).pdf
+
 # Formato por defecto
-ifeq ($(formato),)
-	formato := completa
-endif
+formato := completa
+
+# método de compilación por defecto
+# `compile` -> compilación única
+# `watch`   -> compilación continuada
+metodo := compile
 
 # :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
-#
 OPCIONS_TYPST := \
 	--format pdf              \
 	--root .                  \
@@ -34,7 +39,7 @@ OPCIONS_TYPST := \
 	--ignore-system-fonts     \
 	--ignore-embedded-fonts   \
 	--font-path=fontes        \
-	--timings=.aux/perf.json  \
+	--timings=.aux/perf_{n}.json  \
 	--deps=.aux/deps.json     \
 	--deps-format=json        \
 	--input numero=$(numero)  \
@@ -66,8 +71,8 @@ INFO_GIT := \
 	$(shell if [ ! -d ".pdf" ]; then mkdir .pdf; fi)
 	$(shell if [ ! -d ".aux" ]; then mkdir .aux; fi)
 
-	# :FACER:MIGRACION: posibilidade de usar 'typst watch' ..?
-	typst compile \
+	typst \
+		$(metodo) \
 		$(OPCIONS_TYPST) \
 		$(INFO_GIT) \
 		revistas/$(numero)/revista_$(numero).typ \
