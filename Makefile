@@ -35,6 +35,8 @@ OPCIONS_TYPST := \
 	--ignore-embedded-fonts   \
 	--font-path=fontes        \
 	--timings=.aux/perf.json  \
+	--deps=.aux/deps.json     \
+	--deps-format=json        \
 	--input numero=$(numero)  \
 	--input formato=$(formato)\
 
