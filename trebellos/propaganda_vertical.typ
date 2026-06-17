@@ -10,7 +10,7 @@
 #let version       = sys.inputs.at("version")
 
 #set text(
-    font     : "Latin Modern Sans",
+    font     : "New Computer Modern Sans",
     tracking : -0.04em,
     weight   : "medium",
 )
@@ -72,7 +72,7 @@
         stroke : cor.darken(50%) + 3pt,
         text(
             size : 20pt,
-            font : "Latin Modern Sans",
+            font : "New Computer Modern Sans",
         )[
             Divulgación, historia, filosofía, pasatempos,\
             programación, vida na facultade e moito máis.\
@@ -151,7 +151,7 @@
 
                 grid.cell(x:0, y:0, text(size: 12pt, [Explora o proxecto])),
                 grid.cell(x:1, y:0, text(font: "Symbols Nerd Font Mono", size: 20pt, box[])),
-                grid.cell(x:2, y:0, link("https://www.github.com/fisicaUSC/revista")[ #text(size: 12pt, font: "Latin Modern Mono", [fisicaUSC/revista]) ],),
+                grid.cell(x:2, y:0, link("https://www.github.com/fisicaUSC/revista")[ #text(size: 12pt, font: "New Computer Modern Mono", [fisicaUSC/revista]) ],),
 
                 grid.cell(x:0, y:1, text(size: 12pt, [Síguenos en redes])),
                 grid.cell(x:1, y:1, text(font: "Symbols Nerd Font Mono", size: 20pt, box[])),
