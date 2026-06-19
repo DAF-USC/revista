@@ -857,7 +857,7 @@
                             x => x + (
                                 (
                                     titulo : titulo, autoria : autoria, localizacion : posicion,
-                                ), // Esta coma fai que estemos concatenando un array
+                                ), // IMPORTANTE: Esta coma fai que estemos concatenando un array, non a quitedes
                             )
                         )
                     }
@@ -901,17 +901,14 @@
 
 #let CrearBibliografia(bib) = {
     // :FACER:MIGRACION: customizar o `divider` (cores) e usalo para as entrevistas e noutros sitios
-    // :FACER:MIGRACION: decidir depths dos headings:
-    //     - 1: Portada, Artigos individuais
-    //     - 2: Introducions, biblio, etc.
-    //     - 3: Preguntas/Respostas..?
     divider()
     // Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
+    heading(depth: 2, condensada[*Bibliografía*])
     bibliography(
         bib,
         style: "/momentum-citacions.csl",
         group: none,
-        title: condensada[*Bibliografía*]
+        title: none
     )
 }
 
