@@ -525,9 +525,10 @@
             text(style:"italic", eso)
         )
     } else { eso }
-    // :FACER: caption con menos interliñado?
+    show figure.caption: set align(left)
+    show figure.caption: set par(leading: 5pt)
+    show figure.caption: set text(font:_sans.familia)
     show figure.caption: eso => if mostrar_rede {
-        set align(left)
         rect(
             inset: 0pt,
             stroke: 0.6pt,
@@ -538,8 +539,6 @@
             }
         )
     } else {
-        set align(left)
-        set text(font:_sans.familia)
         context strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
