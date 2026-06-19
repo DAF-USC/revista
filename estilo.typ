@@ -96,16 +96,12 @@
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-// Unhas variables globais.
+#let numero = sys.inputs.at("numero")
+#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
+
+// Unha variable global.
 // https://typst.app/docs/reference/introspection/state/
 //
-// :FACER:MIGRACION: cores usando sys.inputs (pode que con TOML?)
-#let _cor_resalte = state("cor_resalte", "#FF0000")
-#let _cor_texto_resalte = state("cor_texto_resalte", "#FF0000")
-
-// Booleano para mostrar unha referencia visual dos 'grid' da revista
-#let _mostrar_rede = state("mostrar_rede", false)
-
 // Array que se encherá de dicionarios con info dos artigos, co seu título,
 // autoría e localización. Úsase para xerar o índice, por defecto está baleiro.
 #let _artigos = state("artigos", ())
@@ -142,16 +138,14 @@
 // Estilo xeral que aplica a TODA a revista. Fonte por defecto, algúns
 // metadatos, data, etc.
 #let estilo_xeral(
-    participantes : none,
-    data          : none,
-    doc,
+    doc
 ) = {
     set document(
         title       : "Revista Estudantil Momentum",
-        author      : participantes.map(p => p.nome),
+        author      : datos.participantes.values().flatten(),
         description : "Revista de Física Estudantil e Compostelana",
         keywords    : ("física","divulgación","galego"),
-        date        : data
+        date        : datetime.today()
     )
     set page(paper: "a4")
     set text(
@@ -173,7 +167,7 @@
 
 // Estilo para a portada.
 #let estilo_portada(
-    doc,
+    doc
 ) = {
     // Simplemente cambiamos as marxes un pouco
     set page( margin: (top: 5mm, left: 5mm, right: 5mm, bottom: 5mm) )
@@ -182,17 +176,12 @@
 
 // :FACER:MIGRACION: tamaños correctos na portada
 // Función para crear a portada
-#let crear_portada(
-    imaxe        : none,
-    comentario   : none,
-    data         : none,
-    mostrar_rede : false,
-) = grid(
+#let crear_portada() = grid(
 
     columns : 1fr,
     rows    : 4,
     align   : center,
-    stroke  : if mostrar_rede { 0.5pt } else { none },
+    stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
     // O titulo
     grid.cell(
@@ -200,7 +189,7 @@
         block(
             inset: 0.5cm,
             {
-                context text( fill: _cor_resalte.get(), size: 70pt)[*$arrow("M")$*]
+                text( fill: rgb(datos.cores.resalte), size: 70pt)[*$arrow("M")$*]
                 text(size: 70pt)[*OMENTUM*]
             }
         )
@@ -209,15 +198,14 @@
     // Número e data
     grid.cell(
         x:0, y:1,
-        context block(
+        block(
             inset  : 11pt,
             stroke : 1pt,
-            fill   : _cor_resalte.get(),
+            fill   : rgb(datos.cores.resalte),
             text(
-                fill : _cor_texto_resalte.get(),
+                fill : rgb(datos.cores.texto),
                 size : 15pt,
-                // :FACER:MIGRACION: como facemos ca l10n ?
-                mono[Número #sys.inputs.at("numero") #h(1fr) #data]
+                mono[Número #sys.inputs.at("numero") #h(1fr) #datos.data.mes #datos.data.ano]
             )
         )
     ),
@@ -232,13 +220,13 @@
                 // :FACER: cando https://github.com/typst/typst/pull/7556 se
                 // xunte pode poñerse unha imaxe plana de exemplo cando
                 // `portada.png` non exista
-                image(width: 100%, imaxe)
+                image(width: 100%, "/revistas/" + sys.inputs.numero + "/imaxes/portada.png")
                 place(
                     left + bottom, dy: -0.4cm, dx:  0.4cm,
                     rect(
                         fill   : rgb("#44444499"),
                         stroke : 0.6pt + white.transparentize(70%),
-                        text(fill: white, size : 11pt, sans(comentario))
+                        text(fill: white, size : 11pt, sans(datos.comentario_imaxe))
                     )
                 )
             }
@@ -253,15 +241,15 @@
 
 // Estilo para o índice de contidos
 #let estilo_indice(
-    doc,
+    doc
 ) = {
     // Non usar sangría
     set par(first-line-indent: 0pt)
     set page(
         // O rectángulo de cor do lado dereito
-        background : context place(
+        background : place(
             right + top,
-            rect(fill: _cor_resalte.get().lighten(35%), height: 100%, width: 8cm),
+            rect(fill: rgb(datos.cores.resalte).lighten(35%), height: 100%, width: 8cm),
         ),
         margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
     )
@@ -269,11 +257,9 @@
     // participantes, ligazóns, etc.
     show grid.cell: eso => {
         if eso.x == 2 {
-            context {
-                set text( fill: _cor_texto_resalte.get())
-                set par(spacing: 0pt)
-                eso
-            }
+            set text( fill: rgb(datos.cores.texto))
+            set par(spacing: 0pt)
+            eso
         } else { eso }
     }
     doc
@@ -281,20 +267,13 @@
 
 // Función para crear o propio índice de contidos
 // :FACER: simplificar na medida do posible todo o índice
-#let crear_indice(
-    participantes : none,
-    correo        : none,
-    instagram     : none,
-    repositorio   : none,
-    data          : none,
-    mostrar_rede  : false
-) = {
+#let crear_indice() = {
     grid(
 
         // Grid tamaño 4x3
         rows    : (2cm, 1fr  , 5.1cm, 3.5cm),
         columns : (1fr, 1.5cm, 6.2cm       ),
-        stroke  : if mostrar_rede { 0.5pt } else { none },
+        stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
         // Índice de artigos
         grid.cell(
@@ -327,7 +306,7 @@
                         // Que mostra a ligazón
                         {
                             text(
-                                fill    : _cor_resalte.get().darken(20%),
+                                fill    : rgb(datos.cores.resalte).darken(20%),
                                 font    : _semi.familia,
                                 stretch : _semi.estiramento,
                                 [
@@ -352,9 +331,7 @@
             sans(
                 {
                     set text( size : 1.5em )
-                    data.display("[day padding:none] de [month repr:long] do [year]")
-                    linebreak()
-                    [Número #sys.inputs.at("numero")]
+                    [#datos.data.dia de #datos.data.mes do #datos.data.ano\ Número #sys.inputs.at("numero")]
                 }
             )
         ),
@@ -365,39 +342,22 @@
             align: left,
             grid(
                 columns    : 1,
-                rows       : 3,
+                rows       : 1,
                 row-gutter : 1.4em,
-                stroke     : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+                stroke     : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
 
-                // :FACER: simplificar esto cunha función?
-                {
-                    // :FACER: aclarar postos. Cales son?
-                    show text: sans
-                    text(size: 1.2em)[*Dirección*]
-                    v(1em)
-                    participantes // Array de dicionarios ( (nome:"aa", posto:"bb"), (nome:"cc", posto:"dd") )
-                        .filter(p => p.posto == "Dirección") // Array so con participantes no posto 'Dirección'
-                        .map(p => p.nome)                    // Devolvemos un array só cos nomes
-                        .join("\n")                          // Xuntamos os nomes cun '\n'
-                },
                 {
                     show text: sans
-                    text(size: 1.2em)[*Edición*]
-                    v(1em)
-                    participantes
-                        .filter(p => p.posto == "Edición")
-                        .map(p => p.nome)
-                        .join("\n")
-                },
-                {
-                    show text: sans
-                    text(size: 1.2em)[*Deseño de Logo*]
-                    v(1em)
-                    participantes
-                        .filter(p => p.posto == "Deseño de Logo")
-                        .map(p => p.nome)
-                        .join("\n")
+                    for posto in datos.participantes.keys() {
+                        v(1em)
+                        text( size:1.2em, [*#posto*\ ],)
+                        v(1em)
+                        for persoa in datos.participantes.at(posto) {
+                            [#persoa\ ]
+                        }
+                    }
                 }
+
             )
         ),
 
@@ -411,27 +371,27 @@
                     rows: 3,
                     row-gutter: 1em,
                     columns : (100%,),
-                    stroke  : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+                    stroke  : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     // CORREO
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
-                        stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
+                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("mailto:" + correo, sans[#correo])
+                        link("mailto:" + datos.correo, sans[#datos.correo])
                     ),
                     // INSTAGRAM
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
-                        stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
+                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("https://www.instagram.com/" + instagram, sans[@#instagram])
+                        link("https://www.instagram.com/" + datos.instagram, sans[@#datos.instagram])
                     ),
                     // INFO GIT
                     grid(
                         columns:1, rows:4, row-gutter: 7pt,
-                        stroke  : if mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
+                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("https://github.com/" + repositorio, mono[#repositorio]),
+                        link("https://github.com/" + datos.repositorio, mono[#datos.repositorio]),
                         {
                             simbolos[]
                             mono(sys.inputs.at("rama"))
@@ -450,7 +410,7 @@
             x: 2, y:3,
             {
                 rect(
-                    stroke : if mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+                    stroke : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     inset : 0pt,
                     image("/logos/usc-negativo-escuro.pdf"),
                 )
@@ -462,8 +422,7 @@
 
 // Estilo para os artigos
 #let estilo_corpo(
-    mostrar_rede: false,
-    doc,
+    doc
 ) = {
     // Comezamos a contar páxinas
     counter(page).update(1)
@@ -474,7 +433,7 @@
             if calc.even(p) {
                 // Pe de paxinas pares
                 grid(
-                    stroke  : if mostrar_rede { 0.5pt } else { none },
+                    stroke  : if datos.mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
                     rows    : 1fr,
                     align   : (left + top),
@@ -486,7 +445,7 @@
             } else {
                 // Pe de paxinas impares
                 grid(
-                    stroke: if mostrar_rede { 0.5pt } else { none },
+                    stroke: if datos.mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
                     rows    : 1fr,
                     align   : (right + top),
@@ -518,7 +477,7 @@
     // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
     // diferentes
     show quote: set text(style: "italic")
-    show quote.where(block:true): eso => if mostrar_rede {
+    show quote.where(block:true): eso => if datos.mostrar_rede {
         rect(
             inset: 0pt,
             stroke: 0.6pt,
@@ -528,7 +487,7 @@
     show figure.caption: set align(left)
     show figure.caption: set par(leading: 5pt, justify: false)
     show figure.caption: set text(font:_sans.familia)
-    show figure.caption: eso => if mostrar_rede {
+    show figure.caption: eso => if datos.mostrar_rede {
         rect(
             inset: 0pt,
             stroke: 0.6pt,
@@ -542,8 +501,8 @@
         context strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
-    show image: eso => if mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
-    show figure: eso => if mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
+    show image: eso => if datos.mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
+    show figure: eso => if datos.mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
     show math.equation.where(block: false): eso => { box(eso) }
     set math.equation(numbering: "1)")
     set columns(2, gutter: 5mm, balanced: true)
@@ -559,13 +518,7 @@
 }
 
 // Función para crear a contraportada
-#let crear_contraportada(
-    anteriores     : none,
-    whatsapp       : none,
-    agradecementos : none,
-    despedida      : none,
-    mostrar_rede   : false,
-) = {
+#let crear_contraportada() = {
 
     import "@preview/tiaoma:0.3.0"
 
@@ -586,19 +539,19 @@
         rows       : (4fr, 0pt, 1fr),
         align      : center + horizon,
         row-gutter : 1em,
-        stroke     : if mostrar_rede { 0.5pt } else { none },
+        stroke     : if datos.mostrar_rede { 0.5pt } else { none },
 
         // Un Momentum...
         block(
             width : 70%,
-            stroke : if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
+            stroke : if datos.mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
             {
                 text(size: 2em, [Un Momentum...])
                 text(
                     size: 1.5em,
                     {
                         set par(justify: true, leading:0.3em)
-                        despedida
+                        datos.despedida
                     }
                 )
                 text(size: 2em, [Agradecementos])
@@ -606,7 +559,8 @@
                     size: 1.2em,
                     {
                         set par(justify: true, leading:0.3em)
-                        agradecementos
+                        // :FACER: ollo, isto converte a string do datos.yaml a contido, e trata algo raro os \n
+                        datos.agradecementos
                     }
                 )
             }
@@ -620,7 +574,7 @@
             rows          : 2,
             column-gutter : 1em,
             row-gutter    : 1em,
-            stroke: if mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
+            stroke: if datos.mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
 
             // :FACER: QRs clicables, como links
             // QR1
@@ -629,7 +583,7 @@
                 x: 0, y:1,
                 // En caso de dúbidas, mirar o manual en https://zint.org.uk/
                 tiaoma.barcode(
-                    anteriores,
+                    datos.anteriores,
                     "QRCode",
                     options: (
                         option-1 : 4,   // corrección de erros, 1-4
@@ -643,7 +597,7 @@
             grid.cell(x:1, y:0, [Participa! (WhatsApp)]),
             grid.cell(
                 x: 1, y:1,
-                tiaoma.barcode(whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
+                tiaoma.barcode(datos.whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
             ),
 
             // Financiación
@@ -658,125 +612,37 @@
 }
 
 // Función que xunta todo
-#let crear_revista(
-    data              : datetime.today(),
-    cor_resalte       : rgb("ff0000"),
-    cor_texto_resalte : rgb("ffffff"),
-    imaxe             : "/revistas/" + sys.inputs.numero + "/imaxes/portada.png" ,
-    comentario        : "-- SEN COMENTARIO --",
-    repositorio       : "fisicaUSC/revista",
-    whatsapp          : "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
-    instagram         : "momentum.usc",
-    anteriores        : "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
-    correo            : "revistafisicausc@gmail.com",
-    participantes     : ((nome: "-- SEN PARTICIPANTES --"),),
-    despedida         : "-- SEN DESPEDIDA --",
-    agradecementos    : "-- SEN AGRADECEMENTOS --",
-    artigos           : "-- SEN ARTIGOS --",
-    formato           : sys.inputs.formato,
-    mostrar_rede      : false
-) = {
-
-    // :FACER: comprobacións (tipos, lonxitudes..) e casos límite dos argumentos
-
-    // Gardamos o novo valor das cores para poder usalo nos artigos
-    _cor_resalte.update(c => cor_resalte)
-    _cor_texto_resalte.update(c => cor_texto_resalte)
-
-    // Pa mostrar ou no a estrutura das cousas
-    _mostrar_rede.update(m => mostrar_rede)
+// :FACER:MIGRACION: versión impresa
+#let crear_revista() = {
 
     // Activamos o estilo xeral, que vai afectar a toda a revista
-    show: estilo_xeral.with(
-        participantes : participantes,
-        data          : data,
-    )
+    show: estilo_xeral
 
-    // Para a revista completa mostramos todo
-    if formato == "completa" {
-
-        // Agora, activamos o estilo da portada e mostrámola
-        {
-            show: estilo_portada
-            crear_portada(
-                imaxe      : imaxe,
-                comentario : comentario,
-                data       : data.display("[month repr:long] [year]"),
-                mostrar_rede : mostrar_rede
-            )
-        }
-
-        // Activamos o estilo do índice e creámolo
-        {
-            show: estilo_indice
-            crear_indice(
-                participantes : participantes,
-                correo        : correo,
-                instagram     : instagram,
-                repositorio   : repositorio,
-                data          : data,
-                mostrar_rede  : mostrar_rede
-            )
-        }
-
-        // Activamos o estilo para os artigos (corpo) e mostrámolos
-        {
-            show: estilo_corpo.with( mostrar_rede: mostrar_rede )
-            artigos
-        }
-
-        // Activamos o estilo para a contraportada e creámola
-        {
-            show: estilo_contraportada
-            crear_contraportada(
-                anteriores     : anteriores,
-                whatsapp       : whatsapp,
-                despedida      : despedida,
-                agradecementos : agradecementos,
-                mostrar_rede   : mostrar_rede
-            )
-        }
-
+    // Agora, activamos o estilo da portada e mostrámola
+    {
+        show: estilo_portada
+        crear_portada()
     }
 
-    // Para a impresa mostramos todo, con algúns cambios
-    // :FACER:MIGRACION: versión impresa
-    else if formato == "impresa" {
-        {
-            show: estilo_portada
-            crear_portada(
-                imaxe      : imaxe,
-                comentario : comentario,
-                data       : data.display("[month repr:long] [year]")
-            )
-        }
-        {
-            show: estilo_indice
-            crear_indice(
-                participantes : participantes,
-                correo        : correo,
-                instagram     : instagram,
-                repositorio   : repositorio,
-                data          : data
-            )
-        }
-        {
-            show: estilo_corpo.with( mostrar_rede: mostrar_rede )
-            artigos
-        }
-        {
-            show: estilo_contraportada
-            crear_contraportada(
-                anteriores     : anteriores,
-                whatsapp       : whatsapp,
-                despedida      : despedida,
-                agradecementos : agradecementos,
-                mostrar_rede   : mostrar_rede
-            )
+    // Activamos o estilo do índice e creámolo
+    {
+        show: estilo_indice
+        crear_indice()
+    }
+
+    // Activamos o estilo para os artigos (corpo) e mostrámolos
+    {
+        show: estilo_corpo
+        for artigo in datos.artigos {
+            include(artigo)
         }
     }
 
-    else { panic("Formato da revista non válido") }
+    // Activamos o estilo para a contraportada e creámola
+    {
+        show: estilo_contraportada
+        crear_contraportada()
+    }
 
 }
 
@@ -787,22 +653,21 @@
     afiliacion    : none,                // STRING  Afiliación dos autores
     // :FACER: realmente fai falla esto? Engadimos combrobacións?
     estilo        : "-- SEN ESTILO --",  // STRING  Estilo do artigo (divulgación, historia, etc.)
-    mostrar_rede  : true,                // BOOL    Mostrar estrutura visual ou no
     artigo
 ) = {
     // :FACER: engadir comprobacións, p.e. assert(type(titulo) == "content")
     set page(
-        header: context {
+        header: {
             grid(
                 columns    : (1fr, 2.3cm, 1fr),
                 rows       : (1em,1em,1em),
                 row-gutter : 0pt,
                 align      : (left+horizon, center+horizon, right+horizon ),
-                stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
+                stroke     : if datos.mostrar_rede { 0.5pt } else { none },
                 grid.cell(
                     x:0, y:0,
                     text(
-                        fill   : _cor_resalte.get(),
+                        fill   : rgb(datos.cores.resalte),
                         font   : _cond.familia,
                         stretch: _cond.estiramento,
                         weight : "bold",
@@ -815,10 +680,10 @@
                     x:1,
                     rowspan:3,
                     circle(
-                        fill   : _cor_resalte.get(),
+                        fill   : rgb(datos.cores.resalte),
                         radius : 1.4em,
                         text(
-                            fill : _cor_texto_resalte.get(),
+                            fill : rgb(datos.cores.texto),
                             size : 22pt,
                             [$accent(m,arrow)$]
                         )
@@ -837,13 +702,13 @@
         block(
             width : 100%,
             radius: (top-left: 3em, bottom-right: 3em),
-            context {
+            {
                 set par(leading: 0.4em)
                 text(
                     size   : 25pt,
-                    fill   : rgb(_cor_resalte.get()),
+                    fill   : rgb(datos.cores.resalte),
                     weight : "bold",
-                    {
+                    context {
                         condensada(heading(depth: 1, titulo)) /* Mostrar o título */
                         let posicion = here().position() /* Variable ca posición actual */
                         // Agora actualizamos a lista de artigos engadindo un
@@ -880,11 +745,11 @@
     // O número de filas que ten o titular
     let numero_filas_titular = filas_titular.len()
 
-    context grid(
+    grid(
         columns    : 1fr,
         rows       : numero_filas_titular,
         row-gutter : 1em,
-        stroke     : if _mostrar_rede.get() { 0.5pt } else { none },
+        stroke     : if datos.mostrar_rede { 0.5pt } else { none },
         align      : center,
         ..filas_titular
     )

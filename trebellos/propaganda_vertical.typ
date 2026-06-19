@@ -1,12 +1,11 @@
 #import "@preview/tiaoma:0.3.0"
 
-#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_1.pdf"
-#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_2.pdf"
-#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_3.pdf"
-#let correo        = "revistafisicaUSC@gmail.com"
-#let edicions      = "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum"
-#let cor           = rgb(sys.inputs.at("cor"))
-#let cortexto      = rgb(sys.inputs.at("cortexto"))
+#let numero = sys.inputs.at("numero")
+#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
+
+#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + numero + "_1.pdf"
+#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + numero + "_2.pdf"
+#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + numero + "_3.pdf"
 #let version       = sys.inputs.at("version")
 
 #set text(
@@ -25,7 +24,7 @@
 )
 
 #let QR = tiaoma.barcode(
-    "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
+    datos.whatsapp,
     "QRCode",
     options : (
         option-1 : 4,
@@ -42,12 +41,12 @@
 
     // Cor do fondo da propaganda
     set page(
-        fill: if estilo == "cor" { cor } else { cortexto }
+        fill: if estilo == "cor" { rgb(datos.cores.resalte) } else { rgb(datos.cores.texto) }
     )
 
     // Cor do texto, depende do estilo da propaganda
     set text(
-        fill: if estilo == "cor" { cortexto } else { cor }
+        fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte) }
     )
 
     grid(
@@ -56,20 +55,20 @@
         text(
             size   : 25pt,
             weight : "bold",
-            fill   : cor.darken(70%)
+            fill   : rgb(datos.cores.resalte).darken(70%)
         )[_Revista estudantil_],
         text(size: 75pt, weight: "bold")[Momentum],
     )
 
     v(0.5em)
-    set text(fill: if estilo == "cor" { cortexto } else { cor.darken(80%) })
+    set text(fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte).darken(80%) })
 
     block(
         inset  : 1em,
         width  : 100%,
-        fill   : cor.lighten(25%),
+        fill   : rgb(datos.cores.resalte).lighten(25%),
         radius : 1em,
-        stroke : cor.darken(50%) + 3pt,
+        stroke : rgb(datos.cores.resalte).darken(50%) + 3pt,
         text(
             size : 20pt,
             font : "New Computer Modern Sans",
@@ -135,8 +134,8 @@
     block(
         width  : 100%,
         inset  : 1em,
-        fill   : cor.lighten(25%),
-        stroke : cor.darken(50%) + 3pt,
+        fill   : rgb(datos.cores.resalte).lighten(25%),
+        stroke : rgb(datos.cores.resalte).darken(50%) + 3pt,
         radius : 1em,
         grid(
             columns : (60%, 40%),
@@ -151,15 +150,15 @@
 
                 grid.cell(x:0, y:0, text(size: 12pt, [Explora o proxecto])),
                 grid.cell(x:1, y:0, text(font: "Symbols Nerd Font Mono", size: 20pt, box[])),
-                grid.cell(x:2, y:0, link("https://www.github.com/fisicaUSC/revista")[ #text(size: 12pt, font: "New Computer Modern Mono", [fisicaUSC/revista]) ],),
+                grid.cell(x:2, y:0, link("https://github.com/" + datos.repositorio)[ #text(size: 12pt, font: "New Computer Modern Mono", [#datos.repositorio]) ],),
 
                 grid.cell(x:0, y:1, text(size: 12pt, [Síguenos en redes])),
                 grid.cell(x:1, y:1, text(font: "Symbols Nerd Font Mono", size: 20pt, box[])),
-                grid.cell(x:2, y:1, link("https://www.instagram.com/momentum.usc/")[#text(size: 12pt, [\@momentum.usc])]),
+                grid.cell(x:2, y:1, link("https://www.instagram.com/" + datos.instagram)[#text(size: 12pt, [\@#datos.instagram])]),
 
                 grid.cell(x:0, y:2, text(size: 12pt, [Manda teu artigo])),
                 grid.cell(x:1, y:2, text(font: "Symbols Nerd Font Mono", size: 20pt, box[󰊫])),
-                grid.cell(x:2, y:2, link("mailto:revistafisicausc@gmail.con")[#text(size: 12pt, [revistafisicausc\@gmail.con])]),
+                grid.cell(x:2, y:2, link("mailto:" + datos.correo)[#text(size: 12pt, [#datos.correo])]),
             ),
             grid(
                 columns : 2,

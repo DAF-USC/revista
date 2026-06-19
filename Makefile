@@ -23,9 +23,6 @@ SHELL := bash
 # norma para evitar que se borre o PDF da revista se saímos de Make (p.e. con CTRL-C)
 .PRECIOUS: .pdf/revista_$(numero).pdf
 
-# Formato por defecto
-formato := completa
-
 # método de compilación por defecto
 # `compile` -> compilación única
 # `watch`   -> compilación continuada
@@ -43,8 +40,7 @@ OPCIONS_TYPST := \
 	--timings=.aux/perf_{n}.json  \
 	--deps=.aux/deps.json     \
 	--deps-format=json        \
-	--input numero=$(numero)  \
-	--input formato=$(formato)\
+	--input numero=$(numero)
 
 DEPENDENCIAS := \
 	revistas/$(numero)/revista_$(numero).typ \
@@ -135,8 +131,6 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--input cor=$(cor) \
-		--input cortexto=$(cortexto) \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_cor.pdf
 
 # Xera a propaganda VERTICAL A4 BRANCA
@@ -144,8 +138,6 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--input cor=$(cor) \
-		--input cortexto=$(cortexto) \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_branca.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 de COR
@@ -153,8 +145,6 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--input cor=$(cor) \
-		--input cortexto=$(cortexto) \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_cor.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 BRANCA
@@ -162,6 +152,4 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--input cor=$(cor) \
-		--input cortexto=$(cortexto) \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_branca.pdf

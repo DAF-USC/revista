@@ -1,12 +1,11 @@
 #import "@preview/tiaoma:0.3.0"
 
-#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_1.pdf"
-#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_2.pdf"
-#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + sys.inputs.at("numero") + "_3.pdf"
-#let correo        = "revistafisicaUSC@gmail.com"
-#let edicions      = "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum"
-#let cor           = rgb(sys.inputs.at("cor"))
-#let cortexto      = rgb(sys.inputs.at("cortexto"))
+#let numero = sys.inputs.at("numero")
+#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
+
+#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + numero + "_1.pdf"
+#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + numero + "_2.pdf"
+#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + numero + "_3.pdf"
 #let version       = sys.inputs.at("version")
 
 #set text(
@@ -44,19 +43,18 @@
 
     // Cor do fondo da propaganda
     set page(
-        fill: if estilo == "cor" { cor } else { cortexto }
+        fill: if estilo == "cor" { rgb(datos.cores.resalte) } else { rgb(datos.cores.texto) }
     )
 
     // Cor do texto, depende do estilo da propaganda
     set text(
-        fill: if estilo == "cor" { cortexto } else { cor }
+        fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte) }
     )
 
     grid(
         columns:(73%, 27%),
         rows: 1,
         column-gutter: 0.5cm,
-        // stroke: cortexto + 1pt,
 
         grid(
             columns:1, rows:2,
@@ -69,7 +67,7 @@
                     text(
                         size   : 25pt,
                         weight : "bold",
-                        fill   : cor.darken(70%)
+                        fill   : rgb(datos.cores.resalte).darken(70%)
                     )[Revista\ estudantil],
                     text(size: 75pt, weight: "bold")[Momentum],
                 )
@@ -125,13 +123,13 @@
             {
                 set align(center + horizon)
                 set text(size: 1.4em)
-                set text(fill: if estilo == "cor" { cortexto } else { cor.darken(80%) })
+                set text(fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte).darken(80%) })
                 block(
                     width  : 90%,
                     height : 90%,
                     inset  : 0.7em,
-                    fill   : cor.lighten(25%),
-                    stroke : cor.darken(50%) + 3pt,
+                    fill   : rgb(datos.cores.resalte).lighten(25%),
+                    stroke : rgb(datos.cores.resalte).darken(50%) + 3pt,
                     radius : 1em,
                     grid(
                         rows: (1fr,1fr),
@@ -150,17 +148,17 @@
                         grid(
                             columns:1, rows:2, row-gutter: 7pt,
                             text(size: 20pt, font: "Symbols Nerd Font Mono")[#h(3pt) ],
-                            link("mailto:" + correo, [#correo])
+                            link("mailto:" + datos.correo, [#datos.correo])
                         ),
                         grid(
                             columns:1, rows:2, row-gutter: 7pt,
                             text(size: 20pt,  font: "Symbols Nerd Font Mono")[#h(3pt) ],
-                            link("https://www.instagram.com/momentum.usc/", [\@momentum.usc])
+                            link("https://www.instagram.com/" + datos.instagram, [@#datos.instagram])
                         ),
                         grid(
                             columns:1, rows:2, row-gutter: 7pt,
                             text(size: 20pt, font: "Symbols Nerd Font Mono")[#h(3pt) ],
-                            link("https://github.com/fisicaUSC/revista", [fisicaUSC/revista]),
+                            link("https://github.com/" + datos.repositorio, [#datos.repositorio]),
                         )
                     )
 
