@@ -900,8 +900,6 @@
 }
 
 #let CrearBibliografia(bib) = {
-    // :FACER:MIGRACION: customizar o `divider` (cores) e usalo para as entrevistas e noutros sitios
-    divider()
     // Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
     heading(depth: 2, condensada[*Bibliografía*])
     bibliography(
