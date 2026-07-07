@@ -526,7 +526,7 @@
         )
     } else { eso }
     show figure.caption: set align(left)
-    show figure.caption: set par(leading: 5pt)
+    show figure.caption: set par(leading: 5pt, justify: false)
     show figure.caption: set text(font:_sans.familia)
     show figure.caption: eso => if mostrar_rede {
         rect(
