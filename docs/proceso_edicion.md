@@ -41,3 +41,96 @@ totalmente irrelevante, como ficheiros auxiliares (p.e. `.log`, `.aux`),
 arquivos de configuración propietarios (p.e. `.DS_Store`), arquivos duplicados,
 subcarpetas estrañas, ... Persoalmente comezo eliminando toda esta borralla
 que non sirve de nada.
+
+## 2. Decisións editoriais
+- Cada artigo comeza con:
+  ```typst
+  #show Artigo.with(
+      titulo: [Título to wapo],            // obrigatorio
+      autoria: [Quen o escribiu?]          // opcional
+      subtitulo: [Unha breve explicación], // opcional,
+      estilo: "PROGRAMACIÓN e HISTORIA"    // obrigatorio
+  )
+  ```
+
+- Os artigos van a dúas columnas. Pode facerse con
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
+  ```
+  ou dunha tacada, para TODO o artigo de golpe
+  ```typst
+  #show: columns
+  Contido do artigo, bla bla bla
+  ```
+
+- Para poñer algo _fora_ das dúas columnas, podemos pechar a función `columns`
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
+  ISTO ESTÁ FORA DAS DÚAS COLUMNAS
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
+  ```
+  ou usar `place(top, float: true, scope: "parent")`:
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+      #place(
+          top, float: true, scope: parent,
+          figure(image("miña/imaxe/bonita.png")) // Aparece afora das columnas
+      )
+  ]
+  ```
+  ou, usando `show`
+  ```typst
+  #show: columns
+  #place(
+      top, float: true, scope: parent,
+      figure(image("miña/imaxe/bonita.png")) // Aparece afora das columnas
+  )
+  ```
+  No caso de usar `place(...)`, estamos limitados a que as figuras floten arriba ou abaixo de todo da páxina
+
+- As imaxes, polo xeral, deberían ocupar o ancho completo da columna, con `width: 100%`, as figuras deberían ter pés con `caption`, e se queremos referencialas despois, poñémoslle unha áncora con `<fig:figura_bonita>`.
+  ```typst
+  #figure(
+      image(width: 100%, "miña/imaxe/bonita.png"),
+      caption: [Pe da figura],
+  ) <fig:figura_bonita>
+  ```
+
+- As matemáticas na liña escríbense con `$...$`, (sen espazos despois do primeiro `$` nin antes do último `$`), e son irrompibles (non se parten entre liñas)
+  ```typst
+  sabemos que se $a not.eq 0$ entón $exists a^(-1)$...
+  ```
+  As matemáticas en modo bloque escríbense deixando espazos cos `$`'s, e poden referenciarse despois se lle poñemos unha áncora
+  ```typst
+  Seguindo a definición seguinte
+  $ T^p_q in Gamma (cal(M), V^(times.o q) times.o (V^*)^(times.o p)) $ <ec:verdade>
+  sabemos que un tensor é un vector
+  ```
+  Polo xeral, se unha ecuación ocupa máis do 50% do ancho dunha liña, debe poñerse en modo bloque, así evítase ter unha ecuación moi longa e irrompible nunha liña, o que se vería mal.
+
+- Para referenciar cousas pode usarse `@` para referenciar calquera cousa
+  ```typst
+  tal e como vimos no libro @libro, a ecuación @ec:verdade é correcta
+  ```
+  Pode mostrarse un suplemento (un _locator_) con `@nome[suplemento]`. Se o nome que se quere referenciar ten algún caracter raro, pode usarse `#cite()`
+  ```typst
+  isto é unha cita rara #cite(label("nome/raro"))
+  ```
+  Neste caso, o suplemento ponse con `#cite(<label>, supplement: [abcd])`
+- As citas textuais na liña escribense con
+  ```typst
+  tal e como dicía unha amiga miña, #quote[preto do monte Pío hai un conxunto de auga]
+  ```
+  e para que estén en modo bloque, simplemente
+  ```typst
+  tal e como dicía unha amiga miña, #quote(block: true, [preto do monte Pío hai un conxunto de auga])
+  ```
+  En calquera caso, pode engadirse o argumento `attribution: [Marea]` para engadir _quen_ fixo a cita.
+- As comiñas en galego son `«..»` e dentro desas, `"..."`. Polo xeral, as comiñas úsanse para as citas (punto anterior) e xa se engaden automáticamente se usamos a función `#quote`. Se queremos usar comiñas en calquera outra situación, debería, no código, usarse literalmente `"..."` e logo `'...'`. Véxase a documentación das [[smarquotes](https://typst.app/docs/reference/text/smartquote/)]
