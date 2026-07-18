@@ -546,6 +546,7 @@
     show figure: eso => if mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
     show math.equation.where(block: false): eso => { box(eso) }
     set math.equation(numbering: "1)")
+    set columns(2, gutter: 5mm, balanced: true)
 
     // :FACER: referencias a ecuacións, figuras, etc
     doc
@@ -888,8 +889,7 @@
         ..filas_titular
     )
 
-    // :FACER: dúas columnas sempre?
-    columns(2, gutter:5mm, artigo)
+    artigo
 
 }
 
