@@ -141,7 +141,7 @@
                             rows    : 2,
                             row-gutter: 1em,
                             // stroke: 1pt,
-                            grid.cell(x:0, y:0, text(size:1.2em)[*WhatsApp* ]),
+                            grid.cell(x:0, y:0, text(font: "Symbols Nerd Font Mono", size:1.2em)[*WhatsApp* ]),
                             grid.cell(x:0, y:1, block(stroke: 1pt, width: 90%, inset: 7pt, fill: white, QR)),
                         ),
                     grid(

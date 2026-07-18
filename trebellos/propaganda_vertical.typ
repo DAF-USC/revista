@@ -165,7 +165,7 @@
                 columns : 2,
                 rows    : 1,
                 grid.cell(x:0, y:0, block(stroke: 1pt, width: 80%, inset: 7pt, fill: white, QR)),
-                grid.cell(x:1, y:0, rotate(-40deg, text(size:1.6em)[WhatsApp ]))
+                grid.cell(x:1, y:0, rotate(-40deg, text(font: "Symbols Nerd Font Mono", size:1.6em)[WhatsApp ]))
             )
         )
     )
