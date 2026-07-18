@@ -105,8 +105,8 @@
     exemplo) é inestable, feito que explica a aparición do efecto Dzhanibekov.
     _Pero entón non temos unha solución analítica para o movemento?_ Si
     existe, o problema é que involucran ferramentas matemáticas máis profundas,
-    como as funcións elípticas de Jacobi /*@RouthDynamics*/ ou o elipsoide de
-    Poinsot /*VanDamme2017*/, polo que non imos entrar en detalles.
+    como as funcións elípticas de Jacobi @RouthDynamics ou o elipsoide de
+    Poinsot @VanDamme2017, polo que non imos entrar en detalles.
 
     == Aplicacións e consecuencias: Apocalipse?
 
@@ -122,10 +122,12 @@
     serie de lúas orbitando aos planetas gasosos que si amosan este efecto e, máis
     interesante aínda, publicouse recentemente que unha variedade de púlsar chamado
     magnetar tamén pode sufrir este mesmo efecto por culpa do seu campo magnético
-    extremo e provocar ondas gravitacionais _Kantor2023_. Finalmente, tamén se
+    extremo e provocar ondas gravitacionais @Kantor2023. Finalmente, tamén se
     teorizou coa posibilidade de empregar este efecto para a construción de naves
     que aproveiten o fenómeno para cambiar o sentido da viaxe, o que reduciría
     considerablemente o peso e o combustible necesario para estas misións
-    _Ono2022_.
+    @Ono2022.
+
+    #CrearBibliografia("/revistas/002/bibliografia_DZHANIBEKOV.bib")
 
 ]

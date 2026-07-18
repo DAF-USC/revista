@@ -22,7 +22,7 @@
 
     #figure(
         image(width:100%, "/revistas/002/imaxes/DONNIE-DARKO.jpg"),
-        caption: [Fotograma, Donnie e Frank/* @donnie_darko */.]
+        caption: [Fotograma, Donnie e Frank @donnie_darko.]
     ) <fig:donnie1>
 
 
@@ -55,7 +55,7 @@
     este é un concepto físico existente, aínda que algo reinterpretado. Os físicos
     David Deutsch e Michael Lockwood explican que a vida forma unha especie de
     "verme" de 4 dimensións, cunha cola que representa a orixe da vida, e unha
-    cabeza na que se atopa a morte /*@deutsch.m_1994*/. Así, un obxecto como
+    cabeza na que se atopa a morte @deutsch.m_1994. Así, un obxecto como
     o vemos no presente non é máis que a intersección nun espazo tridimensional
     entre este e o seu "verme".  Por suposto, a película céntrase máis no aspecto
     filosófico desta cuestión; se podemos ver o futuro, significa que é inevitable?
@@ -64,7 +64,7 @@
     mecanicista do Renacemento ata a actualidade. Con todo, esta cuestión
     científica e filosófica vese rapidamente destruída polo propio guión. Donnie,
     en resposta ás dúbidas filosóficas do seu profesor de ciencias, di: #quote[non
-    [está decidido] se quedas na Canle de Deus]/*@donnie_darko*/.
+    [está decidido] se quedas na Canle de Deus] @donnie_darko.
     Así, fácil. Deus.
 
     Podería opinarse que este intento por explicar o físico mediante o místico, ou
@@ -86,7 +86,7 @@
     Múltiples_. Esta describe que cada un dos estados nos que atopamos unha
     partícula ocorren simultaneamente, só que en distintas ramas do universo e cada
     vez que tratamos de observala, o universo divídese en distintas realidades
-    paralelas /*@gribbin2004historia*/. É claro que esta non é unha tese demasiado
+    paralelas @gribbin.j_2020. É claro que esta non é unha tese demasiado
     consolidada no mundo científico, xa que non hai forma de demostrala
     experimentalmente. Pero existe e é obvio que Donnie Darko bebe destas ideas;
     nun universo, Donnie está vivo, e noutro, morto.
@@ -99,12 +99,12 @@
     explicación vaga e demasiado mística para ser científica, #quote[A Auga e o
     Metal son os elementos chave para as Viaxes no Tempo. A Auga é o elemento
     barreira para a construción de Portais de Tempo que conectan Universos no
-    Vórtice Tanxente] /*@donnie_darko*/.
+    Vórtice Tanxente] @donnie_darko.
 
     Con todo, na física, existe quen tratou estes problemas. Por exemplo, Kurt
     Gödel e a súa métrica de Gödel, coa que pretendeu solucionar as ecuacións de
     campo de Einstein. Esta presenta a existencia de cadeas causais pechadas, nas
-    que o evento orixinal se causa a si mesmo /*@nunez.r_2021*/. Claro que esta é unha
+    que o evento orixinal se causa a si mesmo @nunez.r_2021. Claro que esta é unha
     teoría que se cuestiona profundamente como verdadeira (véxase o paradoxo do
     avó). Aínda así, é algo interesante de explorar; a pesar de que a película nin
     tan sequera trate de facelo, máis aló de referirse a unha viaxe no tempo
@@ -125,12 +125,8 @@
     sobre o que son os vectores no espazo. Ao final do día, tampouco se pode culpar
     disto a un filme tan claramente feito para o público estadounidense xeral.
 
-    /*
-        @deutsch.m_1994
-        @donnie_darko
-        @gribbin.j_2020
-        @nunez.r_2021
-        @wisecrack_2019
-    */
+    #SenCita("wisecrack_2019")
+
+    #CrearBibliografia("/revistas/002/bibliografia_DARKO.bib")
 
 ]

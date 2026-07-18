@@ -901,6 +901,7 @@
 
 #let CrearBibliografia(bib) = {
     // Nota: as traduccións de CSL están incluídas xa en hayagriva: https://github.com/typst/hayagriva/blob/main/archive/locales/gl-ES.cbor
+    // :FACER:MIGRACION: usar o nome do ficheiro automaticamente
     heading(depth: 2, condensada[*Bibliografía*])
     bibliography(
         bib,
@@ -911,5 +912,6 @@
 }
 
 // Varios símbolos e tal
+// :FACER: varphi, varepsilon, etc.
 
 #let dbar = math.class( "normal", $\u{0111}$)

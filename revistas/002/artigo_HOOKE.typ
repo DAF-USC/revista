@@ -111,6 +111,7 @@
         caption : [Exemplo dos _aneis de Newton_. Fonte: Wikipedia]
     ) <fig:hooke2>
 
-    /*@gribbin2004historia*/
+    #SenCita("gribbin2004historia")
+    #CrearBibliografia("/revistas/002/bibliografia_HOOKE.bib")
 
 ]

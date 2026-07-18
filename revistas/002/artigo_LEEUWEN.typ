@@ -54,7 +54,7 @@
     O signo negativo corresponde ao feito de que a enerxía se minimiza cando o
     momento magnético $arrow(mu)$ está aliñado co campo: $E=E_"mín"
     arrow.l.r.double arrow(mu) parallel arrow(B) arrow.l.r arrow(mu) = mu
-    chevron(z)$.
+    hat(z)$.
 
     Sen entrar en moitos detalles, o comportamento dos momentos magnéticos dos
     átomos individuais fronte a campos magnéticos permitiríanos describir o
@@ -70,13 +70,13 @@
     En 1905, o físico francés Paul Langevin foi o primeiro en presentar un modelo
     que fose capaz de explicar a escala atómica o comportamento dos distintos
     materiais fronte a campos magnéticos. Actualmente estúdase como a _teoría
-    semiclásica do paramagnetismo_/*[Sec. 2.1.4.]@blundell.s_2001*/. Langevin
+    semiclásica do paramagnetismo_ [Sec. 2.1.4.]@blundell.s_2001. Langevin
     propoñía que os átomos tiñan un momento magnético constante apuntando a certa
     rexión do espazo segundo a distribución de Boltzmann:
 
     $
         d P = 1/Z e^(E/(K_B T)) d Omega,
-        Z = integral_0^(2pi) integral_0^pi e^(E/(K_B T)) d Omega.
+        Z = integral_0^(2pi) integral_0^pi e^(E/(K_B T)) d Omega,
     $
     <ec.:bvl_boltzmann>
 
@@ -100,7 +100,7 @@
     estudante da Universidade de Leiden, chamada Hendrika Johanna van Leeuwen
     disertaría sobre o mesmo tema na súa tese doutoral, chegando ás mesmas
     conclusións que Bohr. Vexamos cal foi o seu razoamento e as conclusións finais
-    /*[Sec. 1.2.2.]@blundell.s_2001*/.
+    [Sec. 1.2.2.]@blundell.s_2001.
 
     Consideremos unha mostra paramagnética de $N$ átomos, todos coa mesma masa, no
     seo dun campo magnético. Consideraremos exclusivamente o momento debido aos
@@ -110,7 +110,7 @@
     $
         arrow(mu) = (-e)/(2m) (arrow(r) times dot(arrow(r)))
         arrow.double
-        mu_z = sum_(i=1)^(3 N) a_i (q_1, dots, q_(3n))dot(q)_i
+        mu_z = sum_(i=1)^(3 N) a_i (q_1, dots, q_(3N))dot(q)_i.
     $
 
     É dicir, o momento magnético total nunha dirección (a dirección do campo
@@ -125,7 +125,7 @@
     $
         E = H(arrow(q), arrow(p))
         =
-        1/(2m) sum_(i=1)^(N)(arrow(p)_i - e arrow(A)_i)^2 + e phi (q_1, dots, q_(3N))
+        1/(2m) sum_(i=1)^(N)(arrow(p)_i - e arrow(A)_i)^2 + e phi.alt (q_1, dots, q_(3N))
     $
 
     Podemos realizar a media os seus momentos magnéticos para achar a enerxía media
@@ -133,11 +133,6 @@
     Mecánica Estatística
     @ec.:bvl_boltzmann e o modelo de Langevin @ec.:blv_langevin,
     podemos calcular esta media a partir da función de partición $Z$ da mostra:
-
-    \begin{equation}\label{ec.: bvl-mec_est}
-        \braket{\mu_z} = \int \mu_z\, dP = \frac{1}{Z}\int e^{-\beta
-        H(\vec q,\vec p)} \, d^N(\vec q, \vec p),
-    \end{equation}
 
     $
         chevron.l mu_z chevron.r = integral mu_z d P
@@ -167,7 +162,7 @@
     En resumidas contas, de ser pola teoría clásica, non habería magnetismo
     posible, nunha clara contradición coa realidade experimental. Así, era
     necesaria unha nova teoría que fose capaz de explicar a presenza do magnetismo
-    na natureza. Segundo /*@van-vleck.jh_1977*/, foi este feito o
+    na natureza. Segundo @van-vleck.jh_1977, foi este feito o
     que motivou a Bohr a introducir a cuantización do momento angular orbital do
     electrón ao redor do núcleo de hidróxeno para formular o seu famoso modelo
     atómico. Así, un pode afirmar que o nacemento da cuántica está moi vinculado ao
@@ -183,5 +178,7 @@
     cuántica está aquí para salvarnos da catástrofe. Un desenvolvemento máis
     completo do rol da cuántica no magnetismo pode cursarse na materia de
     Nanomagnetismo e Nanotecnoloxía desta facultade.
+
+    #CrearBibliografia("/revistas/002/bibliografia_LEEUWEN.bib")
 
 ]

@@ -146,7 +146,8 @@
     Dende logo, ás veces é abafador pensar como as decisións do individuo menos
     esperado son capaces de cambiar o rumbo da historia.
 
-    /* gottstein.k_2016 */
-    /* dawidoff.n_2011 */
+    #SenCita("gottstein.k_2016")
+    #SenCita("dawidoff.n_2011")
+    #CrearBibliografia("/revistas/002/bibliografia_HeB.bib")
 
 ]

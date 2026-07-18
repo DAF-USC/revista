@@ -60,7 +60,7 @@
         image(width: 90%, "/revistas/002/imaxes/materiaescura1.png"),
         caption : [
             LRG 3-757 ou a _ferradura cósmica_, un exemplo das lentes
-            gravitacionais coñecidas como aneis de Einstein /*@hubbleNASA*/.
+            gravitacionais coñecidas como aneis de Einstein @hubbleNASA.
         ]
     ) <fig:escura1>
 
@@ -99,7 +99,7 @@
             O Cúmulo Bala na constelación de Carina. En vermello, a emisión en
             raios X do gas intergaláctico; en azul, a distribución de materia
             escura obtida a través dos efectos de lente gravitacional
-            /*@hubbleNASA2*/.
+            @hubbleNASA2.
         ]
     ) <fig:escura2>
 
@@ -140,11 +140,9 @@
     descartaranse no futuro, terase que seguir investigando para resolver este
     enigma
 
-    /*
-        @alberto2021materiaescura
-        @krauss5esencia
-        @hubbleNASA
-        @hubbleNASA2
-    */
+    #SenCita("alberto2021materiaescura")
+    #SenCita("krauss5esencia")
+
+    #CrearBibliografia("/revistas/002/bibliografia_MATERIA_ESCURA.bib")
 
 ]
