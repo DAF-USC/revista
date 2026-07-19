@@ -127,46 +127,50 @@ $(PAXINAS_PROPAGANDA): .pdf/revista_$(numero).pdf
 		-sPageList=1,2,3 \
 		-f .pdf/revista_$(numero).pdf
 
-
+# Xera as propagandas:
+# V_C   Vertical Cor
+# V_B   Vertical Branca
+# H_C   Horizontal Cor
+# H_B   Horizontal Branca
 propaganda: \
-	.pdf/propaganda_$(numero)_vertical_cor.pdf \
-	.pdf/propaganda_$(numero)_vertical_branca.pdf \
-	.pdf/propaganda_$(numero)_horizontal_cor.pdf \
-	.pdf/propaganda_$(numero)_horizontal_branca.pdf
+	.pdf/propaganda_$(numero)_V_C.pdf \
+	.pdf/propaganda_$(numero)_V_B.pdf \
+	.pdf/propaganda_$(numero)_H_C.pdf \
+	.pdf/propaganda_$(numero)_H_B.pdf
 
 
 # Xera a propaganda VERTICAL A4 de COR
-.pdf/propaganda_$(numero)_vertical_cor.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
+.pdf/propaganda_$(numero)_V_C.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--timings=.aux/perf_propaganda_vertical_cor_$(numero).json \
-		--deps=.aux/deps_propaganda_vertical_cor_$(numero).json \
-		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_cor.pdf
+		--timings=.aux/perf_propaganda_V_C_$(numero).json \
+		--deps=.aux/deps_propaganda_V_C_$(numero).json \
+		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_C.pdf
 
 # Xera a propaganda VERTICAL A4 BRANCA
-.pdf/propaganda_$(numero)_vertical_branca.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
+.pdf/propaganda_$(numero)_V_B.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--timings=.aux/perf_propaganda_vertical_branca_$(numero).json \
-		--deps=.aux/deps_propaganda_vertical_branca_$(numero).json \
-		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_branca.pdf
+		--timings=.aux/perf_propaganda_V_B_$(numero).json \
+		--deps=.aux/deps_propaganda_V_B_$(numero).json \
+		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_B.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 de COR
-.pdf/propaganda_$(numero)_horizontal_cor.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
+.pdf/propaganda_$(numero)_H_C.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--timings=.aux/perf_propaganda_horizontal_cor_$(numero).json \
-		--deps=.aux/deps_propaganda_horizontal_cor_$(numero).json \
-		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_cor.pdf
+		--timings=.aux/perf_propaganda_H_C_$(numero).json \
+		--deps=.aux/deps_propaganda_H_C_$(numero).json \
+		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_H_C.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 BRANCA
-.pdf/propaganda_$(numero)_horizontal_branca.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
+.pdf/propaganda_$(numero)_H_B.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--timings=.aux/perf_propaganda_horizontal_branca_$(numero).json \
-		--deps=.aux/deps_propaganda_horizontal_branca_$(numero).json \
-		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_branca.pdf
+		--timings=.aux/perf_propaganda_H_B_$(numero).json \
+		--deps=.aux/deps_propaganda_H_B_$(numero).json \
+		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_H_B.pdf
