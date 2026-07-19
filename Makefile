@@ -65,6 +65,7 @@ INFO_GIT := \
 # Dependencias dun número.
 DEPENDENCIAS := \
 	revistas/$(numero)/revista_$(numero).typ \
+	revistas/$(numero)/datos_$(numero).typ \
 	revistas/$(numero)/*        \
 	revistas/$(numero)/imaxes/* \
 	estilo.typ                  \
