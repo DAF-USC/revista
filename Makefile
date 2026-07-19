@@ -2,25 +2,37 @@
 # programa que permite rular _outros_ programas en certa orde, baixo certas
 # regras. Úsase principalmente con programas compilados (e non interpretados)
 # porque pode ser tedioso escribir de cada vez comandos máis e máis longos.
-# Tamén se pode usar neste caso máis simple.
+# Véxase: https://www.gnu.org/software/make/manual/make.html
 #
-# REGRAS RELEVANTES:
-# .pdf/revista_$(numero).pdf -> por defecto, executase sempre
-# limpa                      -> limpar os directorios auxiliares, .aux/ e .pdf/
-# propaganda                 -> xera os carteis propagandísticos, os verticais
-#                               (A4) e os horizontais (16:9)
+##############################################################################
+# Como se usa:
+#
+# make limpa                           -> elimina os ficheiros xerados
+# make todo                            -> compila todo, revistas e propagandas
+# make numero=001                      -> compila a revista 001
+# make numero=001 metodo=watch         -> compila a revista 001 de maneira continuada
+# make numero=001 propaganda           -> compila a revista 001 e xera a propaganda
+#
+# OLLO:
+#
+# A opción 'metodo=watch' está feita para editar no momento, pero pode dar
+# problemas se se combina 'todo' ou 'propaganda'
+##############################################################################
 
-# shell por defecto
+
+# Shell por defecto. Todes deberíades usar Linux
 SHELL := bash
 
 # Regras de tipo 'phony'
-# https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: limpa propaganda
+# Véxase: https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
+.PHONY: limpa propaganda todo
 
-# que acción se vai executar por defecto
+# Que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
-# norma para evitar que se borre o PDF da revista se saímos de Make (p.e. con CTRL-C)
+# Norma para evitar que se borre o PDF da revista se saímos de Make (p.e. con
+# CTRL-C ao usar a compilación continuada de typst)
+# Véxase: https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
 .PRECIOUS: .pdf/revista_$(numero).pdf
 
 # método de compilación por defecto
@@ -28,8 +40,9 @@ SHELL := bash
 # `watch`   -> compilación continuada
 metodo := compile
 
+# Opcións para compilar usando Typst
 # :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
-# :FACER: algunha maneira de meter o de --timings=... aqui?
+# :FACER: hai algunha maneira de meter o de --timings=... aqui?
 OPCIONS_TYPST := \
 	--format pdf              \
 	--root .                  \
@@ -41,6 +54,15 @@ OPCIONS_TYPST := \
 	--deps-format=json        \
 	--input numero=$(numero)
 
+# Información de Git que aparece no índice. Son parámetros que tamén lle
+# pasamos a typst
+INFO_GIT := \
+	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
+	--input hash=$(shell git rev-parse --short HEAD) \
+	--input dirt=$(shell test -z "$$(git status --porcelain)" && echo "" || echo "*") \
+	--input quen=$(shell git log -1 --format="%an")
+
+# Dependencias dun número.
 DEPENDENCIAS := \
 	revistas/$(numero)/revista_$(numero).typ \
 	revistas/$(numero)/*        \
@@ -52,21 +74,40 @@ DEPENDENCIAS := \
 	fontes/NewComputerModern/*  \
 	fontes/Roboto/*
 
-INFO_GIT := \
-	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
-	--input hash=$(shell git rev-parse --short HEAD) \
-	--input dirt=$(shell test -z "$$(git status --porcelain)" && echo "" || echo "*") \
-	--input quen=$(shell git log -1 --format="%an")
+# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
+# Gardo os nomes aquí por comodidade. 1 (portada) 2 (central) 3 (dereita)
+PAXINAS_PROPAGANDA := \
+	.pdf/paxinas_propaganda_$(numero)_1.pdf \
+	.pdf/paxinas_propaganda_$(numero)_2.pdf \
+	.pdf/paxinas_propaganda_$(numero)_3.pdf
 
-# esta acción mira se existe o arquivo revista/001/revista_001.typ e en caso
-# afirmativo, executa 'typst compile' con dito arquivo
-#
+# Números para os que hai revistas.
+# Véxase:
+# https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
+# https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
+NUMEROS := $(patsubst revista_%.typ, %, $(notdir $(wildcard revistas/*/revista_*.typ)))
+
+
+# Limpar os ficheiros xerados
+limpa:
+	rm -f .pdf/* .aux/*
+
+
+# Compilar todo. Isto simplemente re-chama a make varias veces
+todo:
+	@for N in $(NUMEROS); do echo -e ""; make numero=$${N} propaganda; done
+
+
+# Xeramos o PDF correspondente co número pedido, dependendo de se algunha
+# dependencia cambiou ou non
 .pdf/revista_$(numero).pdf: $(DEPENDENCIAS)
 
-	# Hai que asegurarse de que existen o directorios .pdf e .aux
+	@# Hai que asegurarse de que existen o directorios .pdf e .aux
 	$(shell if [ ! -d ".pdf" ]; then mkdir .pdf; fi)
 	$(shell if [ ! -d ".aux" ]; then mkdir .aux; fi)
 
+	@echo -e "======================================"
+	@echo -e "\033[1;32mREVISTA $${numero}\033[0m\n"
 	typst \
 		$(metodo) \
 		$(OPCIONS_TYPST) \
@@ -76,41 +117,6 @@ INFO_GIT := \
 		revistas/$(numero)/revista_$(numero).typ \
 		.pdf/revista_$(numero).pdf
 
-# acción para limpar os ficheiros xerados
-# USO: make limpa
-limpa:
-	rm -f .pdf/* .aux/*
-
-################################################################
-#  ____  ____   ___  ____   _    ____    _    _   _ ____    _
-# |  _ \|  _ \ / _ \|  _ \ / \  / ___|  / \  | \ | |  _ \  / \
-# | |_) | |_) | | | | |_) / _ \| |  _  / _ \ |  \| | | | |/ _ \
-# |  __/|  _ <| |_| |  __/ ___ \ |_| |/ ___ \| |\  | |_| / ___ \
-# |_|   |_| \_\\___/|_| /_/   \_\____/_/   \_\_| \_|____/_/   \_\
-################################################################
-
-ifeq ($(cor),)
-cor := FF0000
-endif
-
-ifeq ($(cortexto),)
-cortexto := FFFFFF
-endif
-
-ifeq ($(paxina_central_numero),)
-paxina_central_numero := 2
-endif
-
-ifeq ($(paxina_dereita_numero),)
-paxina_dereita_numero := 3
-endif
-
-# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
-# Gardo os nomes aquí por comodidade. 1 (portada) 2 (central) 3 (dereita)
-PAXINAS_PROPAGANDA := \
-	.pdf/paxinas_propaganda_$(numero)_1.pdf \
-	.pdf/paxinas_propaganda_$(numero)_2.pdf \
-	.pdf/paxinas_propaganda_$(numero)_3.pdf
 
 # Extrae a portada da revista e outras páxinas
 $(PAXINAS_PROPAGANDA): .pdf/revista_$(numero).pdf
@@ -118,14 +124,16 @@ $(PAXINAS_PROPAGANDA): .pdf/revista_$(numero).pdf
 	gs \
 		-q -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite \
 		-sOutputFile=.pdf/paxinas_propaganda_$(numero)_%d.pdf \
-		-sPageList=1,$(paxina_central_numero),$(paxina_dereita_numero) \
+		-sPageList=1,2,3 \
 		-f .pdf/revista_$(numero).pdf
+
 
 propaganda: \
 	.pdf/propaganda_$(numero)_vertical_cor.pdf \
 	.pdf/propaganda_$(numero)_vertical_branca.pdf \
 	.pdf/propaganda_$(numero)_horizontal_cor.pdf \
 	.pdf/propaganda_$(numero)_horizontal_branca.pdf
+
 
 # Xera a propaganda VERTICAL A4 de COR
 .pdf/propaganda_$(numero)_vertical_cor.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
