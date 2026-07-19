@@ -140,8 +140,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--timings=.aux/perf_{n}_propaganda_$(numero).json \
-		--deps=.aux/deps_propaganda_$(numero).json \
+		--timings=.aux/perf_propaganda_vertical_cor_$(numero).json \
+		--deps=.aux/deps_propaganda_vertical_cor_$(numero).json \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_cor.pdf
 
 # Xera a propaganda VERTICAL A4 BRANCA
@@ -149,8 +149,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--timings=.aux/perf_{n}_propaganda_$(numero).json \
-		--deps=.aux/deps_propaganda_$(numero).json \
+		--timings=.aux/perf_propaganda_vertical_branca_$(numero).json \
+		--deps=.aux/deps_propaganda_vertical_branca_$(numero).json \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_branca.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 de COR
@@ -158,8 +158,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
-		--timings=.aux/perf_{n}_propaganda_$(numero).json \
-		--deps=.aux/deps_propaganda_$(numero).json \
+		--timings=.aux/perf_propaganda_horizontal_cor_$(numero).json \
+		--deps=.aux/deps_propaganda_horizontal_cor_$(numero).json \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_cor.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 BRANCA
@@ -167,6 +167,6 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
-		--timings=.aux/perf_{n}_propaganda_$(numero).json \
-		--deps=.aux/deps_propaganda_$(numero).json \
+		--timings=.aux/perf_propaganda_horizontal_branca_$(numero).json \
+		--deps=.aux/deps_propaganda_horizontal_branca_$(numero).json \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_branca.pdf
