@@ -99,6 +99,8 @@
 #let numero = sys.inputs.at("numero")
 #import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
 
+// :FACER: función tipo mostrar_rede(nivel)
+
 // Unha variable global.
 // https://typst.app/docs/reference/introspection/state/
 //
@@ -313,7 +315,19 @@
         grid.cell(
             x:0, y:0, rowspan: 4, // 4: A primeira columna completa
             {
-                heading( level: 1, numbering: none, condensada[*Índice*])
+                block(
+                    width : 100%,
+                    inset : (bottom: 1em),
+                    stroke : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+                    heading(
+                        level: 1,
+                        numbering: none,
+                        text(
+                            size: 2em,
+                            condensada[*Índice*]
+                        )
+                    )
+                )
                 // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado.
                 //
                 // Iteramos polo array ca info dos artigos. Recordemos que
@@ -361,12 +375,13 @@
 
         // Data e número
         grid.cell(
-            x:2,y:0, align: center,
-            sans(
-                {
-                    set text( size : 1.5em )
-                    [#datos.data.dia de #datos.data.mes do #datos.data.ano\ Número #sys.inputs.at("numero")]
-                }
+            x:2,y:0,
+            align: center,
+            text(
+                size   : 1.5em,
+                font   : _sans.familia,
+                weight : "black",
+                [#datos.data.dia de #datos.data.mes do #datos.data.ano#v(1em) Núm.#sys.inputs.at("numero")]
             )
         ),
 
