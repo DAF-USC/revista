@@ -29,6 +29,7 @@ SHELL := bash
 metodo := compile
 
 # :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
+# :FACER: algunha maneira de meter o de --timings=... aqui?
 OPCIONS_TYPST := \
 	--format pdf              \
 	--root .                  \
@@ -37,8 +38,6 @@ OPCIONS_TYPST := \
 	--ignore-system-fonts     \
 	--ignore-embedded-fonts   \
 	--font-path=fontes        \
-	--timings=.aux/perf_{n}.json  \
-	--deps=.aux/deps.json     \
 	--deps-format=json        \
 	--input numero=$(numero)
 
@@ -72,6 +71,8 @@ INFO_GIT := \
 		$(metodo) \
 		$(OPCIONS_TYPST) \
 		$(INFO_GIT) \
+		--timings=.aux/perf_{n}_revista_$(numero).json \
+		--deps=.aux/deps_revista_$(numero).json \
 		revistas/$(numero)/revista_$(numero).typ \
 		.pdf/revista_$(numero).pdf
 
@@ -131,6 +132,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
+		--timings=.aux/perf_{n}_propaganda_$(numero).json \
+		--deps=.aux/deps_propaganda_$(numero).json \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_cor.pdf
 
 # Xera a propaganda VERTICAL A4 BRANCA
@@ -138,6 +141,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
+		--timings=.aux/perf_{n}_propaganda_$(numero).json \
+		--deps=.aux/deps_propaganda_$(numero).json \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_vertical_branca.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 de COR
@@ -145,6 +150,8 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
+		--timings=.aux/perf_{n}_propaganda_$(numero).json \
+		--deps=.aux/deps_propaganda_$(numero).json \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_cor.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 BRANCA
@@ -152,4 +159,6 @@ propaganda: \
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
+		--timings=.aux/perf_{n}_propaganda_$(numero).json \
+		--deps=.aux/deps_propaganda_$(numero).json \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_horizontal_branca.pdf
