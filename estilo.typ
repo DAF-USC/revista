@@ -246,8 +246,30 @@
     ),
 
     // Logos
-    // :FACER:MIGRACION: meter os logos
-    grid.cell( x:0, y:3, v(1fr))
+    // :FACER: meter info dos logos en datos_xxx.typ
+    grid.cell(
+        x:0, y:4,
+        grid(
+            columns : (1fr, 1fr),
+            rows    : 10%,
+            align   : (left+bottom, right+bottom),
+            stroke  : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
+            grid.cell(
+                x:0,y:0,
+                image(
+                    width: 12cm,
+                    "logos/vicerreitoria-branco-negro.pdf",
+                )
+            ),
+            grid.cell(
+                x:1,y:0,
+                image(
+                    width: 5cm,
+                    "logos/IGFAE_acronimo_escuro.pdf",
+                )
+            )
+        )
+    )
 
 )
 
