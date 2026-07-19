@@ -151,7 +151,7 @@
     )
     set page(paper: "a4")
     set text(
-        size      : 10pt,
+        size      : 11pt,
         font      : _norm.familia,
         weight    : _norm.peso,
         lang      : "gl", // https://en.wikipedia.org/wiki/ISO_639
@@ -515,9 +515,11 @@
     )
     // :FACER: axustar espazos
     set par(
+        leading              : 6pt,         // espazo entre liñas
+        spacing              : 6pt,         // espazo entre parágrafos
         justify              : true,        // Texto xustificado
         linebreaks           : "optimized", // Xustificación óptima
-        first-line-indent    : 0mm,         // Sen sangría
+        first-line-indent    : 1em,         // Sangría
         justification-limits : (            // Topes character kerning (tracking) e word spacing
             tracking : (min: -0.04em, max: 0.02em), // Entre caracteres
             spacing  : (min: 66.67% + 0pt, max: 150% + 0pt) // Entre palabras
