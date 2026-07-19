@@ -480,7 +480,13 @@
     // Comezamos a contar páxinas
     counter(page).update(1)
     set page(
-        margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
+        margin: (
+            top    : 25mm,
+            left   : 10mm,
+            right  : 10mm,
+            bottom : 25mm,
+        ),
+        header-ascent : 15pt,
         footer : context {
             let p = counter(page).get().first()
             if calc.even(p) {
@@ -718,11 +724,12 @@
                 rows       : (1em,1em,1em),
                 row-gutter : 0pt,
                 align      : (left+horizon, center+horizon, right+horizon ),
-                stroke     : if datos.mostrar_rede { 0.5pt } else { none },
+                stroke     : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                 grid.cell(
                     x:0, y:0,
                     text(
                         fill   : rgb(datos.cores.resalte),
+                        size   : 1.2em,
                         font   : _cond.familia,
                         stretch: _cond.estiramento,
                         weight : "bold",
@@ -756,7 +763,6 @@
         // TITULO
         block(
             width : 100%,
-            radius: (top-left: 3em, bottom-right: 3em),
             {
                 set par(leading: 0.4em)
                 text(
@@ -809,6 +815,7 @@
         ..filas_titular
     )
 
+    v(1em)
     artigo
 
 }
