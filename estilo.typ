@@ -271,7 +271,7 @@
     grid(
 
         // Grid tamaño 4x3
-        rows    : (2cm, 1fr  , 5.1cm, 3.5cm),
+        rows    : (2cm, 1fr  , 5.5cm, 3.5cm),
         columns : (1fr, 1.5cm, 6.2cm       ),
         stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
@@ -409,6 +409,7 @@
         grid.cell(
             x: 2, y:3,
             {
+                v(1fr)
                 rect(
                     stroke : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     inset : 0pt,
