@@ -179,7 +179,7 @@
 #let crear_portada() = grid(
 
     columns : 1fr,
-    rows    : 4,
+    rows    : 5,
     align   : center,
     stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
@@ -187,7 +187,7 @@
     grid.cell(
         x:0,y:0,
         block(
-            inset: 0.5cm,
+            inset: (top: 8.7mm),
             {
                 text( fill: rgb(datos.cores.resalte), size: 70pt)[*$arrow("M")$*]
                 text(size: 70pt)[*OMENTUM*]
@@ -195,27 +195,39 @@
         )
     ),
 
-    // Número e data
     grid.cell(
         x:0, y:1,
+        inset: 3mm,
         block(
-            inset  : 11pt,
-            stroke : 1pt,
+            inset: (top: 3.5mm, bottom: 4.7mm),
+            {
+                set text(size: 18pt)
+                sans[A revista estudantil da Facultade de Física da USC]
+            }
+        )
+    ),
+
+    // Número e data
+    grid.cell(
+        x:0, y:2,
+        block(
+            inset  : 13pt,
+            stroke : 2pt,
             fill   : rgb(datos.cores.resalte),
             text(
                 fill : rgb(datos.cores.texto),
-                size : 15pt,
-                mono[Número #sys.inputs.at("numero") #h(1fr) #datos.data.mes #datos.data.ano]
+                size : 17pt,
+                mono[Núm.#sys.inputs.at("numero") #h(1fr) #datos.data.mes #datos.data.ano]
             )
         )
     ),
 
     // Imaxe portada
     grid.cell(
-        x:0, y:2,
+        x:0, y:3,
         block(
             inset : 0.5pt,
-            stroke : 1pt,
+            stroke : 2pt,
             {
                 // :FACER: cando https://github.com/typst/typst/pull/7556 se
                 // xunte pode poñerse unha imaxe plana de exemplo cando
