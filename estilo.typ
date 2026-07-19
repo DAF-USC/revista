@@ -181,15 +181,20 @@
 #let crear_portada() = grid(
 
     columns : 1fr,
-    rows    : 5,
-    align   : center,
+    rows    : (
+        2.75cm,            // Titulo
+        1.12cm,            // Subtitulo
+        2.1cm,             // Número e data
+        210mm - (2 * 5mm), // Imaxe, alto exacto ao ancho da páxina menos as marxes
+        297mm - (2*5mm) - 2.75cm - 1.12cm - 2.1cm - (210mm - (2 * 5mm)), // Logos
+    ),
+    align   : (bottom + center),
     stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
     // O titulo
     grid.cell(
         x:0,y:0,
         block(
-            inset: (top: 8.7mm),
             {
                 text( fill: rgb(datos.cores.resalte), size: 70pt)[*$arrow("M")$*]
                 text(size: 70pt)[*OMENTUM*]
@@ -199,9 +204,7 @@
 
     grid.cell(
         x:0, y:1,
-        inset: 3mm,
         block(
-            inset: (top: 3.5mm, bottom: 4.7mm),
             {
                 set text(size: 18pt)
                 sans[A revista estudantil da Facultade de Física da USC]
@@ -228,7 +231,7 @@
     grid.cell(
         x:0, y:3,
         block(
-            inset : 0.5pt,
+            inset : 1pt,
             stroke : 2pt,
             {
                 // :FACER: cando https://github.com/typst/typst/pull/7556 se
@@ -253,8 +256,8 @@
         x:0, y:4,
         grid(
             columns : (1fr, 1fr),
-            rows    : 10%,
-            align   : (left+bottom, right+bottom),
+            rows    : 100%,
+            align   : (left+horizon, right+horizon),
             stroke  : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
             grid.cell(
                 x:0,y:0,
