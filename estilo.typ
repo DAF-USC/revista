@@ -96,8 +96,41 @@
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#let numero = sys.inputs.at("numero")
-#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
+// Número da revista. Sae de '--input numero=001'
+#let numero = sys.inputs.at("numero", default: "001")
+
+// Información específica dun número
+#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista
+
+// Información por defecto da revista
+#let informacion_por_defecto = (
+    artigos: (),
+    cores: (
+        resalte: "ff0000",
+        texto: "ffffff",
+    ),
+    data: (
+        dia: 24,
+        numero_mes: 8,
+        mes: "agosto",
+        ano: 1998,
+    ),
+    comentario_imaxe: "-- SEN COMENTARIO --",
+    repositorio: "fisicaUSC/revista",
+    whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
+    instagram: "momentum.usc",
+    anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
+    correo: "revistafisicausc@gmail.com",
+    participantes: ( "-- SEN POSTOS -- ": ("-- SEN PARTICIPANTES --",),),
+    mostrar_rede: false,
+    despedida: "-- SEN DESPEDIDA --",
+    agradecementos: "-- SEN AGRADECEMENTOS --",
+)
+
+// Combinamos a información por defecto ca información específica da revista. O
+// que pasa é que os valores por defecto se sobreescriben cos específicos dun
+// número. Os que non sobreescribamos mantéñense por defecto.
+#let datos = informacion_por_defecto + informacion_revista
 
 // :FACER: función tipo mostrar_rede(nivel)
 
@@ -522,7 +555,6 @@
         overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
         costs     : ( hyphenation: 10% )
     )
-    // :FACER: axustar espazos
     set par(
         leading              : 6pt,         // espazo entre liñas
         spacing              : 6pt,         // espazo entre parágrafos
