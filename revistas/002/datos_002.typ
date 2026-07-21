@@ -19,6 +19,8 @@
         texto: "#ffffff"
     ),
 
+    depuracion_visual: false,
+
     data : (
       dia: 14,
       numero_mes: 5,
@@ -56,7 +58,6 @@
        ),
     ),
 
-    mostrar_rede: false,
 
     despedida: [
         Aquí está a revista por e para estudantes da Facultade de Física USC!

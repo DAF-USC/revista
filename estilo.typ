@@ -109,6 +109,7 @@
         resalte: "ff0000",
         texto: "ffffff",
     ),
+    depuracion_visual: false,
     data: (
         dia: 24,
         numero_mes: 8,
@@ -122,7 +123,6 @@
     anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
     correo: "revistafisicausc@gmail.com",
     participantes: ( "-- SEN POSTOS -- ": ("-- SEN PARTICIPANTES --",),),
-    mostrar_rede: false,
     despedida: "-- SEN DESPEDIDA --",
     agradecementos: "-- SEN AGRADECEMENTOS --",
 )
@@ -132,7 +132,6 @@
 // número. Os que non sobreescribamos mantéñense por defecto.
 #let datos = informacion_por_defecto + informacion_revista
 
-// :FACER: función tipo mostrar_rede(nivel)
 
 // Unha variable global.
 // https://typst.app/docs/reference/introspection/state/
@@ -197,7 +196,25 @@
     )
     show math.equation: set text(font: "New Computer Modern Math")
     show heading.where(level: 2): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
-    doc
+
+    // Mostrar bordos de varias cousas. IMPORTANTE: isto modifica a aliñación
+    // dalgunhas cousas (links pasan a ser bloques, todos os parágrafos perden
+    // a sangría, entre outros). Sirve so como referencia.
+    if datos.depuracion_visual {
+        show par: eso          => block(stroke: 0.6pt, inset: 0pt, breakable: true, eso)
+        show heading: eso      => block(stroke: 0pt, fill: orange.transparentize(50%), inset: 0pt, breakable: true, eso)
+        show bibliography: eso => block(stroke: 0pt, fill: green.transparentize(80%), inset: 0pt, breakable: true, eso)
+        show link: eso         => block(stroke: 0pt, fill: blue.transparentize(80%), inset: 0pt, breakable: true, eso)
+        show ref: eso          => box(stroke: 0pt, fill: blue.transparentize(80%), inset: 0pt, eso)
+        show image: eso        => block(stroke: 2pt + red, inset: 0pt, breakable: true, eso)
+        show figure: eso       => block(stroke: 2pt + green, inset: 0pt, breakable: true, eso)
+        show grid:                set grid(stroke: (thickness: 0.6pt, dash: "densely-dotted"))
+        show math.equation.where(block: true):  eso => block(stroke: 0pt, fill: purple.transparentize(70%), inset: 0pt, breakable: true, eso)
+        show math.equation.where(block: false): eso => box(stroke: 0pt, fill: purple.transparentize(70%), inset: 0pt, eso)
+        doc
+    } else {
+        doc
+    }
 }
 
 // Estilo para a portada.
@@ -222,7 +239,6 @@
         297mm - (2*5mm) - 2.75cm - 1.12cm - 2.1cm - (210mm - (2 * 5mm)), // Logos
     ),
     align   : (bottom + center),
-    stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
     // O titulo
     grid.cell(
@@ -291,7 +307,6 @@
             columns : (1fr, 1fr),
             rows    : 100%,
             align   : (left+horizon, right+horizon),
-            stroke  : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
             grid.cell(
                 x:0,y:0,
                 image(
@@ -345,7 +360,6 @@
         // Grid tamaño 4x3
         rows    : (2cm, 1fr  , 5.5cm, 3.5cm),
         columns : (1fr, 1.5cm, 6.2cm       ),
-        stroke  : if datos.mostrar_rede { 0.5pt } else { none },
 
         // Índice de artigos
         grid.cell(
@@ -354,7 +368,6 @@
                 block(
                     width : 100%,
                     inset : (bottom: 1em),
-                    stroke : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     heading(
                         level: 1,
                         numbering: none,
@@ -429,7 +442,6 @@
                 columns    : 1,
                 rows       : 1,
                 row-gutter : 1.4em,
-                stroke     : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
 
                 {
                     show text: sans
@@ -456,25 +468,21 @@
                     rows: 3,
                     row-gutter: 1em,
                     columns : (100%,),
-                    stroke  : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     // CORREO
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
-                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("mailto:" + datos.correo, sans[#datos.correo])
                     ),
                     // INSTAGRAM
                     grid(
                         columns:1, rows:2, row-gutter: 7pt,
-                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("https://www.instagram.com/" + datos.instagram, sans[@#datos.instagram])
                     ),
                     // INFO GIT
                     grid(
                         columns:1, rows:4, row-gutter: 7pt,
-                        stroke  : if datos.mostrar_rede { (dash: "dotted", thickness: 0.5pt) } else { none },
                         text(size: 20pt, font: _simb.familia)[#h(3pt) ],
                         link("https://github.com/" + datos.repositorio, mono[#datos.repositorio]),
                         {
@@ -496,7 +504,6 @@
             {
                 v(1fr)
                 rect(
-                    stroke : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                     inset : 0pt,
                     image("/logos/usc-negativo-escuro.pdf"),
                 )
@@ -525,7 +532,6 @@
             if calc.even(p) {
                 // Pe de paxinas pares
                 grid(
-                    stroke  : if datos.mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
                     rows    : 1fr,
                     align   : (left + top),
@@ -537,7 +543,6 @@
             } else {
                 // Pe de paxinas impares
                 grid(
-                    stroke: if datos.mostrar_rede { 0.5pt } else { none },
                     columns : 1fr,
                     rows    : 1fr,
                     align   : (right + top),
@@ -570,32 +575,13 @@
     // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
     // diferentes
     show quote: set text(style: "italic")
-    show quote.where(block:true): eso => if datos.mostrar_rede {
-        rect(
-            inset: 0pt,
-            stroke: 0.6pt,
-            text(style:"italic", eso)
-        )
-    } else { eso }
     show figure.caption: set align(left)
     show figure.caption: set par(leading: 5pt, justify: false)
     show figure.caption: set text(font:_sans.familia)
-    show figure.caption: eso => if datos.mostrar_rede {
-        rect(
-            inset: 0pt,
-            stroke: 0.6pt,
-            {
-                set text(font:_sans.familia)
-                context strong[#eso.supplement~#eso.counter.display() #eso.separator]
-                eso.body
-            }
-        )
-    } else {
+    show figure.caption: eso => {
         context strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
-    show image: eso => if datos.mostrar_rede { rect(inset: 0pt, stroke:red, eso) } else { eso }
-    show figure: eso => if datos.mostrar_rede { rect(inset: 0pt, stroke:blue+2pt, eso) } else { eso }
     show math.equation.where(block: false): eso => { box(eso) }
     set math.equation(numbering: "1)")
     set columns(2, gutter: 5mm, balanced: true)
@@ -632,12 +618,10 @@
         rows       : (4fr, 0pt, 1fr),
         align      : center + horizon,
         row-gutter : 1em,
-        stroke     : if datos.mostrar_rede { 0.5pt } else { none },
 
         // Un Momentum...
         block(
             width : 70%,
-            stroke : if datos.mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
             {
                 text(size: 2em, [Un Momentum...])
                 text(
@@ -667,7 +651,6 @@
             rows          : 2,
             column-gutter : 1em,
             row-gutter    : 1em,
-            stroke: if datos.mostrar_rede { (dash:"dashed", thickness:0.5pt) } else { none },
 
             // :FACER: QRs clicables, como links
             // QR1
@@ -710,6 +693,7 @@
 
     // Activamos o estilo xeral, que vai afectar a toda a revista
     show: estilo_xeral
+
 
     // Agora, activamos o estilo da portada e mostrámola
     {
@@ -756,7 +740,6 @@
                 rows       : (1em,1em,1em),
                 row-gutter : 0pt,
                 align      : (left+horizon, center+horizon, right+horizon ),
-                stroke     : if datos.mostrar_rede { (dash: "dashed", thickness: 0.5pt) } else { none },
                 grid.cell(
                     x:0, y:0,
                     text(
@@ -842,7 +825,6 @@
         columns    : 1fr,
         rows       : numero_filas_titular,
         row-gutter : 1em,
-        stroke     : if datos.mostrar_rede { 0.5pt } else { none },
         align      : center,
         ..filas_titular
     )
