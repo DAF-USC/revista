@@ -503,10 +503,7 @@
             x: 2, y:3,
             {
                 v(1fr)
-                rect(
-                    inset : 0pt,
-                    image("/logos/usc-negativo-escuro.pdf"),
-                )
+                image("/logos/usc-negativo-escuro.pdf")
             }
         )
 
