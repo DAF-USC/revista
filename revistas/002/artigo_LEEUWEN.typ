@@ -76,7 +76,7 @@
 
     $
         d P = 1/Z e^(E/(K_B T)) d Omega,
-        Z = integral_0^(2pi) integral_0^pi e^(E/(K_B T)) d Omega,
+        Z = integral_0^(2pi) integral_0^pi e^(E/(k_B T)) d Omega,
     $
     <ec.:bvl_boltzmann>
 
