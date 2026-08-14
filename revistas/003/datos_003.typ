@@ -9,7 +9,7 @@
         //"/revistas/003/artigo_OPINION.typ",
         //"/revistas/003/artigo_PASATEMPOS.typ",
         "/revistas/003/artigo_SANTY_GG.typ",
-        //"/revistas/003/artigo_VICTOR_DD.typ",
+        "/revistas/003/artigo_VICTOR_DD.typ",
     ),
 
     cores : (
@@ -91,6 +91,3 @@
 // 	NOTAS
 //	error: unexpected argument: balanced
 		Solución: cargo install --git https://github.com/typst/typst --locked typst-cli
-// 	Proporcionar nome para a imaxe de portada, en lugar de empregar portada.png 
-// 		En: estilo.typ: l.289
-//		Para: Empregar imaxe que aparece no interior
