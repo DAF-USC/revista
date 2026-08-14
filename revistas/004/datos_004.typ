@@ -3,7 +3,7 @@
     artigos : (
         "/revistas/004/artigo_ANTON.typ",
         "/revistas/004/artigo_CELIA_AA.typ",
-        // "/revistas/004/artigo_GALAN-CARBALLEIRA.typ",
+        "/revistas/004/artigo_GALAN-CARBALLEIRA.typ",
         // "/revistas/004/artigo_LUIS.typ",
         // "/revistas/004/artigo_MANU_VICT.typ",
         // "/revistas/004/artigo_MANUEL_GR.typ",
