@@ -262,16 +262,29 @@
 
 ]
 
-#figure(
-	image(
-		width: 100%,
-		"/revistas/003/imaxes/clase.jpg",
-	),
-	caption: [
-		Visita de Kip Thorne á clase de Gravitación o
-    	venres 9 de maio de 2025. Fotografía de Santi Alvite.
-	],
-)
+#place(top+center, scope: "parent", float: true)[
+	#figure(
+		image(
+			width: 100%,
+			"/revistas/003/imaxes/clase.jpg",
+		),
+		caption: [
+			Visita de Kip Thorne á clase de Gravitación o
+    		venres 9 de maio de 2025. Fotografía de Santi Alvite.
+		],
+	)
+]
+
+//#figure(
+//	image(
+//		width: 100%,
+//		"/revistas/003/imaxes/clase.jpg",
+//	),
+//	caption: [
+//		Visita de Kip Thorne á clase de Gravitación o
+//    	venres 9 de maio de 2025. Fotografía de Santi Alvite.
+//	],
+//)
 
 #columns[
 
