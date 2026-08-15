@@ -6,7 +6,7 @@
         "/revistas/003/artigo_ENTREVISTA.typ",
         "/revistas/003/artigo_MANUEL_GR.typ",
         "/revistas/003/artigo_MAURO_GR.typ",
-        //"/revistas/003/artigo_OPINION.typ",
+        "/revistas/003/artigo_OPINION.typ",
         //"/revistas/003/artigo_PASATEMPOS.typ",
         "/revistas/003/artigo_SANTY_GG.typ",
         "/revistas/003/artigo_VICTOR_DD.typ",

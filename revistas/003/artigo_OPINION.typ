@@ -1,0 +1,113 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+	titulo		: [Sobrea realidade do suxeito na física],
+	subtitulo	: [],
+	autoria		: "",
+	estilo		: "MIESCELÁNEA",
+)
+
+#v(3mm)
+
+= #text( 
+	fill: rgb(datos.cores.resalte) 
+)[ 
+	Un conxunto de actos derivados do oficio de estudar física
+]	
+
+#v(-1em)
+
+= #text(
+	weight: "regular"
+)[ 
+	#emph[ 
+		David Tarrío Outeiriño 
+	] 
+]
+
+#v(1em)
+
+#columns[
+
+	Realizar algún tipo de cálculo ilexible mentres agarras firmemente un bolígrafo
+	azul ata facelo rebentar. Engurrar o cello ata que o cerebro che sobresaia por
+	algún orificio inesperado mentres un son acuoso adorna o acto. Engraxar a
+	máquina ata que esta volva estoupar nun millón de anacos, cubertos dun líquido
+	beixe que deberá ser reinxectado cunha agulla de gran calibre no centro da
+	maquinaria. Utilizar unhas pinzas de plástico verde para tensar firmemente as
+	pálpebras, sendo este un requisito indispensable para optimizar o acto de
+	observación. Retirar e modificar o encéfalo coidadosamente ata soñar co
+	previamente calculado. Aprender para logo arrastrar os pés descalzos, ata
+	expulsar o aprendido a través dos cortes. Manter a mirada completamente fixa
+	nunha parede, xa que o tempo investido en habilitar unha secuencia de
+	pensamentos lóxico-matemáticos vai seguido inevitablemente dunha actividade
+	solitaria, fría e sobria. Pasar tempo con alguén en estrito silencio, en
+	decúbito supino, a pesar de que algúns estudos suxiran a posición do loto.
+	Renunciar a calquera tipo de crenza intrapersoal, rezando e pedindo axuda a
+	algún tipo de forza humanoide, todo isto efectuado sen a axuda de substancias
+	ou bebidas psicoactivas. Revisar os cálculos a diario, hora tras hora, con
+	excesiva obsesión a pesar, na maioría dos casos, da pouca importancia do que
+	está escrito. Chorar e berrar desconsoladamente, xa que o coñecemento pode
+	converterse en paranoia, dor neurálxica e un existencialismo seguramente
+	insufrible. Levantar os brazos, incansables e ansiosos, fronte a unha paisaxe
+	surrealista, ao bordo do vacío. E, por suposto, buscar, procurar a verdade.
+	Buscando o que sexa que a verdade signifique.
+
+]
+
+#v(3mm)
+
+= #text( 
+	fill: rgb(datos.cores.resalte) 
+)[ 
+	Da xenialidade. Ou aquilo no que talvez consista a física
+]	
+
+#v(-1em)
+
+= #text(
+	weight: "regular"
+)[ 
+	#emph[ 
+		Sebastián Táboas Pazo  
+	] 
+]
+
+#v(1em)
+
+#columns[
+
+	Crear. Crear e crer. Sentar nunha cadeira dalgunha clase calquera para prestar
+	atención, desentrañar algunha incógnita da realidade que permanecía oculta até
+	hai uns minutos, sempre deriva a unha única pregunta, sempre me pregunto en que
+	consiste ese labor do físico. En tomar miles de datos para logo encadralos
+	nalgunha teoría? Simplemente continuar consolidando un paradigma científico?
+	Acaso non hai xenialidade na física? Non logro atopar emoción en redescubrir
+	esas ecuacións que unha vez revolucionaron a historia. Talvez sexan estas
+	paredes brutalistas, que invocan unha noite branca en Siberia, ou talvez sexa
+	esa explicación repetida ano tras ano. Todo debe ser un acto de fe. Arrastra-la
+	man mecanicamente, resolver ecuacións diferenciais, esborranchar papeis e
+	emborracharse de tinta. Todo é un acto de fe para crer que estas matemáticas
+	describen a realidade. Debe ser nesta fe que reside o verdadeiro labor da
+	física, en crer, ou algo así diría Kierkegaard; tamén poida ser que habite
+	nestas matemáticas que decidimos domar á nosa forma, coa que decidimos crear.
+	Utilizalas para traducir, para formular un problema específico e, finalmente,
+	explica-lo seu comportamento. Di Gasset que \u{00AB}#emph[la metáfora es el álgebra
+	superior de la poesía]\u{00BB}; as lagranxianas deben se-la álxebra superior da
+	física. Atopa-la descrición do sistema. Atopa-la idea feliz que resolva o noso
+	problema. Crear. Talvez facer física sexa como facer poesía, poñer en virtude
+	das palabras --das matemáticas-- un pensamento ilexible.
+
+	Ao final, si debe haber xenialidade, porque somos ignorantes prestidixitadores
+	das matemáticas, porque, ao final, decidimos crer e simplemente crear unha boa
+	idea trala frustración de rompe-la cachola de non saber como resolver esta
+	integral. Talvez sexamos unha amálgama de vagabundos pretendendo atopar unha
+	verdade, atopando a iluminación na verificación das nosas elucubracións, nese
+	milleiro de datos --esta debe se-la nosa fe-- que o corroboran. Talvez non
+	necesitemos debuxar polas marxes, saírnos do paradigma, para logra-la
+	xenialidade. Talvez a nosa xenialidade resida nesas centenarias ecuacións que
+	herdamos, pois somos algunha clase de prestidixitador, porque elas son algunha
+	clase de pinceis cos que podemos crear unha enxeñosa solución. Facer física
+	moitas veces antóllaseme como escribir poesía.
+
+]
