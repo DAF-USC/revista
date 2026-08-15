@@ -2,7 +2,7 @@
 
     artigos : (
 		"/revistas/003/artigo_CELIA_AA.typ",
-        //"/revistas/003/artigo_DANIEL_BB.typ",
+        "/revistas/003/artigo_DANIEL_BB.typ",
         "/revistas/003/artigo_ENTREVISTA.typ",
         "/revistas/003/artigo_MANUEL_GR.typ",
         "/revistas/003/artigo_MAURO_GR.typ",
