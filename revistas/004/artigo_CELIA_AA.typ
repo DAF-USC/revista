@@ -87,8 +87,8 @@
   _David Greybeard_. Cando Jane avistaba un grupo de chimpancés no bosque,
   recoñecía de inmediato a presenza de David, quen non fuxía e, en cambio,
   sentaba tranquilamente. O resto de chimpancés, preparados para correr, miraban
-  cara a David e debían pensar algo como ``ela non debe ser tan perigosa despois
-  de todo''.
+  cara a David e debían pensar algo como 'ela non debe ser tan perigosa despois
+  de todo'.
 
   A medida que ía coñecendo os membros do grupo, Jane púxolles nomes:
   _David Greybeard_, coa súa personalidade tranquila, adoitaba estar
@@ -148,7 +148,7 @@
   converteu en alguén moi importante para Jane. Ela sabía que o ía botar en
   falta. Tras a partida, Jane e Hugo intercambiaron varios telegramas.
 
-// FACER:MIGRACIÓN: tipografía de máquina de escribir
+// FACER:MIGRACIÓN: tipografía de máquina de escribir e todo isto
 // \begin{center}
 //     \begin{minipage}{1\linewidth}
 //         \raggedright

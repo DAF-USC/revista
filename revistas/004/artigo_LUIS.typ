@@ -186,7 +186,7 @@
   gol, pero detrás hai horas e horas de adestramento. O talento innato é
   diferencial, dende logo, pero só con el non vas chegar moi lonxe.
 #v(1em)
-  *Quería pararme agora en \emph{Amautas}, onde polo pago dunha subscrición
+  *Quería pararme agora en #emph[Amautas], onde polo pago dunha subscrición
   tes acceso a cursos impartidos por diversos profesores e figuras referentes
   na divulgación actual: Santaolalla e ti mesmo (cofundadores da plataforma),
   Jorge Mira, Lemnismath... Notas que o interese pola ciencia en xeral e a
