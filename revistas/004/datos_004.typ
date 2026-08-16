@@ -9,7 +9,7 @@
         // "/revistas/004/artigo_MANUEL_GR.typ",
         "/revistas/004/artigo_MANUEL_VC.typ",
         "/revistas/004/artigo_MAURO.typ",
-        // "/revistas/004/artigo_PABLO_FC.typ",
+        "/revistas/004/artigo_PABLO_FC.typ",
         // "/revistas/004/artigo_PASATEMPOS.typ",
         // "/revistas/004/artigo_VICTOR_DD.typ",
     ),
