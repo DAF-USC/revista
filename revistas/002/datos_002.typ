@@ -2,13 +2,13 @@
 
     artigos : (
         "/revistas/002/artigo_ENTREVISTA_ANA.typ",
-        // "/revistas/002/artigo_SCHRODINGER.typ",
+        "/revistas/002/artigo_SCHRODINGER.typ",
         "/revistas/002/artigo_LEEUWEN.typ",
         "/revistas/002/artigo_MATERIA_ESCURA.typ",
         "/revistas/002/artigo_DARKO.typ",
         "/revistas/002/artigo_DZHANIBEKOV.typ",
         "/revistas/002/artigo_MERINO.typ",
-        // "/revistas/002/artigo_VOYAGER.typ",
+        "/revistas/002/artigo_VOYAGER.typ",
         "/revistas/002/artigo_HOOKE.typ",
         "/revistas/002/artigo_HeB.typ",
         // "/revistas/002/artigo_PASATEMPOS.typ",
