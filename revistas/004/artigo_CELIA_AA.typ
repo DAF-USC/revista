@@ -148,7 +148,7 @@
   converteu en alguén moi importante para Jane. Ela sabía que o ía botar en
   falta. Tras a partida, Jane e Hugo intercambiaron varios telegramas.
 
-// FACER:MIGRACIÓN: tipografía de máquina de escribir
+// FACER:MIGRACIÓN: tipografía de máquina de escribir e todo isto
 // \begin{center}
 //     \begin{minipage}{1\linewidth}
 //         \raggedright
