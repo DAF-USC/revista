@@ -53,8 +53,7 @@
   sempre mantivo a súa ambición e o seu interese por aprender.
 #v(0.5em)
   #figure(
-    image(width: 90%, "imaxes/portada.png"), 
-    // IMPORTANTE: Recordar cambiar a mary1.png cando arranxemos o da portada
+    image(width: 90%, "imaxes/mary1.png"), 
     caption: [Mary Tsingou na súa xuventude, traballando no laboratorio de Los 
     Álamos.]
   )
