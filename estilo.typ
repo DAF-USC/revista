@@ -571,7 +571,7 @@
     show raw: mono
     // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
     // diferentes
-    show quote: set text(style: "italic")
+    show quote.where(block: true): set block(breakable: false, inset: (top: 9pt))
     show figure: set block(width: 100%, inset: (top: 0.5em, bottom:0.5em))
     show figure.caption: set align(left)
     show figure.caption: set par(leading: 5pt, justify: false)
