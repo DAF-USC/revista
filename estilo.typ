@@ -583,6 +583,8 @@
     show math.equation.where(block: false): eso => { box(eso) }
     show math.equation.where(block: true): set block(inset: (top: 0.5em, bottom: 0.5em))
     set math.equation(numbering: "(1)")
+    show divider: set line(length: 90%, stroke: (paint: rgb(datos.cores.resalte)))
+
     set columns(2, gutter: 5mm, balanced: true)
 
     // :FACER: referencias a ecuacións, figuras, etc
