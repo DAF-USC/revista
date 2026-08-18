@@ -572,6 +572,7 @@
     // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
     // diferentes
     show quote: set text(style: "italic")
+    show figure: set block(width: 100%)
     show figure.caption: set align(left)
     show figure.caption: set par(leading: 5pt, justify: false)
     show figure.caption: set text(font:_sans.familia)
