@@ -49,7 +49,7 @@
   permitindo medir distancias de ata 5 000 pc.
 
   #figure(
-    image(width: 90%, "imaxes/parsec.jpg"),
+    image(width: 100%, "/revistas/004/imaxes/parsec.jpg"),
     caption: [O parsec, a unidade de distancia máis empregada en
         astronomía. #cite(label("Wikimedia"))]
   )
@@ -99,7 +99,7 @@
   comparala co brillo vista desde a Terra.
 
   #figure(
-    image(width: 90%, "imaxes/supernova.jpg"),
+    image(width: 100%, "/revistas/004/imaxes/supernova.jpg"),
     caption: [SN 2025rbs, unha supernova de tipo Ia descuberta en xullo deste ano na
         galaxia NGC 7331. (Fotografía do autor)]
   )

@@ -18,10 +18,9 @@
   ten tempo para atendernos e responder amablemente ás nosas preguntas.
 
   #figure(
-    image(width: 90%, "imaxes/edelstein1.jpg"),
+    image(width: 100%, "/revistas/004/imaxes/edelstein1.jpg"),
     caption: [José Edelstein, investigador no IGFAE, docente e divulgador científico.]
   )
-  #v(2em)
   Nacido en Buenos Aires, a súa formación académica e posterior experiencia no
   ámbito investigador e divulgativo fai conta dunha carreira internacional
   impresionante. No entanto, lémbranos que non sempre estivo vinculado á Física.
@@ -46,11 +45,11 @@
   internacional por mor do seu Nobel, evento no cal Edelstein participou
   activamente como orador e organizador.
 
-  #line(length: 90%, start: (1em, 1em), stroke: (paint: rgb("951ed6")))
-  #v(1em)
+  #line(length: 90%, start: (1em, 1em), stroke: (paint: rgb(datos.cores.resalte)))
+  
   // FACER:MIGRACIÓN: Preguntas. Que teñan o espazo vertical despopis e que lle cambie a tipografía
   *Por que é importante seguir celebrando as visitas de Einstein no mundo?*
-#v(1em)
+
   Eu creo que a palabra clave é "legado". Primeiro está o legado que
   deixa ós físicos: non hai día no que non apareza o seu nome nalgún #emph[paper]
   ou texto que consultes. Tamén está o legado que nós deixamos de Einstein: se
@@ -64,11 +63,11 @@
   tiveran que emigrar na Segunda Guerra Mundial para salvar a vida, ó igual que
   fixo Einstein. Así que espero que dentro de cen anos outro louco coma min se
   anime a organizar o segundo centenario.
-#v(1em)
+
   *Cres que é necesario facer máis exercicios de memoria histórica na
   ciencia? Isto é, poñer en valor figuras inxustamente esquecidas ou
   descubrimentos/avances relevantes que pasan desapercibidos normalmente.*
-#v(1em)
+
   Nós, como científicos, temos unha mentalidade distinta ós literatos e
   humanistas: centrámonos máis na obra que no autor.
 
@@ -93,7 +92,7 @@
   súa tenacidade e cos seus erros e acertos. Facer exercicios de memoria na
   ciencia axuda a poñer en valor esta faceta e a humanizar a ciencia, o cal creo
   que é importante.
-#v(1em)
+
   *Na #emph[laudatio] que pronunciaches na charla de Kip Thorne no contexto do
   programa _ConCiencia_ nomeaches un quinteto de científicos que son clave
   para entender a relatividade xeral: Minkowski, Einstein, Penrose,
@@ -101,7 +100,7 @@
   hai algún científico máis que engadirías a esta lista de grandes
   científicos, non só no contexto da relativade xeral, senón dentro doutros
   ámbitos; que tivese marcado a túa traxectoria?*
-#v(1em)
+
   Sen ir máis lonxe, o posto de Thorne podería intercambiarse con John
   Wheeler, o seu director de tese e quen lle introduciu na relatividade xeral.
   El puxera a brillantes alumnos como Feynman, Thorne ou Misner a traballar nun
@@ -122,7 +121,7 @@
   Matemática na Universidade de Xenebra. Home de grande intelixencia matemática e
   intuitiva á hora de formular hipóteses. Aí tedes idea para unha futura
   entrevista.
-#v(1em)
+
   *Dende logo que si, grazas pola suxestión #emph[(Risas)]. Seguindo coa
   entrevista, quería agora preguntarche polo programa #emph[ConCiencia],
   dirixido por Jorge Mira. Nel, ademais dos vínculos que tende o encontro
@@ -131,7 +130,7 @@
   seguir o tema, especialmente para a audiencia non especializada.
   Que recomendarías a quen asiste a unha destas charlas e non
   comprende o tema ou se perde durante ela?*
-#v(1em)
+
   Eu son da opinión de que as charlas teñen que ser desafiantes cos
   asistentes. Hai distintas escolas na divulgación, e cada cal escolle as súas
   preferencias á hora de expoñer un tema. En calquera caso, unha calidade
@@ -143,7 +142,7 @@
   películas relacionadas co tema, libros, outros relatorios,... Se vas dar unha
   charla sinxela, onde todos saben de todo o que se vai falar, entón nunca traes
   un nobel.
-#v(1em)
+
   *Recapitulo un momento nos proxectos divulgativos nos que estás involucrado:
   #emph[Amautas], unha plataforma dixital de aprendizaxe; #emph[Coffee
   Break], un podcast de actualidade científica; #emph[Universo entre
@@ -152,7 +151,7 @@
   de usalas para transmitir a ciencia. Ti cres que a chave da
   divulgación está hoxe na arte en xeral: pictórica, musical, teatral,
   dixital...?*
-#v(1em)
+
   Si, nunha charla que dou recorrentemente chamada #emph[Vasos comunicantes]
   reflexiono sobre o vehículo que supón a arte para comunicar a ciencia, e a
   inspiración que pode ser a ciencia para a arte. Ademais, existen
@@ -168,11 +167,11 @@
   seguramente xa haxa alguén que estea a usalo.
 
   #figure(
-    image(width: 90%, "imaxes/universo_canciones.jpg"),
+    image(width: 100%, "/revistas/004/imaxes/universo_canciones.jpg"),
     caption: [José (centro) e Lore Edelstein (esquerda), xunto a Daniela de Rito
         (dereita), integrantes de #emph[Universo entre Canciones]]
   )
-  #v(1em)
+  
   En relación á divulgación en redes, quería deixar un recado á xente máis nova
   que queira dedicarse á divulgación: centrádevos en rematar a titulación
   e en facer dous ou tres post-docs. É entón cando podedes comezar a divulgar
@@ -185,14 +184,14 @@
   académica. É como Messi: fai pensar que é moi sinxelo xutar á portería e marcar
   gol, pero detrás hai horas e horas de adestramento. O talento innato é
   diferencial, dende logo, pero só con el non vas chegar moi lonxe.
-#v(1em)
+
   *Quería pararme agora en #emph[Amautas], onde polo pago dunha subscrición
   tes acceso a cursos impartidos por diversos profesores e figuras referentes
   na divulgación actual: Santaolalla e ti mesmo (cofundadores da plataforma),
   Jorge Mira, Lemnismath... Notas que o interese pola ciencia en xeral e a
   física en particular crecera nos últimos anos? Anímase máis a xente
   a estudar física dentro e fora das aulas?*
-#v(1em)
+
   A nivel académico é notable o aumento da nota de corte nos últimos 15 anos.
   Pasamos de non ter nota de corte a chegar a case 12 sobre 14 aquí en
   Santiago. Pasou de haber promocións nas que todos entraron con Física como a
@@ -212,11 +211,11 @@
   absoluta, senón que pode cambiar parcial ou totalmente, e debe cambiar se os
   resultados o piden. E non por iso a ciencia perde credibilidade, senón que é
   máis obxectiva.
-#v(1em)
+
   *Dende logo, o espírito crítico é fundamental na sociedade, máis a día de hoxe.
   Con toda a túa actividade divulgadora, como compaxinas a túa carreira
   investigadora e docente na USC?*
-#v(1em)
+
   É moi difícil, quitando horas ó sono e á familia. Aínda que tivera incursións
   moi puntuais previamente, eu non empecei o meu labor divulgativo ata ser
   profesor na universidade. A miña experiencia á hora de escribir e falar en
@@ -237,7 +236,7 @@
   distintas ramas da ciencia, e descubrín no proceso enfoques distintos a
   problemas que me interesan do meu campo de investigación, e que espero poder
   aplicar nun futuro. Esta retroalimentación motívame a seguir divulgando.
-#v(1em)
+
   *Parémonos nun instante nas "figuras disruptivas" das que falabas antes.
   Claramente sabemos a quen nos estamos a referir, e non é unha opinión
   illada. Lembro que Kip Thorne na súa charla en Santiago afirmou que nos
@@ -247,7 +246,7 @@
   de cerebros que parece complicada de paliar; máis estes últimos anos.
   Que virtudes ten o sistema español que se poderían aplicar na
   Arxentina e viceversa?*
-#v(1em)
+
   Unha pregunta difícil, dar contexto á situación na Arxentina levaríanos a unha
   entrevista de cinco horas como mínimo. España ten unha estabilidade
   institucional, monetaria, etc. que non hai na Arxentina. Isto obriga á gran
@@ -272,23 +271,23 @@
   veces o orzamento inicial resulta insuficiente. Dado que tes que entregar o
   informe final igualmente, os poucos valentes que quedan teñen que "atar todo
   con arame", conseguindo montar un laboratorio de 5000€ con só 5€, por exemplo.
-#v(1em)
+
   *Grazas pola túa reflexión, José. A situación en ambos os dous países é
   complicada, pero dende logo aquí en España temos sorte de habitar no
   contexto europeo, onde o valor de institucións como o CERN son exemplo de
   que a ciencia se valora por enriba de ideais, un oasis entre os desertos da
   tensión xeopolítica.*
-#v(1em)
+
   Os europeos deberían saber a sorte que teñen co CERN. Eu daríalle á
   institución o Nobel da Paz, soamente por conseguir que xente de diferentes
   nacionalidades coopere polo avance do coñecemento en beneficio da humanidade.
-#v(1em)
+
   *Xa para ir rematando a entrevista, quería lanzar unha pregunta atrevida: ti
   fuches patrón na visita de Stephen Hawking a Santiago en 2008. Cres
   que nalgún momento a figura de Hawking será tan relevante coma a de
   Einstein? Celebraránse as súas visitas polo mundo igual que facemos con
   el?*
-#v(1em)
+
   Eu creo que non, Hawking estaría de acordo comigo que Einstein é moito máis
   importante. Obviando o seu legado, a súa figura, ademais de excéntrica, está
   cuberta por un contexto histórico singular (guerras mundiais, nacemento da
@@ -306,7 +305,7 @@
   A figura de Hawking será lembrada, dende logo, pero dubido que en 2108 alguén
   faga un aniversario da súa visita a Santiago. Eu non estarei aquí para
   comprobalo, pero ti quizais si.
-#v(1em)
+
   *Vai ser complicado, non é doado chegar ós 105 anos #emph[(Risas)]. Pero
   escrito queda, por se alguén le esta entrevista dentro de cen anos.*
 

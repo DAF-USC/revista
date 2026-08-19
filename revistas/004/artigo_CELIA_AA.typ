@@ -148,25 +148,13 @@
   converteu en alguén moi importante para Jane. Ela sabía que o ía botar en
   falta. Tras a partida, Jane e Hugo intercambiaron varios telegramas.
 
-// FACER:MIGRACIÓN: tipografía de máquina de escribir e todo isto
-// \begin{center}
-//     \begin{minipage}{1\linewidth}
-//         \raggedright
-//         \texttt{WILL YOU MARRY ME STOP\\ LOVE STOP HUGO}
-//     \end{minipage}
-//     \begin{minipage}{1\linewidth}
-//         \raggedleft
-//         \texttt{YES STOP LOVE\\ JANE}
-//     \end{minipage}
-//     \begin{minipage}{1\linewidth}
-//         \raggedright
-//         \texttt{=DO YOU LIKE EMERALDS STOP\\ WHAT SIZE IS YOUR FINGER=\\ LOVE HUGO}
-//     \end{minipage}
-//     \begin{minipage}{1\linewidth}
-//         \raggedleft
-//         \texttt{LOVE EMERALDS STOP\\ LOVE YOU STOP\\ JANE}
-//     \end{minipage}
-// \end{center}
+// FACER: supoño que o espaciado arreglarase para esta parte tamén, se non, 
+// habería que engadir un #v(<algo>em) antes e despois do texto
+  
+  #par(first-line-indent: 0em , mono[WILL YOU MARRY ME STOP \ LOVE STOP HUGO])
+  #align(right + bottom)[#mono[YES STOP LOVE \ JANE]]
+  #par(first-line-indent: 0em , mono[=DO YOU LIKE EMERALDS STOP \ WHAT SIZE IS YOUR FINGER= \ LOVE HUGO])
+  #align(right + bottom)[#mono[LOVE EMERALDS STOP \ LOVE YOU STOP \ JANE]]
 
   Hugo e Jane casaron, sen facer plans a futuro. Querían volver a Gombe e facer
   filmes. Cando retornaron, foron recibidos cunha marabillosa sorpresa: Flo dera

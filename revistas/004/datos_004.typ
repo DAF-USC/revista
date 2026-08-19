@@ -11,15 +11,12 @@
         "/revistas/004/artigo_CELIA_AA.typ",
         "/revistas/004/artigo_MANUEL_VC.typ",
         "/revistas/004/artigo_PASATEMPOS.typ",
-        // "/revistas/004/artigo_MANUEL_GR.typ",
     ),
 
     cores : (
         resalte: "#951ed6",
         texto: "#ffffff"
     ),
-
-    depuracion_visual: false,
 
     data : (
       dia: 1,
@@ -29,12 +26,6 @@
     ),
 
     comentario_imaxe: "Detector CMS do LHC, un dos primeiros experimentos en detectar o bosón de Higgs (Fotografía de Hoch e Brice).",
-
-    repositorio : "fisicaUSC/revista",
-    whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
-    instagram : "momentum.usc",
-    anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
-    correo: "revistafisicausc@gmail.com",
 
     participantes: (
        "Dirección": (
@@ -55,7 +46,6 @@
             "Manuel Galán Rodríguez",
        ),
     ),
-
 
     despedida: [
         Aquí está a revista por e para estudantes da Facultade de Física USC!
@@ -78,6 +68,7 @@
         perfección no traballo, grazas aos nosos editores e correctores unha vez máis.
         Tamén a todas aquelas persoas en calidade de redactoras que crearon o contido
         para este novo número. Sen eles non sería posible continuar con este proxecto.
+
         Grazas a todos os docentes que nos compartiron o seu ben ver de
         _Momentum_ neste inicio de curso. Especiais grazas a Carlos Carballeira
         Romero por animarse a plasmar un proxecto, que comparte xunto con José Manuel
@@ -86,9 +77,11 @@
         A todos eses alumnos de novo ingreso que se acercaron ao proxecto ilusionados e
         se animaron a participar, esperemos que por medio deles esta revista perdure
         moitos máis anos.
+
         Finalmente, grazas tanto ao equipo decanal da nosa facultade como á
         vicerreitoría de estudantes e cultura polo seu apoio e colaboración en todo
         momento.
+        
         Esperamos que recibades con entusiasmo este novo número na meseta deste
         primeiro cuadrimestre e sexa un pequeno alivio no asfixiante día nesta
         facultade.

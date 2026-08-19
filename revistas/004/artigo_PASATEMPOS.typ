@@ -6,7 +6,7 @@
   autoria   : [],
   subtitulo : [],
 )
-
+#set math.equation(numbering: none)
 #columns[
 //   % \section*{\textcolor{Resalte}{Uns problemas máis ou menos intuitivos\\ } {\normalfont \itshape   non kero poñer o meu nome lol xd}}%
 // % \Pasatempo{Uns problemas máis ou menos intuitivos}{Baseado na revista ``A Gota de Milikan''}
@@ -22,7 +22,7 @@
   resolver por intuición como formular as ecuacións que subxacen.
 
   #figure(
-    image(width: 90%, "imaxes/foto1.png"),
+    image(width: 100%, "/revistas/004/imaxes/foto1.png"),
     caption: [*Esquerda:* Imaxe do problema 1. *Dereita:* Imaxe
         do problema 3 (fonte: _El profesor Layton y la villa
         misteriosa_).]

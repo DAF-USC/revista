@@ -94,7 +94,7 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
   unha futura entrega.
 
   #figure(
-    image("imaxes/emc2.jpg", width: 90%),
+    image("/revistas/004/imaxes/emc2.jpg", width: 100%),
     caption: [Portada do _single_ $E=m c^2$ da banda _B.A.D._ (_Big
         Audio Dynamite_) que chegou ao posto 11 da _UK singles Chart_. No
         centro (con gabardina) Mick Jones, membro fundador, cantante e compositor
