@@ -102,8 +102,7 @@
     image(width: 100%, "/revistas/004/imaxes/diagramita_michell.png"),
     caption: [Diagrama orixinal empregado en #cite(label("paper_largo_michell")) para a
         análise xeométrica. A figura _per se_ non se atopa no artigo
-        arquivado pola Royal Society, pero atópase en #cite(label("mongomeri"), supplement: [Véxase nota número
-        3])]
+        arquivado pola Royal Society, pero atópase en #cite(label("mongomeri"), supplement: [Véxase nota número 3])]
   )
 
   == A análise xeométrica de Michell (en termos modernos)
@@ -267,9 +266,12 @@
   valores propostos por Laplace en #cite(label("exposition_laplace")).
 
   Substituímos agora o raio da estrela por $R = 250 R_S$, onde $R_S = 6.9634 dot
-  10^8 "m"$, e a densidade por $rho = rho_T = 5514 " kg/m"^3$. Por tanto // puxen un espacio dentro do string para separar as cifras das unidades
+  10^8 "m"$, e a densidade por $rho = rho_T = 5514 " kg/m"^3$. Por tanto 
+  // puxen un espacio dentro do string para separar as cifras das unidades
 
-  $ c_(L a p l a c e) = 250 R_S sqrt((8 pi)/3 rho_T G) = 3.057 dot 10^8 "m/s" $ // aquí quitei o espacio porque cando van despois dun exponente xa van separadas, non sei moi ben por que
+  $ c_(L a p l a c e) = 250 R_S sqrt((8 pi)/3 rho_T G) = 3.057 dot 10^8 "m/s" $ 
+  // aquí quitei o espacio porque cando van despois dun exponente xa van separadas, 
+  // non sei moi ben por que
 
   O cal ten un erro porcentual respecto do valor actual do 1,96%. Nada mal.
   Deste xeito demostramos, de maneira indirecta mediante a confirmación do valor
@@ -312,12 +314,10 @@
   #SenCita("laplace_original")
   #SenCita("star_wars_iv")
   #SenCita("cygnus_x1")
-
   #SenCita("paper_largo_michell")
   #SenCita("exposition_laplace")
   #SenCita("hawking_ellis")
   #SenCita("mongomeri")
 
   #CrearBibliografia("/revistas/004/bibliografia_MANUEL_VC.bib")
-
 ]

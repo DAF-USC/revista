@@ -6,7 +6,9 @@
   autoria   : [],
   subtitulo : [],
 )
+
 #set math.equation(numbering: none)
+
 #columns[
 //   % \section*{\textcolor{Resalte}{Uns problemas máis ou menos intuitivos\\ } {\normalfont \itshape   non kero poñer o meu nome lol xd}}%
 // % \Pasatempo{Uns problemas máis ou menos intuitivos}{Baseado na revista ``A Gota de Milikan''}
@@ -27,6 +29,7 @@
         do problema 3 (fonte: _El profesor Layton y la villa
         misteriosa_).]
   ) 
+
   #enum(numbering: "1.")[
       Faise pasar unha corda longa por unha polea.
       Pendúrase un acio de plátanos dun extremo da corda mentres un
@@ -56,10 +59,12 @@
 
 Para que teñas que darlle varias voltas á cabeza e tal vez repasar algo de
 física e matemáticas.
+
 #v(1em)
+
 #columns[
   - Para comezar, algo máis simple
-  $ integral tan(x) dif x $ // FACER:MIGRACIÓN: Quitarlle o número a algunhas ecuacións
+  $ integral tan(x) dif x $
   - Unha raíz cadrada pode cambialo todo!
   $ integral sqrt(tan(x)) dif x $
   - Cun premio de 2.5 puntos, podes integrar o seguinte?
@@ -82,7 +87,6 @@ física e matemáticas.
     $RR^3$.
   - Sabes que é unha #emph[álxebra]? Non é máis ca unha parella de aneis.
     Ocurreseche algún exemplo?
-
 ]
 
 // % \vspace{0.6cm}\hrule\vspace{0.4cm}

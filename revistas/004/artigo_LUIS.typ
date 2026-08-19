@@ -11,6 +11,7 @@
 )
 
 #columns[
+
   Entramos no IGFAE e recíbenos cun sorriso na boca, aínda ten que acabar
   papelame (no momento que lle entrevistamos, recoñece que enviou as notas de
   Métodos Matemáticos VI ás 3:30 horas), e pídenos esperar un minuto. José,
@@ -21,6 +22,7 @@
     image(width: 100%, "/revistas/004/imaxes/edelstein1.jpg"),
     caption: [José Edelstein, investigador no IGFAE, docente e divulgador científico.]
   )
+
   Nacido en Buenos Aires, a súa formación académica e posterior experiencia no
   ámbito investigador e divulgativo fai conta dunha carreira internacional
   impresionante. No entanto, lémbranos que non sempre estivo vinculado á Física.
@@ -314,7 +316,4 @@
 // % humanos). Pero grazas ó espírito crítico infundido por persoas como
 // % Edelstein, un pode afrontar o futuro con tenacidade fronte a adversidade, ó
 // % menos ata o próximo centenario da visita de Einstein..
-
-
-
 ]

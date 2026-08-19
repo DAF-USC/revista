@@ -9,12 +9,17 @@
 
 // FACER:MIGRACIÓN: \Opinión en LaTeX
 = Frases célebres
+
 == _Manuel Galán Rodríguez_
+
 Inicio esta sección na revista Momentum achegando todas as frases que poida
 entre a anterior edición da revista e a seguinte. Evidentemente, sempre se
 admiten colaboracións para futuras edicións. Espero que vos guste!
+
 #v(2em) // Probablemente haxa unha forma mellor de facer isto
+
 #columns[
+
   #quote(
     block: true,
     attribution: [Diego Martínez, #linebreak() Física computacional avanzada, 2025.],
@@ -22,23 +27,27 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
     haber 1 ó 2 casos? Pues en esta asignatura va a ser igual: va a 
     haber como mucho 1 ó 2 suspensos.]
   )
+
   #quote(
     block: true,
     attribution: [Néstor Armesto, #linebreak() Teoría cuántica de campos, 2025.],
     [Igual estáis pensando que estoy haciendo una cosa extraña. Os lo va 
     a dejar de parecer dentro de un minuto porque la voy a complicar más.]
   )
+
   #quote(
     block: true,
     attribution: [Víctor Pardo, #linebreak() Electromagnetismo I, 2025.],
     [Y a mí [me da pereza] la física. Y la vida en general.]
   )
+
   #quote(
     block: true,
     attribution: [Jaime Álvarez, #linebreak() Técnicas Experimentais II, 2025.],
     [El péndulo está un poco bailarín... no sabe para dónde va. Es como 
     yo hoy, no sé para dónde voy.]
   )
+
   #quote(
     block: true,
     attribution: [Carlos Montero, #linebreak() Óptica I, 2025.],
@@ -48,9 +57,11 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
 ]
 
 = [dd/mm/aaaa]
+
 == _David Tarrío Outeiriño_
 
 #columns[
+
   Unha luz branca atravesa o meu cerebro. Os ollos palpitan. Unha das miñas mans
   golpea con forza o interruptor da parede. Un torrente de claridade inunda as
   miñas córneas. As sabas retórcense en posicións inesperadas. A lembranza dun
@@ -82,9 +93,11 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
 #pagebreak()
 
 = Praceres descoñecidos: $E=m c^2$ de B.A.D.
+
 == _Carlos Carballeira Romero_
 
 #columns[
+
   A expresión da equivalencia entre masa e enerxía é, posiblemente, a ecuación da
   física máis implantada no imaxinario popular. Por iso, cando lle propuxen ao
   equipo directivo de _Momentum_ realizar unha serie de artigos con
@@ -100,7 +113,7 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
         centro (con gabardina) Mick Jones, membro fundador, cantante e compositor
         de _The Clash_.]
   )
-  #v(1em) // Igual que antes, supoño que existe unha mellor forma de espaciar isto
+
   Froito da súa popularidade, $E=m c^2$ ten sido fonte de inspiración para
   artistas/músicos de diferentes estilos que van dende o rap á música
   electrónica, pasando polo pop de radiofórmula máis comercial encarnado por
@@ -148,5 +161,4 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
   o voso caso, lembrade que, cando anos antes compuxo _Should I stay or
   should I go_, Mick Jones resumiu á perfección o dilema que afronta a diario
   calquera postdoc ou estudante de doutoramento.
-
 ]

@@ -7,6 +7,8 @@
   subtitulo : [Entre o determinismo clásico, a aleatoriadade cuántica e o "eu".],
 )
 
+#set math.equation(numbering: none)
+
 #columns[
 
   == Que é o libre arbitrio?
@@ -42,7 +44,7 @@
     {arrow(r)_2 (t), arrow(v)_2 (t)},
     ..., 
     {arrow(r)_N (t), arrow(v)_N (t)}) 
-    sum_(i=1)^N F_(i j) = m_j d^2/(d t^2) arrow(r)_j$
+    sum_(i=1)^N F_(i j) = m_j d^2/(d t^2) arrow(r)_j $
 
   // \begin{equation}
   //   \begin{tikzpicture}[baseline=(current bounding box.center)]

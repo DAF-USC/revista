@@ -8,6 +8,7 @@
 )
 
 #columns[
+  
   == Introdución
 
   O pasado 1 de outubro faleceu a prestixiosa primatóloga e antropóloga Jane
@@ -148,12 +149,13 @@
   converteu en alguén moi importante para Jane. Ela sabía que o ía botar en
   falta. Tras a partida, Jane e Hugo intercambiaron varios telegramas.
 
-// FACER: supoño que o espaciado arreglarase para esta parte tamén, se non, 
-// habería que engadir un #v(<algo>em) antes e despois do texto
+  // FACER: supoño que o espaciado arreglarase para esta parte tamén, se non, 
+  // habería que engadir un #v(<algo>em) antes e despois do texto
   
   #par(first-line-indent: 0em , mono[WILL YOU MARRY ME STOP \ LOVE STOP HUGO])
   #align(right + bottom)[#mono[YES STOP LOVE \ JANE]]
-  #par(first-line-indent: 0em , mono[=DO YOU LIKE EMERALDS STOP \ WHAT SIZE IS YOUR FINGER= \ LOVE HUGO])
+  #par(first-line-indent: 0em , mono[=DO YOU LIKE EMERALDS STOP \ 
+  WHAT SIZE IS YOUR FINGER= \ LOVE HUGO])
   #align(right + bottom)[#mono[LOVE EMERALDS STOP \ LOVE YOU STOP \ JANE]]
 
   Hugo e Jane casaron, sen facer plans a futuro. Querían volver a Gombe e facer
@@ -291,7 +293,7 @@
     senón en nós mesmos, que somos subordinados. Certamente creo que iso é certo,
     pero aínda que traballei duro toda a miña vida, debo admitir que as estrelas
     tamén parecen ter xogado o seu papel.]
-)
+  )
 
   // %formateade esta cita como vexades, non creo convinte poñer a fonte tampouco, é
   // %da peli-documental pero como a meirande parte do contido
@@ -326,5 +328,6 @@
   #SenCita("youtube_discussingBehavior")
   #SenCita("goodall_wikipedia")
   #SenCita("bbc_horizon")
+
   #CrearBibliografia("/revistas/004/bibliografia_CELIA_AA.bib")
 ]

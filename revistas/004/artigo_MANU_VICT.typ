@@ -7,15 +7,17 @@
   subtitulo : [E como terminou contrariando un Nobel.],
 )
 
-// Puxen espacios verticais para arranxar despois e antes das ecuacións, figuras e títulos. 
 #set math.equation(numbering: none)
+
 #columns[
+
   #quote(
     block: true,
     attribution: [Jim Carrey],
     [Detrás de cada home hai sempre unha muller poñendo os ollos
     en branco.]
   )
+
   En todos os libros están grandes mulleres da ciencia como Marie Curie, Hipatia
   de Alexandría ou Ada Lovelace. Mais o recoñecemento das mulleres no
   desenvolvemento científico é recente, a pesar que aínda hai moitos teoremas ou
@@ -115,7 +117,6 @@
   $ m dot.double(u)_j = &k(u_(j+1) + u_(j-1) - 2u_j)\  
    &+ 2k alpha[(u_(j+1) - u_j) - (u_j - u_(j-1))]. $
 
-
   Para calcular a enerxía de cada partícula en base ao seu desprazamento,
   escríbese esta ecuación do movemento en termos do hamiltoniano. É preciso ter
   en conta tamén o elemento non lineal, polo que a ecuación será o
@@ -124,31 +125,25 @@
   $ H = 1/2 sum_(i=0)^N (p_i^2/m + 
   k(u_(i+1) - u_i)^2 + alpha/3 k(u_(i+1) - u_i)^3). $
 
-
-
   Ao non ser lineal o sistema dinámico, non é posible atopar unha solución
   analítica, mais si que se pode descompoñer en modos normais
 
-//\begin{align*}
   $ H = &1/2 sum_(j=1)^N ((p'_j^2)/m + m omega_j^2 q_j^2)\
   &+ alpha/3 sum_(j, l, m=1)^N c_(j l m) a_j a_l a_m omega_j omega_l omega_m. $
 
-
-Tras isto, calcúlanse os coeficientes non lineais $c_(j m l)$ e ponse $q_j$ en
-forma exponencial. Despois, súmase para ter en consideración unha ecuación
-xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
+  Tras isto, calcúlanse os coeficientes non lineais $c_(j m l)$ e ponse $q_j$ en
+  forma exponencial. Despois, súmase para ter en consideración unha ecuación
+  xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
 
   $ S_n &= sum_j^N (-i)^n F [ sum_k A(e^(i ((j+i) k pi)/(N+1)) - e^(i (j k pi)/(N+1)))]^n\ 
-    S_n &= F sum_j^N [a_k exp(i ((j+i/2) k pi)/(N+1)) 2sin((k pi)/(2(N+1)))]^n\ 
-    S_n &= F sum_j^N [a_k (omega_k)/(omega_0) exp(i ((j+i/2) k pi)/(N+1))]^n. $
-
+  S_n &= F sum_j^N [a_k exp(i ((j+i/2) k pi)/(N+1)) 2sin((k pi)/(2(N+1)))]^n\ 
+  S_n &= F sum_j^N [a_k (omega_k)/(omega_0) exp(i ((j+i/2) k pi)/(N+1))]^n. $
 
   Saltando un par de pasos intermedios, os termos non lineais serían os
   seguintes, tendo en conta a repetición dos índices $j l m$
 
   $ c_(j l m) &= 2 k ((N+1)F)/(omega_0^3)Z(x)D(x)\
   &= k/(omega_0^3 sqrt(2(N+1)))Z(x)D(x). $
-
 
   Baixo estes cálculos, Mary Tsingou programou o MANIAC para que se desen os
   resultados dos cálculos. Nas iteracións iniciais, o sistema funcionaba tal como
@@ -236,11 +231,11 @@ xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
   o mesmo camiño. O seu exemplo continúa inspirando as novas xeracións de físicas
   e matemáticas, pois o seu legado científico transcenderá o tempo.
 
-#SenCita("mistery_lady")
-#SenCita("wrong_righted")
-#SenCita("entr_mary")
-#SenCita("dama_misteriosa")
-#SenCita("alejandro_mata")
+  #SenCita("mistery_lady")
+  #SenCita("wrong_righted")
+  #SenCita("entr_mary")
+  #SenCita("dama_misteriosa")
+  #SenCita("alejandro_mata")
 
-#CrearBibliografia("/revistas/004/bibliografia_MANU_VICT.bib")
+  #CrearBibliografia("/revistas/004/bibliografia_MANU_VICT.bib")
 ]

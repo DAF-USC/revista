@@ -122,8 +122,7 @@ supersimetría.],
   obstante, manifesta unha situación incómoda. O valor medido experimentalmente
   para a masa é $m_H approx 126$ GeV, é dicir, $m_H ~ 10^2$ GeV, mentres que
   $Lambda^2 ~ 10^(36)$ GeV. Isto implica que $c_H ~ cal(O)(10^(-34))$,
-  o que contradí de xeito espectacular a suposición de que $c_H ~
-  cal(O)(1)$.
+  o que contradí de xeito espectacular a suposición de que $c_H ~ cal(O)(1)$.
 
   Este feito ilustra o _problema da xerarquía_ do Modelo Estándar: a
   escala electrofeble (definida pola masa do Higgs) é moito menor que a escala de
@@ -137,8 +136,7 @@ supersimetría.],
   UV, $m^2_H(Lambda)$, e o termo con $Lambda^2$ é a corrección a primeira orde
   $delta m^2_H$. Para ter un campo de Higgs dinámico, necesitamos que a súa masa
   no IR non sexa infinita, e para iso $delta m^2_H$ debe tomar un valor da orde
-  da masa IR, o que efectivamente nos forza a que $c_H ~
-  cal(O)(10^(-34))$.
+  da masa IR, o que efectivamente nos forza a que $c_H ~ cal(O)(10^(-34))$.
 
   Pero entón, debe violarse a naturalidade de xeito inevitable? Resulta que non.
   Se impoñemos que a naturalidade debe preservarse, existe un xeito relativamente
@@ -163,13 +161,13 @@ supersimetría.],
   cancelen, e así $c_H=0$ automaticamente #cite(label("Agashe")).
 
   #figure(
-    image(width: 85%, "imaxes/naturalness_fig12.png"),
+    image(width: 100%, "/revistas/004/imaxes/naturalness_fig12.png"),
     caption: [Correccións cuánticas a primeira orde da masa do Higgs no Modelo
         Estándar.]
   )
 
   #figure(
-    image(width: 85%, "imaxes/naturalness_fig34.png"),
+    image(width: 100%, "/revistas/004/imaxes/naturalness_fig34.png"),
     caption: [Correccións cuánticas inducidas polo novo campo fermiónico $phi.alt$,
         que compensan as anteriores.]
   )
@@ -207,6 +205,5 @@ supersimetría.],
   súa situación na física teórica, recomendo moito a tese de máster de C.D.
   Dijkstra #cite(label("Dijkstra")).
 
-  #CrearBibliografia("revistas/004/bibliografia_VICTOR_DD.bib")
-
+  #CrearBibliografia("/revistas/004/bibliografia_VICTOR_DD.bib")
 ]

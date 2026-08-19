@@ -146,6 +146,7 @@
   + Dicir que «$B$ ten un metro de longo» é un enunciado
        continxente.#footnote[Enunciado que pode ser doutro modo noutro mundo
        posible. Sempre e cando «un metro» sexa un designador ríxido.]
+
   + Ao dicir que «$B$ ten un metro de longo» parece que se sabe
        _a priori_ que a barra $B$ ten un metro de longo.
 
@@ -175,5 +176,6 @@
 
   #SenCita("kripke_1985")
   #SenCita("themetre")
+  
   #CrearBibliografia("/revistas/004/bibliografia_ANTON.bib")
 ]
