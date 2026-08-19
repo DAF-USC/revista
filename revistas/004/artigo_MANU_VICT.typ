@@ -8,7 +8,7 @@
 )
 
 // Puxen espacios verticais para arranxar despois e antes das ecuacións, figuras e títulos. 
-
+#set math.equation(numbering: none)
 #columns[
   #quote(
     block: true,
@@ -26,7 +26,7 @@
   mecánica estatística e da teoría do caos.
 
   == Quen era Mary Tsingou
-#v(1em)
+
   Mary Tsingou-Menzel naceu no ano 1928 en Milwaukee, Wisconsin e criouse no seo
   dunha familia grecodescendente. Por causa da Gran Depresión, na súa infancia
   migrou a Bulgaria en busca dunha maior estabilidade. Porén, tras o inicio da
@@ -51,13 +51,13 @@
   percepción do seu traballo e das súas compañeiras. A pesar disto, a
   desigualdade de condicións provocada polo xénero non limitou a Tsingou, quen
   sempre mantivo a súa ambición e o seu interese por aprender.
-#v(0.5em)
+
   #figure(
-    image(width: 90%, "imaxes/mary1.png"), 
+    image(width: 100%, "/revistas/004/imaxes/mary1.png"), 
     caption: [Mary Tsingou na súa xuventude, traballando no laboratorio de Los 
     Álamos.]
   )
-  #v(1em)
+  
   Nada máis chegar, o laboratorio comezara a recrutar persoas para o grupo do
   MANIAC I, a primeira supercomputadora capaz de gañar contra un humano nunha
   partida de xadrez. No laboratorio ofertaban clases de computación e Tsingou
@@ -80,7 +80,7 @@
   técnica na resolución do FPUT.
 
   == O problema FPU //% Este é sen o ‘T’, todos os demais do texto teñen que ser FPUT
-#v(1em)
+
   Enrico Fermi, que recibira o premio Nobel de Física no ano 1938 ao demostrar a
   existencia de novos elementos radioactivos producidos por procesos de
   irradiación con neutróns, confiaba firmemente en que as novas teorías físicas
@@ -89,12 +89,12 @@
   analiticamente, derivaba en que non se afondara nelas. Porén, coa creación de
   supercomputadoras como a MANIAC I, Fermi vía unha nova ferramenta para o estudo
   das características non lineais.
-#v(0.5em)
+
   #figure(
-    image(width: 90%, "imaxes/mary2.png"),
+    image(width: 100%, "/revistas/004/imaxes/mary2.png"),
     caption: [Algoritmo orixinal escrito á man por Mary Tsingou en 1953.]
   )
-#v(1em)
+
   O modelo a seguiren era sinxelo: unha cadea de N partículas, con masa unidade,
   unidas mediante unha interacción cuadrática, cun termo non lineal débil. Dito
   doutra forma, intentaban representar a evolución dun cristal cara ao equilibrio
@@ -111,45 +111,45 @@
   ecuación lineal de movemento (a clásica do oscilador harmónico) e o parámetro
   de non linearidade ($alpha$), para definir o movemento non lineal de cada
   elemento;
-//%
+
   $ m dot.double(u)_j = &k(u_(j+1) + u_(j-1) - 2u_j)\  
    &+ 2k alpha[(u_(j+1) - u_j) - (u_j - u_(j-1))]. $
-#v(0.5em)
-//%
+
+
   Para calcular a enerxía de cada partícula en base ao seu desprazamento,
   escríbese esta ecuación do movemento en termos do hamiltoniano. É preciso ter
   en conta tamén o elemento non lineal, polo que a ecuación será o
   hamiltoniano do oscilador harmónico acoplado máis un termo non lineal
-//%
+
   $ H = 1/2 sum_(i=0)^N (p_i^2/m + 
   k(u_(i+1) - u_i)^2 + alpha/3 k(u_(i+1) - u_i)^3). $
-#v(0.5em)
-//%
+
+
 
   Ao non ser lineal o sistema dinámico, non é posible atopar unha solución
   analítica, mais si que se pode descompoñer en modos normais
-//%
+
 //\begin{align*}
   $ H = &1/2 sum_(j=1)^N ((p'_j^2)/m + m omega_j^2 q_j^2)\
   &+ alpha/3 sum_(j, l, m=1)^N c_(j l m) a_j a_l a_m omega_j omega_l omega_m. $
-#v(0.5em)
-//%
+
+
 Tras isto, calcúlanse os coeficientes non lineais $c_(j m l)$ e ponse $q_j$ en
 forma exponencial. Despois, súmase para ter en consideración unha ecuación
 xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
-//%
+
   $ S_n &= sum_j^N (-i)^n F [ sum_k A(e^(i ((j+i) k pi)/(N+1)) - e^(i (j k pi)/(N+1)))]^n\ 
     S_n &= F sum_j^N [a_k exp(i ((j+i/2) k pi)/(N+1)) 2sin((k pi)/(2(N+1)))]^n\ 
     S_n &= F sum_j^N [a_k (omega_k)/(omega_0) exp(i ((j+i/2) k pi)/(N+1))]^n. $
-#v(0.5em)
-//%
+
+
   Saltando un par de pasos intermedios, os termos non lineais serían os
   seguintes, tendo en conta a repetición dos índices $j l m$
-//%
+
   $ c_(j l m) &= 2 k ((N+1)F)/(omega_0^3)Z(x)D(x)\
   &= k/(omega_0^3 sqrt(2(N+1)))Z(x)D(x). $
-#v(0.5em)
-//%
+
+
   Baixo estes cálculos, Mary Tsingou programou o MANIAC para que se desen os
   resultados dos cálculos. Nas iteracións iniciais, o sistema funcionaba tal como
   Fermi prevía: a enerxía ía pasando dun modo a outro na cadea, e finalmente o
@@ -161,14 +161,14 @@ xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
   movendo entre modos até un punto en que volvía case toda ao modo inicial. Non
   se daba ese comportamento caótico que Fermi anhelaba atopar no experimento,
   senón que mostraba unha especie de periodicidade case exacta no seu regreso.
-#v(0.5em)
+
   #figure(
-    image(width: 90%, "imaxes/mary3.png"),
+    image(width: 100%, "/revistas/004/imaxes/mary3.png"),
     caption: [Resultados do experimento orixinal nos que se mostra que a enerxía
       volve de novo ao modo 1, ou modo inicial, tras unha cantidade
       determinada de iteracións.]
   )
-#v(1em)
+
   O desenvolvemento tecnolóxico dos tempos contemporáneos permitiu que se volvese
   a realizar o experimento unha serie de veces para dar novos resultados. Aínda
   así, os resultados publicados en 1955 foron fundamentais e relacionáronse con
@@ -180,7 +180,7 @@ xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
   tecnoloxía dixital.
 
   == O T que faltaba
-#v(1em)
+
   Pese a realizar un importante labor dentro da investigación do problema FPUT,
   Mary Tsingou non obtivo recoñecemento durante moito tempo. A principal razón á
   que se lle atribúe esta decisión foi que ela non estivo involucrada no propio
@@ -195,13 +195,13 @@ xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
   xogou Enrico Fermi. O físico italiano tampouco estivera involucrado na
   redacción do artigo, posto que falecera no ano 1954, un ano antes da
   publicación do experimento.
-#v(0.5em)
+
   #figure(
-    image(width: 90%, "imaxes/mary4.png"),
+    image(width: 100%, "/revistas/004/imaxes/mary4.png"),
     caption: [ Nota de páxina con 2 liñas de agradecemento á 'señorita Mary Tsingou'
         pola codificación do problema no MANIAC de Los Álamos.]
   )
-#v(1em)
+
   Foi no ano 2008 cando se reconsiderou o rol que xogara Tsingou no traballo. O
   físico francés Thierry Dauxois escribiu no número de xaneiro un artigo para a
   revista _Physics Today_, titulado 'Fermi, Pasta, Ulam and a mysterious

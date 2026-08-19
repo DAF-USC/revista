@@ -81,7 +81,7 @@
   o futuro, ao igual que o pasado, podería estar presente ante os seus ollos."_
 
   #figure(
-    image(width: 90%, "imaxes/demo_laplace.png"),
+    image(width: 100%, "/revistas/004/imaxes/demo_laplace.png"),
     caption: [Ilustración do Demo de Laplace #cite(label("demo_laplace"))]
   ) <demo_laplace>
 
@@ -134,8 +134,8 @@
   efectos, aínda que podemos saber exactamente como as probabilidades de cada
   efecto evolucionan co tempo a través da ecuación de Schrödinger
 
-  $ Psi (0) stretch(->)^(i \u{0127} (partial Psi)/(partial t) = hat(H) Psi) Psi(t). $
-  // FACER: Ampliar o texto de arriba da frecha e se pode ser, cambiar o hbar que puxen co unicode
+  $ Psi (0) stretch(->)^display(i planck (partial Psi)/(partial t) = hat(H) Psi) Psi(t). $
+
   Pero o que nos di é que, en esencia, a natureza é aleatoria. Entón, realmente a
   cuántica danos liberdade co seu carácter aleatorio, asumindo que xoga algún
   rol, por pequeno que sexa, no noso cerebro (nun sistema tan grande e quente non
@@ -148,7 +148,7 @@
   tampouco nos dá ese libre arbitrio metafísico que andamos buscando.
 
   #figure(
-    image(width: 90%, "imaxes/schrodinger_santiago.jpg"),
+    image(width: 100%, "/revistas/004/imaxes/schrodinger_santiago.jpg"),
     caption: [Schrödinger en Santiago de Compostela, 1934 (Fotografía do arquivo do IGFAE)]
   ) <schrodinger_santiago>
 

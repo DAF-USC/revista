@@ -99,7 +99,7 @@
   en #cite(label("mongomeri"), supplement: [pág. 92]).] // Estou poñendo as páxinas como suplementos, non estou seguro de que sexa a opción correcta
 
   #figure(
-    image(width: 90%, "imaxes/diagramita_michell.png"),
+    image(width: 100%, "/revistas/004/imaxes/diagramita_michell.png"),
     caption: [Diagrama orixinal empregado en #cite(label("paper_largo_michell")) para a
         análise xeométrica. A figura _per se_ non se atopa no artigo
         arquivado pola Royal Society, pero atópase en #cite(label("mongomeri"), supplement: [Véxase nota número

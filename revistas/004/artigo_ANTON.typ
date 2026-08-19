@@ -162,10 +162,9 @@
   posibles), mentres que a expresión «a barra $B$» non designa nada rixidamente.
 
   Aínda que dende 1973 chamámoslle «un metro» á distancia percorrida pola luz no
-  baleiro en $1\/299 #h(0.2em) 792 #h(0.2em) 458$ partes dun segundo e non se empregue unha barra 
-  // FACER: arreglar a separación entre os clusters de díxitos. Non se me ocorreu outra forma de facer esto sen utilizar outro paquete.
+  baleiro en $1\/299 thin 792 thin 458$ partes dun segundo e non se empregue unha barra 
   de platino para fixar a lonxitude dun metro, o termo «a distancia percorrida
-  pola luz no baleiro en $1\/299 #h(0.2em) 792 #h(0.2em) 458$ partes dun segundo» continúa a
+  pola luz no baleiro en $1\/299 thin 792 thin 458$ partes dun segundo» continúa a
   funcionar como un designador ríxido xa que segue fixando a referencia dun
   metro, aínda que sexa mediante un feito físico diferente. Podemos imaxinar un
   mundo posible onde a luz tardase máis ou menos en percorrer esa distancia, e
