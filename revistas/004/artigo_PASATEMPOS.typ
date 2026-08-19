@@ -74,7 +74,7 @@ física e matemáticas.
     (o conxunto de todos os subconxuntos de $X$) xunto coa operación unión
     ($union.big$) é un monoide. Cal é o elemento neutro?
   - Sabes que é un #emph[grupo]? Próbao demostrando que o conxunto
-    {1,0} coa operación dada pola porta lóxica XOR é un // FACER:MIGRACIÓN: XOR vai con typewritter font
+    {1,0} coa operación dada pola porta lóxica #mono[XOR] é un
     grupo.
   - Sabes que é un #emph[anel]? Busca algún exemplo que non sexan matrices.
   - Sabes que é un #emph[espazo vectorial]? É un grupo máis un anel.
