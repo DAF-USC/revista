@@ -2,14 +2,14 @@
 
     artigos : (
 		"/revistas/003/artigo_CELIA_AA.typ",
-        "/revistas/003/artigo_DANIEL_BB.typ",
         "/revistas/003/artigo_ENTREVISTA.typ",
-        "/revistas/003/artigo_MANUEL_GR.typ",
-        "/revistas/003/artigo_MAURO_GR.typ",
-        "/revistas/003/artigo_OPINION.typ",
-        "/revistas/003/artigo_PASATEMPOS.typ",
-        "/revistas/003/artigo_SANTY_GG.typ",
+        "/revistas/003/artigo_DANIEL_BB.typ",
         "/revistas/003/artigo_VICTOR_DD.typ",
+        "/revistas/003/artigo_OPINION.typ",
+        "/revistas/003/artigo_MANUEL_GR.typ",
+        "/revistas/003/artigo_SANTY_GG.typ",
+        "/revistas/003/artigo_MAURO_GR.typ",
+        "/revistas/003/artigo_PASATEMPOS.typ",
     ),
 
     cores : (
@@ -86,8 +86,4 @@
 		número neste comezo de curso!
 	]
 
-)
-
-// 	NOTAS
-//	error: unexpected argument: balanced
-		Solución: cargo install --git https://github.com/typst/typst --locked typst-cli
+) 

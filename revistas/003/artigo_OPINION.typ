@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-	titulo		: [Sobrea realidade do suxeito na física],
+	titulo		: [Sobre a realidade do suxeito na física],
 	subtitulo	: [],
 	autoria		: "",
 	estilo		: "MIESCELÁNEA",
@@ -9,7 +9,7 @@
 
 #v(3mm)
 
-= #text( 
+== #text( 
 	fill: rgb(datos.cores.resalte) 
 )[ 
 	Un conxunto de actos derivados do oficio de estudar física
@@ -17,7 +17,7 @@
 
 #v(-1em)
 
-= #text(
+== #text(
 	weight: "regular"
 )[ 
 	#emph[ 
@@ -57,7 +57,7 @@
 
 #v(3mm)
 
-= #text( 
+== #text( 
 	fill: rgb(datos.cores.resalte) 
 )[ 
 	Da xenialidade. Ou aquilo no que talvez consista a física
@@ -65,7 +65,7 @@
 
 #v(-1em)
 
-= #text(
+== #text(
 	weight: "regular"
 )[ 
 	#emph[ 

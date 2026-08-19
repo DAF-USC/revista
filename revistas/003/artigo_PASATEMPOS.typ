@@ -9,7 +9,7 @@
 
 
 #heading(
-    level: 1, 
+    level: 2, 
     [ 
         #text(
             fill: rgb(datos.cores.resalte)
@@ -71,7 +71,7 @@ contextos da física. Serás capaz de atopalas todas?
 #columns[
 
 	#heading(
-    	level: 1, 
+    	level: 2, 
     	[ 
         	#text(
             	fill: rgb(datos.cores.resalte)
@@ -135,7 +135,7 @@ contextos da física. Serás capaz de atopalas todas?
 
 
 	#heading(
-    	level: 1, 
+    	level: 2, 
     	[ 
         	#text(
             	fill: rgb(datos.cores.resalte)

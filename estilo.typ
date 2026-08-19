@@ -581,7 +581,7 @@
     }
     show math.equation.where(block: false): eso => { box(eso) }
     set math.equation(numbering: "1)")
-    set columns(2, gutter: 5mm) //, balanced: true)
+    set columns(2, gutter: 5mm, balanced: true)
 
     // :FACER: referencias a ecuacións, figuras, etc
     doc
