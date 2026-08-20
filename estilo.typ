@@ -834,6 +834,8 @@
         ..filas_titular
     )
 
+    counter(figure.where(kind: image)).update(0)
+
     v(1em)
     artigo
 
