@@ -1,0 +1,241 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  estilo    : "DIVULGACIÓN",
+  titulo    : [A programadora invisible],
+  autoria   : [Manuel Tiago Barbosa Aresta e Victoria Bello Pastor],
+  subtitulo : [E como terminou contrariando un Nobel.],
+)
+
+#set math.equation(numbering: none)
+
+#columns[
+
+  #quote(
+    block: true,
+    attribution: [Jim Carrey],
+    [Detrás de cada home hai sempre unha muller poñendo os ollos
+    en branco.]
+  )
+
+  En todos os libros están grandes mulleres da ciencia como Marie Curie, Hipatia
+  de Alexandría ou Ada Lovelace. Mais o recoñecemento das mulleres no
+  desenvolvemento científico é recente, a pesar que aínda hai moitos teoremas ou
+  logros científicos atribuídos a unha autoría masculina sen ter en conta as
+  mulleres que puideron facer diso unha realidade. Unha destas mulleres foi Mary
+  Tsingou, unha das primeiras programadoras do primeiro supercomputador
+  estadounidense e partícipe nun dos experimentos de máis impacto no campo da
+  mecánica estatística e da teoría do caos.
+
+  == Quen era Mary Tsingou
+
+  Mary Tsingou-Menzel naceu no ano 1928 en Milwaukee, Wisconsin e criouse no seo
+  dunha familia grecodescendente. Por causa da Gran Depresión, na súa infancia
+  migrou a Bulgaria en busca dunha maior estabilidade. Porén, tras o inicio da
+  Segunda Guerra Mundial, os Tsingou decidiron volver de novo aos EEUU en 1940,
+  procurando escapar da difícil situación que se estaba a xestar no continente
+  europeo. No seu retorno ao país da liberdade, Mary Tsingou realizou os seus
+  estudos de secundaria, e accedeu a unha posterior formación universitaria.
+  Finalmente, en 1951 graduouse en matemáticas e educación na Universidade de
+  Wisconsin. Nada máis obter o título, buscou traballo como profesora de
+  matemáticas, mais o regreso dos veteranos tras a Segunda Guerra Mundial fixo
+  que fose case imposible encontrar un posto na educación, sobre todo como
+  muller.
+
+  Tsingou desexaba continuar cos seus estudos en matemáticas, e comezou a
+  traballar de maneira simultánea no Laboratorio Nacional de Los Álamos en
+  xaneiro de 1952, dentro da División Teórica como matemática e computadora.
+  Neste traballo, que ela atopaba monótono e 'mundano', dedicábase a realizar
+  cálculos para a resolución de ecuacións con calculadoras Marchant. A maioría de
+  persoas neste posto eran mulleres mozas, acabadas de saír da universidade.
+  Durante este período a súa carreira profesional estaba aínda nos seus inicios,
+  pero ela non podía evitar sentir unha certa frustración cara á
+  percepción do seu traballo e das súas compañeiras. A pesar disto, a
+  desigualdade de condicións provocada polo xénero non limitou a Tsingou, quen
+  sempre mantivo a súa ambición e o seu interese por aprender.
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/mary1.png"), 
+    caption: [Mary Tsingou na súa xuventude, traballando no laboratorio de Los 
+    Álamos.]
+  )
+  
+  Nada máis chegar, o laboratorio comezara a recrutar persoas para o grupo do
+  MANIAC I, a primeira supercomputadora capaz de gañar contra un humano nunha
+  partida de xadrez. No laboratorio ofertaban clases de computación e Tsingou
+  apuntouse sen dubidalo dúas veces. A idea inicial era tan só asistir ás clases,
+  mais non cambiar de grupo, pois ninguén pretendía apartarse do seu grupo de
+  traballo, o T-1, para o grupo do MANIAC, o T-7.
+
+  Finalmente, polas súas capacidades e polas súas habilidades, transferiuse coa
+  súa compañeira Mary Kircher e dedicáronse xuntas á computación de problemas,
+  sobre todo orientados ás armas. No seu momento, o MANIAC I era a maior máquina
+  de computación do estado, e unha das máis grandes do mundo. En plena Guerra
+  Fría, o obxectivo do goberno estadounidense era gañar a carreira á Unión
+  Soviética no desenvolvemento da bomba de hidróxeno, e esta supercomputadora
+  resultou fundamental nese proceso.
+
+  Ao mesmo tempo, entre 1953 e 1954 comezou a traballar co Nobel de física Enrico
+  Fermi e os físicos John Pasta e Stanislaw Ulam, autores do problema de
+  Fermi-Pasta-Ulam-Tsingou, ou FPUT. Esta colaboración marcaría o inicio nun dos
+  episodios máis importantes da súa traxectoria profesional: a súa participación
+  técnica na resolución do FPUT.
+
+  == O problema FPU //% Este é sen o ‘T’, todos os demais do texto teñen que ser FPUT
+
+  Enrico Fermi, que recibira o premio Nobel de Física no ano 1938 ao demostrar a
+  existencia de novos elementos radioactivos producidos por procesos de
+  irradiación con neutróns, confiaba firmemente en que as novas teorías físicas
+  fundamentais requirirían de operadores e ecuacións non lineais. A dificultade
+  que supuñan devanditas ecuacións, ás veces imposibles de resolver
+  analiticamente, derivaba en que non se afondara nelas. Porén, coa creación de
+  supercomputadoras como a MANIAC I, Fermi vía unha nova ferramenta para o estudo
+  das características non lineais.
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/mary2.png"),
+    caption: [Algoritmo orixinal escrito á man por Mary Tsingou en 1953.]
+  )
+
+  O modelo a seguiren era sinxelo: unha cadea de N partículas, con masa unidade,
+  unidas mediante unha interacción cuadrática, cun termo non lineal débil. Dito
+  doutra forma, intentaban representar a evolución dun cristal cara ao equilibrio
+  térmico a través de 'boliñas unidas por resortes' (o mítico oscilador
+  harmónico acoplado). Con este modelo procuraban reafirmar a tese de Fermi, quen
+  defendía que nun sistema non lineal habería unha transmisión de enerxía entre
+  os modos de oscilación, chegando finalmente a un comportamento caótico dos
+  modos e distribuíndo a enerxía entre todos. A non linearidade presentaba até
+  entón un desafío, pois era imposible acadar unha solución analítica. Aquí entra
+  o papel de Tsingou, quen foi a encargada de deseñar e implementar o algoritmo e
+  o código das ecuacións correspondentes para a súa solución.
+
+  A ecuación de partida define o desprazamento da partícula $j$, tendo en conta a
+  ecuación lineal de movemento (a clásica do oscilador harmónico) e o parámetro
+  de non linearidade ($alpha$), para definir o movemento non lineal de cada
+  elemento;
+
+  $ m dot.double(u)_j = &k(u_(j+1) + u_(j-1) - 2u_j)\  
+   &+ 2k alpha[(u_(j+1) - u_j) - (u_j - u_(j-1))]. $
+
+  Para calcular a enerxía de cada partícula en base ao seu desprazamento,
+  escríbese esta ecuación do movemento en termos do hamiltoniano. É preciso ter
+  en conta tamén o elemento non lineal, polo que a ecuación será o
+  hamiltoniano do oscilador harmónico acoplado máis un termo non lineal
+
+  $ H = 1/2 sum_(i=0)^N (p_i^2/m + 
+  k(u_(i+1) - u_i)^2 + alpha/3 k(u_(i+1) - u_i)^3). $
+
+  Ao non ser lineal o sistema dinámico, non é posible atopar unha solución
+  analítica, mais si que se pode descompoñer en modos normais
+
+  $ H = &1/2 sum_(j=1)^N ((p'_j^2)/m + m omega_j^2 q_j^2)\
+  &+ alpha/3 sum_(j, l, m=1)^N c_(j l m) a_j a_l a_m omega_j omega_l omega_m. $
+
+  Tras isto, calcúlanse os coeficientes non lineais $c_(j m l)$ e ponse $q_j$ en
+  forma exponencial. Despois, súmase para ter en consideración unha ecuación
+  xeral e substitúese, sabendo que $k$ vai de $-(N+1)$ a $(N+1)$
+
+  $ S_n &= sum_j^N (-i)^n F [ sum_k A(e^(i ((j+i) k pi)/(N+1)) - e^(i (j k pi)/(N+1)))]^n\ 
+  S_n &= F sum_j^N [a_k exp(i ((j+i/2) k pi)/(N+1)) 2sin((k pi)/(2(N+1)))]^n\ 
+  S_n &= F sum_j^N [a_k (omega_k)/(omega_0) exp(i ((j+i/2) k pi)/(N+1))]^n. $
+
+  Saltando un par de pasos intermedios, os termos non lineais serían os
+  seguintes, tendo en conta a repetición dos índices $j l m$
+
+  $ c_(j l m) &= 2 k ((N+1)F)/(omega_0^3)Z(x)D(x)\
+  &= k/(omega_0^3 sqrt(2(N+1)))Z(x)D(x). $
+
+  Baixo estes cálculos, Mary Tsingou programou o MANIAC para que se desen os
+  resultados dos cálculos. Nas iteracións iniciais, o sistema funcionaba tal como
+  Fermi prevía: a enerxía ía pasando dun modo a outro na cadea, e finalmente o
+  sistema termalizábase e demostraba un comportamento caótico, chegando a enerxía
+  a todos os modos de maneira case uniforme. Porén, de maneira accidental, os
+  cálculos deixáronse durante máis tempo do previsto. Isto non só lle levaría a
+  contraria a Fermi, senón que abriría as portas a unha nova incógnita dentro da
+  teoría do caos. Cando o valor de $alpha$ e a forza eran baixos, a enerxía íase
+  movendo entre modos até un punto en que volvía case toda ao modo inicial. Non
+  se daba ese comportamento caótico que Fermi anhelaba atopar no experimento,
+  senón que mostraba unha especie de periodicidade case exacta no seu regreso.
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/mary3.png"),
+    caption: [Resultados do experimento orixinal nos que se mostra que a enerxía
+      volve de novo ao modo 1, ou modo inicial, tras unha cantidade
+      determinada de iteracións.]
+  )
+
+  O desenvolvemento tecnolóxico dos tempos contemporáneos permitiu que se volvese
+  a realizar o experimento unha serie de veces para dar novos resultados. Aínda
+  así, os resultados publicados en 1955 foron fundamentais e relacionáronse con
+  conceptos posteriores como a ecuación KdV e os solitóns. En efectos prácticos
+  que todo o mundo pode observar, este fenómeno está presente no día a día en
+  cousas tan fundamentais como a fibra óptica, as memorias RAM, os GPS ou as
+  ecografías. Polo tanto, o FPUT podería considerarse pioneiro no desenvolvemento
+  da física teórica que aplicamos no presente, e con especial impacto na
+  tecnoloxía dixital.
+
+  == O T que faltaba
+
+  Pese a realizar un importante labor dentro da investigación do problema FPUT,
+  Mary Tsingou non obtivo recoñecemento durante moito tempo. A principal razón á
+  que se lle atribúe esta decisión foi que ela non estivo involucrada no propio
+  proceso de escritura do problema, senón que se dedicou a programar o ordenador
+  e a interpretar algunhas gráficas. A decisión de non incluír inicialmente a
+  Tsingou como coautora espertou controversias co paso dos anos. No período
+  contemporáneo ao experimento, as persoas dedicadas á programación sempre
+  figuraban como autores neste tipo de traballos, polo que a exclusión da
+  científica era incomprensible. O argumento que xustificaba a súa exclusión,
+  aquel que eliminaba o seu nome por non teren participado directamente na
+  escritura do problema, viuse rebatido despois de analizar en detalle o rol que
+  xogou Enrico Fermi. O físico italiano tampouco estivera involucrado na
+  redacción do artigo, posto que falecera no ano 1954, un ano antes da
+  publicación do experimento.
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/mary4.png"),
+    caption: [ Nota de páxina con 2 liñas de agradecemento á 'señorita Mary Tsingou'
+        pola codificación do problema no MANIAC de Los Álamos.]
+  )
+
+  Foi no ano 2008 cando se reconsiderou o rol que xogara Tsingou no traballo. O
+  físico francés Thierry Dauxois escribiu no número de xaneiro un artigo para a
+  revista _Physics Today_, titulado 'Fermi, Pasta, Ulam and a mysterious
+  lady'. Nesta peza explicaba o labor elemental que desenvolveu Tsingou no
+  proceso, descrito como a deseñadora do código computacional. Cabe mencionar
+  que, no artigo orixinal publicado en 1955, incluíanse unhas liñas de
+  agradecemento á científica pola súa participación, pero sen recoñecela como
+  coautora do traballo. Esta mención espertou inquedanza entre a comunidade
+  científica, posto que nunca se falaba da cuarta integrante do equipo, da
+  nomeada por Dauxois como 'dama misteriosa'. Despois de ter investigado sobre
+  a súa función, Mary Tsingou pasou a ser unha das coautoras por ter codificado
+  os resultados e ter programado os ordenadores empregados no experimento.
+
+  No resto da súa vida profesional, Tsingou dedicouse a traballar en diferentes
+  proxectos como científica. Un dos máis salientables foi a súa participación nos
+  cálculos do proxecto da Iniciativa de Defensa Estratéxica (ou proxecto Star
+  Wars), ideado por Ronald Reagan durante a Guerra Fría para protexer Os Estados
+  Unidos con armas nucleares estratéxicas. Ademais disto, traballou na obtención
+  de solucións numéricas para as ecuacións de Schrödinger, colaborou con John Von
+  Neumann para estudar a mestura entre dous fluídos de distintas densidades e
+  retomou na década dos 70 o problema FPUT, esta vez da man do científico James
+  Leslie Tuck, co obxectivo de estudar frecuencias máis longas. A científica
+  xubilouse finalmente no ano 1991, e pasou a vivir unha vida discreta xunto co
+  seu marido en Los Álamos.
+
+  Por todo o que tivo feito na súa traxectoria, Mary Tsingou marcou un antes e un
+  despois na historia da física computacional e, sen dúbida, foi un dos maiores
+  expoñentes femininos na ciencia do século XX. O FPUT non podería terse
+  realizado sen Tsingou, mente encargada de darlle forma ao mesmo, deseñando e
+  programando o código numérico. Sen o seu traballo, a exploración dos sistemas
+  non lineais e o posterior desenvolvemento da teoría do caos non terían seguido
+  o mesmo camiño. O seu exemplo continúa inspirando as novas xeracións de físicas
+  e matemáticas, pois o seu legado científico transcenderá o tempo.
+
+  #SenCita("mistery_lady")
+  #SenCita("wrong_righted")
+  #SenCita("entr_mary")
+  #SenCita("dama_misteriosa")
+  #SenCita("alejandro_mata")
+
+  #CrearBibliografia("/revistas/004/bibliografia_MANU_VICT.bib")
+]

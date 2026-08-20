@@ -1,0 +1,209 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  estilo    : "DIVULGACIÓN",
+  titulo    : [Por que o bosón de Higgs non é moi "natural"],
+  autoria   : [Víctor Díaz Díaz],
+  subtitulo : [Breve explicación da relación entre o problema da xerarquía e a
+supersimetría.],
+)
+
+#columns[
+
+  == Introdución
+
+  As teorías cuánticas de campos (QFTs) son a ferramenta máis poderosa da que
+  dispoñemos para entender teoricamente as interaccións entre partículas. Á xa
+  alta complexidade sobre a que se constrúen as teorías, hai ademais que engadir
+  o feito de que, á hora de empregalas para calcular observables, debe facerse
+  dun xeito coidadoso se non se quere obter sempre a mesma resposta: infinito.
+
+  Un resultado infinito nun cálculo teórico sempre quere dicir o mesmo: a teoría
+  non ten poder preditivo no réxime no que se está aplicando, é necesario
+  empregar un modelo diferente. Non obstante, traballando con algunhas QFTs é
+  posible "domear os infinitos", de xeito que se poden facer redefinicións
+  consistentes dos seus parámetros para conseguir resultados finitos, de maneira
+  que as diverxencias teóricas se cancelan para non aparecer nos observables.
+  Este proceso denomínase _regularización_, e existen diversos métodos
+  coas súas vantaxes e inconvenientes.
+
+  Que isto sexa algo a ter en conta quere dicirnos que as nosas teorías son
+  teorías efectivas e non son válidas en calquera escala de enerxía. Ao
+  aplicalas a distintas escalas, deben ser modificadas proporcionalmente a través
+  dun proceso que se denomina _renormalización_, e determina como as altas
+  enerxías (UV, de ultravioleta) e as baixas enerxías (IR, de infravermello) se
+  relacionan. Esta é unha cuestión de importancia capital, xa que unha teoría non
+  renormalizable non pode proporcionar predicións observables.
+
+  Tanto o procedemento matemático de regularización e renormalización como a súa
+  historia son temas longos e arrevesados, e merecen ser tratados de xeito
+  extenso noutro momento. Neste artigo imos explorar o concepto relacionado da
+  _naturalidade_, o cal non está exento de debate, aínda a día de hoxe.
+
+  == O concepto de naturalidade en física
+
+  Empecemos por considerar unha QFT xenérica, que sempre poderá escribirse como
+
+  $ cal(L) = sum_i g_i O_i, $
+  
+  onde os $O_i$ son operadores compostos de campos cuánticos e os $g_i$ son os
+  parámetros correspondentes, tales como masas e constantes de acoplamento. A
+  acción correspondente en $D$ dimensións será entón
+
+  $ S = integral "d"^D x thin sum_i g_i O_i. $
+
+  Seguindo o que se indicou anteriormente, imos tratar esta teoría como unha
+  teoría efectiva válida ata unha escala $Lambda$, denominada _cutoff_,
+  que determina a escala de enerxía característica empregada no proceso de
+  renormalización #cite(label("Polchinski")). Deste xeito, se un operador $O_i$ ten
+  dimensión $delta_i$, este terá unidades de $Lambda^(delta_i)$ e o
+  coeficiente correspondente terá a forma
+
+  $ g_i = c_i Lambda^(D-delta_i), $
+
+  onde $c_i$ é agora adimensional.
+
+  Segundo a relación de $D$ e $delta_i$, os operadores clasifícanse en tres
+  tipos. Se $delta_i < D$, o operador será _relevante_ a baixas enerxías,
+  xa que o coeficiente correspondente medrará de xeito polinómico en $Lambda$.
+  Se $delta_i = D$, o coeficiente será constante para calquera $Lambda$, e o
+  operador será _marxinal_. Por último, para $delta_i > D$ o coeficiente
+  correspondente decrecerá de xeito polinómico en $Lambda$ e o operador será
+  _irrelevante_ a baixas enerxías. En todo caso, a escala de enerxía
+  característica dunha teoría virá determinada polo coeficiente coa potencia
+  maior de $Lambda$, e unha teoría será renormalizable se todos os seus
+  operadores son relevantes ou marxinais.
+
+  O concepto de _naturalidade_ introdúcese neste momento: é de esperar que
+  o valor numérico dos parámetros $g_i$ sexa da orde da escala característica, o
+  que se traduce en
+
+  $ c_i ~ cal(O)(1). $
+
+  Se isto se cumpre, dise que o parámetro $g_i$ é _natural_. No caso
+  contrario, se o valor de $c_i$ é moi grande ou moi pequeno, dise que $g_i$ está
+  _finamente axustado_ #cite(label("Wells")). A primeira impresión que pode xerar
+  esta explicación é usualmente de confusión, de innecesidade. Falar de
+  naturalidade lévanos ao límite entre a ciencia e a filosofía, e parece un
+  esforzo por facer que as nosas teorías encaixen dentro dunhas consideracións
+  estéticas arbitrarias máis que corresponderse coa investigación científica.
+  Certamente, o concepto de naturalidade é profundamente polémico dentro da
+  física teórica. Algúns autores formulan que é absurdo tratalo en calquera caso,
+  outros intentan evitalo con consideracións antrópicas (que son quizais máis
+  polémicas aínda) mentres que si existen certos argumentos no seu favor. E é que
+  o argumento da naturalidade xa foi empregado con éxito na física: foi un
+  elemento importante na teorización do quark $c$ por Glashow, Illiopoulos e
+  Maiani #cite(label("GIM")) e o cálculo da súa masa antes do seu descubrimento
+  experimental #cite(label("GaillardLee")).
+
+  Sexa cal sexa a resposta ao debate, é importante. Non só porque sempre é
+  interesante entender mellor as nosas teorías, senón porque a máis importante da
+  que dispoñemos enfróntase ao concepto de naturalidade de xeito irremediable: no
+  Modelo Estándar, a masa do bosón de Higgs viola a naturalidade.
+
+  == O problema da xerarquía e a masa do Higgs
+
+  O Modelo Estándar é unha teoría efectiva. En principio, debe de ser unha teoría
+  válida ata a escala da gravidade cuántica, i.e. a masa de Planck $M_P$. Imos
+  analizar en detalle os termos do Modelo Estándar para entender en que grao
+  esperamos que isto sexa así. Tendo en conta o que se explicou anteriormente, se
+  escribimos todos os termos en función de $Lambda$, veremos que todos os termos
+  son marxinais, renormalizables, excepto un. A masa do Higgs ten a forma
+
+  $ cal(L) = m^2_H |Phi|^2. $
+
+  Tanto o operador como o parámetro teñen neste caso $delta = 2$, e polo tanto
+  son relevantes a baixas enerxías. A masa do Higgs poderá expresarse entón
+  como #cite(label("Hebecker"))
+
+  $ m^2_H ~ c_H Lambda^2, $ <eq:H_mass>
+
+  onde $c_H$ é adimensional e esperariamos que $Lambda^2 ~ M^2_p$. Isto, non
+  obstante, manifesta unha situación incómoda. O valor medido experimentalmente
+  para a masa é $m_H approx 126$ GeV, é dicir, $m_H ~ 10^2$ GeV, mentres que
+  $Lambda^2 ~ 10^(36)$ GeV. Isto implica que $c_H ~ cal(O)(10^(-34))$,
+  o que contradí de xeito espectacular a suposición de que $c_H ~ cal(O)(1)$.
+
+  Este feito ilustra o _problema da xerarquía_ do Modelo Estándar: a
+  escala electrofeble (definida pola masa do Higgs) é moito menor que a escala de
+  Planck (definida pola masa de Planck), e isto é relevante no contexto da
+  renormalización. Ao calcular as correccións cuánticas á masa do Higgs a
+  primeira orde, regularizando a teoría co cutoff $Lambda = M_p$, atópase que
+
+  $ m^2_H (mu) = m^2_H (Lambda) + c_H/(16 pi^2) Lambda^2 + cal(O)(Lambda^0), $
+
+  onde $m^2_H(mu)$ é a masa do Higgs calculada no IR a partir do seu valor no
+  UV, $m^2_H(Lambda)$, e o termo con $Lambda^2$ é a corrección a primeira orde
+  $delta m^2_H$. Para ter un campo de Higgs dinámico, necesitamos que a súa masa
+  no IR non sexa infinita, e para iso $delta m^2_H$ debe tomar un valor da orde
+  da masa IR, o que efectivamente nos forza a que $c_H ~ cal(O)(10^(-34))$.
+
+  Pero entón, debe violarse a naturalidade de xeito inevitable? Resulta que non.
+  Se impoñemos que a naturalidade debe preservarse, existe un xeito relativamente
+  simple#footnote[Simple en idea, complexo en execución.] de solucionar o
+  problema da xerarquía que nos leva máis aló do Modelo Estándar: debemos
+  introducir a supersimetría.
+
+  == Supersimetría
+
+  A _supersimetría_, como o seu nome indica, é unha simetría dentro dunha
+  QFT. A súa formulación matemática é complexa, pero a idea é bastante simple:
+  unha transformación supersimétrica $Q$ transforma bosóns en fermións, e
+  viceversa #cite(label("SUSY")). Así, esquematicamente, teriamos un campo fermiónico
+  $phi.alt$ relacionado co campo de Higgs $Phi$ segundo
+
+  $ Q Phi ~ phi.alt. $
+
+  A corrección á masa do Higgs vén principalmente de bucles nos que se forman
+  pares $t accent(t, -)$ virtuais. O efecto importante da supersimetría é que as
+  correccións cuánticas inducidas polo novo campo $phi.alt$ teñen a mesma forma
+  que as do quark $t$, pero co signo cambiado. Deste xeito podemos facer que se
+  cancelen, e así $c_H=0$ automaticamente #cite(label("Agashe")).
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/naturalness_fig12.png"),
+    caption: [Correccións cuánticas a primeira orde da masa do Higgs no Modelo
+        Estándar.]
+  )
+
+  #figure(
+    image(width: 100%, "/revistas/004/imaxes/naturalness_fig34.png"),
+    caption: [Correccións cuánticas inducidas polo novo campo fermiónico $phi.alt$,
+        que compensan as anteriores.]
+  )
+
+  Este feito foi unha das primeiras pezas que motivaron o estudo da
+  supersimetría, e durante moito tempo esperouse que unha extensión
+  supersimétrica do Modelo Estándar fose o camiño a seguir. De feito, o LHC foi
+  construído orixinalmente con dous obxectivos previsibles: producir o bosón de
+  Higgs e partículas supersimétricas. O primeiro foi todo un éxito, pero o
+  segundo parece cada vez máis improbable.
+
+  Malia todo, a Supersimetría non foi abandonada completamente. Existen xeitos de
+  rompela espontaneamente de maneira que, se ben é unha simetría da teoría
+  fundamental, non se manifesta nas baixas enerxías ás que temos acceso. Ademais,
+  é un ingrediente imprescindible para xerar fermións nunha teoría de cordas
+  (supercordas), e as extensións supersimétricas de teorías gauge proporcionan
+  pistas moi importantes no estudo destas últimas, que aínda presentan numerosos
+  problemas sen resolver.
+
+  == Conclusións
+
+  O concepto de naturalidade dentro da física teórica é moi complexo. A pesar de
+  terse mostrado eficaz á hora de descubrir nova física no pasado, a súa validez
+  como criterio de selección á hora de construír novas teorías non está nada
+  asentada, e segue a ser un motivo de debate intenso entre os físicos.
+
+  Como na maior parte de casos dentro da ciencia, o mellor seguramente non sexa
+  desbotalo completamente, pero tratar con escepticismo todas as circunstancias
+  nas que se recorra a el. É unha cuestión máis filosófica que científica, polo
+  que é moi importante ter coidado de empregar este concepto e outros similares
+  como unha ferramenta máis, pero non como unha xustificación sinxela para
+  resolver cuestións complexas de xeito apurado.
+
+  Para quen estea interesado en aprender máis sobre o tema da naturalidade e a
+  súa situación na física teórica, recomendo moito a tese de máster de C.D.
+  Dijkstra #cite(label("Dijkstra")).
+
+  #CrearBibliografia("/revistas/004/bibliografia_VICTOR_DD.bib")
+]
