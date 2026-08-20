@@ -60,7 +60,7 @@ INFO_GIT := \
 	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
 	--input hash=$(shell git rev-parse --short HEAD) \
 	--input dirt=$(shell test -z "$$(git status --porcelain)" && echo "" || echo "*") \
-	--input quen=$(shell git log -1 --format="%an")
+	--input quen="$(shell git log -1 --format="%an")"
 
 # Dependencias dun número.
 DEPENDENCIAS := \
