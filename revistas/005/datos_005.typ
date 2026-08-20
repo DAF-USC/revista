@@ -2,7 +2,7 @@
 
     artigos : (
       "revistas/005/artigo_ENTREVISTA.typ",
-    //  "revistas/005/artigo_SEBASTIAN_TP.typ",
+      "revistas/005/artigo_SEBASTIAN_TP.typ",
     //  "revistas/005/artigo_IAGO_AR.typ",
     //  "revistas/005/artigo_ANA_PEON.typ",
     //  "revistas/005/artigo_GABRIEL_RM.typ",
