@@ -37,12 +37,10 @@
 
 	#line(length: 100%, stroke: 0.4pt + rgb(datos.cores.resalte))
 
-	#v(0.6em)
-	#strong[#emph[Moitas grazas, Carmen, por acceder a participar na revista e
+	#Pregunta[Moitas grazas, Carmen, por acceder a participar na revista e
 	contarnos sobre a Física de Partículas e a investigación neste campo. Para
 	comezar, gustaríanos saber que é o que máis te gusta do teu campo, a física de
-	partículas, e en concreto, da física experimental.]]
-	#v(0.6em)
+	partículas, e en concreto, da física experimental.]
 
 	O que máis me gusta da física de partículas é que trata de responder algunhas
 	das preguntas máis fundamentais sobre o Universo: de que está feita a materia?,
@@ -79,12 +77,10 @@
 	Tamén é un campo moi humano, porque esixe unha colaboración internacional a
 	grande escala e unha enorme creatividade tecnolóxica.
 	
-	#v(0.6em)
-	#strong[#emph[Contribuíches significativamente no desenvolvemento do ATLAS (un dos
+	#Pregunta[Contribuíches significativamente no desenvolvemento do ATLAS (un dos
 	detectores do LHC no CERN, Suíza), desde o teu punto de vista, que importancia
 	ten todo o que se investiga alá? Hai científicos e científicas de máis áreas da
-	física ou mesmo doutras disciplinas que usen eses coñecementos noutros campos?]]
-	#v(0.6em)
+	física ou mesmo doutras disciplinas que usen eses coñecementos noutros campos?]
 
 	A investigación que se realiza no ATLAS ten unha importancia fundamental porque
 	nos permite explorar os compoñentes máis elementais da materia e as forzas que
@@ -110,15 +106,13 @@
 	só facemos ciencia fundamental, senón que creamos coñecemento, tecnoloxía e
 	redes humanas que se transfiren á sociedade.
 
-	#v(0.6em)
-	#strong[#emph[Dado que traballaches en distintos países como no Reino Unido (no
+	#Pregunta[Dado que traballaches en distintos países como no Reino Unido (no
 	Rutherford Appleton Laboratory), nos Estados Unidos (no Argonne National
 	Laboratory), en Suíza ou en España, cales son as principais diferenzas entre a
 	educación universitaria e/ou a investigación científica entre estes lugares?
 	Ten España suficiente capital humano e económico para contribuír
 	significativamente ao avance da Física de Partículas? En xeral, dedícase
-	suficiente esforzo para fomentar a ciencia básica?]]
-	#v(0.6em)
+	suficiente esforzo para fomentar a ciencia básica?]
 
 	Unha das principais diferenzas que observei entre países é a maior estabilidade
 	do sistema científico. En lugares como O Reino Unido ou Os Estados Unidos, as
@@ -144,14 +138,12 @@
 	tecnolóxica, forma capital humano altamente capacitado e, sobre todo, constrúe
 	unha sociedade máis preparada para os desafíos do futuro.
 
-	#v(0.6em)
-	#strong[#emph[O ano pasado foi galardoada co Premio Nacional de Investigación na
+	#Pregunta[O ano pasado foi galardoada co Premio Nacional de Investigación na
 	categoría de Ciencias Físicas, parabéns por este gran logro! Que importancia
 	ten o papel dos premios á hora de incentivar o avance científico? Ademais, pola
 	primeira vez impúxose paridade de xénero nas candidaturas, cre que hai que
 	incentivar máis a ciencia entre as mulleres, especialmente a experimental e
-	entre as máis novas, ou o que máis falta é representar as que xa hai?]]
-	#v(0.6em)
+	entre as máis novas, ou o que máis falta é representar as que xa hai?]
 
 	Moitas grazas, recibir o Premio Nacional de Investigación na categoría de
 	Ciencias Físicas foi unha grande honra e tamén unha oportunidade para
@@ -174,13 +166,11 @@
 	moitas das cales fixeron contribucións excepcionais sen obter o mesmo
 	recoñecemento ou visibilidade que os seus compañeiros homes.
 
-	#v(0.6em)
-	#strong[#emph[Agora, para cambiar ao seu labor como investigadora do Instituto de
+	#Pregunta[Agora, para cambiar ao seu labor como investigadora do Instituto de
 	Física Corpuscular de Valencia, este centro ten máis de 70 anos de historia e
 	aínda que non puido vivir todos estes anos, gustaríanos que nos contase como
 	mudou o labor investigador no seu centro e en España ao longo destas décadas.
-	Cales son os seguintes retos científicos aos que se encaran?]]
-	#v(0.6em)
+	Cales son os seguintes retos científicos aos que se encaran?]
 
 	Este ano celebramos o 75º aniversario do IFIC, aínda que,
 	evidentemente, eu non levo tanto tempo aquí. Porén, fun testemuña dunha
@@ -227,11 +217,9 @@
 	institucional sólido. Só así poderemos seguir contribuíndo tanto ao coñecemento
 	fundamental como ás súas aplicacións para a sociedade.
 
-	#v(0.6em)
-	#strong[#emph[E, xa para rematar, que é o máis satisfactorio da física de
+	#Pregunta[E, xa para rematar, que é o máis satisfactorio da física de
 	partículas? Poderías deixar algún consello aos futuros físicos e físicas de
-	Santiago?]] 
-	#v(0.6em)
+	Santiago?]
 
 	O máis satisfactorio da física de partículas é que, no fondo, tenta responder
 	as preguntas máis profundas que nos podemos facer: de que está feito o

@@ -859,6 +859,15 @@
     )
 }
 
+// Función para crear unha pregunta nunha entrevista
+#let Pregunta(
+    corpo
+) = {
+    v(0.6em)
+    strong(sans(corpo))
+    v(0.6em)
+}
+
 // Varios símbolos e tal
 // :FACER: varphi, varepsilon, etc.
 
