@@ -3,8 +3,6 @@
 #show: Artigo.with(
   estilo    : "MISCELÁNEA",
   titulo    : [Música, frases e máis],
-  autoria   : [],
-  subtitulo : [],
 )
 
 // FACER:MIGRACIÓN: \Opinión en LaTeX

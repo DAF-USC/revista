@@ -730,7 +730,7 @@
 
 #let Artigo(                             /* TIPO      explicacion */
     titulo        : [-- SEN TÍTULO --],  // CONTENT Título do artigo
-    autoria       : "-- SEN AUTORÍA --", // STRING  Quen fixo o artigo
+    autoria       : none,                // STRING  Quen fixo o artigo
     subtitulo     : none,                // CONTENT Subtítulo do artigo
     afiliacion    : none,                // STRING  Afiliación dos autores
     // :FACER: realmente fai falla esto? Engadimos combrobacións?
@@ -813,7 +813,7 @@
         ),
 
         // AUTORIA
-        text(size: 14pt, autoria),
+        if (autoria != none) { text(size: 14pt, autoria) } else { none },
 
         // AFILIACION
         if (afiliacion != none) { text(size:1.1em, afiliacion) } else { none },
