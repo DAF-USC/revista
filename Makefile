@@ -43,10 +43,12 @@ metodo := compile
 # Opcións para compilar usando Typst
 # :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
 # :FACER: hai algunha maneira de meter o de --timings=... aqui?
+# :FACER: volver etiquetar o PDF cando arranxen https://github.com/typst/typst/issues/8487
 OPCIONS_TYPST := \
 	--format pdf              \
 	--root .                  \
 	--pdf-standard 2.0        \
+	--no-pdf-tags             \
 	--diagnostic-format short \
 	--ignore-system-fonts     \
 	--ignore-embedded-fonts   \
