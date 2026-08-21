@@ -8,20 +8,9 @@
 )
 
 
-#heading(
-    level: 2, 
-    [ 
-        #text(
-            fill: rgb(datos.cores.resalte)
-        )[
-            Sopa enerxética
-        ]
-        #text(
-            weight: "regular"
-        )[
-            #emph[Adrián Vázquez Velasco]
-        ]
-    ]
+#Pasatempo(
+    titulo: [Sopa enerxética],
+    autoria: "Adrián Vázquez Velasco"
 )
 
 Mediante o produto, cociente e composición das magnitudes e constantes da
@@ -70,21 +59,10 @@ contextos da física. Serás capaz de atopalas todas?
 
 #columns[
 
-	#heading(
-    	level: 2, 
-    	[ 
-        	#text(
-            	fill: rgb(datos.cores.resalte)
-        	)[
-            	Triscelectrónico
-        	]
-        	#text(
-            	weight: "regular"
-        	)[
-            	#emph[Adrián Vázquez Velasco]
-        	]
-    	]
-	)
+#Pasatempo(
+    titulo: [Triscelectrónico],
+    autoria: "Adrián Vázquez Velasco"
+)
 
 	#figure(
 		image(
@@ -134,21 +112,10 @@ contextos da física. Serás capaz de atopalas todas?
 	https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?chlang=en&id=000809.
 
 
-	#heading(
-    	level: 2, 
-    	[ 
-        	#text(
-            	fill: rgb(datos.cores.resalte)
-        	)[
-            	Física ou Fortuna \#2
-        	]
-        	#text(
-            	weight: "regular"
-        	)[
-            	#emph[Adrián Vázquez Velasco]
-        	]
-    	]
-	)
+    #Pasatempo(
+        titulo: [Física ou Fortuna \#2],
+        autoria: "Adrián Vázquez Velasco"
+    )
 
 	Probablemente a maioría de vós vistes algunha vez que se se lle pregunta a un
 	público cantos caramelos ou fabas hai nun bote e se se toma a media xeométrica,
