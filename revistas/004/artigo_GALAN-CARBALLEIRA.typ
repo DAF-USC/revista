@@ -8,15 +8,15 @@
 )
 
 // FACER:MIGRACIÓN: \Opinión en LaTeX
-= Frases célebres
 
-== _Manuel Galán Rodríguez_
+#Opinion(
+    titulo: "Frases célebres",
+    autoria: "Manuel Galán Rodríguez"
+)
 
 Inicio esta sección na revista Momentum achegando todas as frases que poida
 entre a anterior edición da revista e a seguinte. Evidentemente, sempre se
 admiten colaboracións para futuras edicións. Espero que vos guste!
-
-#v(2em) // Probablemente haxa unha forma mellor de facer isto
 
 #columns[
 
@@ -34,6 +34,8 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
     [Igual estáis pensando que estoy haciendo una cosa extraña. Os lo va 
     a dejar de parecer dentro de un minuto porque la voy a complicar más.]
   )
+
+  #colbreak()
 
   #quote(
     block: true,
@@ -56,9 +58,10 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
   )
 ]
 
-= [dd/mm/aaaa]
-
-== _David Tarrío Outeiriño_
+#Opinion(
+    titulo: "[dd/mm/aaaa]",
+    autoria: "David Tarrío Outeiriño"
+)
 
 #columns[
 
@@ -92,9 +95,10 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
 
 #pagebreak()
 
-= Praceres descoñecidos: $E=m c^2$ de B.A.D.
-
-== _Carlos Carballeira Romero_
+#Opinion(
+    titulo: [Praceres descoñecidos: *$E=m c^2$* de B.A.D.],
+    autoria: "Carlos Carballeira Romero"
+)
 
 #columns[
 

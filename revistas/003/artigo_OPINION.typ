@@ -9,23 +9,10 @@
 
 #v(3mm)
 
-== #text( 
-	fill: rgb(datos.cores.resalte) 
-)[ 
-	Un conxunto de actos derivados do oficio de estudar física
-]	
-
-#v(-1em)
-
-== #text(
-	weight: "regular"
-)[ 
-	#emph[ 
-		David Tarrío Outeiriño 
-	] 
-]
-
-#v(1em)
+#Opinion(
+    titulo: "Un conxunto de actos derivados do oficio de estudar física",
+    autoria: "David Tarrío Outeiriño"
+)
 
 #columns[
 
@@ -55,25 +42,10 @@
 
 ]
 
-#v(3mm)
-
-== #text( 
-	fill: rgb(datos.cores.resalte) 
-)[ 
-	Da xenialidade. Ou aquilo no que talvez consista a física
-]	
-
-#v(-1em)
-
-== #text(
-	weight: "regular"
-)[ 
-	#emph[ 
-		Sebastián Táboas Pazo  
-	] 
-]
-
-#v(1em)
+#Opinion(
+    titulo: "Da xenialidade. Ou aquilo no que talvez consista a física",
+    autoria: "Sebastián Táboas Pazo"
+)
 
 #columns[
 

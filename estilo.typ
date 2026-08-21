@@ -868,6 +868,19 @@
     v(0.6em)
 }
 
+// Función para os títulos dos pequenos textos de miscelánea que poden conter variedade de cousas
+#let Opinion(
+    titulo: none,
+    autoria: none
+) = {
+    heading(
+        level: 2,
+        text(fill: rgb(datos.cores.resalte), titulo)
+    )
+    text(size: 1.2em, autoria)
+    v(1em)
+}
+
 // Varios símbolos e tal
 // :FACER: varphi, varepsilon, etc.
 
