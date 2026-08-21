@@ -49,8 +49,7 @@
 
   #line(length: 90%, start: (1em, 1em), stroke: (paint: rgb(datos.cores.resalte)))
   
-  // FACER:MIGRACIÓN: Preguntas. Que teñan o espazo vertical despopis e que lle cambie a tipografía
-  *Por que é importante seguir celebrando as visitas de Einstein no mundo?*
+  #Pregunta[Por que é importante seguir celebrando as visitas de Einstein no mundo?]
 
   Eu creo que a palabra clave é "legado". Primeiro está o legado que
   deixa ós físicos: non hai día no que non apareza o seu nome nalgún #emph[paper]
@@ -66,9 +65,9 @@
   fixo Einstein. Así que espero que dentro de cen anos outro louco coma min se
   anime a organizar o segundo centenario.
 
-  *Cres que é necesario facer máis exercicios de memoria histórica na
+  #Pregunta[Cres que é necesario facer máis exercicios de memoria histórica na
   ciencia? Isto é, poñer en valor figuras inxustamente esquecidas ou
-  descubrimentos/avances relevantes que pasan desapercibidos normalmente.*
+  descubrimentos/avances relevantes que pasan desapercibidos normalmente.]
 
   Nós, como científicos, temos unha mentalidade distinta ós literatos e
   humanistas: centrámonos máis na obra que no autor.
@@ -95,13 +94,13 @@
   ciencia axuda a poñer en valor esta faceta e a humanizar a ciencia, o cal creo
   que é importante.
 
-  *Na #emph[laudatio] que pronunciaches na charla de Kip Thorne no contexto do
+  #Pregunta[Na #emph[laudatio] que pronunciaches na charla de Kip Thorne no contexto do
   programa _ConCiencia_ nomeaches un quinteto de científicos que son clave
   para entender a relatividade xeral: Minkowski, Einstein, Penrose,
   Thorne e Hawking. Invítoche a facer un exercicio de memoria histórica:
   hai algún científico máis que engadirías a esta lista de grandes
   científicos, non só no contexto da relativade xeral, senón dentro doutros
-  ámbitos; que tivese marcado a túa traxectoria?*
+  ámbitos; que tivese marcado a túa traxectoria?]
 
   Sen ir máis lonxe, o posto de Thorne podería intercambiarse con John
   Wheeler, o seu director de tese e quen lle introduciu na relatividade xeral.
@@ -124,14 +123,14 @@
   intuitiva á hora de formular hipóteses. Aí tedes idea para unha futura
   entrevista.
 
-  *Dende logo que si, grazas pola suxestión #emph[(Risas)]. Seguindo coa
+  #Pregunta[Dende logo que si, grazas pola suxestión #emph[(Risas)]. Seguindo coa
   entrevista, quería agora preguntarche polo programa #emph[ConCiencia],
   dirixido por Jorge Mira. Nel, ademais dos vínculos que tende o encontro
   entre o equipo do convidado e a universidade, hai unha charla pública na
   que o relator fala dun tema concreto. Ás veces, pode resultar complicado
   seguir o tema, especialmente para a audiencia non especializada.
   Que recomendarías a quen asiste a unha destas charlas e non
-  comprende o tema ou se perde durante ela?*
+  comprende o tema ou se perde durante ela?]
 
   Eu son da opinión de que as charlas teñen que ser desafiantes cos
   asistentes. Hai distintas escolas na divulgación, e cada cal escolle as súas
@@ -145,14 +144,14 @@
   charla sinxela, onde todos saben de todo o que se vai falar, entón nunca traes
   un nobel.
 
-  *Recapitulo un momento nos proxectos divulgativos nos que estás involucrado:
+  #Pregunta[Recapitulo un momento nos proxectos divulgativos nos que estás involucrado:
   #emph[Amautas], unha plataforma dixital de aprendizaxe; #emph[Coffee
   Break], un podcast de actualidade científica; #emph[Universo entre
   Canciones], un recital onde música e ciencia se fan unha. No relatorio de
   Kip Thorne, el dixera que a arte era unha das súas paixóns, e que gustaba
   de usalas para transmitir a ciencia. Ti cres que a chave da
   divulgación está hoxe na arte en xeral: pictórica, musical, teatral,
-  dixital...?*
+  dixital...?]
 
   Si, nunha charla que dou recorrentemente chamada #emph[Vasos comunicantes]
   reflexiono sobre o vehículo que supón a arte para comunicar a ciencia, e a
@@ -187,12 +186,12 @@
   gol, pero detrás hai horas e horas de adestramento. O talento innato é
   diferencial, dende logo, pero só con el non vas chegar moi lonxe.
 
-  *Quería pararme agora en #emph[Amautas], onde polo pago dunha subscrición
+  #Pregunta[Quería pararme agora en #emph[Amautas], onde polo pago dunha subscrición
   tes acceso a cursos impartidos por diversos profesores e figuras referentes
   na divulgación actual: Santaolalla e ti mesmo (cofundadores da plataforma),
   Jorge Mira, Lemnismath... Notas que o interese pola ciencia en xeral e a
   física en particular crecera nos últimos anos? Anímase máis a xente
-  a estudar física dentro e fora das aulas?*
+  a estudar física dentro e fora das aulas?]
 
   A nivel académico é notable o aumento da nota de corte nos últimos 15 anos.
   Pasamos de non ter nota de corte a chegar a case 12 sobre 14 aquí en
@@ -214,9 +213,9 @@
   resultados o piden. E non por iso a ciencia perde credibilidade, senón que é
   máis obxectiva.
 
-  *Dende logo, o espírito crítico é fundamental na sociedade, máis a día de hoxe.
+  #Pregunta[Dende logo, o espírito crítico é fundamental na sociedade, máis a día de hoxe.
   Con toda a túa actividade divulgadora, como compaxinas a túa carreira
-  investigadora e docente na USC?*
+  investigadora e docente na USC?]
 
   É moi difícil, quitando horas ó sono e á familia. Aínda que tivera incursións
   moi puntuais previamente, eu non empecei o meu labor divulgativo ata ser
@@ -239,7 +238,7 @@
   problemas que me interesan do meu campo de investigación, e que espero poder
   aplicar nun futuro. Esta retroalimentación motívame a seguir divulgando.
 
-  *Parémonos nun instante nas "figuras disruptivas" das que falabas antes.
+  #Pregunta[Parémonos nun instante nas "figuras disruptivas" das que falabas antes.
   Claramente sabemos a quen nos estamos a referir, e non é unha opinión
   illada. Lembro que Kip Thorne na súa charla en Santiago afirmou que nos
   Estados Unidos a educación sofre e que é o momento de Europa de
@@ -247,7 +246,7 @@
   tampouco é mellor. Lamentablemente, España comparte coa Arxentina unha fuga
   de cerebros que parece complicada de paliar; máis estes últimos anos.
   Que virtudes ten o sistema español que se poderían aplicar na
-  Arxentina e viceversa?*
+  Arxentina e viceversa?]
 
   Unha pregunta difícil, dar contexto á situación na Arxentina levaríanos a unha
   entrevista de cinco horas como mínimo. España ten unha estabilidade
@@ -274,21 +273,21 @@
   informe final igualmente, os poucos valentes que quedan teñen que "atar todo
   con arame", conseguindo montar un laboratorio de 5000€ con só 5€, por exemplo.
 
-  *Grazas pola túa reflexión, José. A situación en ambos os dous países é
+  #Pregunta[Grazas pola túa reflexión, José. A situación en ambos os dous países é
   complicada, pero dende logo aquí en España temos sorte de habitar no
   contexto europeo, onde o valor de institucións como o CERN son exemplo de
   que a ciencia se valora por enriba de ideais, un oasis entre os desertos da
-  tensión xeopolítica.*
+  tensión xeopolítica.]
 
   Os europeos deberían saber a sorte que teñen co CERN. Eu daríalle á
   institución o Nobel da Paz, soamente por conseguir que xente de diferentes
   nacionalidades coopere polo avance do coñecemento en beneficio da humanidade.
 
-  *Xa para ir rematando a entrevista, quería lanzar unha pregunta atrevida: ti
+  #Pregunta[Xa para ir rematando a entrevista, quería lanzar unha pregunta atrevida: ti
   fuches patrón na visita de Stephen Hawking a Santiago en 2008. Cres
   que nalgún momento a figura de Hawking será tan relevante coma a de
   Einstein? Celebraránse as súas visitas polo mundo igual que facemos con
-  el?*
+  el?]
 
   Eu creo que non, Hawking estaría de acordo comigo que Einstein é moito máis
   importante. Obviando o seu legado, a súa figura, ademais de excéntrica, está
@@ -308,8 +307,8 @@
   faga un aniversario da súa visita a Santiago. Eu non estarei aquí para
   comprobalo, pero ti quizais si.
 
-  *Vai ser complicado, non é doado chegar ós 105 anos #emph[(Risas)]. Pero
-  escrito queda, por se alguén le esta entrevista dentro de cen anos.*
+  #Pregunta[Vai ser complicado, non é doado chegar ós 105 anos #emph[(Risas)]. Pero
+  escrito queda, por se alguén le esta entrevista dentro de cen anos.]
 
 // % Novamente agradecemos a José o seu tempo e amabilidade antes de saír pola
 // % porta. O mundo é imperfecto, tamén a ciencia (é o que ten ser feita por
