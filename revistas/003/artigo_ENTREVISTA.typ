@@ -35,7 +35,7 @@
 	a diversos desenvolvementos tecnolóxicos, sendo fundadora da empresa de base
 	tecnolóxica Alibava Systems.
 
-	#line(length: 100%, stroke: 0.4pt + rgb(datos.cores.resalte))
+	#divider()
 
 	#Pregunta[Moitas grazas, Carmen, por acceder a participar na revista e
 	contarnos sobre a Física de Partículas e a investigación neste campo. Para

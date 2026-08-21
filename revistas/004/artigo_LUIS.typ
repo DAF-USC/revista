@@ -47,7 +47,7 @@
   internacional por mor do seu Nobel, evento no cal Edelstein participou
   activamente como orador e organizador.
 
-  #line(length: 90%, start: (1em, 1em), stroke: (paint: rgb(datos.cores.resalte)))
+  #divider()
   
   #Pregunta[Por que é importante seguir celebrando as visitas de Einstein no mundo?]
 
