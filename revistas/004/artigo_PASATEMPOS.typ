@@ -13,10 +13,9 @@
 //   % \section*{\textcolor{Resalte}{Uns problemas máis ou menos intuitivos\\ } {\normalfont \itshape   non kero poñer o meu nome lol xd}}%
 // % \Pasatempo{Uns problemas máis ou menos intuitivos}{Baseado na revista ``A Gota de Milikan''}
 
-  // FACER:MIGRACIÓN: Falta a función Pasatempo 
-  = Uns problemas máis intuitivos
-
-  #v(1em)
+  #Pasatempo(
+    titulo: [Uns problemas máis intuitivos]
+  )
 
   Para crear a nova revista da facultade estivemos investigamos sobre as
   anteriores, na primeira, _A gota de Millikan_, aparecía unha sección de
@@ -55,7 +54,9 @@
 ]
 // % \section*{\textcolor{Resalte}{Determina o espazo de fases\\ } {\normalfont \itshape   autor 2}}%
 
-= Uns problemas #emph[menos] intuitivos
+#Pasatempo(
+    titulo : [Uns problemas #emph[menos] intuitivos]
+)
 
 Para que teñas que darlle varias voltas á cabeza e tal vez repasar algo de
 física e matemáticas.
