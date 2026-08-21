@@ -26,6 +26,11 @@
     ),
 
     comentario_imaxe: "Detector CMS do LHC, un dos primeiros experimentos en detectar o bosón de Higgs (Fotografía de Hoch e Brice).",
+    repositorio : "fisicaUSC/revista",
+    whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
+    instagram : "momentum.usc",
+    anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
+    correo: "revistafisicausc@gmail.com",
 
     participantes: (
        "Dirección": (
