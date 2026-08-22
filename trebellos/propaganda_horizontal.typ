@@ -1,7 +1,7 @@
 #import "@preview/tiaoma:0.3.0"
 
 #let numero = sys.inputs.at("numero")
-#import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista as datos
+#import("/estilo.typ"): datos
 
 #let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + numero + "_1.pdf"
 #let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + numero + "_2.pdf"
