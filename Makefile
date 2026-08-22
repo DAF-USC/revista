@@ -79,13 +79,6 @@ DEPENDENCIAS := \
 	fontes/NewComputerModern/*  \
 	fontes/Roboto/*
 
-# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
-# Gardo os nomes aquí por comodidade. 1 (portada) 2 (central) 3 (dereita)
-PAXINAS_PROPAGANDA := \
-	.pdf/paxinas_propaganda_$(numero)_1.pdf \
-	.pdf/paxinas_propaganda_$(numero)_2.pdf \
-	.pdf/paxinas_propaganda_$(numero)_3.pdf
-
 # Números para os que hai revistas.
 # Véxase:
 # https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
@@ -123,15 +116,6 @@ todo:
 		.pdf/revista_$(numero).pdf
 
 
-# Extrae a portada da revista e outras páxinas
-$(PAXINAS_PROPAGANDA): .pdf/revista_$(numero).pdf
-	@# https://www.ghostscript.com/documentation/index.html
-	gs \
-		-q -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite \
-		-sOutputFile=.pdf/paxinas_propaganda_$(numero)_%d.pdf \
-		-sPageList=1,2,3 \
-		-f .pdf/revista_$(numero).pdf
-
 # Xera as propagandas:
 # V_C   Vertical Cor
 # V_B   Vertical Branca
@@ -145,7 +129,7 @@ propaganda: \
 
 
 # Xera a propaganda VERTICAL A4 de COR
-.pdf/propaganda_$(numero)_V_C.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
+.pdf/propaganda_$(numero)_V_C.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_vertical.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
@@ -154,7 +138,7 @@ propaganda: \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_C.pdf
 
 # Xera a propaganda VERTICAL A4 BRANCA
-.pdf/propaganda_$(numero)_V_B.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_vertical.typ
+.pdf/propaganda_$(numero)_V_B.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_vertical.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \
@@ -163,7 +147,7 @@ propaganda: \
 		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_B.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 de COR
-.pdf/propaganda_$(numero)_H_C.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
+.pdf/propaganda_$(numero)_H_C.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_horizontal.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=cor \
@@ -172,7 +156,7 @@ propaganda: \
 		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_H_C.pdf
 
 # Xera a propaganda HORIZONTAL 19:6 BRANCA
-.pdf/propaganda_$(numero)_H_B.pdf: $(PAXINAS_PROPAGANDA) trebellos/propaganda_horizontal.typ
+.pdf/propaganda_$(numero)_H_B.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_horizontal.typ
 	typst compile \
 		$(OPCIONS_TYPST) \
 		--input version=branca \

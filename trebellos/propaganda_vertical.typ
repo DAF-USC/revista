@@ -1,12 +1,8 @@
 #import "@preview/tiaoma:0.3.0"
 
 #let numero = sys.inputs.at("numero")
+#let version = sys.inputs.at("version")
 #import("/estilo.typ"): datos
-
-#let ruta_paxina_1 = "/.pdf/paxinas_propaganda_" + numero + "_1.pdf"
-#let ruta_paxina_2 = "/.pdf/paxinas_propaganda_" + numero + "_2.pdf"
-#let ruta_paxina_3 = "/.pdf/paxinas_propaganda_" + numero + "_3.pdf"
-#let version       = sys.inputs.at("version")
 
 #set text(
     font     : "New Computer Modern Sans",
@@ -98,7 +94,7 @@
                     rect(
                         stroke : 3pt,
                         fill   : white,
-                        image(width: ancho, ruta_paxina_3),
+                        image(width: ancho, page: 3, "/.pdf/revista_" + numero + ".pdf"),
                     )
                 )
             )
@@ -109,7 +105,7 @@
                 rect(
                     stroke : 3pt,
                     fill   : white,
-                    image(width: ancho, ruta_paxina_2),
+                    image(width: ancho, page: 2, "/.pdf/revista_" + numero + ".pdf"),
                 )
             )
             // Imaxe na esquerda
@@ -121,7 +117,7 @@
                     rect(
                         stroke : 3pt,
                         fill   : white,
-                        image(width: ancho, ruta_paxina_1),
+                        image(width: ancho, page: 1, "/.pdf/revista_" + numero + ".pdf"),
                     )
                 )
             )
