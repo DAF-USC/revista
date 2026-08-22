@@ -10,19 +10,15 @@
         "/revistas/001/artigo_XEOCENTRISMO.typ",
     ),
 
-    cores : (
-      resalte: "ff0000",
-      texto: "ffffff"
-    ),
+    cor_resalte: "ff0000",
+    cor_texto: "ffffff",
 
     depuracion_visual: false,
 
-    data : (
-      dia: 1,
-      numero_mes: 4,
-      mes: "abril",
-      ano: 2025
-    ),
+    data_dia: 1,
+    data_numero_mes: 4,
+    data_mes: "abril",
+    data_ano: 2025,
 
     imaxe_portada: "/revistas/001/imaxes/portada.png",
     comentario_imaxe: "1981: Primeira pedra da facultade de física.",

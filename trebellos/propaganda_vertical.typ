@@ -37,12 +37,12 @@
 
     // Cor do fondo da propaganda
     set page(
-        fill: if estilo == "cor" { rgb(datos.cores.resalte) } else { rgb(datos.cores.texto) }
+        fill: if estilo == "cor" { rgb(datos.cor_resalte) } else { rgb(datos.cor_texto) }
     )
 
     // Cor do texto, depende do estilo da propaganda
     set text(
-        fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte) }
+        fill: if estilo == "cor" { rgb(datos.cor_texto) } else { rgb(datos.cor_resalte) }
     )
 
     grid(
@@ -51,20 +51,20 @@
         text(
             size   : 25pt,
             weight : "bold",
-            fill   : rgb(datos.cores.resalte).darken(70%)
+            fill   : rgb(datos.cor_resalte).darken(70%)
         )[_Revista estudantil_],
         text(size: 75pt, weight: "bold")[Momentum],
     )
 
     v(0.5em)
-    set text(fill: if estilo == "cor" { rgb(datos.cores.texto) } else { rgb(datos.cores.resalte).darken(80%) })
+    set text(fill: if estilo == "cor" { rgb(datos.cor_texto) } else { rgb(datos.cor_resalte).darken(80%) })
 
     block(
         inset  : 1em,
         width  : 100%,
-        fill   : rgb(datos.cores.resalte).lighten(25%),
+        fill   : rgb(datos.cor_resalte).lighten(25%),
         radius : 1em,
-        stroke : rgb(datos.cores.resalte).darken(50%) + 3pt,
+        stroke : rgb(datos.cor_resalte).darken(50%) + 3pt,
         text(
             size : 20pt,
             font : "New Computer Modern Sans",
@@ -130,8 +130,8 @@
     block(
         width  : 100%,
         inset  : 1em,
-        fill   : rgb(datos.cores.resalte).lighten(25%),
-        stroke : rgb(datos.cores.resalte).darken(50%) + 3pt,
+        fill   : rgb(datos.cor_resalte).lighten(25%),
+        stroke : rgb(datos.cor_resalte).darken(50%) + 3pt,
         radius : 1em,
         grid(
             columns : (60%, 40%),
