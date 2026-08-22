@@ -14,19 +14,15 @@
         // "/revistas/002/artigo_PASATEMPOS.typ",
     ),
 
-    cores : (
-        resalte: "#0f83d1",
-        texto: "#ffffff"
-    ),
+    cor_resalte: "#0f83d1",
+    cor_texto: "#ffffff",
 
     depuracion_visual: false,
 
-    data : (
-      dia: 14,
-      numero_mes: 5,
-      mes: "maio",
-      ano: 2025
-    ),
+    data_dia: 14,
+    data_numero_mes: 5,
+    data_mes: "maio",
+    data_ano: 2025,
 
     imaxe_portada: "/revistas/002/imaxes/portada.png",
     comentario_imaxe: "Lanzamento da sonda Voyager 1, NASA (1977).",

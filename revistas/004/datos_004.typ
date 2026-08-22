@@ -13,17 +13,13 @@
         "/revistas/004/artigo_PASATEMPOS.typ",
     ),
 
-    cores : (
-        resalte: "#951ed6",
-        texto: "#ffffff"
-    ),
+    cor_resalte: "#951ed6",
+    cor_texto: "#ffffff",
 
-    data : (
-      dia: 1,
-      numero_mes: 11,
-      mes: "novembro",
-      ano: 2025
-    ),
+    data_dia: 1,
+    data_numero_mes: 11,
+    data_mes: "novembro",
+    data_ano: 2025,
 
     imaxe_portada: "/revistas/004/imaxes/portada.png",
     comentario_imaxe: "Detector CMS do LHC, un dos primeiros experimentos en detectar o bosón de Higgs (Fotografía de Hoch e Brice).",

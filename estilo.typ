@@ -104,34 +104,30 @@
 
 // Información por defecto da revista
 #let informacion_por_defecto = (
-    artigos: (),
-    cores: (
-        resalte: "ff0000",
-        texto: "ffffff",
-    ),
-    depuracion_visual: false,
-    data: (
-        dia: 24,
-        numero_mes: 8,
-        mes: "agosto",
-        ano: 1998,
-    ),
-    comentario_imaxe: "-- SEN COMENTARIO --",
-    repositorio: "fisicaUSC/revista",
-    whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
-    instagram: "momentum.usc",
-    anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
-    correo: "revistafisicausc@gmail.com",
-    participantes: ( "-- SEN POSTOS -- ": ("-- SEN PARTICIPANTES --",),),
-    despedida: "-- SEN DESPEDIDA --",
-    agradecementos: "-- SEN AGRADECEMENTOS --",
+    artigos           : (),
+    cor_resalte       : "ff0000",
+    cor_texto         : "ffffff",
+    depuracion_visual : false,
+    data_dia          : 24,
+    data_numero_mes   : 8,
+    data_mes          : "agosto",
+    data_ano          : 1998,
+    imaxe_portada     : none,
+    comentario_imaxe  : "-- SEN COMENTARIO --",
+    repositorio       : "fisicaUSC/revista",
+    whatsapp          : "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
+    instagram         : "momentum.usc",
+    anteriores        : "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
+    correo            : "revistafisicausc@gmail.com",
+    participantes     : ( "-- SEN POSTOS -- ": ("-- SEN PARTICIPANTES --",),),
+    despedida         : "-- SEN DESPEDIDA --",
+    agradecementos    : "-- SEN AGRADECEMENTOS --",
 )
 
 // Combinamos a información por defecto ca información específica da revista. O
 // que pasa é que os valores por defecto se sobreescriben cos específicos dun
 // número. Os que non sobreescribamos mantéñense por defecto.
 #let datos = informacion_por_defecto + informacion_revista
-
 
 // Unha variable global.
 // https://typst.app/docs/reference/introspection/state/
@@ -245,7 +241,7 @@
         x:0,y:0,
         block(
             {
-                text( fill: rgb(datos.cores.resalte), size: 70pt)[*$arrow("M")$*]
+                text( fill: rgb(datos.cor_resalte), size: 70pt)[*$arrow("M")$*]
                 text(size: 70pt)[*OMENTUM*]
             }
         )
@@ -267,11 +263,11 @@
         block(
             inset  : 13pt,
             stroke : 2pt,
-            fill   : rgb(datos.cores.resalte),
+            fill   : rgb(datos.cor_resalte),
             text(
-                fill : rgb(datos.cores.texto),
+                fill : rgb(datos.cor_texto),
                 size : 17pt,
-                mono[Núm.#sys.inputs.at("numero") #h(1fr) #datos.data.mes #datos.data.ano]
+                mono[Núm.#sys.inputs.at("numero") #h(1fr) #datos.data_mes #datos.data_ano]
             )
         )
     ),
@@ -361,7 +357,7 @@
         // O rectángulo de cor do lado dereito
         background : place(
             right + top,
-            rect(fill: rgb(datos.cores.resalte).lighten(35%), height: 100%, width: 8cm),
+            rect(fill: rgb(datos.cor_resalte).lighten(35%), height: 100%, width: 8cm),
         ),
         margin: ( top : 20mm, left : 10mm, right : 10mm, bottom : 25mm ),
     )
@@ -369,7 +365,7 @@
     // participantes, ligazóns, etc.
     show grid.cell: eso => {
         if eso.x == 2 {
-            set text( fill: rgb(datos.cores.texto))
+            set text( fill: rgb(datos.cor_texto))
             set par(spacing: 0pt)
             eso
         } else { eso }
@@ -428,7 +424,7 @@
                         // Que mostra a ligazón
                         {
                             text(
-                                fill    : rgb(datos.cores.resalte).darken(20%),
+                                fill    : rgb(datos.cor_resalte).darken(20%),
                                 font    : _semi.familia,
                                 stretch : _semi.estiramento,
                                 [
@@ -455,7 +451,7 @@
                 size   : 1.5em,
                 font   : _sans.familia,
                 weight : "black",
-                [#datos.data.dia de #datos.data.mes do #datos.data.ano#v(1em) Núm.#sys.inputs.at("numero")]
+                [#datos.data_dia de #datos.data_mes do #datos.data_ano#v(1em) Núm.#sys.inputs.at("numero")]
             )
         ),
 
@@ -608,7 +604,7 @@
     show math.equation.where(block: false): eso => { box(eso) }
     show math.equation.where(block: true): set block(inset: (top: 0.5em, bottom: 0.5em))
     set math.equation(numbering: "(1)")
-    show divider: set line(length: 90%, stroke: (paint: rgb(datos.cores.resalte)))
+    show divider: set line(length: 90%, stroke: (paint: rgb(datos.cor_resalte)))
     show enum: set block(inset: (top: 0.5em, bottom:0.5em))
     show list: set block(inset: (top: 0.5em, bottom:0.5em))
     set enum(indent: 1em)
@@ -773,7 +769,7 @@
                 grid.cell(
                     x:0, y:0,
                     text(
-                        fill   : rgb(datos.cores.resalte),
+                        fill   : rgb(datos.cor_resalte),
                         size   : 1.2em,
                         font   : _cond.familia,
                         stretch: _cond.estiramento,
@@ -787,10 +783,10 @@
                     x:1,
                     rowspan:3,
                     circle(
-                        fill   : rgb(datos.cores.resalte),
+                        fill   : rgb(datos.cor_resalte),
                         radius : 1.4em,
                         text(
-                            fill : rgb(datos.cores.texto),
+                            fill : rgb(datos.cor_texto),
                             size : 22pt,
                             [$accent(m,arrow)$]
                         )
@@ -812,7 +808,7 @@
                 set par(leading: 0.4em)
                 text(
                     size   : 25pt,
-                    fill   : rgb(datos.cores.resalte),
+                    fill   : rgb(datos.cor_resalte),
                     weight : "bold",
                     context {
                         condensada(heading(depth: 1, titulo)) /* Mostrar o título */
@@ -901,7 +897,7 @@
 ) = {
     heading(
         level: 2,
-        text(fill: rgb(datos.cores.resalte), titulo)
+        text(fill: rgb(datos.cor_resalte), titulo)
     )
     text(size: 1.2em, autoria)
     v(1em)
@@ -915,7 +911,7 @@
 ) = {
     heading(
         level: 2,
-        text( fill: rgb(datos.cores.resalte), titulo)
+        text( fill: rgb(datos.cor_resalte), titulo)
     )
     if autoria != none { text( weight: "regular", autoria) }
     if extra != none { [#h(1fr) #extra] }

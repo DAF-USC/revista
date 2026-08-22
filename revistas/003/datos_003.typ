@@ -12,19 +12,15 @@
         "/revistas/003/artigo_PASATEMPOS.typ",
     ),
 
-    cores : (
-      resalte: "78B060",
-      texto: "ffffff"
-    ),
+    cor_resalte: "78B060",
+    cor_texto: "ffffff",
 
     depuracion_visual: false,
 
-    data : (
-      dia: 00,
-      numero_mes: 9,
-      mes: "setembro",
-      ano: 2025
-    ),
+    data_dia: 00,
+    data_numero_mes: 9,
+    data_mes: "setembro",
+    data_ano: 2025,
 
     imaxe_portada: "/revistas/003/imaxes/libro_firmas.jpg",
     comentario_imaxe: "Kip Thorne escribe unha dedicatoria no libro de sinaturas da Facultade de Física (Maio, 2025)",
