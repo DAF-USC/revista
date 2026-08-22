@@ -48,9 +48,11 @@
 	presentaron ao longo da rolda. Tras as pertinentes presentacións comezan as
 	preguntas.
 
-	#strong[#emph[O primeiro periodista convida a Thorne a reflexionar sobre a
+    #divider()
+
+	#Pregunta[O primeiro periodista convida a Thorne a reflexionar sobre a
 	competitividade na ciencia e o aumento das contribucións de Asia. Pregunta como
-	debería actuar Europa ante esta situación.]]
+	debería actuar Europa ante esta situación.]
 
 	Kip Thorne afirma que Asia comezou as súas contribucións hai uns quince anos e
 	destaca a importancia da colaboración internacional. Lembra os seus tempos en
@@ -73,8 +75,8 @@
 	europeas serán as máis importantes, tomando o papel de protexer o coñecemento e
 	o labor investigador máis puro.
 
-	#strong[#emph[Continuando cos temas de actualidade, pregúntanlle polos beneficios e
-	riscos da intelixencia artificial no futuro.]]
+	#Pregunta[Continuando cos temas de actualidade, pregúntanlle polos beneficios e
+	riscos da intelixencia artificial no futuro.]
 
 	Kip Thorne puntualiza que non posúe especial control sobre este dominio.
 	Asegura que coida sempre de ter precaución ao opinar do que non sabe. En
@@ -113,8 +115,8 @@
 		],
 	)
 
-	#strong[#emph[Ante a ameaza que actualmente representa a administración Trump
-	para a universidade, que medidas deberían tomar estas institucións?]]
+	#Pregunta[Ante a ameaza que actualmente representa a administración Trump
+	para a universidade, que medidas deberían tomar estas institucións?]
 
 	// penso que queda mellor sen o 'de' pois imita a forma de falar
 	// inglesa (Trump administration), polo que vin en castelán pódese
@@ -137,8 +139,8 @@
 	sendo un neno e teme que volva a acontecer algo similar. Moito máis que os
 	avances tecnolóxicos, isto é o que preocupa a Kip Thorne.
 
-	#strong[#emph[A maiores da estupidez, hai outros motivos para a guerra contra o
-	coñecemento nos Estados Unidos?]]
+	#Pregunta[A maiores da estupidez, hai outros motivos para a guerra contra o
+	coñecemento nos Estados Unidos?]
 
 	O nobel asevera non comprender a psicoloxía detrás do presidente e non está
 	seguro de que pode motivar o seu comportamento. Cre que a meirande parte é
@@ -151,7 +153,7 @@
 	súas políticas. Non é unha cuestión de cores, senón que todos deben unirse
 	contra as ameazas destas políticas, ao igual que contra Putin.
 
-	#strong[#emph[Ve preto o perigo dunha guerra nuclear?]]
+	#Pregunta[Ve preto o perigo dunha guerra nuclear?]
 
 	Sinala a posibilidade dunha guerra nuclear. Este perigo xa existía nos tempos
 	da Unión Soviética a finais da década dos 60, cando Kip Thorne comezaba a pasar
@@ -171,8 +173,8 @@
 	das nacións, de gran sabedoría e liderado. Manter un muro contra Putin cando as
 	ameazas son de guerra é moi complicado.
 
-	#strong[#emph[A maiores destas ameazas, supoñen os restos de foguete que se
-	depositan en órbita un perigo para a vida na Terra?]]
+	#Pregunta[A maiores destas ameazas, supoñen os restos de foguete que se
+	depositan en órbita un perigo para a vida na Terra?]
 
 	A caída destes obxectos en lugares da Terra nos que poidan causar danos non lle
 	causa temor, di que este suceso é moi pouco probábel. Si que amosa preocupación
@@ -181,9 +183,8 @@
 	para non subir armas ao espazo estanse a debilitar e amosa de novo a súa
 	preocupación.
 
-	#strong[#emph[Cambiando de tema, o seguinte periodista inquire se nalgunha ocasión
-	lle preguntaron se era posíbel retroceder no tempo a raíz do filme] 
-	Interstellar]
+	#Pregunta[Cambiando de tema, o seguinte periodista inquire se nalgunha ocasión
+	lle preguntaron se era posíbel retroceder no tempo a raíz do filme _Interstellar_]
 
 	É certo que lle preguntaron nalgunha ocasión, pois moita xente está interesada
 	en viaxar atrás no tempo para poder cambiar algún suceso dramático que lles
@@ -197,8 +198,8 @@
 	provoca unha ''explosión'' de tales máquinas. Kip Thorne traballou de forma
 	independente nesta investigación cos seus alumnos e Hawking.
 
-	#strong[#emph[E, falando dos avances da física, que futuro lle augura á súa
-	evolución nos próximos trinta ou corenta anos?]]
+	#Pregunta[E, falando dos avances da física, que futuro lle augura á súa
+	evolución nos próximos trinta ou corenta anos?]
 
 	Kip Thorne non sabe con certeza cara a onde conducirá o futuro da física.
 	\u{00AB} #emph[Cando miro cara a atrás vexo grandes cambios e grandes sorpresas, aínda
@@ -207,8 +208,8 @@
 	probabelmente nese tempo é como se formou o Universo. É unha das grandes
 	cuestións na miña opinión]\u{00BB}.
 
-	#strong[#emph[Por que son as ondas gravitacionais relevantes para o estudo do
-	inicio do Universo?]]
+	#Pregunta[Por que son as ondas gravitacionais relevantes para o estudo do
+	inicio do Universo?]
 
 	O Universo era tan quente que a luz non se podía propagar, ao igual que o resto
 	da radiación. Soamente podían penetrar as ondas gravitacionais, polo que estas
@@ -217,8 +218,8 @@
 	loitar por comprender a gravidade cuántica, tamén de gran relevancia para o
 	estudo do comezo do Universo.
 
-	#strong[#emph[Interstellar, Oppenheimer... Como foi achegar a física á xente máis
-	allea a este mundo mediante o cine?]]
+	#Pregunta[Interstellar, Oppenheimer... Como foi achegar a física á xente máis
+	allea a este mundo mediante o cine?]
 
 	Kip Thorne gozou de traballar con Nolan e outros integrantes do equipo en
 	#emph[Interstellar]. A película foi diferente a outras de Hollywood porque foi
@@ -228,8 +229,8 @@
 	que trata de explicar a calquera lector os fenómenos físicos que se utilizan ao
 	longo da longametraxe.
 
-	#strong[#emph[E agora mesmo está a traballar nalgunha película? Ten algunha
-	actualización?]]
+	#Pregunta[E agora mesmo está a traballar nalgunha película? Ten algunha
+	actualización?]
 
 	Kip Thorne comezou a creación dun novo filme con Lynda Obst, unha das persoas
 	do equipo de #emph[Interstellar] e coa cal mantivo unha relación moi achegada
@@ -240,8 +241,8 @@
 	haberá case un ano--. Pensa en escribir tamén un libro do filme, pois a súa
 	publicación non requiriría de tantos recursos.
 
-	#strong[#emph[E para pechar a rolda de prensa, ten algunha lembranza especial de
-	Feynman?]]
+	#Pregunta[E para pechar a rolda de prensa, ten algunha lembranza especial de
+	Feynman?]
 
 	Richard Feyman foi un dos máis grandes científicos que Kip Thorne coñeceu e do
 	propio século XXI. Coñeceuno cando era estudante en Caltech e rematou facéndose
