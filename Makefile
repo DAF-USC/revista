@@ -66,6 +66,7 @@ INFO_GIT := \
 	--input quen="$(shell git config user.name)"
 
 # Dependencias dun número.
+# :FACER: a dependencia .../imaxes/* é molesta para as revistas novas
 DEPENDENCIAS := \
 	revistas/$(numero)/revista_$(numero).typ \
 	revistas/$(numero)/datos_$(numero).typ \

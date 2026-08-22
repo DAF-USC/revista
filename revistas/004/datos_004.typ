@@ -25,6 +25,7 @@
       ano: 2025
     ),
 
+    imaxe_portada: "/revistas/004/imaxes/portada.png",
     comentario_imaxe: "Detector CMS do LHC, un dos primeiros experimentos en detectar o bosón de Higgs (Fotografía de Hoch e Brice).",
     repositorio : "fisicaUSC/revista",
     whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",

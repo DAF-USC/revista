@@ -286,7 +286,32 @@
                 // :FACER: cando https://github.com/typst/typst/pull/7556 se
                 // xunte pode poñerse unha imaxe plana de exemplo cando
                 // `portada.png` non exista
-                image(width: 100%, "/revistas/" + sys.inputs.numero + "/imaxes/portada.png")
+                if datos.imaxe_portada != none {
+                    image(width: 100%, datos.imaxe_portada)
+                } else {
+                    rect(
+                        width  : 100%,
+                        height : 100%,
+                        stroke : red + 2pt,
+                        fill   : tiling(
+                            size: (30pt, 30pt),
+                            {
+                                place(line(start: (0%, 0%)  , end: (100%, 100%), stroke: (paint: gray, dash: "dashed")))
+                                place(line(start: (0%, 100%), end: (100%,   0%), stroke: (paint: gray, dash: "dashed")))
+                            }
+                        ),
+                        {
+                            set align(center + horizon)
+                            set text(size: 3em)
+                            rect(
+                                fill   : white,
+                                stroke : red + 3pt,
+                                inset  : 1em,
+                                mono[SEN IMAXE DE PORTADA]
+                            )
+                        }
+                    )
+                }
                 place(
                     left + bottom, dy: -0.4cm, dx:  0.4cm,
                     rect(
