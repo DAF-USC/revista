@@ -71,9 +71,7 @@
 //
 // 4) Función que xunta todo
 //
-//     crear_revista(...) -> Xera a revista. Méteselle o contido dos artigos e
-//                           a información específica dun número, como a Data,
-//                           Número, Cor, etc.
+//     crear_revista(...) -> Xera a revista.
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //
@@ -89,29 +87,30 @@
 //     --font-path=fontes        -> usar fontes do diretorio 'fontes'
 //     --timings=.aux/perf.json  -> gardar datos da compilación
 //     --input numero=001        -> número da revista
-//     --input formato=completa  -> tipo de revista: completa/impresa
-//     --input rama=principal    -> rama de Git actual    | Estas 3 opcións collen a info
+//     --input rama=principal    -> rama de Git actual    | Estas 4 opcións collen a info
 //     --input hash=9000e53      -> hash de Git actual    | automáticamente usando Git
 //     --input dirt=*            -> estado do WorkingTree | na Makefile
+//     --input quen=davis        -> quen está a compilar  |
 //
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 // Número da revista. Sae de '--input numero=001'
 #let numero = sys.inputs.at("numero", default: "001")
 
-// Información específica dun número
+// Información específica dun número.
 #import("/revistas/" + numero + "/datos_" + numero + ".typ"): informacion_revista
 
-// Información por defecto da revista
+// Información por defecto da revista. Esta información logo sobreescríbese ca
+// info específica de cada número
 #let informacion_por_defecto = (
     artigos           : (),
     cor_resalte       : "ff0000",
     cor_texto         : "ffffff",
     depuracion_visual : false,
-    data_dia          : 24,
-    data_numero_mes   : 8,
-    data_mes          : "agosto",
-    data_ano          : 1998,
+    data_dia          : 24,       // Cumple de deivis
+    data_numero_mes   : 8,        //
+    data_mes          : "agosto", //
+    data_ano          : 1998,     //
     imaxe_portada     : none,
     comentario_imaxe  : "-- SEN COMENTARIO --",
     repositorio       : "fisicaUSC/revista",
@@ -134,6 +133,20 @@
 //
 // Array que se encherá de dicionarios con info dos artigos, co seu título,
 // autoría e localización. Úsase para xerar o índice, por defecto está baleiro.
+// Ten esta forma:
+// (
+//     (
+//         titulo: "Benvida a Momentum",
+//         autoria: "Equipo Decanal",
+//         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
+//     ),
+//     (
+//         titulo: "Carathéodory e a axiomatización da termodinámica",
+//         autoria: "Sebastián Táboas Pazo",
+//         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
+//     ),
+//     ...
+// )
 #let _artigos = state("artigos", ())
 
 // Fontes.
@@ -222,7 +235,6 @@
     doc
 }
 
-// :FACER:MIGRACION: tamaños correctos na portada
 // Función para crear a portada
 #let crear_portada() = grid(
 
@@ -247,6 +259,7 @@
         )
     ),
 
+    // O subtítulo
     grid.cell(
         x:0, y:1,
         block(
@@ -279,17 +292,17 @@
             inset : 1pt,
             stroke : 2pt,
             {
-                // :FACER: cando https://github.com/typst/typst/pull/7556 se
-                // xunte pode poñerse unha imaxe plana de exemplo cando
-                // `portada.png` non exista
+                // Se pasamos o nome da portada, usamos esa
                 if datos.imaxe_portada != none {
                     image(width: 100%, datos.imaxe_portada)
+                // Se non, poñemos un fondo por defecto
                 } else {
+                    // Un rectángulo
                     rect(
                         width  : 100%,
                         height : 100%,
                         stroke : red + 2pt,
-                        fill   : tiling(
+                        fill   : tiling( // cheo dun patrón de liñas
                             size: (30pt, 30pt),
                             {
                                 place(line(start: (0%, 0%)  , end: (100%, 100%), stroke: (paint: gray, dash: "dashed")))
@@ -297,6 +310,7 @@
                             }
                         ),
                         {
+                            // E metemos no centro un aviso
                             set align(center + horizon)
                             set text(size: 3em)
                             rect(
@@ -308,6 +322,7 @@
                         }
                     )
                 }
+                // O comentario da imaxe da portada
                 place(
                     left + bottom, dy: -0.4cm, dx:  0.4cm,
                     rect(
@@ -321,7 +336,7 @@
     ),
 
     // Logos
-    // :FACER: meter info dos logos en datos_xxx.typ
+    // :FACER: meter info dos logos en datos_xxx.typ?
     grid.cell(
         x:0, y:4,
         grid(
@@ -375,161 +390,145 @@
 
 // Función para crear o propio índice de contidos
 // :FACER: simplificar na medida do posible todo o índice
-#let crear_indice() = {
-    grid(
+#let crear_indice() = grid(
 
-        // Grid tamaño 4x3
-        rows    : (2cm, 1fr  , 5.5cm, 3.5cm),
-        columns : (1fr, 1.5cm, 6.2cm       ),
+    // Grid tamaño 4x3
+    rows    : (2cm, 1fr  , 5.5cm, 3.5cm),
+    columns : (1fr, 1.5cm, 6.2cm       ),
 
-        // Índice de artigos
-        grid.cell(
-            x:0, y:0, rowspan: 4, // 4: A primeira columna completa
-            {
-                block(
-                    width : 100%,
-                    inset : (bottom: 1em),
-                    heading(
-                        level: 1,
-                        numbering: none,
-                        text(
-                            size: 2em,
-                            condensada[*Índice*]
-                        )
+    // Índice de artigos
+    grid.cell(
+        x:0, y:0, rowspan: 4, // 4: A primeira columna completa
+        {
+            block(
+                width : 100%,
+                inset : (bottom: 1em),
+                heading(
+                    level: 1,
+                    numbering: none,
+                    text(
+                        size: 2em,
+                        condensada[*Índice*]
                     )
                 )
-                // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado.
-                //
-                // Iteramos polo array ca info dos artigos. Recordemos que
-                // _artigos é un array da de dicionarios, como
-                //
-                // (
-                //     (
-                //         titulo: "Benvida a Momentum",
-                //         autoria: "Equipo Decanal",
-                //         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
-                //     ),
-                //     (
-                //         titulo: "Carathéodory e a axiomatización da termodinámica",
-                //         autoria: "Sebastián Táboas Pazo",
-                //         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
-                //     ),
-                //     ...
-                // )
-                context for artigo in _artigos.final() {
-                    // Mostramos os artigos como ligazóns
-                    link(
-                        // A onde nos vai levar a ligazón
-                        artigo.localizacion,
-                        // Que mostra a ligazón
-                        {
-                            text(
-                                fill    : rgb(datos.cor_resalte).darken(20%),
-                                font    : _semi.familia,
-                                stretch : _semi.estiramento,
-                                [
-                                    #show "\n": " " // Un truco para eliminar as novas liñas "\n" dos títulos
-                                    *#artigo.titulo* // TITULO
-                                ],
-                            )
-                            h(1fr)
-                            [*#artigo.localizacion.page*] // PÁXINA
-                            linebreak()
-                            artigo.autoria // AUTORIA
-                            v(1em)
-                        }
-                    )
-                }
-            }
-        ),
-
-        // Data e número
-        grid.cell(
-            x:2,y:0,
-            align: center,
-            text(
-                size   : 1.5em,
-                font   : _sans.familia,
-                weight : "black",
-                [#datos.data_dia de #datos.data_mes do #datos.data_ano#v(1em) Núm.#sys.inputs.at("numero")]
             )
-        ),
-
-        // Participantes
-        grid.cell(
-            x:2, y:1,
-            align: left,
-            grid(
-                columns    : 1,
-                rows       : 1,
-                row-gutter : 1.4em,
-
-                {
-                    show text: sans
-                    for posto in datos.participantes.keys() {
+            // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado.
+            //
+            // Iteramos polo array ca info dos artigos.
+            context for artigo in _artigos.final() {
+                // Mostramos os artigos como ligazóns
+                link(
+                    // A onde nos vai levar a ligazón
+                    artigo.localizacion,
+                    // Que mostra a ligazón
+                    {
+                        text(
+                            fill    : rgb(datos.cor_resalte).darken(20%),
+                            font    : _semi.familia,
+                            stretch : _semi.estiramento,
+                            [
+                                #show "\n": " " // Un truco para eliminar as novas liñas "\n" dos títulos
+                                *#artigo.titulo* // TITULO
+                            ],
+                        )
+                        h(1fr)
+                        [*#artigo.localizacion.page*] // PÁXINA
+                        linebreak()
+                        artigo.autoria // AUTORIA
                         v(1em)
-                        text( size:1.2em, [*#posto*\ ],)
-                        v(1em)
-                        for persoa in datos.participantes.at(posto) {
-                            [#persoa\ ]
-                        }
+                    }
+                )
+            }
+        }
+    ),
+
+    // Data e número
+    grid.cell(
+        x:2,y:0,
+        align: center,
+        text(
+            size   : 1.5em,
+            font   : _sans.familia,
+            weight : "black",
+            [#datos.data_dia de #datos.data_mes do #datos.data_ano#v(1em) Núm.#sys.inputs.at("numero")]
+        )
+    ),
+
+    // Participantes
+    grid.cell(
+        x:2, y:1,
+        align: left,
+        grid(
+            columns    : 1,
+            rows       : 1,
+            row-gutter : 1.4em,
+
+            {
+                show text: sans
+                for posto in datos.participantes.keys() {
+                    v(1em)
+                    text( size:1.2em, [*#posto*\ ],)
+                    v(1em)
+                    for persoa in datos.participantes.at(posto) {
+                        [#persoa\ ]
                     }
                 }
-
-            )
-        ),
-
-        // Contactos
-        // É un pouco lioso porque é un grid, con outros grids dentro, con máis grid dentro...
-        grid.cell(
-            x: 2, y:2,
-            {
-                set par(spacing: 0pt)
-                grid(
-                    rows: 3,
-                    row-gutter: 1em,
-                    columns : (100%,),
-                    // CORREO
-                    grid(
-                        columns:1, rows:2, row-gutter: 7pt,
-                        text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("mailto:" + datos.correo, sans[#datos.correo])
-                    ),
-                    // INSTAGRAM
-                    grid(
-                        columns:1, rows:2, row-gutter: 7pt,
-                        text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("https://www.instagram.com/" + datos.instagram, sans[@#datos.instagram])
-                    ),
-                    // INFO GIT
-                    grid(
-                        columns:1, rows:4, row-gutter: 7pt,
-                        text(size: 20pt, font: _simb.familia)[#h(3pt) ],
-                        link("https://github.com/" + datos.repositorio, mono[#datos.repositorio]),
-                        {
-                            simbolos[]
-                            mono(sys.inputs.at("rama"))
-                            [:]
-                            mono(sys.inputs.at("hash"))
-                            mono(sys.inputs.at("dirt"))
-                        },
-                        mono[Compilado por: #sys.inputs.quen]
-                    )
-                )
             }
-        ),
 
-        // Logo USC
-        grid.cell(
-            x: 2, y:3,
-            {
-                v(1fr)
-                image("/logos/usc-negativo-escuro.pdf")
-            }
         )
+    ),
 
+    // Contactos
+    // É un pouco lioso porque é un grid, con outros grids dentro, con máis grid dentro...
+    grid.cell(
+        x: 2, y:2,
+        {
+            set par(spacing: 0pt)
+            grid(
+                rows: 3,
+                row-gutter: 1em,
+                columns : (100%,),
+                // CORREO
+                grid(
+                    columns:1, rows:2, row-gutter: 7pt,
+                    text(size: 20pt, font: _simb.familia)[#h(3pt) ],
+                    link("mailto:" + datos.correo, sans[#datos.correo])
+                ),
+                // INSTAGRAM
+                grid(
+                    columns:1, rows:2, row-gutter: 7pt,
+                    text(size: 20pt, font: _simb.familia)[#h(3pt) ],
+                    link("https://www.instagram.com/" + datos.instagram, sans[@#datos.instagram])
+                ),
+                // INFO GIT
+                grid(
+                    columns:1, rows:4, row-gutter: 7pt,
+                    text(size: 20pt, font: _simb.familia)[#h(3pt) ],
+                    link("https://github.com/" + datos.repositorio, mono[#datos.repositorio]),
+                    {
+                        simbolos[]
+                        mono(sys.inputs.at("rama"))
+                        [:]
+                        mono(sys.inputs.at("hash"))
+                        mono(sys.inputs.at("dirt"))
+                    },
+                    // :FACER: quitar isto? ou movelo
+                    mono[Compilado por: #sys.inputs.quen]
+                )
+            )
+        }
+    ),
+
+    // Logo USC
+    grid.cell(
+        x: 2, y:3,
+        {
+            v(1fr)
+            image("/logos/usc-negativo-escuro.pdf")
+        }
     )
-}
+
+)
 
 // Estilo para os artigos
 #let estilo_corpo(
@@ -590,8 +589,6 @@
         )
     )
     show raw: mono
-    // :FACER: diferenciar Cita en modo bloque e en liña, usando funcións
-    // diferentes
     show quote.where(block: true): set block(breakable: false, inset: (top: 9pt))
     show figure: set block(width: 100%, inset: (top: 0.5em, bottom:0.5em))
     show figure.caption: set align(left)
@@ -619,15 +616,6 @@
 // Estilo para a contraportada
 // :FACER:MIGRACION: estilo da contraportada
 #let estilo_contraportada(doc) = {
-    doc
-}
-
-// Función para crear a contraportada
-#let crear_contraportada() = {
-
-    import "@preview/tiaoma:0.3.0"
-
-    // :FACER: esto debería estar no estilo da contraportada
     set page(
         margin     : ( top : 5mm, left : 5mm, right : 5mm, bottom : 5mm, ),
         background : place(
@@ -638,6 +626,13 @@
             // image("imaxes/fondo_contraportada.png")
         )
     )
+    doc
+}
+
+// Función para crear a contraportada
+#let crear_contraportada() = {
+
+    import "@preview/tiaoma:0.3.0"
 
     grid(
         columns    : 100%,
@@ -662,7 +657,6 @@
                     size: 1.2em,
                     {
                         set par(justify: true, leading:0.3em)
-                        // :FACER: ollo, isto converte a string do datos.yaml a contido, e trata algo raro os \n
                         datos.agradecementos
                     }
                 )
