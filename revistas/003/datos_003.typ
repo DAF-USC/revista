@@ -26,6 +26,7 @@
       ano: 2025
     ),
 
+    imaxe_portada: "/revistas/003/imaxes/portada.png",
     comentario_imaxe: "Kip Thorne escribe unha dedicatoria no libro de sinaturas da Facultade de Física (Maio, 2025)",
     repositorio : "fisicaUSC/revista",
     whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",

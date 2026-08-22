@@ -28,6 +28,7 @@
       ano: 2025
     ),
 
+    imaxe_portada: "/revistas/002/imaxes/portada.png",
     comentario_imaxe: "Lanzamento da sonda Voyager 1, NASA (1977).",
 
     repositorio : "fisicaUSC/revista",

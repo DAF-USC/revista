@@ -24,6 +24,7 @@
       ano: 2025
     ),
 
+    imaxe_portada: "/revistas/001/imaxes/portada.png",
     comentario_imaxe: "1981: Primeira pedra da facultade de física.",
     repositorio : "fisicaUSC/revista",
     whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
