@@ -708,20 +708,22 @@
             column-gutter : 1em,
             row-gutter    : 1em,
 
-            // :FACER: QRs clicables, como links
             // QR1
             grid.cell(x:0, y:0, [Edicións anteriores]),
             grid.cell(
                 x: 0, y:1,
-                // En caso de dúbidas, mirar o manual en https://zint.org.uk/
-                tiaoma.barcode(
+                link(
                     datos.anteriores,
-                    "QRCode",
-                    options: (
-                        option-1 : 4,   // corrección de erros, 1-4
-                        option-2 : 8,   // detalle, 1-40
-                        scale    : 1.5,
-                    ),
+                    // En caso de dúbidas, mirar o manual en https://zint.org.uk/
+                    tiaoma.barcode(
+                        datos.anteriores,
+                        "QRCode",
+                        options: (
+                            option-1 : 4,   // corrección de erros, 1-4
+                            option-2 : 8,   // detalle, 1-40
+                            scale    : 1.5,
+                        ),
+                    )
                 )
             ),
 
@@ -729,7 +731,10 @@
             grid.cell(x:1, y:0, [Participa! (WhatsApp)]),
             grid.cell(
                 x: 1, y:1,
-                tiaoma.barcode(datos.whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
+                link(
+                    datos.whatsapp,
+                    tiaoma.barcode(datos.whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
+                )
             ),
 
             // Financiación
