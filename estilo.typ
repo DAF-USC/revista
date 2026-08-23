@@ -204,7 +204,6 @@
         dir       : ltr, // dirección do texto, de esquerda a dereita (Left To Right)
     )
     show math.equation: set text(font: "New Computer Modern Math")
-    show heading.where(level: 2): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
 
     // Mostrar bordos de varias cousas. IMPORTANTE: isto modifica a aliñación
     // dalgunhas cousas (links pasan a ser bloques, todos os parágrafos perden
@@ -238,15 +237,15 @@
 // Función para crear a portada
 #let crear_portada() = grid(
 
+    align   : (bottom + center),
     columns : 1fr,
     rows    : (
         2.75cm,            // Titulo
         1.12cm,            // Subtitulo
         2.1cm,             // Número e data
         210mm - (2 * 5mm), // Imaxe, alto exacto ao ancho da páxina menos as marxes
-        297mm - (2*5mm) - 2.75cm - 1.12cm - 2.1cm - (210mm - (2 * 5mm)), // Logos
+        297mm - (2 * 5mm) - 2.75cm - 1.12cm - 2.1cm - (210mm - (2 * 5mm)), // Logos
     ),
-    align   : (bottom + center),
 
     // O titulo
     grid.cell(
@@ -535,6 +534,10 @@
     estilo: "-- SEN ESTILO --",
     doc
 ) = {
+    // Re-usamos o estilo xeral, así, se compilamos os artigos individualmente,
+    // estes tamén terán este estilo
+    show: estilo_xeral
+
     set page(
         margin: (
             top    : 25mm,
@@ -608,13 +611,6 @@
         hyphenate : true,
         overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
         costs     : ( hyphenation: 10% ),
-        size      : 11pt,
-        font      : _norm.familia,
-        weight    : _norm.peso,
-        lang      : "gl",
-        fallback  : false,
-        style     : "normal",
-        features  : ( liga : 1, kern : 1, ),
     )
     set par(
         leading              : 6pt,         // espazo entre liñas
@@ -637,7 +633,6 @@
         context strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
-    show math.equation: set text(font: "New Computer Modern Math")
     show math.equation.where(block: false): eso => { box(eso) }
     show math.equation.where(block: true): set block(inset: (top: 0.5em, bottom: 0.5em))
     show heading.where(level: 2): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
@@ -755,7 +750,6 @@
     // Activamos o estilo xeral, que vai afectar a toda a revista
     show: estilo_xeral
 
-
     // Agora, activamos o estilo da portada e mostrámola
     {
         show: estilo_portada
@@ -768,13 +762,12 @@
         crear_indice()
     }
 
+    // Comezamos a contar páxinas
+    counter(page).update(1)
+
     // Activamos o estilo para os artigos (corpo) e mostrámolos
     {
-        // Comezamos a contar páxinas
-        counter(page).update(1)
-        for artigo in datos.artigos {
-            include(artigo)
-        }
+        for artigo in datos.artigos { include(artigo) }
     }
 
     // Activamos o estilo para a contraportada e creámola
