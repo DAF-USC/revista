@@ -7,11 +7,12 @@
 ##############################################################################
 # Como se usa:
 #
-# make limpa                           -> elimina os ficheiros xerados
-# make todo                            -> compila todo, revistas e propagandas
-# make numero=001                      -> compila a revista 001
-# make numero=001 metodo=watch         -> compila a revista 001 de maneira continuada
-# make numero=001 propaganda           -> compila a revista 001 e xera a propaganda
+# make limpa                   -> elimina os ficheiros xerados
+# make todo                    -> compila todo, revistas, artigos e propagandas
+# make numero=001              -> compila a revista 001
+# make numero=001 metodo=watch -> compila a revista 001 de maneira continuada
+# make numero=001 propaganda   -> compila a revista 001 e xera a propaganda
+# make numero=001 artigos      -> compila os artigos da 001 separados
 #
 # OLLO:
 #
@@ -34,6 +35,8 @@ SHELL := bash
 # CTRL-C ao usar a compilación continuada de typst)
 # Véxase: https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
 .PRECIOUS: .pdf/revista_$(numero).pdf
+
+.SILENT: propaganda artigos todo
 
 # método de compilación por defecto
 # `compile` -> compilación única
@@ -96,16 +99,17 @@ limpa:
 
 # Compilar todo. Isto simplemente re-chama a make varias veces
 todo:
-	@for N in $(NUMEROS); do echo -e ""; make numero=$${N} propaganda artigos; done
+	for N in $(NUMEROS); do echo -e ""; make --no-print-directory numero=$${N} propaganda artigos; done
 
 
 # Compila os artigos separados, para enviarllos aos redactores
-artigos: .pdf/revista_$(numero).pdf
+artigos:
+	echo -e "";\
 	for A in $(ARTIGOS); do\
-		typst compile $(OPCIONS_TYPST) \
-			revistas/$(numero)/$${A}.typ \
-			.pdf/artigos_$(numero)_$${A}.pdf;  \
-	done
+		echo -e "compilando artigo revistas/$${numero}/$${A}.typ";\
+		typst compile $(OPCIONS_TYPST) revistas/$(numero)/$${A}.typ .pdf/artigos_$(numero)_$${A}.pdf;\
+	done;\
+	echo "";
 
 
 # Xeramos o PDF correspondente co número pedido, dependendo de se algunha
@@ -126,6 +130,7 @@ artigos: .pdf/revista_$(numero).pdf
 		--deps=.aux/deps_revista_$(numero).json \
 		revistas/$(numero)/revista_$(numero).typ \
 		.pdf/revista_$(numero).pdf
+	@echo ""
 
 
 # Xera as propagandas:
