@@ -25,7 +25,7 @@ SHELL := bash
 
 # Regras de tipo 'phony'
 # Véxase: https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: limpa propaganda todo
+.PHONY: limpa propaganda artigos todo
 
 # Que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
@@ -85,6 +85,9 @@ DEPENDENCIAS := \
 # https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
 NUMEROS := $(patsubst revista_%.typ, %, $(notdir $(wildcard revistas/*/revista_*.typ)))
 
+# Nomes dos artigos para un número dado
+ARTIGOS := $(patsubst artigo_%.typ, artigo_%, $(notdir $(wildcard revistas/$(numero)/artigo_*.typ)))
+
 
 # Limpar os ficheiros xerados
 limpa:
@@ -93,7 +96,16 @@ limpa:
 
 # Compilar todo. Isto simplemente re-chama a make varias veces
 todo:
-	@for N in $(NUMEROS); do echo -e ""; make numero=$${N} propaganda; done
+	@for N in $(NUMEROS); do echo -e ""; make numero=$${N} propaganda artigos; done
+
+
+# Compila os artigos separados, para enviarllos aos redactores
+artigos: .pdf/revista_$(numero).pdf
+	for A in $(ARTIGOS); do\
+		typst compile $(OPCIONS_TYPST) \
+			revistas/$(numero)/$${A}.typ \
+			.pdf/artigos_$(numero)_$${A}.pdf;  \
+	done
 
 
 # Xeramos o PDF correspondente co número pedido, dependendo de se algunha
