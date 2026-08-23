@@ -7,7 +7,7 @@
 
 #v(3mm)
 
-#Opinion(
+#MiniTitulo(
     titulo: "Un conxunto de actos derivados do oficio de estudar física",
     autoria: "David Tarrío Outeiriño"
 )
@@ -40,7 +40,7 @@
 
 ]
 
-#Opinion(
+#MiniTitulo(
     titulo: "Da xenialidade. Ou aquilo no que talvez consista a física",
     autoria: "Sebastián Táboas Pazo"
 )
