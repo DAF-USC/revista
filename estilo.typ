@@ -884,6 +884,7 @@
     corpo
 ) = {
     v(0.6em)
+    set par(first-line-indent: 0pt)
     strong(sans(corpo))
     v(0.6em)
 }
