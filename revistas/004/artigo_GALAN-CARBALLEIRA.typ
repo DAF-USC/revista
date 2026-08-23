@@ -7,7 +7,7 @@
 
 // FACER:MIGRACIÓN: \Opinión en LaTeX
 
-#Opinion(
+#MiniTitulo(
     titulo: "Frases célebres",
     autoria: "Manuel Galán Rodríguez"
 )
@@ -56,7 +56,7 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
   )
 ]
 
-#Opinion(
+#MiniTitulo(
     titulo: "[dd/mm/aaaa]",
     autoria: "David Tarrío Outeiriño"
 )
@@ -93,7 +93,7 @@ admiten colaboracións para futuras edicións. Espero que vos guste!
 
 #pagebreak()
 
-#Opinion(
+#MiniTitulo(
     titulo: [Praceres descoñecidos: *$E=m c^2$* de B.A.D.],
     autoria: "Carlos Carballeira Romero"
 )

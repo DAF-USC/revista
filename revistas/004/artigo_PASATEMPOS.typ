@@ -13,7 +13,7 @@
 //   % \section*{\textcolor{Resalte}{Uns problemas máis ou menos intuitivos\\ } {\normalfont \itshape   non kero poñer o meu nome lol xd}}%
 // % \Pasatempo{Uns problemas máis ou menos intuitivos}{Baseado na revista ``A Gota de Milikan''}
 
-  #Pasatempo(
+  #MiniTitulo(
     titulo: [Uns problemas máis intuitivos]
   )
 
@@ -54,7 +54,7 @@
 ]
 // % \section*{\textcolor{Resalte}{Determina o espazo de fases\\ } {\normalfont \itshape   autor 2}}%
 
-#Pasatempo(
+#MiniTitulo(
     titulo : [Uns problemas #emph[menos] intuitivos]
 )
 

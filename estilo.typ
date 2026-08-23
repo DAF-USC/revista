@@ -889,28 +889,14 @@
 }
 
 // Función para os títulos dos pequenos textos de miscelánea que poden conter variedade de cousas
-// :FACER: igual podemos unificar opinion e pasatempos? algo como minititular..?
-#let Opinion(
-    titulo: none,
-    autoria: none
-) = {
-    heading(
-        level: 2,
-        text(fill: rgb(datos.cor_resalte), titulo)
-    )
-    text(size: 1.2em, autoria)
-    v(1em)
-}
-
-// Función para o título dun pasatempo
-#let Pasatempo(
+#let MiniTitulo(
     titulo: none,
     autoria: none,
     extra: none
 ) = {
     heading(
         level: 2,
-        text( fill: rgb(datos.cor_resalte), titulo)
+        text(fill: rgb(datos.cor_resalte), titulo)
     )
     if autoria != none { text( weight: "regular", autoria) }
     if extra != none { [#h(1fr) #extra] }

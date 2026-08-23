@@ -8,7 +8,7 @@
 )
 
 
-#Pasatempo(
+#MiniTitulo(
     titulo: [Sopa enerxética],
     autoria: "Adrián Vázquez Velasco"
 )
@@ -59,7 +59,7 @@ contextos da física. Serás capaz de atopalas todas?
 
 #columns[
 
-#Pasatempo(
+#MiniTitulo(
     titulo: [Triscelectrónico],
     autoria: "Adrián Vázquez Velasco"
 )
@@ -112,7 +112,7 @@ contextos da física. Serás capaz de atopalas todas?
 	https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?chlang=en&id=000809.
 
 
-    #Pasatempo(
+    #MiniTitulo(
         titulo: [Física ou Fortuna \#2],
         autoria: "Adrián Vázquez Velasco"
     )
