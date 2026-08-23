@@ -7,15 +7,21 @@
 	estilo		: "REPORTAXE",
 )
 
-#figure(
-	image(
-	width: 100%,
-	"/revistas/003/imaxes/biblio_grupo.jpg"
-    ),
-    caption: [ Fotografía grupal de Kip Thorne con profesores e alumnos na biblioteca da Facultade de Física da Universidade de Santiago de Compostela. Fotografía de Santi Alvite.]
-)
 
-#columns[
+#show: columns
+
+#place(
+    top + center,
+    float: true,
+    scope: "parent",
+    figure(
+        image(
+        width: 100%,
+        "/revistas/003/imaxes/biblio_grupo.jpg"
+        ),
+        caption: [ Fotografía grupal de Kip Thorne con profesores e alumnos na biblioteca da Facultade de Física da Universidade de Santiago de Compostela. Fotografía de Santi Alvite.]
+    )
+)
 
 	A visita de Kip Thorne foi a cuadraxésimo sexta do programa
 	#emph[ConCiencia], presente na Universidade de Santiago de Compostela dende o
@@ -261,8 +267,6 @@
 	contribuíu ao seu sentido como ser humano. Dende logo, Feynman foi unha das
 	grandes influencias en como traballa e como ensina Kip Thorne.
 
-]
-
 #place(top+center, scope: "parent", float: true)[
 	#figure(
 		image(
@@ -286,8 +290,6 @@
 //    	venres 9 de maio de 2025. Fotografía de Santi Alvite.
 //	],
 //)
-
-#columns[
 
 	== Visita á Facultade: clase de Gravitación e charla na biblioteca
 
@@ -420,5 +422,3 @@
 	#SenCita("kt_2025")
 
 	#CrearBibliografia("/revistas/003/bibliografia_CELIA_AA.bib")
-
-]
