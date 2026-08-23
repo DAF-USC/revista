@@ -36,7 +36,7 @@
 //     estilo_indice(...)        -> Estilo para a páxina do índice. Este estilo
 //                                  cambia as cores da columna dereita, e pon un
 //                                  rectangulo de cor na páxina.
-//     estilo_corpo(...)         -> Estilo do corpo da revista (ousexa, os artigos).
+//     estilo_artigos(...)       -> Estilo do corpo da revista (ousexa, os artigos).
 //                                  Posición dos números da páxina, encabezados, marxes
 //                                  xustificación do texto, e formatos menores
 //     estilo_contraportada(...) -> Estilo da contraportada
@@ -507,13 +507,13 @@
                     link("https://github.com/" + datos.repositorio, mono[#datos.repositorio]),
                     {
                         simbolos[]
-                        mono(sys.inputs.at("rama"))
+                        mono(sys.inputs.at("rama", default: "sen rama"))
                         [:]
-                        mono(sys.inputs.at("hash"))
-                        mono(sys.inputs.at("dirt"))
+                        mono(sys.inputs.at("hash", default: "sen hash"))
+                        mono(sys.inputs.at("dirt", default: "sen dirt"))
                     },
                     // :FACER: quitar isto? ou movelo
-                    mono[Compilado por: #sys.inputs.quen]
+                    mono[Compilado por: #sys.inputs.at("quen", default: "sen quen")]
                 )
             )
         }
@@ -531,11 +531,10 @@
 )
 
 // Estilo para os artigos
-#let estilo_corpo(
+#let estilo_artigos(
+    estilo: "-- SEN ESTILO --",
     doc
 ) = {
-    // Comezamos a contar páxinas
-    counter(page).update(1)
     set page(
         margin: (
             top    : 25mm,
@@ -544,6 +543,40 @@
             bottom : 25mm,
         ),
         header-ascent : 15pt,
+        header: {
+            grid(
+                columns    : (1fr, 2.3cm, 1fr),
+                rows       : (1em,1em,1em),
+                row-gutter : 0pt,
+                align      : (left+horizon, center+horizon, right+horizon ),
+                grid.cell(
+                    x:0, y:0,
+                    text(
+                        fill   : rgb(datos.cor_resalte),
+                        size   : 1.2em,
+                        font   : _cond.familia,
+                        stretch: _cond.estiramento,
+                        weight : "bold",
+                        estilo
+                    )
+                ),
+                grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
+                grid.cell(x:2, y:1, line(length:100%, stroke:0.2pt)),
+                grid.cell(
+                    x:1,
+                    rowspan:3,
+                    circle(
+                        fill   : rgb(datos.cor_resalte),
+                        radius : 1.4em,
+                        text(
+                            fill : rgb(datos.cor_texto),
+                            size : 22pt,
+                            [$accent(m,arrow)$]
+                        )
+                    )
+                )
+            )
+        },
         footer : context {
             let p = counter(page).get().first()
             if calc.even(p) {
@@ -572,10 +605,16 @@
         }
     )
     set text(
-        // :FACER:MIGRACION: patróns de galego en hypher 0.1.7, á espera de que se engadan
         hyphenate : true,
         overhang  : true, // Protrusión. Manter un ollo en https://github.com/typst/typst/issues/261
-        costs     : ( hyphenation: 10% )
+        costs     : ( hyphenation: 10% ),
+        size      : 11pt,
+        font      : _norm.familia,
+        weight    : _norm.peso,
+        lang      : "gl",
+        fallback  : false,
+        style     : "normal",
+        features  : ( liga : 1, kern : 1, ),
     )
     set par(
         leading              : 6pt,         // espazo entre liñas
@@ -598,8 +637,10 @@
         context strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
+    show math.equation: set text(font: "New Computer Modern Math")
     show math.equation.where(block: false): eso => { box(eso) }
     show math.equation.where(block: true): set block(inset: (top: 0.5em, bottom: 0.5em))
+    show heading.where(level: 2): set text(font: _cond.familia, stretch: _cond.estiramento, size: 1.1em)
     set math.equation(numbering: "(1)")
     show divider: set line(length: 90%, stroke: (paint: rgb(datos.cor_resalte)))
     show enum: set block(inset: (top: 0.5em, bottom:0.5em))
@@ -729,7 +770,8 @@
 
     // Activamos o estilo para os artigos (corpo) e mostrámolos
     {
-        show: estilo_corpo
+        // Comezamos a contar páxinas
+        counter(page).update(1)
         for artigo in datos.artigos {
             include(artigo)
         }
@@ -753,43 +795,8 @@
     artigo
 ) = {
     // :FACER: engadir comprobacións, p.e. assert(type(titulo) == "content")
-    set page(
-        header: {
-            grid(
-                columns    : (1fr, 2.3cm, 1fr),
-                rows       : (1em,1em,1em),
-                row-gutter : 0pt,
-                align      : (left+horizon, center+horizon, right+horizon ),
-                grid.cell(
-                    x:0, y:0,
-                    text(
-                        fill   : rgb(datos.cor_resalte),
-                        size   : 1.2em,
-                        font   : _cond.familia,
-                        stretch: _cond.estiramento,
-                        weight : "bold",
-                        estilo
-                    )
-                ),
-                grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
-                grid.cell(x:2, y:1, line(length:100%, stroke:0.2pt)),
-                grid.cell(
-                    x:1,
-                    rowspan:3,
-                    circle(
-                        fill   : rgb(datos.cor_resalte),
-                        radius : 1.4em,
-                        text(
-                            fill : rgb(datos.cor_texto),
-                            size : 22pt,
-                            [$accent(m,arrow)$]
-                        )
-                    )
-                )
-            )
-        }
 
-    )
+    show: estilo_artigos.with(estilo: estilo)
 
     // Contidos do Titular. Un array cos elementos. Ao final filtramos este
     // array pa quedarnos so cos contidos distintos de 'none'. Se non hai
