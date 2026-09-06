@@ -126,7 +126,7 @@
   (e, por tanto, está máis cerca do Sol) e máis lento cando está máis cerca
   (máis lonxe do Sol). Kepler incorporaríao coidadosamente, construíndo o
   modelo do seguinte xeito. Primeiro, Tolomeo asume que a distancia do centro
-  da órbita ao Sol ($e_{"Sol"}$) e ao ecuante ($e_{"ecuante"}$) son iguais,
+  da órbita ao Sol ($e_"Sol"$) e ao ecuante ($e_"ecuante"$) son iguais,
   Kepler asumiraos como variables. Logo, debido a que a velocidade angular é
   constante, podemos tomar catro vectores do ecuante a Marte cuns ángulos
   hipotéticos (atópanse dividindo o período orbital entre os días que hai entre
