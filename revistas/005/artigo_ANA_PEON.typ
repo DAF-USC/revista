@@ -1,0 +1,277 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  titulo: [Sobre a lóxica da física],
+  autoria: "Ana Peón Nieto",
+  estilo: "DIVULGACIÓN",
+)
+
+// TODO: No se resetan lo números de las ecuaciones entre artículos.
+
+#columns[
+
+  A ninguén sorprenderá se digo que este é un artigo sobre as matemáticas da
+  física. Algúns pasarán a páxina con preguiza, outros esperarán ecuacións
+  formais moi bonitas e globais, imposibles de manipular (isto vai polos meus
+  pobres estudantes de Métodos II,  compréndovos!). Pois non. En absoluto. Este
+  artigo fala de lóxica matemática, unha das ramas máis teóricas, descoñecidas,
+  e (desgraciadamente) ignoradas polos demais profesionais das matemáticas
+  (salvo excepcións, son coma as bruxas, habelas hainas). É, por así dicilo, a
+  teoría de cordas das mates.
+
+  O curioso do asunto é que hai moi boas cabezas pensando nas aplicacións desta
+  disciplina á física. Non tanto como ferramenta formal, senón para resolver
+  cuestións fundamentais. Un pouco como no caso da teoría de cordas, que xurdiu
+  coa motivación de unificar a gravidade e a mecánica cuántica; a lóxica
+  matemática, e máis precisamente a subdisciplina chamada teoría de modelos,
+  inquírese sobre a base das teorías: cal é a linguaxe adecuada? Cales son os
+  axiomas (léase postulados) que garanten o sustento da teoría? A moitos soará
+  o teorema de incompletitude de Gödel, segundo o cal, en "matemáticas",
+  entendida coma a ciencia na que os números enteiros son base, sempre haberá
+  enunciados indecidibles (é dicir, cuxa veracidade ou falsidade non se poida
+  demostrar).
+
+  Pero: que é a teoría de modelos? Que a fai adecuada para esta inmensa tarefa?
+  Pois ben, dunha parte, a teoría de modelos ocúpase de calquera cousa
+  expresable matematicamente. Por exemplo, os grupos abelianos, ou
+  conmutativos, coma $bb(Z)$. Para isto, escollemos unha linguaxe que
+  inclúa a función +, os cuantificadores $forall, exists$, e un signo
+  especial para o cero. Con isto podemos establecer os axiomas ou normas
+  básicas:
+
+  $
+    & forall x,y #h(1.5cm)    & & x+y=y+x,\
+    & forall y            & & 0+y=y+0=y,\
+    & forall x thick exists y & & x+y=y+x=0,\
+    & forall x,y,z        & & (x+y)+z=x+(y+z).
+  $
+
+
+  Dende o punto de vista da teoría de modelos, un grupo abeliano é calquera
+  "universo" ou "estrutura" matemática que satisfaga estes axiomas. Dá igual
+  que teña un elemento, cinco ou infinitos. Estas simples normas capturan o
+  esencial. (Non abandonedes aínda, por favor!). O máis interesante é que
+  considerando estes axiomas, o lóxico ten tódolos posibles grupos na cabeza ao
+  mesmo tempo. E o mesmo aplica a calquera teoría das matemáticas: para o
+  lóxico non é cuestión deste ou dese espazo, senón de todos á vez. Isto, que
+  pode parecer pouco práctico, dá lugar a aplicacións impresionantes en
+  análise, por exemplo, ou xeometría. E ademais poderedes contestar aos
+  profesores de Métodos cando vos critiquen por riscardes o diferencial
+  $"d"x$. En efecto, na teoría dos corpos ordenados, coma os números
+  reais, existe un universo no que o diferencial é un número coma outro
+  calquera, máis grande ca $0$, pero máis pequeno que tódolos reais positivos.
+  Así que a riscar diferenciais sen complexo!
+
+  Pois ben, perdidos andaban os lóxicos nas súas disquisicións existenciais,
+  cando Hrushovski e Zilber, dous lóxicos brillantes #footnote[O nome do
+  primeiro barallouse para a Medalla Fields, o máis alto galardón en
+  matemáticas (que, por certo, ostenta Witten como único físico na lista).
+  Lamentablemente, na miña humilde opinión, Hrushovski non levou este premio.
+  De llo ter dado, teríase visibilizado o seu enorme labor e achegado a lóxica
+  ao matemático medio.], deron coas famosas estruturas de Zariski. Buscaban
+  _A_ xeometría. _A xeometría_. E deron con algo estraño aos
+  ollos dos comúns, é dicir, uns modelos que capturaban á vez a xeometría do
+  espazo macroscópico, no que mirar nunha orde ou noutra non afecta a
+  observación (é dicir, é conmutativa), pero que eran non conmutativos en
+  esencia. Coma o mundo cuántico. Disto hai moitos anos, a finais do século XX
+  xa se aplicaban estes modelos para probar teoremas importantes, coma a
+  conxectura de Mordell-Lang @Ehud_1996.
+
+  Pero Zilber, apaixonado da física, que perseguía una formulación lóxica (en
+  tódolos sentidos) desta ciencia, viuno claro. E se podemos aproximar o mundo
+  real, incluíndo o mundo macroscópico e cuántico, mediante estas estruturas?
+  En colaboración con outros dous lóxicos, Solanki e Sustretov, estudaron o
+  caso máis sinxelo: o oscilador harmónico unidimensional. Hoxe centrareime
+  neste traballo, pero deixádeme engadir que Zilber segue no seu empeño de
+  atopar _A_ linguaxe (_A LINGUAXE_) da física dende a teoría de modelos. Nos
+  últimos anos, catro artigos prometedores axiomatizan a mecánica cuántica (e a
+  unifican coa cuántica estatística) mediante a lóxica do continuo
+  @Zilber1_2025 @Zilber2_2025 @Zilber3_2024 @Zilber_2023. Espero comprendelos
+  nalgún momento para explicalo como hoxe farei co oscilador.
+
+  Comecemos polo principio: o oscilador harmónico en dimensión 1 (é dicir, un
+  resorte cun extremo ligado a un punto, o marco, e outro que se move
+  libremente). A enerxía total do sistema é
+  
+  $
+    E=frac(m, 2) dot(x)^2+ frac(k, 2)x^2,
+  $
+
+  onde $V(x)=frac(k, 2)x^2$ é a enerxía potencial, con $k$ a constante
+  elástica. Polo principio de conservación da enerxía, empregando algún
+  truquiño de integración, obtense a ecuación
+
+  $
+    m dot.double(x) + k x = 0,
+  $
+
+  cuxa solución xeral é $x(t)=cos(omega t + alpha)$, con $omega = sqrt(frac(k,
+    m))$. Podemos resolver no plano considerando pares $(x(t),dot(x)(t))$. Se
+  chamamos $p(t)=m dot(x)(t)$ (é dicir, o momento lineal), entón temos
+
+  $
+    dot(x)(t)= frac(p(t), m), quad dot(p)(t)= frac(k, m).
+  $
+
+  Para cuantizar, imos poñer todo en notación hamiltoniana. Temos as
+  coordenadas canónicas $p(t)$ e $q(t)$ (que neste caso son tan só o momento
+  lineal $p(t)=m dot(x)(t)$ e a posición $q(t)=x(t)$), nas que obtemos as
+  ecuacións de Hamilton (que son as mesmas que antes, pero son válidas nun
+  contexto máis amplo, para tódolos sistemas hamiltonianos)
+
+  $
+    dot(p)={H,p}= -frac(partial H, partial q),
+    quad
+    dot(q)={H,q}= frac(partial H, partial p)
+  $
+
+  onde $H(p,q)=frac(p^2, 2m)+ frac(m omega^2 q^2, 2)$ é o Hamiltoniano, neste
+  caso, a enerxía total do sistema, e a diferenza de signos nas ecuacións
+  débese a xeometría simpléctica subxacente. Os corchetes ${dot.op}$ chámanse
+  corchetes de Poisson, e teñen sentido para tódalas funcións
+  ${f(p,q),g(p,q)}$; o que mide é a diferenza das variacións de $f$ e $g$ en
+  certas direccións relacionadas co momento e posición.
+
+  Á hora de cuantizar, os observables, neste caso $p$ e $q$, pasan a
+  interpretarse como operadores actuando no espazo de Hilbert dos estados do
+  sistema, neste caso, o espazo vectorial $bb(C)$, adornado cunha estrutura
+  hermítica. A avaliación de operadores interprétase como a medición. Se $P, Q$
+  son os observables cuantizados, escribimos $[P,Q]=P Q-Q P$. Eses corchetes
+  son a cuantización dos corchetes de Poisson. Aplicar $P Q$ a un estado do
+  sistema corresponde a observar primeiro a posición e, inmediatamente despois,
+  o momento. Sabemos que no mundo cuántico, a observación modifica o estado do
+  sistema, máis explicitamente, $[P,Q]=-i planck$ onde $planck$ é a constante
+  de Planck. Temos o Hamiltoniano cuántico
+
+  $
+    H=frac(P^2, 2m)+ frac(m omega^2 Q^2, 2)
+  $
+
+  que pertence á "álxebra" de observables (unha forma curta de dicir que
+  combinamos observacións mediante consecución e suma). Entón, as solucións
+  $psi(x)$ da ecuación diferencial
+
+  $
+    H psi(x)= planck omega (n + frac(1, 2)) psi(x)
+  $
+
+  para $n in bb(N)$ comprenden tódolos posibles estados enerxéticos do sistema.
+  Así mesmo, podemos pasar dun estado $|n chevron.r$ a un estado $|n + 1
+  chevron.r$ e viceversa mediante os operadores de creación
+  $a^dagger=sqrt(frac(m omega, 2k))Q - frac(i, sqrt(2 planck omega))P$ e
+  aniquiliación $a=sqrt(frac(m omega, 2k))Q+ frac(i, sqrt(2 planck omega))P$,
+  respectivamente.
+
+  Tras este recordatorio, volvamos ao noso, aínda que de maneira un tanto
+  camuflada. A idea dos tres lóxicos é lóxica: para cada $N in bb(N)$,
+  consideran un espazo $L_N$ consistente nunha recta $bb(A)$ (quizais co
+  infinito $bb(P)^1=bb(A) union {infinity}$, pensade nos reais co infinito, ou
+  os complexos co infinito; en realidade, pensade en todos á vez, porque uns
+  son os puntos reais da recta, e os outros, os puntos complexos) e, sobre cada
+  punto $x in bb(A)$, o grupo de raíces $N$-ésimas da unidade (ou $bb(Z)_N$ se
+  o preferides). Estes son os números $z$ tal que $z^N=1$. Por exemplo, se
+  $N=2$, $z=plus.minus 1$, que observamos que corresponden aos valores
+  $e^(frac(2k pi i, 2))$ para $k=0,1$. Para $N$ xeral, obteremos $e^(frac(2k pi
+    i, N))$ para $k=0, dots, N-1$. Este grupo $bb(Z)_N$ (é un grupo
+  esencialmente porque se poden multiplicar elementos e seguimos dentro, o $1$
+  pertence a $bb(Z)_N$, e ademais tódolos elementos teñen inverso) representa
+  os posibles estadíos do sistema no punto $x$ sobre o que vive, ata enerxía
+  $N$. Para conseguir tódolos estadíos enerxéticos haberá que considerar
+  tódolos $N$'s xuntos #footnote[Isto non é problemático, pois coma veredes
+  unha vez acabemos, as construcións son compatibles coa relación $N<N+1$, no
+  sentido de que $L_N subset L_(N+1)$, e as operacións de creación e
+  aniquilación de $L_(N+1)$ inducen as de $L_N$.]. Obsérvese que temos
+
+  $
+  pi : L_N=bb(P)^1 times bb(Z)_N arrow.r.long bb(P)^1
+  $
+
+  que a cada punto $ell = (x,gamma) in L_N$ asígnalle o $x in bb(P)^1$
+  sobre o que "vive". Así, a fibra $pi^(-1)(x)$ representaría os estados do
+  sistema en $x$.
+
+  Os operadores de creación (resp. aniquilación) pódense modelizar considerando
+  tripletes $(ell,ell',b) in A^dagger subset L_N times L_N times bb(A)$ con
+  $ell in pi^(-1)(x)$, $ell' in pi^(-1)(x+1)$, $b^2=x$ (de maneira que $(gamma
+  ell',gamma ell,b_gamma) in A^dagger$ para todo $gamma in bb(Z)_N$ e algún
+  $b_gamma bb(A)$)  (resp. $(gamma ell',gamma ell,b_gamma) in A subset L_N
+  times L_N times bb(A)$ con $ell' in pi^(-1)(x+1)$, $ell in pi^(-1)(x)$,
+  $b_gamma^2=x$). Se o triplete $(ell, ell',b) in A^dagger$, interpretamos que
+  pasamos do estado $ell$ (que identificamos con algún $|M chevron.r$) no punto
+  $x$ ao estado $ell tilde |M+1 chevron.r$. Coma en principio os estados
+  represéntanse mediante puntos da recta, podemos identificar o estado $x$ con
+  $|M chevron.r$, e $x+1$ con $|M+1 chevron.r$. O grupo vén a conto porque en
+  principio, o oscilador podería encontrarse noutro estado enerxético no punto
+  $x$, polo que $gamma ell$ representaría un sistema no que $x$ é $|M+frac(2pi
+    i, N) log(gamma) chevron.r$. A vantaxe desta linguaxe é que non necesitamos
+  identificar $M$ exactamente, só saber que o sistema está nalgún estado, en
+  consonancia coa cuántica#footnote[ A raíz $b^2=x$ ten que ver con como actúan
+    os operadores cuánticos, é importante, e de feito é o _quid_ desta
+    construción tamén.].
+
+  Hai unha certa duplicidade na definición, xa que o feito de crear está na
+  aparición de $ell$ e $ell'$ no mesmo triplete (sobre puntos diferentes), pero
+  usamos o punto da base para levar a conta de cantos estados enerxéticos
+  modificamos. Como basta saber que estados se modifican nun paso, e despois
+  noutro, etc, basta considerar o estado inicial e o punto final. De feito, os
+  autores dan outra construción posible (e equivalente nun sentido adecuado
+  @Solanki_2013).
+
+  Identificamos, dentro de $L_N times bb(A)$, os puntos $(ell gamma,
+  gamma^(-1)y)$ para todo $gamma in bb(Z)$; é dicir, consideramos o conxunto
+  $[(ell,y)]={(ell gamma, gamma^(-1)y) colon gamma in bb(Z)}$ como un único
+  punto. Entón, o conxunto $cal(H)_x={[ell,y]colon pi(ell)=x}$ é un espazo
+  vectorial para o produto por escalares $t dot.op [ell,y]=[ell,t y]$ e suma 
+
+  $ 
+    [ell_1,y_1]+[ell_2,y_2] #stack(text(8pt)[$exists[ell_1,y_2']=[ell_2,y_2]$], [$=$])
+      &[ell_1,y_1]+[ell_1,y_2']\    
+      =&[ell_1,y_1+y_2],  
+  #footnote[Exercicio: comproba que está ben definido!] 
+  $
+
+  //TODO: la footnote es fea de cojones
+
+  sobre o que se poden definir os operadores
+
+  $
+    0 a^dagger[(e,y)]=[(e',y z)], quad a[(e',y)]=[(e,y z)]
+  $
+
+  onde $(e,e',z) in A^dagger$, ou $(e',e,y) in A$. Ben, a cuestión é que
+  considerar $A^dagger$ ou $a^dagger$, $A$ ou $a$, non cambia a lóxica do
+  asunto, pois as teorías de cada un destes espazos (é dicir, tódolos teoremas
+  satisfeitos por cada un deles) son equivalentes nun sentido adecuado que
+  permite obter unha da outra.
+
+  E agora me diredes: pero isto non é xeometría? Onde está a lóxica? Pois a
+  lóxica está en que nada disto se pode enunciar formalmente no mundo da
+  xeometría *complexa* clásica. Pódese se utilizamos os reais (a clave é o uso
+  dunha raíz cadrada na definición das relacións, cuxas dúas solucións reais,
+  positiva ou negativa, son identificables coa creación ou aniquilación). Pode
+  que isto non pareza revolucionario, pero espérase que os exemplos en teoría
+  de modelos veñan da xeometría complexa, e este non o cumpre. O que si que é
+  máis interesante é que $L_N$ vive sobre a recta, que *SI* que é complexa, no
+  sentido de que podemos coller puntos reais ou complexos sen cambiarmos nada.
+  Un recubrimento finito dunha recta que non é complexo (coma o $L_N$ aquí
+  presente) é *MOI* insólito. A súa existencia débese á subxacencia de
+  xeometría non conmutativa, que se percibe no feito de que os operadores de
+  creación e aniquilación non conmutan, do mesmo modo que a posición e o
+  momento cuánticos non conmutan. De feito, se miramos a obxectos máis
+  refinados, coma os automorfismos do recubrimento $L_N arrow.r.long
+  bb(A)$, veremos que o comportamento é estraño, e codifica a relación
+  $[P,Q]=-i planck$. Para construírmos espazos desta índole, temos que movernos
+  ao mundo das xeometrías de Zariski puras, fundamentalmente modelo-teóricas,
+  non provenientes de ningún espazo clásico.
+
+  Recapitulando: a lóxica permítenos construír un espazo, que pode parecer
+  xeométrico, pero non o é, onde vive o oscilador harmónico cuántico. Aínda que
+  é un exemplo sinxelo, é tamén o primeiro exemplo físico que se consegue
+  modelizar completamente con ferramentas lóxicas. Así mesmo, prové un dos
+  primeiros exemplos dunha xeometría de Zariski non proveniente da xeometría
+  clásica, o cal engade interese a estas teorías. Non sei a vós, pero a min
+  éncheme de expectación...
+
+  #bibliography("/revistas/005/bibliografia_ANA_PEON.bib")
+
+]
