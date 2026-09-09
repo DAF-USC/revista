@@ -1,9 +1,3 @@
-\Artigo%
-{miscelanea}%
-{Tributo a Outer Wilds}%
-{Celia Álvarez Álvarez}%
-{}%
-
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
