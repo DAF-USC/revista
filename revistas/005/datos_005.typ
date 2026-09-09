@@ -6,7 +6,7 @@
       "revistas/005/artigo_IAGO_AR.typ",
       "revistas/005/artigo_ANA_PEON.typ",
       "revistas/005/artigo_GABRIEL_RM.typ",
-    //  "revistas/005/artigo_XABIER_CV.typ",
+      "revistas/005/artigo_XABIER_CV.typ",
     //  "revistas/005/artigo_CARBALLEIRA.typ",
     //  "revistas/005/artigo_CELIA.typ", 
     //  "revistas/005/artigo_ANXEL.typ",
