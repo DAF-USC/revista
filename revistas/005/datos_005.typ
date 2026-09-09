@@ -7,7 +7,7 @@
       "revistas/005/artigo_ANA_PEON.typ",
       "revistas/005/artigo_GABRIEL_RM.typ",
       "revistas/005/artigo_XABIER_CV.typ",
-    //  "revistas/005/artigo_CARBALLEIRA.typ",
+    // "revistas/005/artigo_CARBALLEIRA.typ",
     //  "revistas/005/artigo_CELIA.typ", 
     //  "revistas/005/artigo_ANXEL.typ",
     //  "revistas/005/artigo_MAURO.typ",
@@ -16,12 +16,12 @@
     //  "revistas/005/artigo_MANUEL_GR.typ",
     ),
 
-    cores : (
-      resalte: "e66f00",
-      texto: "ffffff",
-    ),
+    cor_resalte: "e66f00",
+    cor_texto: "ffffff",
 
     depuracion_visual: false,
+
+    imaxe_portada: "/revistas/005/imaxes/portada.png",
 
     data : (
       dia: 1,

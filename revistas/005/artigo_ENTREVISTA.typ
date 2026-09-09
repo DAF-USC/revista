@@ -30,7 +30,7 @@
 
   #v(0.3em)
 
-  #line(length: 100%, stroke: 0.6pt + rgb(datos.cores.resalte))
+  #line(length: 100%, stroke: 0.6pt + rgb(datos.cor_resalte))
 
   #Pregunta[
     Gustaríame comezar agradecendo o interese posto na revista e na
@@ -214,7 +214,7 @@
 
 
   #v(1em)
-  #text(size: 12pt, fill: rgb(datos.cores.resalte))[
+  #text(size: 12pt, fill: rgb(datos.cor_resalte))[
     _* O mundo necesita persoas que combinen cabeza, corazón e mans. *_
   ]
 
