@@ -1,0 +1,146 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  titulo: [Erros, chapuzas e desatinos],
+  autoria: [Ánxel Costas],
+  subtitulo: [Historias mal feitas para facelo mellor.],
+  estilo: "MISCELÁNEA",
+)
+
+#columns[
+
+  Non é mentira algunha que moitísima xente quede abraiada coa cantidade de
+  // ese algunha talvez sexa ningunha, sóame estraño, pero de momento deixémolo
+  // así 
+  avances e descubrimentos que veñen da man da física, capaces de desafiar o
+  sentido común da xente menos entendida. E é que, ás veces, a física parece
+  maxia e nós, os (case) físicos, magos. Pero estes avances non se fan da noite
+  á mañá, pois hai unha gran cantidade de persoas que traballaron e traballan
+  duro durante moitos anos para acadar estes fitos na nosa historia. Mais non
+  todos estes esforzos foron parar a bo porto, máis ben ao contrario, foron
+  ocultos no fondo do caixón da vergoña no soto da humillación e tirada a chave
+  polo pozo do esquecemento. E creo que é hora de destapar os trapos sucios que
+  levamos agochando tanto tempo, pois a humildade é algo que podemos esquecer
+  facilmente ao crer que comprendemos o Universo e as súas forzas, e cómpre
+  lembrala de cando en vez. É por iso que veño contarvos a vós, meus ben
+  queridos lectores, varias "cafradas" que se fixeron en física, para que
+  saibades que unha integral mal feita ou un signo mal posto non é tan grave, a
+  non ser que sexa financiado, creado, exposto, explotado e posteriormente
+  oculto. Todo o demais son erratas que pode ter calquera persoa ao pensar
+  rápido (todos sabemos que é por iso e non porque as mates ás veces se nos fan
+  costa arriba). Así que, 
+  // non estou seguro de que a abreviatura mates sexa correcta en galego, pero
+  // de momento deixémolo así 
+  parodiando a frase coa que Lord Kelvin meteu a pata: "Está todo ben feito en
+  física, salvo un par de problemas que hai que ocultar"; vouvos contar tres
+  destes problemas que foron "ocultos" (ou non tanto), a modo de tres contos de
+  Nadal.
+
+  == Os raios N
+
+  O gran protagonista desta historia (que rolda o ridículo colectivo) foi
+  Prosper-René Blondlot, un dos oito físicos da Academia das Ciencias de
+  Francia. Mentres traballaba cos raios X en 1903, percibiu variacións do
+  brillo cando realizaba fotografías dun entreferro, o que interpretou como un
+  novo tipo de radiación, que decidiu chamar raios N (pola universidade de
+  Nancy onde traballaba). Este descubrimento levou a 300 artigos e 120 físicos
+  afirmar a existencia desta nova radiación, presente en case todos os corpos,
+  salvo en madeiras verdes e algúns metais tratados. Ben, parece que está todo
+  correcto e non hai ningún problema se tanta xente estaba de acordo. Entón,
+  onde está a trampa? Todo foi destapado por Robert W. Wood, quen xa tiña fama
+  de desmentir resultados excéntricos. Nunha visita ao laboratorio de Blondlot
+  para a demostración dos raios N, Wood (nun momento de lucidez propia dun
+  pillabán), aproveitándose da escuridade necesaria para o experimento, decidiu
+  quitar un prisma que amplificaba supostamente este fenómeno sen que ninguén
+  se decatase. O resto da sala dixo que seguía vendo estes raios N, o cal xa
+  era unha alarma xigante da mentira que era todo, pero para confirmar, tamén
+  decidiu cambiar un arquivador metálico por un andel de madeira que,
+  supostamente, non debería emitir esta radiación. As demais persoas presentes
+  seguían vendo o efecto luminoso, co cal xa quedou máis que claro que toda esa
+  xente era uns farsantes ou, como moito, unhas vítimas da autosuxestión
+  (colectiva). Pero quen somos nós para xulgar, se tamén temos «falseado»
+  resultados nos laboratorios para aprobar as materias dos profesores? Esta
+  historia non é máis que unha lección de 
+  // cambiado "do" -> "dos" 
+  que os resultados acadados non sempre son os que cremos que son, e que ter un 
+  // "de que" -> "que"?
+  compañeiro de laboratorio capaz de levarnos a contraria é necesario para
+  pórnos os pés na terra.
+
+  == Neutrinos máis rápidos que a luz
+
+  Imos ver se un século despois deprendemos algo do ridículo caso anterior.
+  Esta historia sitúase no 2011, sendo o CERN, e concretamente o experimento
+  OPERA, o centro do foco, os físicos que traballaban neste proxecto tiveron un
+  resultado inusual. Resulta que os neutrinos medidos semellaban superar a
+  velocidade da luz, 60 nanosegundos máis rápidos. Se isto fose medido por
+  algún alumno da   
+  // a velocidade, que eu saiba, non se mide en segundos
+  facultade de Física, o máis probable é que o devandito alumno fixese maxia e
+  os valores medidos cambiasen de golpe, dando lugar a uns resultados
+  fermosísimos dentro do esperado, pero no CERN traballa xente máis seria e
+  querían saber a que se debía tal anomalía. E é que os resultados
+  presentáronos como iso, unha anomalía, curáronse en saúde antes de anunciar
+  un descubrimento (vese que a historia anterior foi escarmento dabondo).
+  Despois de varios meses investigando o porqué destes resultados, atopáronse
+  os culpables: un cable de fibra óptica 
+  // "deses" -> "destes"?, cambiado "atopouse" -> "atopáronse" 
+  mal conectado e un oscilador de reloxo defectuoso, os cales introducían un
+  erro sistemático nos resultados. Ás veces a culpa non é dos físicos, senón
+  dos materiais, pero o dano xa estaba feito: miles de teorías conspiranoicas,
+  queixas populares sobre os fondos para os experimentos para un cable mal
+  conectado, moitísimos filmes de ciencia ficción de mala calidade... Quizais
+  por isto teñamos pánico a presentar uns resultados (públicos ou ao profesor)
+  sen saber se son correctos, pois os acertos traen avances, pero os desacertos
+  traen moitas dores de cabeza. A ensinanza desta historia é revisar a montaxe
+  dos experimentos se non queres pasar os próximos días pelexando cuns valores
+  carentes de sentido. Despois deste incidente, comezou a soar a frase "un
+  cable frouxo pode ser máis rápido que a luz".
+
+  == A explosiva nova do Mars Climate Orbiter} // cambiado "Orber" -> "Orbiter"
+
+  Esta pequena anécdota remóntase a 1999. Aquí non hai nin autosuxestión nin
+  problemas coa montaxe do experimento, estamos ante unha situación de descoido
+  (por non dicir estupidez) puramente humana. Un pequeno erro que custou 301
+  millóns de euros (axustando á inflación de hoxe en día, uns 535 millóns),
+  tirados ao lixo, ou máis ben, á atmosfera de Marte. A misión da sonda
+  espacial era estudar a atmosfera do planeta vermello durante dous anos
+  terrestres, pero nunca puido realizarse. A medida que a sonda se acercaba ao
+  planeta, os controladores decatáronse de que había que realizar demasiadas
+  correccións, máis 
+  // engadido (decatáronse) "de" (que) 
+  das esperadas, e aí comezaron as sospeitas, polo que decidiron pedir unha
+  investigación. Os responsables do proxecto, como bos responsables, decidiron
+  desestimar a petición de investigación, e posteriormente evadiron as
+  acusacións alegando que a petición de investigación non se realizara
+  formalmente (comportamento máis propio dun político que de xente adicada á
+  ciencia). Pero, 
+  // adicar: forma menos recomendábel por dedicar 
+  cal foi o accidente? Pois que a sonda foise apartando da órbita esperada a 
+  // "foise": pronome ben colocado?, engadido acento gráfico en "órbita" 
+  medida que se acercaba a Marte, até que pasou a só 57 km de altura, cando se
+  esperaba que pasase a 150 km. Por suposto, a sonda quedou completamente
+  esnaquizada pola fricción coa atmosfera. Agora que xa coñecemos o accidente,
+  como bos físicos deberiamos preguntarnos cal foi o problema. As unidades. As
+  malditas unidades. Esas mesmas que nos levan dicindo dende o colexio «47 que?
+  mazás? centímetros?». Un non é consciente do importantes que son até que
+  perde 301 millóns en apenas segundos. A sonda empregaba unidades do Sistema
+  Internacional, pero os controladores da NASA traballaban con unidades
+  imperiais (se os estadounidenses non levasen a contraria no sistema de
+  medida, este erro non tería acontecido, ou polo menos non por este motivo). A
+  diferenza entre ambos os sistemas foise acrecentando a medida que a sonda
+  avanzaba pola súa órbita, a pesar das correccións dos controladores, até
+  acabar estrelándose. Que podemos aprender de todo isto? Como primeiro e
+  mínimo, non fiarse da xente que empregue unidades de medida distintas ao
+  Sistema Internacional e, como segundo, que hai que revisar as contas. Sempre
+  revisar as contas, pois nunca sabes onde podes atopar un erro que pode
+  arruinar o teu exercicio (ou arruinarte economicamente). // engadido ")"
+
+  Espero que estas tres pequenas historias fagan manternos humildes, e facernos
+  recapacitar sobre as vergoñas históricas que agochamos e das cales podemos
+  deprender moito. E lembrade, meus queridísimos lectores, que cando acabedes
+  de ler este pequeno artigo deberiades de ter presente as unidades, montar ben
+  o experimento e ter un bo compañeiro que vos corrixa de ser necesario, para
+  evitar ter erros, chapuzas e desatinos.
+
+]

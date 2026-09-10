@@ -9,7 +9,7 @@
       "revistas/005/artigo_XABIER_CV.typ",
       "revistas/005/artigo_CARBALLEIRA.typ",
       "revistas/005/artigo_CELIA.typ", 
-    //  "revistas/005/artigo_ANXEL.typ",
+      "revistas/005/artigo_ANXEL.typ",
     //  "revistas/005/artigo_MAURO.typ",
     //  "revistas/005/artigo_VICTOR_DD.typ",
     //  "revistas/005/artigo_SANTY_GG.typ",
