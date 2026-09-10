@@ -28,7 +28,7 @@
     whatsapp: "https://chat.whatsapp.com/E900g1Bq7QT5ZKeuiIpxTk",
     instagram : "momentum.usc",
     anteriores: "https://www.usc.gal/gl/centro/facultade-fisica/revista-estudantil-momentum",
-    correo: "revistafisicausc@gmail.com",
+    correo: "revistafisicaUSC@gmail.com",
 
     participantes: (
        "Dirección": (
