@@ -1,0 +1,218 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  titulo: [A anoada orixe da teoría de nós],
+  subtitulo: [Unha historia que mestura o éter luminífero, unha caixa que fuma
+  e a táboa periódica dos elementos.],
+  autoria: "Víctor Díaz Díaz",
+  estilo: "HISTORIA" 
+)
+
+#columns[
+
+  == Introdución
+
+  Dende atar os zapatos ata separar cables liados, os nós son un elemento moi
+  // liar: forma menos recomendábel por enlear 
+  común na vida cotiá de todo o mundo. No entanto, a pesar de seren tan comúns,
+  o seu estudo rigoroso empregando as matemáticas tardou bastante tempo en
+  poñerse en marcha, e as súas orixes están intimamente relacionadas coa
+  física: comezou co intento de dous científicos escoceses de aplicar estes
+  obxectos á descrición dos elementos químicos.
+
+  Neste artigo imos repasar a curiosa orixe da teoría de nós moderna, que
+  combina a física da luz e o éter, unha caixa chea de fume tóxico e a táboa
+  periódica dos elementos.
+
+  == O éter
+
+  Para poñernos en contexto, temos que comezar por entender o que se coñecía da
+  luz a finais do século XVII. Huygens postulou no seu tratado sobre a luz
+  @Huygens que esta era unha onda lonxitudinal, que vibra na mesma
+  dirección na que se propaga. Neste sentido, unha onda de luz comportaríase do
+  mesmo xeito que unha onda mecánica nun fluído, similar ao son no aire. Esta
+  perspectiva explicaba os fenómenos da refracción e difracción, pero non o de
+  birrefrinxencia. Para intentar solucionar este problema, Newton propuxo que a
+  luz estaba composta de corpúsculos @Newton. Isto lograba explicar a
+  birrefrinxencia, aínda que pola contra non conseguía recuperar a refracción e
+  a difracción. Finalmente, a teoría ondulatoria impúxose: tratando a luz como
+  unha onda transversal, que vibra en direccións transversais á de propagación,
+  podían explicarse os tres fenómenos de xeito satisfactorio.
+
+  Por outra banda, o consenso entre os físicos da época era que toda onda (xa
+  sexa lonxitudinal ou transversal) necesita un medio físico para propagarse.
+  Coñecíase que a luz era capaz de propagarse a unha velocidade altísima a
+  través do aire, a auga e incluso o espazo, polo que todo o Universo debía
+  estar cheo dun medio moi peculiar que servise de soporte ás ondas de luz.
+  Este medio chamouse _éter luminífero_, e sería esta substancia que
+  vibraría para facer que a luz se propagase a través dela. Adicionalmente,
+  este medio podería proporcionar un sistema de referencia privilexiado,
+  solucionando outra cuestión importante na filosofía da física.
+
+  Este é o contexto no que se desenvolveu o electromagnetismo clásico no século
+  XIX, que orixinalmente non estaba conectado coa física da luz. Pola súa
+  banda, Michael Faraday propuxo a existencia de _liñas de forza_ co
+  obxectivo de explicar como poden as cargas eléctricas afectarse entre si.
+  Faraday foi un científico eminentemente experimental, e non foi quen de
+  desenvolver unha formulación matemática precisa das súas ideas. Este traballo
+  foi feito posteriormente por James C. Maxwell.
+
+  Tratando de entender as liñas de forza, Maxwell notou que as ecuacións da
+  electrostática no baleiro
+
+  $
+    nabla dot.op bold(E) = 0, #h(0.6cm) nabla times bold(E) = 0,
+  $
+
+  teñen unha forma similar ás ecuacións do fluxo dun fluído incompresible sen
+  viscosidade e vorticidade nula,
+
+  $
+    nabla dot.op bold(E) = 0, #h(0.6cm) nabla times bold(v) = 0,
+  $
+
+  onde $bold(v)$ é o campo de velocidades. Isto deulle a entender que esas
+  liñas de forza podían entenderse como pequenos tubos que transportan un
+  fluído ideal. Este fluído sería o éter.
+
+  == A caixa que fuma
+
+  Agora imos relaxar a condición de vorticidade nula. Facendo isto, podemos
+  introducir o concepto de _liñas de vorticidade_. Unha liña de vorticidade dun
+  campo $bold(v)$ vén dada por
+
+  $
+    omega = nabla times bold(v),
+  $
+
+  de xeito que é inmediato comprobar que a súa diverxencia é nula por
+  definición,
+
+  $
+    nabla dot.op omega = nabla dot.op (nabla times bold(v)) = 0.
+  $
+
+  Isto implica que a devandita liña non pode ter fontes ou sumidoiros no
+  interior do fluído, e unicamente pode ter os seus extremos na fronteira do
+  fluído ou unidos entre eles, formando unha curva pechada. Hermann von
+  Helmholtz demostrou a partir dos seus teoremas que unha liña de vorticidade
+  nun fluído ideal é estable @Helmholtz. Isto implica que a liña pode
+  deformarse, pero non pode romperse e disiparse no interior do fluído.
+
+
+  Este resultado inspirou a Peter G. Tait para construír un mecanismo que
+  producise tales liñas de vorticidade estables. O que deseñou foi unha caixa
+  con dúas aberturas: nunha delas había un buraco circular e na outra, unha
+  membrana tersa. Esta caixa enchíase dalgunha substancia que producise fume e,
+  ao golpear a membrana, este saía pola abertura circular formando aneis. Este
+  truco xa era amplamente coñecido polos fumadores, pero Tait inventou a
+  primeira caixa capaz de fumar.
+
+  #figure(
+    image("/revistas/005/imaxes/caixa.png"),
+    caption: [A caixa construída por Tait @Tait.]
+  )  
+
+  A caixa producía aneis de fume que saían da súa boca e viaxaban polo aire,
+  antes de desfacerse e disiparse por completo. Nin o fume do seu interior nin
+  o aire no que viaxaban eran fluídos ideais (de feito, o fume era bastante
+  tóxico), pero a construción servía para demostrar o efecto do que Helmholtz
+  falaba. Tait mostroulle os seus resultados ao seu colega William Thompson
+  (mellor coñecido como Lord Kelvin), quen quedou encantado co invento. Nos
+  anos seguintes ambos traballarían en perfeccionar o aparello, e foi ao ver os
+  aneis de fume viaxar polo aire do seu laboratorio cando Kelvin tivo unha idea
+  revolucionaria: os distintos elementos químicos son liñas de vorticidade no
+  éter @Silver.
+
+  == A táboa periódica
+
+  Uns anos antes, o científico inglés John Dalton introduciu o concepto do
+  átomo na ciencia. O seu descubrimento xurdiu do estudo de compostos
+  diferentes formados polos mesmos elementos, nos cales observou que as
+  proporcións dos elementos eran sempre números enteiros pequenos @Dalton.
+
+  A conclusión de Dalton foi que a materia debía estar constituída por unidades
+  indivisibles chamadas átomos. No entanto, a identidade destes átomos seguía
+  sendo un misterio. O comportamento químico de cada elemento era moi
+  diferente, o cal implicaba que cada tipo de átomo debía ter algunha
+  propiedade intrínseca descoñecida que o diferenciase.
+
+  Foi precisamente esta clasificación a que Kelvin creu encontrar nos aneis de
+  fume. A súa idea foi que un átomo é unha liña de vorticidade estable no éter,
+  correspondéndose cada elemento químico cun xeito diferente de formar un nó.
+  Estes nós deben ter os extremos unidos e diferéncianse no sentido de que non
+  poden ser deformados de xeito continuo (sen romper ou pegar ningún segmento)
+  noutro nó. Dous nós que puidesen deformarse entre si, por moi complicado que
+  fose o procedemento, serían equivalentes, dando lugar ao mesmo elemento.
+
+  A táboa periódica dos elementos corresponderíase entón cunha táboa de nós non
+  equivalentes, o que motivou a Tait a comezar a recoller nunha lista todos os
+  nós diferentes. Este esforzo deu nacemento á teoría de nós, que se
+  convertería nunha rama propia das matemáticas nos anos posteriores.
+
+  #figure(
+    image("/revistas/005/imaxes/nos.png"),
+    caption: [Os sete nós máis sinxelos clasificados por Tait @Silver.]
+  )
+
+  A idea tiña beleza e simplicidade, pero o seu fundamento científico estaba
+  pouco definido. Porén, iso non evitou que Kelvin se convencese de que o
+  misterio dos átomos xa estaba resolto. E é que a pesar de ser un gran
+  científico con ideas moi creativas, Lord Kelvin tiña o mal hábito de
+  convencerse demasiado rápido das súas propias ideas. Xa noutras ocasións
+  anteriores metera a pata coas súas conclusións, como cando aseverou que a
+  Terra non podía ter máis de 100 millóns de anos, indo en contra da evidencia
+  xeolóxica e a recentemente publicada teoría da evolución por selección
+  natural.
+
+  == O fin do éter
+
+  As malas noticias para Lord Kelvin chegarían en 1887, cando Albert A.
+  Michelson e Edward W. Morley intentaron detectar o éter co seu
+  interferómetro, obtendo un resultado nulo @MichaelsonMorley. Aínda que
+  este resultado non 
+  // corrixo Michaelson por Michelson, pero deixo o nome da cita como estaba 
+  desbotaba por completo a existencia do éter, impoñía enormes restricións na
+  súa posible natureza.
+
+  O único xeito de reconciliar o resultado nulo coa existencia do éter era
+  asumir que os obxectos se contraían na dirección na que se movían a través do
+  éter. Este fenómeno foi proposto independentemente por George F. FitzGerald
+  @FitzGerald e Hendrik A. Lorentz @Lorentz, e posteriormente Henri
+  Poincaré demostrou que era compatible co principio de relatividade
+  @Poincare (i.e., as ecuacións describindo as leis físicas teñen a mesma
+  forma en todos os sistemas de referencia admisibles).
+
+  A revolución chegou en 1905 da man de Albert Einstein coa proposta dunha
+  teoría derivada a partir de primeiros principios que ignoraba a existencia do
+  éter, pero que conseguía explicar todos os fenómenos observables
+  anteriormente atribuídos a el @Einstein. Esta nova teoría incluía o
+  fenómeno de contracción de lonxitudes, e implicaba tanto a relatividade do
+  espazo coma do tempo.
+
+  == Conclusións
+
+  A historia da teoría de nós é curiosa e arrevesada, impulsada por Lord Kelvin
+  e con orixes nunha intersección entre a física da luz e a química dos
+  elementos. A proposta para intentar clasificar os elementos como
+  configuracións particulares do éter luminífero foi unha idea moi elegante,
+  pero á que finalmente esa elegancia non a salvou de resultar sendo errónea.
+  Lord Kelvin foi un dos máis grandes físicos da historia pero, coma xa se
+  dixo, tiña o mal costume de quedar encadeado nas súas propias ideas demasiado
+  pronto. Ademais, daba un gran valor ao carácter estético das súas teorías.
+
+  Esta práctica non é particularmente pouco común entre os físicos,
+  especialmente en ámbitos teóricos. Dende que as matemáticas se empezaron a
+  empregar para formular as leis físicas intentouse, ademais, facelo de forma
+  "bela e elegante". Isto non é necesariamente contraproducente, e ten sido
+  útil nalgunhas ocasións. Pode axudar a descubrir conexións profundas e sutís
+  entre diferentes conceptos da física matemática que non son evidentes nun
+  primeiro momento, pero debe aplicarse con coidado para non caer en sesgos
+  subxectivos e 
+  // Entendo que nesgos é sesgos (que non existe en galego)
+  convencerse de que unha teoría debe ser certa só pola súa beleza. Ao fin e ao
+  cabo, a "beleza" nas matemáticas é un concepto fortemente subxectivo.
+
+  #bibliography("/revistas/005/bibliografia_VICTOR_DD.bib")
+
+]
