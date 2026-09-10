@@ -258,7 +258,7 @@
   non perturbativos é o da integral de camiño, particularmente ilustrativa á
   hora de «entender» como funciona a mecánica cuántica da partícula puntual
   non-relativista, e que gozou dun amplo éxito á hora de cuantizar as
-  interaccións descritas polo modelo estándar \cite{FH}. Neste formalismo, cada
+  interaccións descritas polo modelo estándar @FH. Neste formalismo, cada
   amplitude de probabilidade cuántica relevante avalíase a partir dunha
   integral funcional dos campos a considerar, é dicir, unha integral na que as
   variables de integración son formas funcionais en lugar de coordenadas
