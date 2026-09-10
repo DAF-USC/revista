@@ -13,7 +13,7 @@
       "revistas/005/artigo_MAURO.typ",
       "revistas/005/artigo_VICTOR_DD.typ",
       "revistas/005/artigo_SANTY_GG.typ",
-    //  "revistas/005/artigo_MANUEL_GR.typ",
+      "revistas/005/artigo_MANUEL_GR.typ",
     ),
 
     cor_resalte: "e66f00",
