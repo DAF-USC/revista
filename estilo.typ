@@ -346,14 +346,14 @@
                 x:0,y:0,
                 image(
                     width: 12cm,
-                    "logos/vicerreitoria-branco-negro.pdf",
+                    "/logos/vicerreitoria-branco-negro.pdf",
                 )
             ),
             grid.cell(
                 x:1,y:0,
                 image(
                     width: 5cm,
-                    "logos/IGFAE_acronimo_escuro.pdf",
+                    "/logos/IGFAE_acronimo_escuro.pdf",
                 )
             )
         )
@@ -653,11 +653,11 @@
 // :FACER:MIGRACION: estilo da contraportada
 #let estilo_contraportada(doc) = {
     set page(
-        margin     : ( top : 5mm, left : 5mm, right : 5mm, bottom : 5mm, ),
+        margin     : (top : 5mm, left : 6mm, right : 6mm, bottom : 8mm),
         background : place(
             center,
             dy : 10em,
-            image("logos/botafumeiro.png")
+            image("/logos/botafumeiro.png")
         )
     )
     doc
@@ -670,27 +670,36 @@
 
     grid(
         columns    : 100%,
-        rows       : (4fr, 0pt, 1fr),
-        align      : center + horizon,
+        rows       : (auto, 1fr, 0pt, auto),
+        align      : center,
         row-gutter : 1em,
 
-        // Un Momentum...
+        // Un Momentum... (despedida)
         block(
-            width : 70%,
+            width : 68%,
+            inset : (top: 2.2cm),
             {
-                text(size: 2em, [Un Momentum...])
+                text(size: 2.1em, [Un Momentum...])
                 text(
-                    size: 1.5em,
+                    size: 1.3em,
                     {
                         set par(justify: true, leading:0.3em)
                         datos.despedida
                     }
                 )
-                text(size: 2em, [Agradecementos])
+            }
+        ),
+
+        // Agradecementos
+        block(
+            width : 75%,
+            {
+                v(1cm)
+                text(size: 1.3em, [Agradecementos])
                 text(
-                    size: 1.2em,
+                    size: 1em,
                     {
-                        set par(justify: true, leading:0.3em)
+                        set par(justify: true, leading:0.5em)
                         datos.agradecementos
                     }
                 )
@@ -719,26 +728,37 @@
                         options: (
                             option-1 : 4,   // corrección de erros, 1-4
                             option-2 : 8,   // detalle, 1-40
-                            scale    : 1.5,
+                            scale    : 1.2,
                         ),
                     )
                 )
             ),
 
             // QR2
-            grid.cell(x:1, y:0, [Participa! (WhatsApp)]),
+            grid.cell(x:1, y:0, [WhatsApp]),
             grid.cell(
                 x: 1, y:1,
                 link(
                     datos.whatsapp,
-                    tiaoma.barcode(datos.whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.5))
+                    tiaoma.barcode(datos.whatsapp, "QRCode", options: (option-1: 4, option-2: 8, scale: 1.2))
                 )
             ),
 
             // Financiación
-            // :FACER:MIGRACION: meter financiamento
             grid.cell(x:2, y:0, [Co financiamento de]),
-            grid.cell(x:2, y:1, [Alguén])
+            grid.cell(
+                x:2,
+                y:1,
+                grid(
+                    columns: (7cm, 1fr),
+                    rows: (auto, auto),
+                    row-gutter: 1em,
+                    align: (left + horizon, right + horizon),
+                    grid.cell(x:0,y:0,image(width: 9cm, "/logos/vicerreitoria-branco-negro.pdf")),
+                    grid.cell(x:1,y:0,image(width: 5cm, "/logos/IGFAE_denominador_escuro.pdf")),
+                    grid.cell(x:0,y:1, colspan:2, image("/logos/cigus.png"))
+                )
+            )
 
         )
 
