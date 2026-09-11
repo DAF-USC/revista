@@ -657,9 +657,7 @@
         background : place(
             center,
             dy : 10em,
-            circle(radius:7cm, stroke: luma(90%) + 9pt,[  ])
-            // :FACER:MIGRACION: meter o péndulo da contraportada contransparencia
-            // image("imaxes/fondo_contraportada.png")
+            image("logos/botafumeiro.png")
         )
     )
     doc
