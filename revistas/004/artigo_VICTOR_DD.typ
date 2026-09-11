@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "DIVULGACIÓN",
+  tema      : "DIVULGACIÓN",
   titulo    : [Por que o bosón de Higgs non é moi "natural"],
   autoria   : [Víctor Díaz Díaz],
   subtitulo : [Breve explicación da relación entre o problema da xerarquía e a

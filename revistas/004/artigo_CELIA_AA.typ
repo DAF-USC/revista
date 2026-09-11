@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "HISTORIA",
+  tema      : "HISTORIA",
   titulo    : [Relatos dunha vida extraordinaria],
   autoria   : [Celia Álvarez Álvarez],
   subtitulo : [Memorias e leccións da vida de Jane Goodall.],

@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "FILOSOFÍA",
+  tema      : "FILOSOFÍA",
   titulo    : [Somos donos das nosas decisións?],
   autoria   : [Mauro Garrido Rodríguez],
   subtitulo : [Entre o determinismo clásico, a aleatoriadade cuántica e o "eu".],

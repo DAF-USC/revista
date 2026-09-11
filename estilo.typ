@@ -139,11 +139,13 @@
 //         titulo: "Benvida a Momentum",
 //         autoria: "Equipo Decanal",
 //         localizacion: (page: 3, x: 28.35pt, y: 56.69pt),
+//         tema: "DIVULGACIÓN"
 //     ),
 //     (
 //         titulo: "Carathéodory e a axiomatización da termodinámica",
 //         autoria: "Sebastián Táboas Pazo",
 //         localizacion: (page: 5, x: 28.35pt, y: 56.69pt),
+//         tema: "HISTORIA"
 //     ),
 //     ...
 // )
@@ -411,32 +413,50 @@
                     )
                 )
             )
+            // Texto coas liñas e o tema da sección
+            let separador(tema) = block(
+                width: 10cm,
+                grid(
+                    columns: (1fr, auto, 1fr),
+                    align: (center + horizon, center + horizon, center + horizon),
+                    column-gutter: 1em,
+                    line(stroke: 0.6pt, length: 100%),
+                    text(size: 0.8em, font: _semi.familia, stretch: _semi.estiramento, upper(tema)),
+                    line(stroke: 0.6pt, length: 100%),
+                )
+            )
             // ERRO (curioso) facer simplemente #_artigos.final() non vai, está bugueado.
             //
-            // Iteramos polo array ca info dos artigos.
-            context for artigo in _artigos.final() {
-                // Mostramos os artigos como ligazóns
-                link(
-                    // A onde nos vai levar a ligazón
-                    artigo.localizacion,
-                    // Que mostra a ligazón
-                    {
-                        text(
-                            fill    : rgb(datos.cor_resalte).darken(20%),
-                            font    : _semi.familia,
-                            stretch : _semi.estiramento,
-                            [
-                                #show "\n": " " // Un truco para eliminar as novas liñas "\n" dos títulos
-                                *#artigo.titulo* // TITULO
-                            ],
-                        )
-                        h(1fr)
-                        [*#artigo.localizacion.page*] // PÁXINA
-                        linebreak()
-                        artigo.autoria // AUTORIA
-                        v(1em)
-                    }
-                )
+            // Partindo do array final dos artigos, creamos outro array con
+            // 'map' que teña so os temas (sen duplicar), como ("divulgacion", "historia", ...)
+            context for tema in _artigos.final().map(x => x.tema).dedup() {
+                // Mostramos o separador co tema
+                separador(tema)
+                // Do array de artigos, collemos os que teñen o noso tema, e iteramos un a un
+                for artigo in _artigos.final().filter(x => x.tema == tema) {
+                    // Creamos un ligazón
+                    link(
+                        // A onde nos vai levar a ligazón
+                        artigo.localizacion,
+                        // Que mostra a ligazón
+                        {
+                            text(
+                                fill    : rgb(datos.cor_resalte).darken(20%),
+                                font    : _semi.familia,
+                                stretch : _semi.estiramento,
+                                [
+                                    #show "\n": " " // Un truco para eliminar as novas liñas "\n" dos títulos
+                                    *#artigo.titulo* // TITULO
+                                ],
+                            )
+                            h(1fr)
+                            [*#artigo.localizacion.page*] // PÁXINA
+                            linebreak()
+                            artigo.autoria // AUTORIA
+                            v(1em)
+                        }
+                    )
+                }
             }
         }
     ),
@@ -531,7 +551,7 @@
 
 // Estilo para os artigos
 #let estilo_artigos(
-    estilo: "-- SEN ESTILO --",
+    tema: "-- SEN TEMA --",
     doc
 ) = {
     // Re-usamos o estilo xeral, así, se compilamos os artigos individualmente,
@@ -560,7 +580,7 @@
                         font   : _cond.familia,
                         stretch: _cond.estiramento,
                         weight : "bold",
-                        estilo
+                        upper(tema)
                     )
                 ),
                 grid.cell(x:0, y:1, line(length:100%, stroke:0.2pt)),
@@ -807,12 +827,12 @@
     subtitulo     : none,                // CONTENT Subtítulo do artigo
     afiliacion    : none,                // STRING  Afiliación dos autores
     // :FACER: realmente fai falla esto? Engadimos combrobacións?
-    estilo        : "-- SEN ESTILO --",  // STRING  Estilo do artigo (divulgación, historia, etc.)
+    tema        : "-- SEN ESTILO --",  // STRING  Estilo do artigo (divulgación, historia, etc.)
     artigo
 ) = {
     // :FACER: engadir comprobacións, p.e. assert(type(titulo) == "content")
 
-    show: estilo_artigos.with(estilo: estilo)
+    show: estilo_artigos.with(tema: tema)
 
     // Contidos do Titular. Un array cos elementos. Ao final filtramos este
     // array pa quedarnos so cos contidos distintos de 'none'. Se non hai
@@ -831,17 +851,20 @@
                         condensada(heading(depth: 1, titulo)) /* Mostrar o título */
                         let posicion = here().position() /* Variable ca posición actual */
                         // Agora actualizamos a lista de artigos engadindo un
-                        // dicionario con titulo, autoría e posición Este
+                        // dicionario con titulo, autoría, posición e tema. Este
                         // dicionario é o que se usa no índice para sacar a
                         // info dos artigos
                         _artigos.update(
                             // 'x' é o array actual. Engadímoslle (ousexa,
                             // concatenamoslle) outro array que contén un
-                            // dicionario cas claves 'titulo','autoria' e
-                            // 'localizacion'.
+                            // dicionario cas claves 'titulo','autoria',
+                            // 'localizacion' e 'tema'
                             x => x + (
                                 (
-                                    titulo : titulo, autoria : autoria, localizacion : posicion,
+                                    titulo       : titulo,
+                                    autoria      : autoria,
+                                    localizacion : posicion,
+                                    tema         : tema
                                 ), // IMPORTANTE: Esta coma fai que estemos concatenando un array, non a quitedes
                             )
                         )

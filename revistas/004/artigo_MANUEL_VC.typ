@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "HISTORIA",
+  tema      : "HISTORIA",
   titulo    : [Buracos negros antes de Einstein?],
   autoria   : [Manuel Vázquez Carreira],
   subtitulo : [Como Michell e Laplace teorizaron por primeira vez os buracos negros.],
