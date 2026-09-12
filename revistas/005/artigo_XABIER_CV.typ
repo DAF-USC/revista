@@ -1,0 +1,192 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+  titulo: [Grandes colaboracións para buscar o máis pequeño],
+  autoria: "Xabier Cid Vidal",
+  tema: "DIVULGACIÓN"
+)
+
+#columns[
+
+  == A sociedade das Reunións Continuas
+
+  Luns, 9 da mañá. A semana comeza coma sempre, mirando a lista de reunións que
+  vou ter. Non deixo de sorprenderme pola cantidade delas ás que acudín nos
+  anos que levo traballando na física de partículas experimental. Posiblemente
+  esteamos a falar dunha media dunha reunión por día, e de máis dunha hora de
+  duración cada unha! E estou seguro de que o meu caso non é dos máis
+  esaxerados.
+
+  Recordo cando se chanceaba sobre o nome do meu actual experimento, CMS.
+  Dicíase que xa non facía referencia ao seu famoso solenoide (_Compact Muon
+  Solenoid_), senón a que eramos unha _Continuous Meeting Society_ (Sociedade
+  de Reunións Continuas). E, non obstante, non hai outro xeito: non podemos
+  facer física de partículas experimental sen reunirnos, é dicir, sen
+  colaborar.
+
+  == O salto a CMS e a nova era no IGFAE
+
+  Despois de ser membro da colaboración LHCb desde hai máis de 15 anos,
+  recentemente dei o salto a CMS. Ambos son grandes experimentos que rexistran
+  o resultado das colisións do LHC, o Gran Colisor de Hadróns. Situado no CERN
+  (Xenebra, Suíza), o LHC é o maior, máis potente e máis enerxético colisor de
+  partículas da historia. A miña chegada a CMS supón un fito emocionante, xa
+  que se trata dun novo experimento no IGFAE. Isto abre un abanico inmenso de
+  novas oportunidades científicas para a Facultade de Física da USC,
+  permitíndonos participar nun detector de propósito xeral que cobre un
+  programa físico brutal. A diferenza doutros experimentos máis específicos,
+  CMS foi un dos dous deseños que nos levou ao descubrimento do bosón de Higgs,
+  e o seu enorme solenoide supercondutor permítelle curvar con precisión trazas
+  de partículas para cazar desde as escorregadizas partículas supersimétricas
+  ata as desintegracións máis exóticas asociadas á materia escura. Ter acceso á
+  inxente cantidade de datos deste xigante multiplicará as liñas de análise e o
+  impacto das investigacións que levaremos a cabo na nosa universidade.
+
+  As colaboracións máis grandes do LHC, ATLAS e CMS, responsables do
+  descubrimento do bosón de Higgs, contan con máis de 6000 membros cada unha na
+  actualidade. Como referencia histórica, as colaboracións UA1 e UA2 do CERN,
+  que descubriron os bosóns W e Z nos anos 80 do século pasado, contaban cada
+  unha con menos de 150 colaboradores. Canto máis fundamental e pequeno é o que
+  queremos buscar, máis persoal científico fai falta! E uso "persoal
+  científico" en lugar de "físicos e físicas" intencionadamente, pois o papel
+  doutros campos, como o da enxeñaría, é crucial en física de partículas. Desde
+  a enxeñaría informática, que precisamos para manexar a inmensa cantidade de
+  datos coa que debemos tratar (o LHC, cando funciona, xera máis datos que
+  Facebook ou Instagram), ata profesionais en enxeñaría de  
+  // corrixo enxeñería por enxeñaría por manter coherencia co resto do texto
+  // estruturas 
+  que deseñan as cavernas nas que, a 100 m baixo terra, temos que instalar os
+  nosos experimentos.
+
+
+  == A ilusión do traballo individual
+
+  Os medios de comunicación tenden a vendernos a idea da ciencia como o
+  resultado dun esforzo individual. É verdade que moitos dos grandes avances
+  científicos ao longo da historia viñeron da man de xenios incribles, e tamén
+  o é que sen o talento individual a ciencia e a tecnoloxía non poden
+  progresar. Pero hoxe en día é difícil imaxinar unha disciplina na área
+  científico-tecnolóxica na cal non sexa necesario o traballo en equipo.
+  Evidentemente, o nivel de colaboración non é igual en todas as áreas, pero
+  estou bastante seguro de que é necesario na actualidade un certo grao en
+  todas elas.
+
+  #figure(
+    image("/revistas/005/imaxes/ccc.jpg"),
+    caption: [Council Chamber do CERN. (Foto: CERN)]
+  )
+
+  En relación a esta cuestión, quero mencionar a famosa serie de televisión
+  "The Big Bang Theory". É certo que contribuíu a popularizar o noso traballo,
+  e, incluso, hai quen asegura que houbo un boom no número de matriculados
+  universitarios en física grazas a ela. Non obstante, cando a vía, non podía
+  evitar sentir que o meu traballo na física de partículas non estaba ben
+  representado. Entendo que os creadores han de tomar licenzas artísticas,
+  pero... apenas hai colaboracións! E de habelas, só ocorren entre os
+  protagonistas, malia que un dos personaxes principais é experimental. Por non
+  mencionar que o CERN só aparece referenciado de forma moi esporádica. Todos
+  estaremos de acordo en que calquera persoa que investigue en física de
+  partículas na actualidade usa a palabra CERN ou LHC varias veces á semana
+  polo menos.
+
+  Neste sentido, o IGFAE ten unha longa e exitosa historia dentro do CERN
+  demostrando o valor das colaboracións. Un bo exemplo é o meu antigo
+  experimento, LHCb, unha colaboración de tamaño medio (uns 1800 membros) onde
+  o instituto é un dos grupos máis grandes. 
+
+  == A "República" dunha colaboración: Como nos organizamos?
+
+  A estrutura destas colaboracións é complexa. En xeral, divídense en grupos
+  relacionados cos temas de física nos que se traballa e outros máis técnicos,
+  relacionados con aspectos como a reconstrución, identificación de partículas
+  ou sistema de disparo. Ademais, existen grupos relacionados cos diferentes
+  subdetectores cos que conta o experimento. Cada grupo conta habitualmente con
+  dúas persoas coordinadoras para poder abarcar todo o traballo. Para entender
+  mellor como funciona, poderiamos establecer un paralelismo cunha república.
+
+  #figure(
+    image("/revistas/005/imaxes/XCV_grupal_CMS.jpg"),
+    caption: [Foto grupal da colaboración CMS. (Foto: CERN)]
+  )
+
+  _Poder Executivo_: A maioría das colaboracións están lideradas por unha
+  Portavocía (_Spokesperson_), similar á presidencia, que exerce como cara
+  pública do experimento, e ten a misión de establecer as liñas fundamentais da
+  colaboración. Hai ademais vice-portavocías, que exercen de complemento.
+  Existe tamén o posto clave de Coordinador ou Coordinadora da Física (_Physics
+  Coordinator_), a medio camiño entre a Portavocía e os grupos de física. Esta
+  persoa coordina os grupos e actúa como cara visible en moitos congresos.
+  Todos eles, xunto coas persoas coordinadoras dos grupos (que serían como
+  ministros ou ministras), representan o poder executivo. Por exemplo, temos a
+  sorte de contar na USC e IGFAE con María Vieites, investigadora Ramón y Cajal
+  e actual vice-coordinadora da física de LHCb.
+
+  _Poder Lexislativo_: Está formado polos institutos de investigación na
+  denominada Xunta da Colaboración (_Collaboration Board_), que debe ratificar
+  todas e cada unha das decisións. Esta Xunta reúnese varias veces ao ano, e
+  cada instituto ten un voto nela. Para rematar o paralelismo, os experimentos
+  teñen unha Constitución que establece as normas e é ratificada pola Xunta.
+  Ademais, a Xunta encárgase de decidir que novos institutos poden formar parte
+  da colaboración.
+
+  == Eleccións e votacións
+
+  Tal e como establecen as constitucións dos experimentos, as posicións
+  directivas escóllense mediante procesos moi estritos. No caso concreto de
+  CMS, as regras teñen as súas particularidades. Así, para a Portavocía
+  (_Spokesperson_), utilízase o voto directo e individual de todos os membros
+  da colaboración con dereito a autoría. É un exercicio puro de democracia
+  directa onde científicos e científicas deciden o seu líder. A Coordinación de
+  Física, pola contra, non se somete a unha votación xeral aberta. Ao ser un
+  cargo clave para a xestión técnica, é nomeado directamente pola Portavocía
+  para garantir un equipo cohesionado. Para moitas posicións executivas,
+  envíanse candidaturas, que son moi tidas en conta para tomar a decisión
+  final.
+
+  En todo caso, a última palabra sobre calquera cargo tena sempre a Xunta da
+  Colaboración. Calquera destes procesos democráticos ou de selección implica a
+  necesidade de movementos políticos. Existen varios factores a ter en conta:
+  nacionalidade, xénero, institución, idade... Conseguir un cargo executivo
+  nunha colaboración é un aspecto importante para o currículo científico, polo
+  que normalmente hai máis dunha candidatura para cada posto. Copiando do
+  inglés, falamos da necesidade de ter "sombreiros"; loxicamente, canto máis
+  grande o sombreiro, máis grande a 
+  // estas aspas <<sombreiros" quedan un pouco estrañas 
+  responsabilidade.
+
+  == A loxística global
+
+  Volvendo ás reunións do principio: son abundantes e necesarias, e tamén
+  representativas do funcionamento dunha colaboración. Normalmente teñen unha
+  certa periodicidade (sobre todo semanal ou bisemanal) e combinan unha sala
+  física no CERN cunha virtual. A sala virtual faise en plataformas en liña
+  como Zoom.
+
+  Cando un debe reunirse con colaboradores de todo o mundo, atopar unha hora
+  axeitada pode ser todo un reto! De feito, a única hora válida cando nos
+  xuntamos con xente de América e de Asia é a sobremesa europea, arredor das 2
+  da tarde. Implica un madrugón para os americanos e traballar ata tarde para
+  os asiáticos, pero é a única solución. As reunións desenvólvense utilizando
+  ferramentas como PowerPoint ou LaTeX. E o que máis hai nas reunións é diálogo
+  e discusión, moita discusión! Toda esta estrutura é intricada e complexa,
+  pero é fundamental para que podamos facer ciencia. Non poderiamos facela sen
+  as colaboracións, pero non podemos pretender coordinar a miles de científicos
+  e científicas sen un mínimo de organización.
+
+  Gústame pensar nas nosas colaboracións como unha gran familia, e realmente o
+  noso grao de identificación dentro dela é elevado. Cando estamos no CERN,
+  xuntámonos cos membros da nosa colaboración de forma case inconsciente, en
+  moitos casos antepoñendo este criterio á nacionalidade. Nas colaboracións
+  traballan conxuntamente persoas de países que pode que sexan rivais, e
+  incluso inimigos no terreo político, o cal sería inimaxinable fóra do ámbito
+  científico. Do mesmo xeito que cando necesitamos atopar algo pequeno na casa,
+  como as chaves, toda a familia se une como un equipo para logralo, as
+  colaboracións de física de partículas fan o mesmo para buscar novos fenómenos
+  nas escalas máis pequenas. Neste caso, non é unha elección, é unha obriga.
+
+  En tempos tan convulsos nos que institucións, gobernos e organismos deberían
+  buscar o acordo ante os grandes retos, por riba das diferenzas, as
+  colaboracións científicas deberían servirnos de exemplo.
+
+]
+

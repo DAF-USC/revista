@@ -1,0 +1,275 @@
+#import("/estilo.typ"): *
+
+#show: Artigo.with(
+    titulo    : [Poesía e física: _De catro a catro_],
+    subtitulo : [Como a física e a arte, a poesía de creación, 
+                son caras dunha mesma moeda.],
+    autoria   : "Sebastián Táboas Pazo",
+    tema      : "DIVULGACIÓN",
+)
+
+#set quote(block: true)
+
+#columns[
+
+  #quote(attribution: [J. L. Borges])[
+    La poesía es una necesidad, y he descubierto que no es rara. Además, he
+    descubierto que, muchas veces, caminando por la calle uno oye frases
+    poéticas dichas por personas que no saben que las frases son poéticas.
+  ]
+
+  #quote(attribution: [F. F. García Armesto])[
+    Le preguntamos [a Rafael Dieste], pues: ¿por qué siendo ante todo poeta
+    (...) le han preocupado las matemáticas?
+  ]
+
+  == Preámbulo. Ciencia e... arte?
+  
+  Ás veces, ao falarmos casualmente, atopamos esa postura dicotómica entre a
+  irreconciliabilidade das ciencias e das letras, unha guerra que moitas veces
+  levan a un discurso depreciativo entre o estudantado de diversas ramas.
+  Sempre sorprende aquel comentario onde na ciencia se ve arte ou na arte,
+  ciencia. Non é, acaso, Kandinsky tan bo xeómetra como Hilbert?
+  // cambiado "xeómetro" -> "xeómetra", "como" -> "coma"?
+
+  A ciencia e a realidade tecnolóxica, que dela se deriva, sempre xoga un papel
+  fundamental nun traballo artístico, quizais só como marco, como contexto,
+  mais sempre hai quen fai da ciencia integramente arte. As vangardas de
+  principios de século XX presentaron unha revolución que respondía ao
+  cambiante paradigma tecno-científico, claro é revisando os ismos como o
+  ultraísmo ou o futurismo. Exemplo testemuñal é o manifesto _Le
+  Futurisme_ @futurismo de 1909, "IV- Declaramos que el esplendor del
+  mundo se ha enriquecido de una belleza nueva: la belleza de la velocidad. Un
+  automóvil de carrera con su vientre ornado de gruesas tuberías, parecidas a
+  serpientes de aliento explosivo y furioso...".
+
+  /*
+  Un dos grandes poetas no século XX do noso país, creacionista excelso coma V.
+  Huidobro, de educación x, chegouse a interesar moito polos traballos de
+  Einstein (fixo ensaios), así o plasma no seu libro _De catro a catro_
+  */
+
+  == Manuel Antonio e Einstein
+
+  Traiamos toda esta realidade artística aquí, a un Rianxo de comezos de século,
+  a un xove poeta galego, a Manuel Antonio. 
+  //xove: forma menos recomendábel por mozo, novo
+
+  Falamos agora dunha época de grandes cambios, marcada por esa filosofía da
+  sospeita 
+  #footnote[Paul Ricoeur tacha os filósofos Marx (o traballo), Freud
+  (o subconsciente) e Nietzsche (os valores e a identidade individual) de
+  "mestres da sospeita" no seu libro _Freud: unha interpretación da cultura_
+  por sinalar aquelas dimensións que subxacen baixo a identidade humana.],
+  auxe da Segunda Revolución Industrial, época convulsa, fin do imperialismo,
+  vangardas como resistencia e, na física, case completa (sentencia Kelvin),
+  aparece un xove  //xove: forma menos recomendábel por mozo, novo Albert
+  Einstein, acabado de doutorarse, que publica (entre outros) un artigo
+  revolucionario, _Zur Elektrodynamik bewegter Körper_ (1905), até esas famosas
+  conferencias de 1915. Morría a física newtoniana, o tempo absoluto, e nacía a
+  moderna relatividade que atraía todas esas cabezas famentas de novos
+  continentes, que atraía todas esas vangardas.
+
+  #figure(
+    image(width: 100%, "/revistas/005/imaxes/ma2_victor.jpg"),
+    caption: [Manuel Antonio, entusiasta do tabaco de pipa.]
+  ) <im:manuelantonio>
+
+
+  O rianxeiro mostrou sumo interese por todos estes traballos revolucionarios,
+  fervente lector das novidades científicas europeas (cónstanos que se
+  entregara  
+  // neste contexto, fervente é unha palabra menos recomendábel por fervoroso,
+  // segundo a RAG 
+  moito na ciencia alemá @MA_bib), Nietzsche e os avances vangardistas, entre
+  estes, estaba moi ao tanto das novidades que trouxera Vicente Huidobro na súa
+  primeira visita a España en 1918 e da súa conferencia no Ateneo de Madrid 
+  de 1921. Entre as súas lecturas científicas destaca a súa inmersión na
+  comprensión das investigacións e resultados de Einstein das que quedara
+  prendido cunha ollada. Todos estes detalles son coñecidos grazas á súa
+  correspondencia e á descrición da biblioteca do rianxeiro que fai
+  García-Sabell. Así, nunha carta que lle escribe a Cebreiro en 1922 figura:
+
+
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
+    _Merquei algún libro para me 'doutorar' nela [a teoría da relatividade] e
+    agora ando tralo seguinte: Posto que a teoría da Relatividade demostra que
+    o Tempo e o Espazo e outras cousas son máis ou menos longas asegundo o
+    sistema de referenza, eu vou a desenrolar a miña autividade no medio en que
+    o Tempo teña a maisima longuedade e o Espazo a mínima._ @d4a4
+  ]
+
+
+  Isto é, sen lugar a dúbidas, o xerme da xénese do poemario _De catro a
+  catro_, unha xénese vencellada á física, aos recentes descubrimentos dos
+  científicos estranxeiros; poesía que se reduce á física. A marabillación do
+  poeta é tal que conclúe a súa carta cunha certa sorna adulación:
+
+
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
+    _Non se trata de parar o sol como Xosué, sinón de ir diante da cencia
+    alemá. ¿Como che quedou o corpo? \ Este Dr.Einstein 'es un tigre' como
+    din os 'ches', pero como non é galego ¡que se lle vai facer! ten que
+    ficar sempre por debaixo de nós._ @d4a4
+  ]
+
+  Frecuentemente Manuel Antonio compartía e debatía ideas de toda índole, entre
+  elas literarias, con Dieste, acérrimo amigo de letras, tamén rianxeiro. Non
+  foi excepción desta idea xerme que figura na carta a Cebreiro, anos máis
+  tarde comentará:
+
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
+    _Siendo muy muchachos, me encontré con la sorpresa de que Manuel Antonio lo
+    suponía, sí [el espacio limitado, mínimo]. Me fue muy fácil persuadirle de
+    que ese límite, siendo una frontera, implicaba una continuación al otro
+    lado y de que aun suponiendo maciza e impenetrable esa continuación era
+    imposible concebirla sin espacio. Vi que acababa de abrirse como una nueva
+    luz en su consmovisión y que estaba por ello muy sorprendido y
+    contentísimo._@d4a4
+  ]
+
+  O que sen dúbida foi fundamental para a creación de _De catro a catro_
+  tal e como a coñecemos, coa súa escrita fragmentaria de espazo-temporalidade
+  tan marcada. Xa sexa dito de paso, segundo fun investigando e documentándome
+  para escribir este artigo que me roldaba a cabeza, atopeime con que Manuel
+  Antonio non era un exemplo tan xenial da física na poesía como si o é Rafael
+  Dieste coas matemáticas @dieste_xeometria.
+
+  == Relatividade na teoría poética
+
+  Baixo a pretensión de realizar unha breve análise da obra que encabeza este
+  artigo, afondaremos no ismo que máis a roza: _o creacionismo_. Este
+  interese polas teorías de Einstein non era exclusiva do noso poeta, senón que
+  foi común en todos os creacionistas; xeneralizado a todas as vangardas e a
+  moitos ámbitos, moitas veces terxiversadas.
+
+  No escrito de 1926 _El creacionismo_ @creacionismo, Vicente Huidobro
+  sentencia que "Lo realizado en la mecánica también se ha hecho en la poesía",
+  sendo a nova teoría dinámica de Einstein un gran logro da física, por que non
+  conquistar tamén este continente na poesía? Fai, principalmente, unha chamada
+  a crear, que a única condición do poeta é _crear_, como xa declarara
+  contundentemente na súa conferencia de xuño de 1916 no Ateneo de Buenos
+  Aires. Seguindo xa máis de cerca o criterio de Gerardo Diego, "o creador de
+  imaxes comeza a crear por crear, non describe, constrúe; non evoca, suxire"
+  @posibilidades.
+
+  Podemos seguir un fío na pescuda de migallas relativistas nesta teoría
+  poética.  //migalla: forma menos recomendábel por miga 
+  Nese mesmo escrito de 1926 sinálase que «La poesía creacionista adquiere
+  proporciones internacionales» en canto que a poesía para sublimar non depende
+  dunha lingua; é un invariante do sistema de referencia, non se intúe aquí
+  acaso unha teoría da relatividade case física?
+
+  A calidade máis notable é, en realidade, ese trato da dimensión
+  espazo-temporal no poema creacionista como se fose un tecido que depende do
+  movemento, das forzas, do observador, dunha clara implicación relativista que
+  non se esforzan en ocultar @d4a4. Explica Kathleen March @march
+  que o xeito dos poetas de utilizar estas nocións, ou máis ben, no caso de
+  Manuel Antonio, é "Por medio do verbo", explica que "hai varias formas de
+  descompoñer a imaxe ou de construila para despois anulala. (...) os verbos, a
+  miúdo, pertencen a un campo de significado relacionado coa desaparición --ou
+  á destrución--. (...) Moitos deles apuntan a un tempo ou lugar alonxado, a
+  unha falta de precisión ou asequibilidade. Esto trae como consecuencia a
+  incapacidade de asir o obxecto poético que se atopa dotado dunha constante
+  dinamicidade." A fin do emprego dos verbos é a anulación do tempo secuencial,
+  da cadea lóxica (como se se pretendese escribir fóra do cono de luz dende
+  dentro). Nun mesmo poema aparecen imaxes coespaciais cuxos verbos (que
+  describen a acción) preséntanse tanto en pasado como en presente creando unha
+  organización allea ao tempo lóxico. 
+
+  /*
+  "Non hai cronoloxía obrigatoria, aínda que o ollo do lector tende a
+  desprazarse desde a parte superior da páxina cara a abaixo" @march.
+  */
+ 
+  #figure(
+    image(width: 55%, "/revistas/005/imaxes/excelsior.jpg"),
+    caption: [Copia orixinal de _Excelsior_, exposta na casa-museo.]
+  ) <im:excelsior>
+
+
+  Para combater esta verticalidade o poeta practicaba o caligrama, súmmum
+  cubista no poema, cuxo mellor exemplo é o poema _Excelsior_. Formas
+  combativas máis lixeiras eran xogar coa separación e colocación dos versos,
+  moi usuais tamén aquí. Tamén é frecuente o xogo das voces, do cambio de
+  persoa nos verbos (ademais dos tempos), a aparición _doutros_ narradores para
+  lograr unha deslocalización crono-espacial do lector; este fenómeno lembra
+  unha multitude de sistemas de referencia para un mesmo suceso. Coa aparición
+  de tantas voces, en virtude de cal medimos o poema? Cal é o noso sistema
+  absoluto?
+
+  March sinalaba o uso principal dos verbos para producir liñas de movemento e
+  tensión, porque se "esixe o uso de termos concretos, 'visíbeis'", mais está
+  claro que Manuel Antonio non se limitou só aos verbos. A ausencia, espazos en
+  branco, distancias aumentadas, tempos reducidos; voces, narradores
+  fragmentarios, multitude de sistemas de referencia isomorfos; recursos
+  sintácticos que soubo utilizar para _crear_ no absoluto sentido
+  creacionista, empapados da teoría da relatividade. Aventúrome a afirmar que,
+  dependendo do xogo sintáctico empregado, o poeta crea imaxes
+  _space-like_ ou imaxes _time-like_.
+
+  Ao final o que máis aproveitan os creacionistas de Einstein é esa apertura do
+  sentido
+  #footnote[O concepto da _apertura do sentido_, polo menos así o coñecín eu,
+    aparece en _Tensión e sentido_ de M. Peyrou.]
+  (a creación de imaxes triplas, cuádruplas..., referirase Diego), utilizar a
+  dimensionalidade relativa (no seu sentido físico) para acadar, na creación de
+  imaxes, unha suxestión máxima. Inventar formas insólitas, mais sen rozar o
+  surrealismo. Aínda que moitas veces os literatos avogaran máis por unha
+  construción interpretativa da teoría da relatividade asíndoa a teorías do
+  tempo máis humanas, como as de Bergson (especialmente), Kant
+  #footnote[Foi, en primeira instancia, a concepción do espazo e do tempo de
+    Kant a que puxo en xaque á teoría do tempo e sistema de referencia absoluto
+    de Newton e a que inspiraría moi profundamente a Einstein nas súas
+    investigacións.], 
+  Prigogine (en tempos modernos) e xunto con eses conceptos do devir e do
+  eterno retorno de Nietzsche.
+
+
+  == De catro a catro
+
+  Rematamos agora o artigo comentando brevemente a obra do poeta rianxeiro, en
+  concreto o poemario de _De catro a catro. Follas sin data dun diario
+  d'abordo_, que tanto se mencionou até agora. Manuel Antonio preséntanos un
+  mundo pechado no que non hai máis futuro nin máis pasado có da travesía. No
+  poema _Travesía_ xa se deixa claro as súas intencións "Troqueles reiterados/o
+  reloxe e o Sol/alcuñaron moedas efímeras/que repetían todas/a mesma cara e a
+  mesma cruz", pechándoo con
+
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
+    _O minuteiro \ #h(4em) (tic tac) \ asumeu o compás das travesías._
+  ]
+
+  Esta concepción en certo xeito romántica (no sentido da Bildungsroman)
+  refórzase co poder da suxestión que implicaba a mecánica relativista que ben
+  coñecía. Estamos perante un caso de simultaneidade @march; os tempos están
+  superpostos e atopamos que algo está a ocorrer neste mesmo instante aínda que
+  ocorrera na creación do Universo. Non hai un antes nin un despois que non
+  estea vencellado á viaxe. É en virtude desta que as cousas acontecen; o
+  sistema de referencia é a viaxe en si mesma, ela é a medida das cousas; e a
+  viaxe carece dunha precisión cronolóxica, anulando a dimensión temporal. É
+  evidente tamén que "non abonda coa lectura superficial da viaxe, vencellada ó
+  movemento, porque _De catro a catro_ é xa dende o título un poemario de
+  estatismo"
+  #footnote[Non atopei a referencia directa, pero en @d4a4 é atribuída a
+    Elvira Souto.], 
+  de aí que aquelas moedas repitan en bucle o mesmo resultado.
+
+  Acábanse os ocos e non se pode un espraiar máis, tan só vomitar unhas frases
+  contundentes e crípticas. Este libro non só é física, a súa dimensión humana
+  resalta sobre todo en poemas como _Sós_ ou na monotonía do estatismo, e aínda
+  así é imposible negar que nel habita un xerme. A comprensión do fondo (ou ao
+  que se refire Baudelaire con "fondo") da obra de Manuel Antonio é
+  irrecoñecible sen a física do momento. Non podo seguir descifrando o poemario
+  nestas follas, non me queda máis que ir de catro en catro até que
+
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm))[
+    _Encherémo-las velas \ ca luz náufraga da madrugada_.
+  ]
+
+  #CrearBibliografia("/revistas/005/bibliografia_SEBASTIAN_TP.bib")
+]
+
+
+
+
