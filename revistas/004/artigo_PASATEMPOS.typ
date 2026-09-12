@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "PASATEMPOS",
+  tema      : "PASATEMPOS",
   titulo    : [Intuición, Integrais e Álxebra],
   autoria   : [],
   subtitulo : [],

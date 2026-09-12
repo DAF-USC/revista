@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "MISCELÁNEA",
+  tema      : "MISCELÁNEA",
   titulo    : [Música, frases e máis],
 )
 

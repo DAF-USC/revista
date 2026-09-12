@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-  estilo    : "ENTREVISTAS",
+  tema      : "ENTREVISTAS",
   titulo    : [Coñecendo a Edelstein],
   autoria   : [Luis Arcas Morcillo],
   subtitulo : [Por mor do centenario da visita de Einstein á Arxentina, 
