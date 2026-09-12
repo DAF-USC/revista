@@ -77,10 +77,10 @@
   extraterrestres (en particular, as placas da Pioneer e o disco de ouro da
   Voyager), elixiuse precisamente a inversa desta frecuencia como unidade. Non
   sería esperable que seres intelixentes doutros planetas emitisen os seus
-  sinais intergalácticos nesta frecuencia por idénticas razóns?\footnote{Nun
+  sinais intergalácticos nesta frecuencia por idénticas razóns?#footnote[Nun
   artigo 18 anos anterior á detección do sinal _Wow!_, proponse $1420$
   MHz como a frecuencia máis prometedora para procurar mensaxes dalgunha
-  sociedade extraterrestre @morrison1959searching.
+  sociedade extraterrestre @morrison1959searching.]
 
   Se nos inclinamos pola teoría de que o sinal _Wow!_ ten orixe extraterrestre,
   unha pregunta natural sería, codificaba algún tipo de información? A resposta

@@ -79,19 +79,19 @@
   O rianxeiro mostrou sumo interese por todos estes traballos revolucionarios,
   fervente lector das novidades científicas europeas (cónstanos que se
   entregara  
-  // neste contexto, fervente é unha palabra menos recomendábel 
-  // por fervoroso, segundo a RAG 
+  // neste contexto, fervente é unha palabra menos recomendábel por fervoroso,
+  // segundo a RAG 
   moito na ciencia alemá @MA_bib), Nietzsche e os avances vangardistas, entre
   estes, estaba moi ao tanto das novidades que trouxera Vicente Huidobro na súa
-  primeira visita a España en 1918 e da súa conferencia no Ateneo de Madrid de
-  1921. Entre as súas lecturas científicas destaca a súa inmersión na
+  primeira visita a España en 1918 e da súa conferencia no Ateneo de Madrid 
+  de 1921. Entre as súas lecturas científicas destaca a súa inmersión na
   comprensión das investigacións e resultados de Einstein das que quedara
   prendido cunha ollada. Todos estes detalles son coñecidos grazas á súa
   correspondencia e á descrición da biblioteca do rianxeiro que fai
   García-Sabell. Así, nunha carta que lle escribe a Cebreiro en 1922 figura:
 
 
-  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm))[
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
     _Merquei algún libro para me 'doutorar' nela [a teoría da relatividade] e
     agora ando tralo seguinte: Posto que a teoría da Relatividade demostra que
     o Tempo e o Espazo e outras cousas son máis ou menos longas asegundo o
@@ -106,7 +106,7 @@
   poeta é tal que conclúe a súa carta cunha certa sorna adulación:
 
 
-  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm))[
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
     _Non se trata de parar o sol como Xosué, sinón de ir diante da cencia
     alemá. ¿Como che quedou o corpo? \ Este Dr.Einstein 'es un tigre' como
     din os 'ches', pero como non é galego ¡que se lle vai facer! ten que
@@ -118,7 +118,7 @@
   foi excepción desta idea xerme que figura na carta a Cebreiro, anos máis
   tarde comentará:
 
-  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm))[
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
     _Siendo muy muchachos, me encontré con la sorpresa de que Manuel Antonio lo
     suponía, sí [el espacio limitado, mínimo]. Me fue muy fácil persuadirle de
     que ese límite, siendo una frontera, implicaba una continuación al otro
@@ -177,8 +177,6 @@
   describen a acción) preséntanse tanto en pasado como en presente creando unha
   organización allea ao tempo lóxico. 
 
-  // TODO: hay un error rarete que no termino de pillar en este párrafo. Se
-  // supone que va pegado a lo anterior
   /*
   "Non hai cronoloxía obrigatoria, aínda que o ollo do lector tende a
   desprazarse desde a parte superior da páxina cara a abaixo" @march.
@@ -238,7 +236,7 @@
   reloxe e o Sol/alcuñaron moedas efímeras/que repetían todas/a mesma cara e a
   mesma cruz", pechándoo con
 
-  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm))[
+  #block(inset: (left: 1cm, right: 0.6cm, top: 0.2cm, bottom: 0.2cm))[
     _O minuteiro \ #h(4em) (tic tac) \ asumeu o compás das travesías._
   ]
 

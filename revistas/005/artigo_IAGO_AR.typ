@@ -206,8 +206,8 @@
   segunda lei de Kepler, que postula que o planeta se move nun intervalo de
   tempo que varre áreas iguais. Kepler non sabía como determinar a posición
   exacta en cada momento porque a velocidade varía a cada instante, algo que co
-  cálculo moderno sería sinxelo. Isto coñécese como o \textit{problema de
-  Kepler}, que motivaría o desenvolvemento do cálculo posterior. Tras crear
+  cálculo moderno sería sinxelo. Isto coñécese como o _problema de
+  Kepler_, que motivaría o desenvolvemento do cálculo posterior. Tras crear
   este método, Kepler abandonaría o concepto de ecuante.
 
   Se o aplicamos á _Hipótese Vicaria_, as predicións que nos devolven

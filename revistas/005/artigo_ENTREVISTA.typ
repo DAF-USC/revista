@@ -7,12 +7,6 @@
     tema      : "ENTREVISTA",
 )
 
-#let Pregunta(texto) = [
-  #v(0.6em)
-  * #texto *
-  #v(0.6em)
-]
-
 #columns[
 
   Compostelá de nacemento, Mar Capeáns seguiu na capital galega formándose como

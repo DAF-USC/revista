@@ -6,8 +6,6 @@
   tema: "DIVULGACIÓN",
 )
 
-// TODO: No se resetan lo números de las ecuaciones entre artículos.
-
 #columns[
 
   A ninguén sorprenderá se digo que este é un artigo sobre as matemáticas da
@@ -227,10 +225,8 @@
     [ell_1,y_1]+[ell_2,y_2] #stack(text(8pt)[$exists[ell_1,y_2']=[ell_2,y_2]$], [$=$])
       &[ell_1,y_1]+[ell_1,y_2']\    
       =&[ell_1,y_1+y_2],  
-  #footnote[Exercicio: comproba que está ben definido!] 
+      ^#text(10pt)[#footnote[Exercicio: comproba que está ben definido!]]
   $
-
-  //TODO: la footnote es fea de cojones
 
   sobre o que se poden definir os operadores
 
