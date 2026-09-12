@@ -4,7 +4,7 @@
     autoria   : [Gemma Ruiz Lavandeira],
     titulo    : [Coñecendo a Ana Ulla Miguel],
     subtitulo : [Camiños na astrofísica, desafíos e horizontes futuros.],
-    estilo    : "ENTREVISTAS",
+    tema      : "ENTREVISTAS",
 )
 
 #columns[

@@ -2,7 +2,7 @@
 
 #show: Artigo.with(
 	titulo		: [Sobre a realidade do suxeito na física],
-	estilo		: "MISCELÁNEA",
+	tema  		: "MISCELÁNEA",
 )
 
 #v(3mm)

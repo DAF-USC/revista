@@ -4,7 +4,7 @@
 	titulo		: [Sopa de letras, Triscelectrónico e Fortuna],
 	subtitulo	: [Pasatempos para facer a comida na cafetería de física máis amena.],
 	autoria		: "Autoría múltiple",
-	estilo		: "PASATEMPOS",
+	tema  		: "PASATEMPOS",
 )
 
 

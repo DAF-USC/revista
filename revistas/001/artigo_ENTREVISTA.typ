@@ -4,7 +4,7 @@
     titulo    : [Coñecendo o\ Observatorio Ramón María Aller],
     subtitulo : [Unha conversa sobre o Observatorio e a Astronomía con J.A. Docobo Durántez.],
     autoria   : "Celia Álvarez Álvarez",
-    estilo    : "ENTREVISTAS",
+    tema      : "ENTREVISTAS",
 )
 
 #columns[

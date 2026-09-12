@@ -4,7 +4,7 @@
     titulo: [Viaxeiros espaciais. Oda á Voyager 1],
     subtitulo: [De como a Voyager 1 partiu dende a Terra ata o espazo profundo.],
     autoria: [Celia Álvarez Álvarez],
-    estilo: "HISTORIA"
+    tema  : "HISTORIA"
 )
 
 #columns[

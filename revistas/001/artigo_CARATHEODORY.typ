@@ -4,7 +4,7 @@
     titulo    : [Carathéodory e a axiomatización\ da termodinámica],
     subtitulo : [Sobre a pretensión de transformar un coñecemento puramente fenomenolóxico en puramente matemático.],
     autoria   : "Sebastián Táboas Pazo",
-    estilo    : "DIVULGACION",
+    tema      : "DIVULGACION",
 )
 
 #columns[

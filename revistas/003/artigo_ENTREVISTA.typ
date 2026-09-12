@@ -4,7 +4,7 @@
 	titulo		: [Coñecendo a Carmen García],
 	subtitulo	: [Sobre a súa traxectoria e a física de partículas experimental internacional e en España.],
 	autoria		: "Gemma Ruíz Lavandeira",
-	estilo		: "ENTREVISTAS",
+	tema  		: "ENTREVISTAS",
 )
 
 #columns[
