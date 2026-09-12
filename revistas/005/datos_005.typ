@@ -23,12 +23,10 @@
 
     imaxe_portada: "/revistas/005/imaxes/portada.png",
 
-    data : (
-      dia: 1,
-      numero_mes: 3,
-      mes: "Marzo",
-      ano: 2026
-    ),
+    data_dia: 1,
+    data_numero_mes: 3,
+    data_mes: "Marzo",
+    data_ano: 2026,
 
     comentario_imaxe: "Axl gato nun estado de superposición. Foto: Deivis",
     repositorio : "fisicaUSC/revista",
