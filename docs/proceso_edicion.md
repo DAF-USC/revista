@@ -1,7 +1,7 @@
 # Proceso de edición
 
 A edición refírese a obter un artigo escrito por un redactor e adaptalo para
-que poida ser usado na revista. Esto inclúe pasar texto sen formato a LaTeX,
+que poida ser usado na revista. Esto inclúe pasar texto sen formato a Typst,
 comprobar rutas de arquivos, arranxar espazados e asegurar unha longura
 correcta, etc.
 
@@ -42,152 +42,95 @@ arquivos de configuración propietarios (p.e. `.DS_Store`), arquivos duplicados,
 subcarpetas estrañas, ... Persoalmente comezo eliminando toda esta borralla
 que non sirve de nada.
 
-## 2. Engadir o contido á revista
-
-Neste punto temos dúas cousas:
-
-+ O proxecto da revista descargado
-+ O contido dun novo artigo descargado
-
-O seguinte punto é engadir o artigo á revista.
-
-Algúns redactores usan o modelo simplificado da revista, outros mandan un
-`.tex` simple, algúns escriben a Writer ou semellantes. A nosa revista está
-escrita en LaTeX e fai falla engadir o que mandan os redactores ao proxecto.
-
-- **ARQUIVO PRINCIPAL**: Sempre imos ter un arquivo *principal* co texto do
-  artigo. Quen usan o modelo simplificado ás veces non lle cambian o nome
-  polo que se sigue a chamar `artigo_simplificado.tex`. Outros usuarios de LaTeX
-  simplemente lle poñen `documento.tex` ou tal vez o propio título do artigo. No
-  caso de ques escriben en Writer, haberá un só documento `.odt` ou tal vez
-  `.docx`. En calquera caso, é necesario engadir os contidos do arquivo
-  principal no sitio correcto do proxecto da revista. Se dito arquivo se chama
-  `documento.tex` e estamos a editar a revista `006`, entón debemos copiar os
-  contidos de `documento.tex` a un novo ficheiro no proxecto da revista na ruta
-  exacta `revistas/006/artigo_NOMEAUTOR_INICIAISAPELIDOS.tex`. IMPORTANTE: A dito artigo hai que
-  quitarlle o `\begin{document}...\end{document}`, e hai que engadirlle o macro
-  \Titular ao comezo, por exemplo
-
-  ```latex
-  \Titular*% O asterisco fai que apareza ---------- estilo ---------- no índice
-  {divulgacion}% ESTILO
-  {Por que o bosón de Higgs non é moi <<natural>>}% TÍTULO
-  {Víctor Díaz Díaz}% AUTORÍA
-  {Breve explicación da relación entre o problema da xerarquía e a
-  supersimetría.}% SUBTÍTULO
+## 2. Decisións editoriais
+- Cada artigo comeza con:
+  ```typst
+  #show Artigo.with(
+      titulo: [Título to wapo],            // obrigatorio
+      autoria: [Quen o escribiu?]          // opcional
+      subtitulo: [Unha breve explicación], // opcional,
+      estilo: "PROGRAMACIÓN e HISTORIA"    // obrigatorio
+  )
   ```
 
-  Podedes ver unha explicación máis detallada de como funciona o macro
-  `\Titular` na clase da revista.
-
-- **IMAXES**: As distintas imaxes que envían deben copiarse ao proxecto da
-  revista. Se estamos a editar a número `006` entón deberán gardarse en
-  `revistas/006/imaxes/`. É moi importante revisar o arquivo de texto principal e
-  asegurarse de que as rutas das imaxes son correctas.
-
-- **BIBLIOGRAFÍA**: En xeral deberían mandar información bibliográfica nun
-  ficheiro con extensión `.bib` que debería conter texto co seguinte formato
-  aproximado
-
-  ```bib
-  @Article{caratheodory_1909,
-    Title         = {Untersuchungen über die Grundlagen der Thermodynamik},
-    Volume        = 67,
-    ISSN          = {0025-5831, 1432-1807},
-    DOI           = {10.1007/BF01450409},
-    Number        = 3,
-    Journal       = {Mathematische Annalen},
-    Author        = {Carathéodory, C.},
-    Year          = 1909,
-    Month         = {September},
-    Pages         = {355–386},
-    Language      = {de}
-  }
+- Os artigos van a dúas columnas. Pode facerse con
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
+  ```
+  ou dunha tacada, para TODO o artigo de golpe
+  ```typst
+  #show: columns
+  Contido do artigo, bla bla bla
   ```
 
-  O contido do `.bib` debe copiarse e engadirse ao no arquivo
-  `revistas/006/bibliografia_006.bib` (ou o número que corresponda). Hai que
-  ser cauto ca clave de cada referencia (no exemplo, caratheodory_1909) e evitar
-  que estea repetida noutra entrada anterior.
-
-  Ás veces a xente _non_ manda a bibliografía en dito formato senón que a
-  escriben literal no propio documento, por exemplo `\noident\textit{Titulo};
-  \textbf{ed. 9}; Autoría (1900)`. En tal caso, hai que pasar a información ao
-  formato .bib.
-
-## 4. Tentar compilar o novo artigo
-
-O ficheiro principal a compilar para a revista cun certo número é (p.e. para a
-004) [`revistas/004/revista_004.tex`](../revistas/004/revista_004.tex). Se dito
-ficheiro inda non existe entón fai falla crealo. En xeral adoita facerse logo de
-rematar un número para comezar xa a preparar o seguinte. Hai que asegurarse que
-se definen os valores dos macros relevantes, inda que sexa con valores
-temporais, se non a revista non se poderá compilar. Usade un número anterior
-como exemplo.
-
-En dito arquivo deben cargarse os ficheiros individuais de cada artigo, facendo
-simplemente `\input{revistas/004/artigo_DIRAC.tex}`.
-
-No terminal, estando no directorio raíz do proxecto, compílase a revista co
-programa
-[[latexmk](https://ctan.fisiquimicamente.com/support/latexmk/latexmk.pdf)]. Só
-hai que executar
-
-```bash
-latexmk revistas/004/revista_004.tex
-```
-
-Para usuarios de Linux ofrécese unha [Makefile](../Makefile) e pode escribirse
-simplemente `make numero=004`.
-
-Neste punto, o típico é ter que arranxar os erros de compilación que poden
-aparecer. Véxase [unha lista de erros típicos](erros_tipicos.md)
-
-## 5. Unha primeira edición
-
-- Os títulos non deben ser demasiado longos para que colla no índice. Unha
-  primeira referencia son uns 60 caracteres máximo.
-- Os subtítulos dos titulares deben rematar en punto.
-- Non se debe abusar de certos recursos estilísticos. A énfase dunha palabra
-  móstrase con `\emph{}` (itálica). Non é bo ter moitos `\textbf{}`. En xeral,
-  cambialos por énfase normal.
-- Cambiar todos os `\it`, `\bf`, etc. por `\textit{}`, `\textbf{}`.
-- Os cambios de parágrafo créanse cunha liña en branco ou só con `\\`. Non se
-  debe usar unha `\\` seguido dunha liña en branco.
-- Hai que cambiar todos os `$$ ... $$` por `\[ ... \]` ou
-  ```latex
-  \begin{equation}
-    ...
-  \end{equation}
+- Para poñer algo _fora_ das dúas columnas, podemos pechar a función `columns`
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
+  ISTO ESTÁ FORA DAS DÚAS COLUMNAS
+  #columns[
+      Contido do artigo, bla bla bla
+  ]
   ```
-  [[tex stackexchange](https://tex.stackexchange.com/questions/503/why-is-preferable-to)]
-  [[ltnews](https://ctan.javinator9889.com/macros/latex/base/ltnews.pdf)]
-- As ecuacións en modo `displaymath` seguen formando parte do texto, polo que
-  non se preceden con `:` e poden rematar con `.` ou `,` dependendo do caso.
-- Os artigos deben ocupar un número enteiro de páxinas.
-- Hai que reducir a calidade e peso das imaxes para que non ocupen demasiado.
-  Unha primeira referencia é que pesen menos de 1MB, pero idealmente debería
-  ser menos. Podedes usar [[GIMP](https://www.gimp.org/)] para as imaxes
-  rasterizadas ou [[Inkscape](https://inkscape.org/)] para as vectoriais, ambas
-  ferramentas gráficas e cunha interface da liña de comandos. Tamén se pode usar
-  [[Imagemagick](https://imagemagick.org/)] dende o terminal con comandos coma
-  `magick ORIXINAL.png -resize 60% -quality 72 REDUCIDA.jpg`
-- En xeral, as imaxes quedan mellor se ocupan o ancho completo da columna, o
-  cal se consigue con `\includegraphics[width=\linewidth]{foto.png}`. Pode ser
-  necesario recortala para darlle unha forma correcta e que encaixe.
+  ou usar `place(top, float: true, scope: "parent")`:
+  ```typst
+  #columns[
+      Contido do artigo, bla bla bla
+      #place(
+          top, float: true, scope: parent,
+          figure(image("miña/imaxe/bonita.png")) // Aparece afora das columnas
+      )
+  ]
+  ```
+  ou, usando `show`
+  ```typst
+  #show: columns
+  #place(
+      top, float: true, scope: parent,
+      figure(image("miña/imaxe/bonita.png")) // Aparece afora das columnas
+  )
+  ```
+  No caso de usar `place(...)`, estamos limitados a que as figuras floten arriba ou abaixo de todo da páxina
 
-- A ser posible hai que dobrar as liñas a (aprox) 79 caracteres.
-- En xeral, hai que intentar que o código sexa lexible.
+- As imaxes, polo xeral, deberían ocupar o ancho completo da columna, con `width: 100%`, as figuras deberían ter pés con `caption`, e se queremos referencialas despois, poñémoslle unha áncora con `<fig:figura_bonita>`.
+  ```typst
+  #figure(
+      image(width: 100%, "miña/imaxe/bonita.png"),
+      caption: [Pe da figura],
+  ) <fig:figura_bonita>
+  ```
 
+- As matemáticas na liña escríbense con `$...$`, (sen espazos despois do primeiro `$` nin antes do último `$`), e son irrompibles (non se parten entre liñas)
+  ```typst
+  sabemos que se $a not.eq 0$ entón $exists a^(-1)$...
+  ```
+  As matemáticas en modo bloque escríbense deixando espazos cos `$`'s, e poden referenciarse despois se lle poñemos unha áncora
+  ```typst
+  Seguindo a definición seguinte
+  $ T^p_q in Gamma (cal(M), V^(times.o q) times.o (V^*)^(times.o p)) $ <ec:verdade>
+  sabemos que un tensor é un vector
+  ```
+  Polo xeral, se unha ecuación ocupa máis do 50% do ancho dunha liña, debe poñerse en modo bloque, así evítase ter unha ecuación moi longa e irrompible nunha liña, o que se vería mal.
 
-## 6. Entregar un primeiro modelo aos redactores
-
-Unha vez poidamos compilar un PDF, podemos recompilar o documento coa opción
-`simple` facendo
-
-```latex
-\documentclass[simple]{revista}
-```
-
-Isto xera unha versión simplificada sen portada, índice nin contraportada. Dita
-versión debe entregarse aos redactores para que dean a súa opinión.
+- Para referenciar cousas pode usarse `@` para referenciar calquera cousa
+  ```typst
+  tal e como vimos no libro @libro, a ecuación @ec:verdade é correcta
+  ```
+  Pode mostrarse un suplemento (un _locator_) con `@nome[suplemento]`. Se o nome que se quere referenciar ten algún caracter raro, pode usarse `#cite()`
+  ```typst
+  isto é unha cita rara #cite(label("nome/raro"))
+  ```
+  Neste caso, o suplemento ponse con `#cite(<label>, supplement: [abcd])`
+- As citas textuais na liña escribense con
+  ```typst
+  tal e como dicía unha amiga miña, #quote[preto do monte Pío hai un conxunto de auga]
+  ```
+  e para que estén en modo bloque, simplemente
+  ```typst
+  tal e como dicía unha amiga miña, #quote(block: true, [preto do monte Pío hai un conxunto de auga])
+  ```
+  En calquera caso, pode engadirse o argumento `attribution: [Marea]` para engadir _quen_ fixo a cita.
+- As comiñas en galego son `«..»` e dentro desas, `"..."`. Polo xeral, as comiñas úsanse para as citas (punto anterior) e xa se engaden automáticamente se usamos a función `#quote`. Se queremos usar comiñas en calquera outra situación, debería, no código, usarse literalmente `"..."` e logo `'...'`. Véxase a documentación das [[smarquotes](https://typst.app/docs/reference/text/smartquote/)]

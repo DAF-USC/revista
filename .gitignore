@@ -2,19 +2,6 @@
 .pdf/
 .aux/
 
-# latex
-*.aux
-*.bcf*
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.run.xml
-*.toc
-*.idx
-*.ilg
-*.ind
-
 # arquivos comprimidos
 *.zip
 
@@ -30,10 +17,9 @@ Thumbs.db
 
 # editores
 .vscode/
+*.swp
 
 # varios
-tex.err
-tex.err.bak
 tags
 *.patch
 *.diff

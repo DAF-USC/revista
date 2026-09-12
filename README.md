@@ -31,7 +31,7 @@ Hai varias formas de participar, segundo os intereses e inquedanzas de cada pers
 - **Produción de contidos**: escribir artigos, entrevistas, pasatempos..., xa
   sexa como colaboración puntual ou de maneira máis continuada. As
   contribucións envíanse ao correo electrónico de contacto, en formato plano
-  ou LaTeX.
+  Typst ou LaTeX.
 
 - **Comisión de Edición**: encárgase de implementar o deseño visual, garantir a
   reproducibilidade dos códigos e coidar que o formato final sexa limpo,
@@ -58,47 +58,51 @@ escribirnos ao correo ou preguntar nos grupos da DAF e da revista!
 2. [Estrutura das revistas](#newspaper-estrutura-das-revistas)
    - [Revistas](#revistas)
    - [Artigos](#artigos)
-3. [Artigo simplificado](#page_facing_up-artigo-simplificado)
-4. [Compilación](#toolbox-compilación)
+3. [Compilación](#toolbox-compilación)
    - [Dependencias](#dependencias)
    - [Como compilo isto?](#como-compilo-isto)
-5. [Outros enlaces e documentos](#books-outros-enlaces-e-documentos)
+4. [Outros enlaces e documentos](#books-outros-enlaces-e-documentos)
 
 ## :card_file_box: Estrutura do repositorio
 
 O repositorio contén:
 
-- `revista.cls` - Clase de LaTeX para a revista.
-- `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language.
-- `funcions.lua` - Códigos feitos en Lua relacionados coa compilación e o control de versións.
-- `latexmkrc` e `Makefile` - Axudas para compilar a revista.
+- `estilo.typ` - Estilo de Typst para a revista.
+- `momentum-citacions.csl` - Estilo de citas bibliográficas do Citation Style Language, variante do estilo APS
+- `Makefile` - Configuración para compilar a revista.
+- `CITATION.cff` - Para descargar a propia referencia bibliográfica da nosa revista ca información correcta.
 
 Cartafoles principais:
 
 - `revistas/` - Contén as edicións da revista, cada unha nun subcartafol numerado
-(`001`, `002`, ...). Cada edición inclúe o ficheiro principal `.tex`, os artigos
-correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `imaxes/`.
-  - A convención para nomear ficheiros é a seguinte: se o noso produtor de
+    (`001`, `002`, ...). Cada edición inclúe o ficheiro principal `revista_001.typ`, os artigos
+    correspondentes `.typ`, as bases de datos bibliográficas `.bib` e un cartafol `imaxes/`.
+    ```
+    .
+    └── revistas/
+       ├── 001/
+       │  ├── revista_001.tex
+       │  ├── bibliografia_VELNI_DD.bib
+       │  ├── artigo_VELNI_DD.tex
+       │  └── imaxes/
+       │     ├── portada_001.png
+       │     ├── VELNI_DD_tipos_nos.jpg
+       │     └── VELNI_DD_skyrmions.jpg
+       ├── 002
+       │  └── ...
+       └── ...
+    ```
+    A convención para nomear ficheiros é a seguinte: se o noso produtor de
     contido se chama _Velni Diz Diz_, o artigo será `artigo_VELNI_DD.tex`, as
-    imaxes asociadas ao artigo comezaran por `VELNI_DD_*` e a bibliografía propia,
-    no caso de tela, será `bibliografia_VELNI_DD.bib`.
-```
-.
-└── revistas/
-   ├── 001/
-   │  ├── revista_001.tex
-   │  ├── bibliografia_VELNI_DD.bib
-   │  ├── artigo_VELNI_DD.tex
-   │  └── imaxes/
-   │     ├── portada_001.png
-   │     └── VELNI_DD_tipos_nos.jpg
-   ├── 002
-   │  └── ...
-   └── ...
-```
+    imaxes asociadas ao artigo comezaran por `VELNI_DD_*` (cun posible sufixo explicativo)
+    e a bibliografía propia, no caso de tela, será `bibliografia_VELNI_DD.bib`.
+
+    No tocante á imaxe da portada, cómpre que sexa *exactamente*
+    cadrada para non ter problemas na compilación, isto pode facerse
+    con programas como [Inkscape](https://inkscape.org/), [Gimp](https://www.gimp.org/)
+    ou [ImageMagick](https://imagemagick.org/)
 - `logos/` - Logos da universidade, facultade e institucións colaboradoras en PDF.
 - `fontes/` - Tipos de letra empregados na revista.
-- `modelo/` - Cartafol co exemplo de artigo simplificado e as súas dependencias.
 - `trebellos/` - Recursos auxiliares e outros scripts da equipa de edición.
 - `docs/` - Documentación sobre a revista e os procesos de edición.
 
@@ -107,128 +111,108 @@ correspondentes `.tex`, a base de datos bibliográfica `.bib` e un cartafol `ima
 ## :newspaper: Estrutura das revistas
 ### Revistas
 
-Os **ficheiros comúns** a todas as revistas, como o estilo da revista, `revista.cls`,
-e o estilo bibliográfico, `momentum-citacions.csl`,
-deben estar na raíz do proxecto.
+Os **ficheiros comúns** a todas as revistas, como o estilo da revista, `estilo.typ`,
+e o estilo bibliográfico, `momentum-citacions.csl`, deben estar na raíz do proxecto.
 
 Cada **número da revista** ten o seu propio cartafol en [`revistas/`](./revistas),
 e dentro destes é onde se gardan os ficheiros específicos de cada revista, como
 os artigos e as imaxes.
 
 O **ficheiro principal** de cada revista noméase como, se é a revista número 001,
-`revistas/001/revista_001.tex`. Este é o ficheiro principal a compilar, e ten a
-forma seguinte (aproximadamente):
+`revistas/001/revista_001.typ`. Este é o ficheiro principal a compilar, e o único
+que fai é cargar o estilo da revista, aplicalo, e chamar a función que xera o contido.
 
-```latex
-% Opcións: simple (só artigos) ou completa (portada, índice e contraportada)
-\documentclass[completa]{revista}
+```typst
+// revistas/001/revista_001.typ
+#import("/estilo.typ"): *
 
-% Comandos para definir a información de cada revista
-\Numero{001}
-\Data{Xaneiro do 1900}
-\ImaxePortada{./revistas/001/imaxes/pedra.jpg} % Imaxe que aparecerá na portada
-\ComentarioImaxePortada{Comentario que acompaña a imaxe.}
-\CorResalte{ff0000} % Cor específico da revista, en HTML HEX
-\CorTextoEnResalte{000000} % Cor do texto na portada e índice
-\Participantes{
-    {\Large \textbf{Dirección}}   \\[0.5cm]
-        Lise Meitner              \\[0.2cm]
-    {\Large \textbf{Edición}}     \\[0.5cm]
-        Emmy Noether              \\[0.2cm]
-    {\Large \textbf{Corrección}}  \\[0.5cm]
-        Carl Sagan                \\[0.2cm]
-}
-\Despedida{Adeus!}
-\Agradecementos{Grazas a todos!}
-
-\begin{document}
-
-\input{./revistas/001/artigo_HISTORIA_DA_CIENCIA.tex}
-\input{./revistas/001/artigo_SALSEO_NA_FACULTADE.tex}
-
-\end{document}
+#crear_revista()
 ```
 
-Os comandos `\Numero`, `\Data`, `\ImaxePortada`, `\ComentarioImaxePortada`,
-`\CorResalte`, `\CorTextoEnResalte`, `\Participantes`, `\Despedida` e `\Agradecementos`,
-deben estar presentes en cada revista xa que conteñen información específica
-de cada número. No tocante á imaxe da portada, cómpre que sexa *exactamente*
-cadrada para non ter problemas na compilación, isto pode facerse
-con programas como [Inkscape](https://inkscape.org/), [Gimp](https://www.gimp.org/)
-ou [ImageMagick](https://imagemagick.org/)
+O **ficheiro de datos** de cada revista, ven sendo `revistas/001/datos_001.typ`,
+onde se define a variable `informacion_revista` que é usada polo estilo para saber
+que artigos meter dentro, que cores usar, que datas, imaxe da portada, etc. Estes datos
+sobreescriben os que temos por defecto no ficheiro `estilo.typ`
 
-Adicionalmente, tamén se definen os macros `\LinkRepositorio`, `\Correo`,
-`\Drive`, `\WhatsApp` inda que, nun principio, conteñen información
-que non se vai cambiar entre números. Para mostrar calquera destes valores só
-hai que prefixar o macro con imprime, e.g. `\imprimeCorreo` ou `\imprimeNumero`.
+```typst
+// revistas/001/datos_001.typ
+#let informacion_revista = (
 
-Máis información sobre a implementación e particularidades na [clase da revista](./revista.cls).
+    artigos : (
+        "/revistas/001/artigo_MAR_BT.typ",
+        "/revistas/001/artigo_SARA_NF.typ",
+        // etc.
+    ),
+
+    cor_resalte: "#951ed6", // a cor de resalte de cada número
+    cor_texto: "#ffffff",   // a cor do texto que esta escrito _sobre_ a cor de resalte
+
+    data_dia: 24,       // Data de publicación
+    data_numero_mes: 8, //
+    data_mes: "agosto", //
+    data_ano: 1998,     // (cumple de deivis)
+
+    imaxe_portada: "/revistas/001/imaxes/portada.png",
+    comentario_imaxe: "Comentario que acompaña a imaxe.",
+
+    participantes: (
+       "Dirección"  : ( "Andrea", "Lara"),             // Participantes. Os postos son arbitrarios
+       "Edición"    : ( "Pu", "Sara", "Daniel"),       //
+       "Corrección" : ( "Carlos", "Marta", "Geranio"), // (miñas amigas)
+    ),
+
+    despedida: [ Despedida moi bonita. ],
+    agradecementos: [ Agradecementos emotivos a todas as miñas amigas! ]
+
+)
+```
+
+Adicionalmente, tamén se poden incluir os datos `repositorio`,  `whatsapp`,
+`instagram`, `anteriores` e `correo`, pero como son sempre os mesmos, non fai
+falla repetilos en cada número. Máis información sobre a implementación e
+particularidades no ficheiro de [estilo da revista](./estilo.typ).
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 ### Artigos
 
-Os artigos gárdanse no mesmo directorio que o `revista_001.tex` correspondente
-e inclúense no ficheiro principal usando `\input{artigo.tex}`. Teñen a seguinte
-forma:
+Os artigos gárdanse no mesmo directorio que o `/revistas/001/revista_001.typ` correspondente
+e inclúense na revista metendo o seu nome en `datos_001.typ`. Teñen a seguinte forma:
 
-```LaTeX
-% O comando \Titular permite definir a información concreta de cada artigo
+```typst
+// revistas/001/artigo_MAR_BT.typ
 
-\Titular*          % O asterisco fai que apareza unha sección nova no Índice
-{divulgacion}      % (Obrigatorio) Estilo  Máis abaixo pódense atopar os estilos
-                   %                       dispoñíbeis.
-{Título do artigo} % (Obrigatorio) Título
-{Axl Gato}         % (Opcional)    Autoría
-{Subtítulo}        % (opcional)    Preferíbelmente non moi longo para que colla ben ^_^
+// Á función `Artigo` pode pasárselle a info deste artigo concreto
+#show: Artigo.with(
+  titulo     /* OBRIGADO */ : [Prefires quedarte calvo, ou roubar Plutonio-239?],
+  autoria    /* OPCIONAL */ : [Mar B. T.],
+  subtitulo  /* OPCIONAL */ : [Relacións neurolóxicas entre a calvicie e os deportes de risco.],
+  afiliacion /* OPCIONAL */ : [Faculdade de Psicoloxía]
+  estilo     /* OPCIONAL */ : "Psicoloxía Nuclear",
+)
 
-\Bibliografia{revistas/001/bibliografia_AXL_G.bib} # Bibliografía para este artigo
+#columns[ // mostrar 2 columnas
 
-\begin{multicols}{2} % Para ter varias columnas
+    == Introdución // As distintas partes sepáranse con encabezados de invel >= 2
 
-\subsection*{Introdución} % As distintas partes sepáranse con 'subsections' SEMPRE
+    Bos días anduriños, neste artigo ensinareivos como facer fisión nuclear caseira
+    cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
+    ...
 
-Bos días anduriños, neste artigo ensinareivos como facer fisión nuclear caseira
-cun barreño e unha fonte de Plutonio-239 nos baños do PDI da facultade.
+    == Outra sección
+    En primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
+    tódolos marabillosos profesores que tiven ata o momento. Por suposto, agradecer
+    tamén a [REDACTADO] por axudarme a sacar a fonte do laboratorio de nuclear.
+    Vémonos na próxima!! @hector.pol // citar a Héctor Pol, noso querido profe do Lab. Nuclear
 
-...
+    #CrearBibliografia("/revistas/001/bibliografia_MAR_BT.bib")
 
-\subsection*{Agradecementos}
-En primeiro lugar, denunciar á DAF polo desamparo económico e agradecer a
-tódolos marabillosos profesores que tiven ata o momento. Por suposto, agradecer
-tamén a [REDACTADO] por axudarme a sacar a fonte do laboratorio de nuclear.
-Vémonos na próxima!!
-
-\printbibliography
-\end{multicols}
+] // fin das fúas columnas
 ```
-O macro `\Titular` é o centro de cada artigo: cambia as seccións da revista,
-reinicia numeracións, dá formato aos encabezados, define nomes...
 
-Algunhas cousas a ter en conta:
-
-- Os encabezados que se poden usar son `divulgacion`, `historia`,
-  `actualidadeFacultade`, `actualidadeCientifica`, `filosofia`, `profesorado`,
-  `entrevistas`, `programacion`, `pasatempos`, `anuncios`, `opinion`,
-  `miscelanea` e `reportaxes`. Podemos engadir máis baixo demanda.
-- Se queremos engadir unha nova sección ao índice, debemos usar o comando
-  `\Titular*`, co asterisco.
-- O macro do `\Titular` ten catro opcións (estilo, título, autor e subtítulo),
-  das cales só as dúas primeiras son obrigatorias, as outras dúas poden quedar
-  en branco.
-
-<p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
-
-## :page_facing_up: Artigo simplificado
-
-Existe un modelo de artigo simplificado para a xente que queira utilizalo no
-proceso de creación de contido ou que queira fedellar coa clase da revista. O
-artigo simplificado non require preocuparse pola estrutura do proxecto nin pola
-inicialización dos macros, polo que debería ser máis rápido de compilar. Tamén
-inclúe numerosos comentarios sobre as formas preferidas para engadir imaxes,
-citas e referencias.
-
-Podedes encontralo nos [*releases*](https://github.com/DAF-USC/revista/releases) da revista.
+A función `Artigo` é o centro de cada artigo: cambia as seccións da revista,
+reinicia numeracións, dá formato aos encabezados, define nomes... Véxase
+[a documentacion](./docs/proceso_edicion.md) pra máis info de como funcionan os artigos.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
@@ -236,76 +220,60 @@ Podedes encontralo nos [*releases*](https://github.com/DAF-USC/revista/releases)
 
 ### Dependencias
 
-Este proxecto usa [LuaLaTeX](https://www.luatex.org/) para o proceso de
-compilación, xa que nos dá vantaxes no uso de distintas tipografías, dá acceso
-a `\directlua`, opcións de depurado usando o paquete
-[lua-visual-debug](https://www.ctan.org/search?phrase=lua-visual-debug), e máis
-facilidades á hora de crear documentos accesíbeis. As tipografías usadas están
-incluídas no directorio `fontes/`, polo que non é necesario instalalas.
+Este proxecto usa [Typst](https://typst.app/) como linguaxe de programación; a
+compilación manéxase con [make](https://www.gnu.org/software/make/); e as
+versións do código con [Git](https://git-scm.com/). Fai falla ter o compilador
+de Typst, GNU-Make e Git instalados e na `$PATH`. **non** se soporta a
+compilación en liña en typst.app. En principio so se soporta Linux(es), pero
+pode que Mac e Windows tamén funcionen.
 
-Dependendo de onde se vaia compilar o proxecto hai dúas rutas:
-
-- Instalación local:
-  - Para os paquetes, é recomendábel unha **instalación completa de TeX Live 2025**,
-xa que é a única versión que aseguramos que funcione e está dispoñíbel en tódolos
-sistemas operativos.
-  - En Windows e macOS, MiKTeX descarga a última versión dos paquetes segundo
-sexan necesarios dende o repositorio oficial, CTAN, polo que tamén debería
-funcionar.
-  - Se ides facer **git clone** do repositorio precisaredes instalar tamén `git-lfs`,
-  que é o que empregamos para evitar gardar copias completas de todos os ficheiros
-  pesados (imaxes, PDFs, fontes) en cada versión. Usando LFS, descárganse só as
-  versións actuais e mantéñense punteiros ás anteriores, o que reduce moito o
-  tamaño do repo. Se clonades o repositorio sen telo instalado, en vez dos
-  ficheiros reais, teredes eses punteiros de texto e o proxecto dará erros na
-  compilación.
-- Execución en liña (Overleaf):
-  - No Overleaf ides a `Menu -> Settings` e cambiades `Compiler: LuaLaTeX` e
-  `TeX Live version: 2024`.
-  - **Ollo!** Coa última actualización reduciuse o tempo de compilación, co que é
-  posíbel que non poidades compilar o proxecto enteiro, só artigos individuais
-  ou, en ocasións, nin iso.
-
+- O recomendable é traballar en Linux e ter unha [instalación de rust](https://rustup.rs/),
+  logo instalar a última versión de desenvolvemento de Typst usando
+  [Cargo](https://doc.rust-lang.org/cargo/):
+  ```bash
+  cargo install --git https://github.com/typst/typst --locked typst-cli
+  ```
+- En windows, o recomendable sería instalar Typst usando [scoop](https://scoop.sh/),
+  usando o cubo **nightly**. Para instalar Make, pode probarse tamén a instalalo con Scoop,
+  senón, están as *toolchains* [MYSYS2](https://www.msys2.org/), [CYGWIN](https://cygwin.com/),
+  [GIT BASH](https://gitforwindows.org/) ou pode que [WSL](https://github.com/microsoft/WSL).
+  En calquera caso, **NON** nos esperamos que se use en Windows, enserio,
+  cambiade de sistema operativo.
+- Se ides facer **git clone** do repositorio precisaredes instalar tamén
+  [git-lfs](https://git-lfs.com/), que é o que empregamos para evitar gardar
+  copias completas de todos os ficheiros pesados (imaxes, PDFs, fontes) en cada
+  versión. Usando LFS, descárganse só as versións actuais e mantéñense punteiros
+  ás anteriores, o que reduce moito o tamaño do repo. Se clonades o repositorio
+  sen telo instalado, en vez dos ficheiros reais, teredes eses punteiros de texto
+  e o proxecto dará erros na compilación.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 ### Como compilo isto?
 
-A forma máis sinxela de descargar e compilar o proxecto é
-
-1. Neste repositorio, premer o botón verde de *CODE* e descargar o ZIP.
-2. Compilalo:
-   - (Local) Tras descomprimilo, abrir o proxecto no voso editor de confianza
-   e compilar o ficheiro da revista, por exemplo `revistas/001/revista_001.tex`.
-   - (Overleaf) Importar o ZIP e no panel esquerdo seleccionar o ficheiro
-   principal, por exemplo `revistas/001/revista_001.tex`.
-
-Alternativamente, se tedes preferencias máis minimalistas, podedes compilar as
-revistas no terminal co `latexmk`:
-
-```bash
-latexmk ./revistas/001/revista_001.tex
-```
-Tamén deixamos un `Makefile` moi conveniente para os que usen sistemas baseados
-en Linux, co que é posíbel facer:
-
-```bash
-make numero=001                       # Compilar a revista número 001
-make numero=001 impresa               # Xerar a versión impresa (require pymupdf>=1.26.7)
-make numero=001 propaganda cor=E66F00 # Xerar a propaganda dunha cor determinada (en HEX)
-make limpa                            # Limpar os ficheiros auxiliares
-make modelo                           # Obter un ZIP cos ficheiros do artigo simplificado
-```
-
-Por defecto, coa configuración de `latexmk` adxunta, ao compilar unha revista
-o PDF que se xere gárdase no directorio `.pdf/` e os ficheiros auxiliares
-en `.aux/`.
+- Neste repositorio, premer o botón verde de *CODE* e descargar o ZIP.
+  Alternativamente (o recomendado), clonar o proxecto con Git:
+  ```bash
+  git clone https://github.com/fisicaUSC/revista
+  ```
+- Todo o proceso de compilación se manexa con Make (véxase a [makefile](./Makefile)):
+  ```bash
+  make numero=001              # Compilar a revista número 001
+  make numero=001 metodo=watch # compila a revista usando o método incremental de Typst
+  make numero=001 propaganda   # Xerar as propagandas do número 001
+  make numero=001 artigos      # compila a revista e os artigos individuais para os redactores.
+  make todo                    # Compila todas as revistas, propagandas e artigos individuais
+  make limpa                   # Limpar os ficheiros auxiliares
+  ```
+  Por defecto, coa configuración de `make` adxunta, ao compilar unha revista
+  o PDF que se xere gárdase no directorio `.pdf/` e os ficheiros auxiliares
+  en `.aux/`.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
 
 ## :books: Outros enlaces e documentos
 
-No cartafol `docs/` inclúense ficheiros con ligazóns útiles, información
+No cartafol [docs/](./docs/) inclúense ficheiros con ligazóns útiles, información
 relevante da revista e sobre o proceso de edición.
 
 <p align="right"><a href="#mag-índice-de-contidos">(voltar ao índice)</a></p>
@@ -318,4 +286,5 @@ licenza:
 | Recurso | Función | Licenza |
 | :--- | :--- | :--- |
 | [**Latin Modern**](http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt) | Tipografía de texto | GUST Font License (baseada en LPPL) |
+| [**Roboto**](https://fonts.google.com/specimen/Roboto) | Tipografía de texto | SIL OFL |
 | [**Nerd Fonts**](https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE) | Iconografía | MIT License |

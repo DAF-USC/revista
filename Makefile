@@ -2,120 +2,181 @@
 # programa que permite rular _outros_ programas en certa orde, baixo certas
 # regras. Úsase principalmente con programas compilados (e non interpretados)
 # porque pode ser tedioso escribir de cada vez comandos máis e máis longos.
-# Tamén se pode usar neste caso máis simple.
+# Véxase: https://www.gnu.org/software/make/manual/make.html
 #
-# Para compilar unha revista, escribir 'make numero=001', ou poñer o número que
-# proceda.
+##############################################################################
+# Como se usa:
 #
-# Para limpar os arquivos auxiliares, escribir 'make limpa'
+# make limpa                   -> elimina os ficheiros xerados
+# make todo                    -> compila todo, revistas, artigos e propagandas
+# make numero=001              -> compila a revista 001
+# make numero=001 metodo=watch -> compila a revista 001 de maneira continuada
+# make numero=001 propaganda   -> compila a revista 001 e xera a propaganda
+# make numero=001 artigos      -> compila os artigos da 001 separados
+#
+# OLLO:
+#
+# A opción 'metodo=watch' está feita para editar no momento, pero pode dar
+# problemas se se combina 'todo' ou 'propaganda'
+##############################################################################
 
-# shell por defecto
+
+# Shell por defecto. Todes deberíades usar Linux
 SHELL := bash
 
 # Regras de tipo 'phony'
-# https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: limpa modelo propaganda impresa
+# Véxase: https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
+.PHONY: limpa propaganda artigos todo
 
-# que acción se vai executar por defecto
+# Que acción se vai executar por defecto
 .DEFAULT_GOAL := .pdf/revista_$(numero).pdf
 
-# esta acción mira se existe o arquivo revista/001/revista_001.tex e en caso
-# afirmativo, executa 'latexmk' con dito arquivo
-.pdf/revista_$(numero).pdf: revistas/$(numero)/revista_$(numero).tex revista.cls momentum-citacions.csl logos/* fontes/NerdFonts/* fontes/LatinModern/* revistas/$(numero)/* revistas/$(numero)/imaxes/*
-	latexmk revistas/$(numero)/revista_$(numero).tex
+# Norma para evitar que se borre o PDF da revista se saímos de Make (p.e. con
+# CTRL-C ao usar a compilación continuada de typst)
+# Véxase: https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
+.PRECIOUS: .pdf/revista_$(numero).pdf
 
-# acción para limpar os arquivos auxiliares
-# USO: make limpa
+.SILENT: propaganda artigos todo
+
+# método de compilación por defecto
+# `compile` -> compilación única
+# `watch`   -> compilación continuada
+metodo := compile
+
+# Opcións para compilar usando Typst
+# :FACER:MIGRACION: PDF UA-1 (precisa alt-text en todo, e non soporta incluir PDFs) https://github.com/typst/typst/issues/7665
+# :FACER: hai algunha maneira de meter o de --timings=... aqui?
+# :FACER: volver etiquetar o PDF cando arranxen https://github.com/typst/typst/issues/8487
+OPCIONS_TYPST := \
+	--format pdf              \
+	--root .                  \
+	--pdf-standard 2.0        \
+	--no-pdf-tags             \
+	--diagnostic-format short \
+	--ignore-system-fonts     \
+	--ignore-embedded-fonts   \
+	--font-path=fontes        \
+	--deps-format=json        \
+	--input numero=$(numero)
+
+# Información de Git que aparece no índice. Son parámetros que tamén lle
+# pasamos a typst
+# :FACER: o nome de quen compila é útil pero igual era mellor quitalo do índice
+INFO_GIT := \
+	--input rama=$(shell git rev-parse --abbrev-ref HEAD) \
+	--input hash=$(shell git rev-parse --short HEAD) \
+	--input dirt=$(shell test -z "$$(git status --porcelain)" && echo "" || echo "*") \
+	--input quen="$(shell git config user.name)"
+
+# Dependencias dun número.
+# :FACER: a dependencia .../imaxes/* é molesta para as revistas novas
+DEPENDENCIAS := \
+	revistas/$(numero)/revista_$(numero).typ \
+	revistas/$(numero)/datos_$(numero).typ \
+	revistas/$(numero)/*        \
+	revistas/$(numero)/imaxes/* \
+	estilo.typ                  \
+	momentum-citacions.csl      \
+	logos/*                     \
+	fontes/NerdFonts/*          \
+	fontes/NewComputerModern/*  \
+	fontes/Roboto/*
+
+# Números para os que hai revistas.
+# Véxase:
+# https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
+# https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
+NUMEROS := $(patsubst revista_%.typ, %, $(notdir $(wildcard revistas/*/revista_*.typ)))
+
+# Nomes dos artigos para un número dado
+ARTIGOS := $(patsubst artigo_%.typ, artigo_%, $(notdir $(wildcard revistas/$(numero)/artigo_*.typ)))
+
+
+# Limpar os ficheiros xerados
 limpa:
-	rm -rf .pdf/* .aux/* # pra limpar os directorios
+	rm -f .pdf/* .aux/*
 
-# acción para empaquetar os arquivos necesarios para o artigo simplificado
-# USO: make modelo
-modelo:
-	zip -r modelo_$(shell date +'%Y%m%d').zip modelo/
 
-# acción para xerar a versión impresa da revista
-# USO: make numero=005 impresa
-impresa: .pdf/revista_$(numero).pdf
-	python3 trebellos/crear_version_impresa.py .pdf/revista_$(numero).pdf .pdf/revista_$(numero)_impresa.pdf
+# Compilar todo. Isto simplemente re-chama a make varias veces
+todo:
+	for N in $(NUMEROS); do echo -e ""; make --no-print-directory numero=$${N} propaganda artigos; done
 
-# Regra para xerar a propaganda
-# USO:
-#
-# make numero=005 cor=ff0000 cortexto=0000ff paxina_dereita_numero=3 paxina_dereita_numero=6
-#
-# cor                   -> Cor de resalte. Por defecto vermello puro ff0000
-# cortexto              -> Cor para o texto que ten o fondo resaltado. Por defecto branco puro ffffff
-# paxina_central_numero -> número da paxina que aparece no medio. Por defecto 2 (índice)
-# paxina_dereita_numero -> número da paxina que aparece na dereita. Por defecto 3
-#
-# Esta regra depende de que existan
-# .pdf/propaganda_xxx_cor.pdf
-# .pdf/propaganda_xxx_branca.pdf
-propaganda: .pdf/propaganda_$(numero)_cor.pdf .pdf/propaganda_$(numero)_branca.pdf
 
-# Antes de  nada, establecemos os valores das variables por defecto
-ifeq ($(cor),)
-cor := FF0000
-endif
+# Compila os artigos separados, para enviarllos aos redactores
+artigos:
+	echo -e "";\
+	for A in $(ARTIGOS); do\
+		echo -e "compilando artigo revistas/$${numero}/$${A}.typ";\
+		typst compile $(OPCIONS_TYPST) revistas/$(numero)/$${A}.typ .pdf/artigos_$(numero)_$${A}.pdf;\
+	done;\
+	echo "";
 
-ifeq ($(cortexto),)
-cortexto := FFFFFF
-endif
 
-ifeq ($(paxina_central_numero),)
-paxina_central_numero := 2
-endif
+# Xeramos o PDF correspondente co número pedido, dependendo de se algunha
+# dependencia cambiou ou non
+.pdf/revista_$(numero).pdf: $(DEPENDENCIAS)
 
-ifeq ($(paxina_dereita_numero),)
-paxina_dereita_numero := 3
-endif
-# ollo, por defecto non poden ser todas 1 porque GS non deixaría facer -sPageList=1,1,1
+	@# Hai que asegurarse de que existen o directorios .pdf e .aux
+	$(shell if [ ! -d ".pdf" ]; then mkdir .pdf; fi)
+	$(shell if [ ! -d ".aux" ]; then mkdir .aux; fi)
 
-# Opcións para Typst https://typst.app/
-opcions_typst := \
-	--diagnostic-format=short \
-	--root=. \
-	--ignore-embedded-fonts \
-	--ignore-system-fonts \
-	--font-path=fontes \
-	--no-pdf-tags \
-	--input numero=$(numero) \
-	--input cor=$(cor) \
-	--input cortexto=$(cortexto) \
+	@echo -e "======================================"
+	@echo -e "\033[1;32mREVISTA $${numero}\033[0m\n"
+	typst \
+		$(metodo) \
+		$(OPCIONS_TYPST) \
+		$(INFO_GIT) \
+		--timings=.aux/perf_{n}_revista_$(numero).json \
+		--deps=.aux/deps_revista_$(numero).json \
+		revistas/$(numero)/revista_$(numero).typ \
+		.pdf/revista_$(numero).pdf
+	@echo ""
 
-# Agora xeramos ambas propagandas, a que ten moita cor e a branca. Dependen de
-# que teñamos as páxinas extraídas da revista
 
-# Esta variable é o nome dos PDF cas páxinas que imos poñer na propaganda.
-# Gardo os nomes aquí por comodidade
-# 1 (portada)
-# 2 (central)
-# 3 (dereita)
-paxinas_propaganda := \
-	.pdf/paxinas_propaganda_$(numero)_1.pdf \
-	.pdf/paxinas_propaganda_$(numero)_2.pdf \
-	.pdf/paxinas_propaganda_$(numero)_3.pdf
+# Xera as propagandas:
+# V_C   Vertical Cor
+# V_B   Vertical Branca
+# H_C   Horizontal Cor
+# H_B   Horizontal Branca
+propaganda: \
+	.pdf/propaganda_$(numero)_V_C.pdf \
+	.pdf/propaganda_$(numero)_V_B.pdf \
+	.pdf/propaganda_$(numero)_H_C.pdf \
+	.pdf/propaganda_$(numero)_H_B.pdf
 
-# Xera a propaganda de COR
-.pdf/propaganda_$(numero)_cor.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+
+# Xera a propaganda VERTICAL A4 de COR
+.pdf/propaganda_$(numero)_V_C.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_vertical.typ
 	typst compile \
-		$(opcions_typst) \
+		$(OPCIONS_TYPST) \
 		--input version=cor \
-		trebellos/propaganda.typ .pdf/propaganda_$(numero)_cor.pdf
+		--timings=.aux/perf_propaganda_V_C_$(numero).json \
+		--deps=.aux/deps_propaganda_V_C_$(numero).json \
+		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_C.pdf
 
-# Xera a propaganda BRANCA
-.pdf/propaganda_$(numero)_branca.pdf: $(paxinas_propaganda) trebellos/propaganda.typ
+# Xera a propaganda VERTICAL A4 BRANCA
+.pdf/propaganda_$(numero)_V_B.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_vertical.typ
 	typst compile \
-		$(opcions_typst) \
+		$(OPCIONS_TYPST) \
 		--input version=branca \
-		trebellos/propaganda.typ .pdf/propaganda_$(numero)_branca.pdf
+		--timings=.aux/perf_propaganda_V_B_$(numero).json \
+		--deps=.aux/deps_propaganda_V_B_$(numero).json \
+		trebellos/propaganda_vertical.typ .pdf/propaganda_$(numero)_V_B.pdf
 
-# Extrae a portada da revista e outras páxinas
-$(paxinas_propaganda): .pdf/revista_$(numero).pdf
-	@# https://www.ghostscript.com/documentation/index.html
-	gs \
-		-q -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite \
-		-sOutputFile=.pdf/paxinas_propaganda_$(numero)_%d.pdf \
-		-sPageList=1,$(paxina_central_numero),$(paxina_dereita_numero) \
-		-f .pdf/revista_$(numero).pdf
+# Xera a propaganda HORIZONTAL 19:6 de COR
+.pdf/propaganda_$(numero)_H_C.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_horizontal.typ
+	typst compile \
+		$(OPCIONS_TYPST) \
+		--input version=cor \
+		--timings=.aux/perf_propaganda_H_C_$(numero).json \
+		--deps=.aux/deps_propaganda_H_C_$(numero).json \
+		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_H_C.pdf
+
+# Xera a propaganda HORIZONTAL 19:6 BRANCA
+.pdf/propaganda_$(numero)_H_B.pdf: .pdf/revista_$(numero).pdf trebellos/propaganda_horizontal.typ
+	typst compile \
+		$(OPCIONS_TYPST) \
+		--input version=branca \
+		--timings=.aux/perf_propaganda_H_B_$(numero).json \
+		--deps=.aux/deps_propaganda_H_B_$(numero).json \
+		trebellos/propaganda_horizontal.typ .pdf/propaganda_$(numero)_H_B.pdf
