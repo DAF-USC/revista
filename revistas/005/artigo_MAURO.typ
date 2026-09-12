@@ -275,6 +275,8 @@
 
   _E ben, como se sente estar en superposición?_
 
-  #bibliography("/revistas/005/bibliografia_MAURO.bib")
+  #SenCita("basdevant2007")
+
+  #CrearBibliografia("/revistas/005/bibliografia_MAURO.bib")
 
 ]

@@ -213,6 +213,6 @@
   convencerse de que unha teoría debe ser certa só pola súa beleza. Ao fin e ao
   cabo, a "beleza" nas matemáticas é un concepto fortemente subxectivo.
 
-  #bibliography("/revistas/005/bibliografia_VICTOR_DD.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_VICTOR_DD.bib")
 
 ]

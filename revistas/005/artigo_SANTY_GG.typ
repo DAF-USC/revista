@@ -162,6 +162,6 @@
   vast conclusions from half-vast data". Sen máis deteccións similares, só
   queda especular...
   
-  #bibliography("/revistas/005/bibliografia_SANTY_GG.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_SANTY_GG.bib")
 
 ]

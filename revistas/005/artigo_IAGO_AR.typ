@@ -294,6 +294,6 @@
   #SenCita("kepler_2015")
   
   
-  #bibliography("/revistas/005/bibliografia_IAGO_AR.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_IAGO_AR.bib")
 
 ]

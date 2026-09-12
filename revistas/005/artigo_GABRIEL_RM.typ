@@ -358,6 +358,6 @@
   XX, as transformacións máis revolucionarias na nosa forma de comprender a
   natureza xorden de escapar de ideas preestablecidas.
 
-  #bibliography("/revistas/005/bibliografia_GABRIEL_RM.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_GABRIEL_RM.bib")
 
 ]
