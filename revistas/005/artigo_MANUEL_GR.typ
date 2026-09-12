@@ -159,6 +159,6 @@
   #SenCita("galan1")
   #SenCita("galan2")
   #SenCita("galan3")
-  #bibliography("/revistas/005/bibliografia_MANUEL_GR.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_MANUEL_GR.bib")
 
 ]

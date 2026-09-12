@@ -268,6 +268,6 @@
   clásica, o cal engade interese a estas teorías. Non sei a vós, pero a min
   éncheme de expectación...
 
-  #bibliography("/revistas/005/bibliografia_ANA_PEON.bib")
+  #CrearBibliografia("/revistas/005/bibliografia_ANA_PEON.bib")
 
 ]
