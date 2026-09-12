@@ -4,7 +4,7 @@
 	titulo		: [O meu rexistro de frases de profesores],
 	subtitulo	: [Catro anos apuntando as xoias da facultade.],
 	autoria		: "Manuel Galán Rodríguez",
-	estilo		: "RECUNCHO DO PROFESORADO",
+	tema  		: "RECUNCHO DO PROFESORADO",
 )
 
 #align(center)[

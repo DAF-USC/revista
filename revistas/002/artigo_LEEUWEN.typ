@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-    estilo    : "DIVULGACION",
+    tema      : "DIVULGACION",
     titulo    : [O Teorema de Bohr-Van Leeuwen:\ o segredo está na cuántica],
     autoria   : [Luis Arcas Morcillo],
     subtitulo : [Da imposibilidade clásica do magnetismo.],

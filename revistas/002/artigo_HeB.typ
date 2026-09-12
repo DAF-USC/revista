@@ -1,7 +1,7 @@
 #import("/estilo.typ"): *
 
 #show: Artigo.with(
-    estilo    : "HISTORIA",
+    tema      : "HISTORIA",
     titulo    : [_Strike_, you're out!\ Bombas, Heisenberg e un catcher],
     autoria   : [Santiago González Gómez],
     subtitulo : [As vidas dun beisbolista e dun dos pais da Física Cuántica, cruzadas por unha historia de espías e o proxecto atómico da Alemaña nazi.],

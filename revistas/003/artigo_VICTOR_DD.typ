@@ -4,7 +4,7 @@
 	titulo		: [O signo menos que vale un premio Nobel],
 	subtitulo	: [Breve historia do descubrimento da liberdade asintótica e o nacemento da cromodinámica cuántica.],
 	autoria		: "Víctor Díaz Díaz",
-	estilo		: "DIVULGACIÓN",
+	tema  		: "DIVULGACIÓN",
 )
 
 #columns[

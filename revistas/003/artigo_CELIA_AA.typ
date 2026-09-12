@@ -4,7 +4,7 @@
 	titulo		: [Kip Thorne visita Santiago],
 	subtitulo	: [Santiago de Compostela acolle o Premio Nobel Kip S. Thorne durante a súa visita o pasado mes de maio.],
 	autoria		: "Celia Álvarez Álvarez e Diego Couto García",
-	estilo		: "REPORTAXE",
+	tema  		: "REPORTAXE",
 )
 
 

@@ -4,7 +4,7 @@
     titulo: [De onde xorde a ecuación de Schrödinger?],
     subtitulo: [Unha bela relación entre a mecánica clásica, a óptica e a cuántica.],
     autoria: [Mauro Garrido Rodríguez],
-    estilo: "DIVULGACIÓN",
+    tema  : "DIVULGACIÓN",
 )
 
 #columns[

@@ -4,7 +4,7 @@
     titulo    : [O efecto Dzhanibekov],
     subtitulo : [Un fenómeno físico que conecta aos mongois, Euler e... a fin do Mundo?],
     autoria   : [Martín Alberto Häderli Revuelta],
-    estilo    : "DIVULGACIÓN",
+    tema      : "DIVULGACIÓN",
 )
 
 #columns[

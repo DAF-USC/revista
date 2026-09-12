@@ -4,7 +4,7 @@
 	titulo		: [Aplicacións da física no campo da medicina],
 	subtitulo	: [Técnicas de imaxe por Resonancia Magnética Nuclear.],
 	autoria		: "Daniel Bostán Boxenean",
-	estilo		: "DIVULGACIÓN",
+	tema  		: "DIVULGACIÓN",
 )
 
 #columns[

@@ -3,7 +3,7 @@
 #show: Artigo.with(
     titulo  : [Benvida a Momentum],
     autoria : "Equipo Decanal",
-    estilo  : "PROFESORADO",
+    tema    : "PROFESORADO",
 )
 
 #columns[

@@ -8,7 +8,7 @@
 		inferno vivido en agosto de 1945.
 	],
 	autoria		: "Santiago González Gómez",
-	estilo		: "HISTORIA",
+	tema  		: "HISTORIA",
 )
 
 #align(center)[

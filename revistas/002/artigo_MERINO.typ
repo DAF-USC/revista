@@ -4,7 +4,7 @@
     titulo     : [Memorias de Moscova],
     afiliacion : [Dpto. Física de Partículas - Facultade de Física, IGFAE\\ Universidade de Santiago de Compostela],
     autoria    : "Carlos Merino Gayoso",
-    estilo     : "PROFESORADO"
+    tema       : "PROFESORADO"
 )
 
 #columns[

@@ -4,7 +4,7 @@
     titulo    : [Donnie Darko: ciencia para estadounidenses?],
     subtitulo : [Breve disertación sobre a ciencia no filme _Donnie Darko_.],
     autoria   : [Emilia Prado Senlle],
-    estilo    : "DIVULGACIÓN"
+    tema      : "DIVULGACIÓN"
 )
 
 #columns[

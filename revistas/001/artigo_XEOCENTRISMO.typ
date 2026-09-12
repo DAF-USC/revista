@@ -7,7 +7,7 @@
         dende os seus inicios gregos ata o seu ocaso na Idade Media.
     ],
     autoria   : "Santiago González Gómez",
-    estilo    : "HISTORIA",
+    tema      : "HISTORIA",
 )
 
 #columns[

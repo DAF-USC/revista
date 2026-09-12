@@ -7,7 +7,7 @@
         funciona a ciencia.
     ],
     autoria   : "Víctor Díaz Díaz",
-    estilo    : "DIVULGACION",
+    tema      : "DIVULGACION",
 )
 
 #columns[

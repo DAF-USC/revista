@@ -4,7 +4,7 @@
 	titulo		: [Podemos chegar á verdade científica?],
 	subtitulo	: [Onde a física e a metafísica se confunden],
 	autoria		: "Mauro Garrido Rodríguez",
-	estilo		: "FILOSOFÍA",
+	tema  		: "FILOSOFÍA",
 )
 
 #columns[
