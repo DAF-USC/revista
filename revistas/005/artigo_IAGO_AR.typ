@@ -3,7 +3,7 @@
 #show: Artigo.with(
   titulo: [Kepler, as dúas primeiras leis e a revolución astronómica],
   autoria: "Iago Arsequell Rodríguez",
-  tema: "DIVULGACION",
+  tema: "DIVULGACIÓN",
 )
 
 #columns[
