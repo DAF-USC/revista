@@ -3,7 +3,7 @@
 #show: Artigo.with(
   titulo: [Grandes colaboracións para buscar o máis pequeño],
   autoria: "Xabier Cid Vidal",
-  estilo: "DIVULGACIÓN"
+  tema: "DIVULGACIÓN"
 )
 
 #columns[

@@ -3,7 +3,7 @@
 #show: Artigo.with(
   titulo: [Sobre a lóxica da física],
   autoria: "Ana Peón Nieto",
-  estilo: "DIVULGACIÓN",
+  tema: "DIVULGACIÓN",
 )
 
 // TODO: No se resetan lo números de las ecuaciones entre artículos.

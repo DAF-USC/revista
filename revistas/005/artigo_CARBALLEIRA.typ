@@ -2,7 +2,7 @@
 
 #show: Artigo.with(
   titulo: [Música, frases e máis],
-  estilo: "MISCELÁNEA"
+  tema: "MISCELÁNEA"
 )
 
 #set quote(block: true)

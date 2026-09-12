@@ -5,7 +5,7 @@
     subtitulo : [Como a física e a arte, a poesía de creación, 
                 son caras dunha mesma moeda.],
     autoria   : "Sebastián Táboas Pazo",
-    estilo    : "DIVULGACIÓN",
+    tema      : "DIVULGACIÓN",
 )
 
 #set quote(block: true)

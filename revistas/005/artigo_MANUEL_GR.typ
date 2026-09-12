@@ -3,7 +3,7 @@
 #show: Artigo.with(
   titulo: [Sobre como Schrödinger case morre no concello da Estrada],
   autoria: [Manuel Galán Rodríguez],
-  estilo: "HISTORIA"
+  tema: "HISTORIA"
 )
 
 #columns[

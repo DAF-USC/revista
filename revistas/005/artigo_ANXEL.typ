@@ -4,7 +4,7 @@
   titulo: [Erros, chapuzas e desatinos],
   autoria: [Ánxel Costas],
   subtitulo: [Historias mal feitas para facelo mellor.],
-  estilo: "MISCELÁNEA",
+  tema: "MISCELÁNEA",
 )
 
 #columns[

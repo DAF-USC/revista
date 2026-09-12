@@ -5,7 +5,7 @@
   subtitulo: [De como un código alfanumérico impreso polo radiotelescopio Big
   Ear segue fascinándonos case 50 anos despois.],
   autoria: "Santiago González Gómez",
-  estilo: "HISTORIA"
+  tema: "HISTORIA"
 )
 
 #columns[

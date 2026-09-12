@@ -5,7 +5,7 @@
   subtitulo: [Unha historia que mestura o éter luminífero, unha caixa que fuma
   e a táboa periódica dos elementos.],
   autoria: "Víctor Díaz Díaz",
-  estilo: "HISTORIA" 
+  tema: "HISTORIA" 
 )
 
 #columns[

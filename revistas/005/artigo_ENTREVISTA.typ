@@ -4,7 +4,7 @@
     titulo    : [Entrevista: Mar Capeáns],
     subtitulo : [No núcleo do maior laboratorio de física do mundo.],
     autoria   : "Gemma Ruíz Lavandeira",
-    estilo    : "ENTREVISTA",
+    tema      : "ENTREVISTA",
 )
 
 #let Pregunta(texto) = [

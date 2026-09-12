@@ -5,7 +5,7 @@
   subtitulo: [Discusión sobre un dos enigmas máis escorregadizos da física
   contemporánea.],
   autoria: "Gabriel Rodríguez Moris",
-  estilo: "DIVULGACIÓN" 
+  tema: "DIVULGACIÓN" 
 )
 
 #columns[

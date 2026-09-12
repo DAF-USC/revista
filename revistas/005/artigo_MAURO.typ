@@ -4,7 +4,7 @@
   titulo: [Érase unha vez un gato...],
   autoria: [Mauro Garrido Rodríguez],
   subtitulo: [Como se probaría que está vivo e morto e que significa isto.],
-  estilo: "FILOSOFÍA"
+  tema: "FILOSOFÍA"
 )
 
 #set quote(block: true)
