@@ -896,6 +896,7 @@
     )
 
     counter(figure.where(kind: image)).update(0)
+    counter(math.equation).update(0)
 
     v(1em)
     artigo
